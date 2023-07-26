@@ -1,9 +1,9 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
-import { storyblokInit, apiPlugin } from "@storyblok/react/";
+import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 
 storyblokInit({
-  accessToken: "your-preview-token",
+  accessToken: process.env.storyblokApiToken,
   use: [apiPlugin],
 });
 
