@@ -1,4 +1,4 @@
-import "./globals.css";
+//import "../globals.css";
 // import { Inter } from "next/font/google";
 import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 import StoryblokBridgeLoader from "@storyblok/react/bridge-loader";
@@ -6,6 +6,7 @@ import StoryblokBridgeLoader from "@storyblok/react/bridge-loader";
 import Page from "@/components/Page";
 import Teaser from "@/components/Teaser";
 import Hero from "@/components/Hero";
+import Navbar from "@/components/Navbar";
 
 storyblokInit({
   accessToken: process.env.storyblokApiToken,
