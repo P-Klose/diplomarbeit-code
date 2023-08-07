@@ -14,7 +14,10 @@ export default async function Home() {
 }
 
 export async function fetchData() {
-  let sbParams = { version: process.env.storyblokApiVersion };
+  let sbParams = {
+    // cache: "no-store",
+    version: process.env.storyblokApiVersion,
+  };
 
   const stroyblokApi = getStoryblokApi();
   return stroyblokApi.get(`cdn/stories/landing-page`, sbParams);

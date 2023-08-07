@@ -6,6 +6,7 @@ import StoryblokBridgeLoader from "@storyblok/react/bridge-loader";
 import Page from "@/components/Page";
 import Teaser from "@/components/Teaser";
 import Hero from "@/components/Hero";
+import Navbar from "@/components/Navbar";
 
 storyblokInit({
   accessToken: process.env.storyblokApiToken,
@@ -18,6 +19,7 @@ storyblokInit({
     page: Page,
     teaser: Teaser,
     hero: Hero,
+    navbar: Navbar,
   },
 });
 
@@ -30,8 +32,8 @@ export const metadata = {
 
 export default function RootLayout({
   children,
-  // }: {
-  //   children: React.ReactNode;
+}: {
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">

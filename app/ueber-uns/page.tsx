@@ -1,6 +1,5 @@
 import { getStoryblokApi, StoryblokComponent } from "@storyblok/react/rsc";
-import { debug } from "console";
-import Navbar from "@/components/Navbar";
+import { cache } from "react";
 
 export default async function Home() {
   const { data } = await fetchData();
@@ -8,7 +7,6 @@ export default async function Home() {
   // debug(data);
   return (
     <main className="overflow-hidden">
-      <Navbar />
       {/* <h1>Story: {data.story.id}</h1> */}
       <StoryblokComponent blok={data.story.content} />
     </main>
@@ -16,7 +14,10 @@ export default async function Home() {
 }
 
 export async function fetchData() {
-  let sbParams = { version: process.env.storyblokApiVersion };
+  let sbParams = {
+    // cache: "no-store",
+    version: process.env.storyblokApiVersion,
+  };
 
   const stroyblokApi = getStoryblokApi();
   return stroyblokApi.get(`cdn/stories/ueber-uns`, sbParams);
