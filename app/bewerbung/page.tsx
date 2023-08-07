@@ -1,5 +1,5 @@
 import { getStoryblokApi, StoryblokComponent } from "@storyblok/react/rsc";
-import { debug } from "console";
+import { cache } from "react";
 
 export default async function Home() {
   const { data } = await fetchData();
@@ -7,6 +7,7 @@ export default async function Home() {
   // debug(data);
   return (
     <main className="overflow-hidden">
+      {/* <h1>Story: {data.story.id}</h1> */}
       <StoryblokComponent blok={data.story.content} />
     </main>
   );
@@ -19,5 +20,5 @@ export async function fetchData() {
   };
 
   const stroyblokApi = getStoryblokApi();
-  return stroyblokApi.get(`cdn/stories/landing-page`, sbParams);
+  return stroyblokApi.get(`cdn/stories/bewerbung`, sbParams);
 }
