@@ -2,7 +2,6 @@
 
 import { useRef } from "react";
 import Link from "next/link";
-import { storyblokEditable } from "@storyblok/react/rsc";
 import { FaXmark, FaBars } from "react-icons/fa6";
 
 const Navbar = ({ blok }) => {
@@ -14,9 +13,9 @@ const Navbar = ({ blok }) => {
 
   return (
     <header className="">
-      <nav className="bg-gray-100">
+      <nav className="bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <div className="flex justify-between items-center p-4 h-20">
+          <div className="flex justify-between items-center p-4 h-14">
             {/* Centered Navbar */}
             <div className="">
               <Link className=" text-nav-base" href="/">
@@ -36,16 +35,13 @@ const Navbar = ({ blok }) => {
               <Link className="text-nav-base" href="/kontakt">
                 Kontakt
               </Link>
-              <Link className="text-nav-base" href="/schueler-innen">
-                Schüler*innen
-              </Link>
             </div>
             <div className="hidden md:flex items-center">
               <Link
-                className="py-2 px-3  bg-red-700 hover:bg-red-600 rounded transition duration-300"
-                href="#"
+                className="underline decoration-2 decoration-orange-400 transition duration-300"
+                href="/schueler-innen"
               >
-                Students
+                Schüler:innen
               </Link>
             </div>
             <div className="md:hidden flex items-center">
@@ -79,12 +75,6 @@ const Navbar = ({ blok }) => {
             href="/kontakt"
           >
             Kontakt
-          </Link>
-          <Link
-            className="block py-2 px-4 text-sm hover:bg-gray-200"
-            href="/schueler-innen"
-          >
-            Schüler*innen
           </Link>
         </div>
       </nav>

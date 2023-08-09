@@ -6,8 +6,23 @@
   --color-nav-primary: #000000;
   --color-nav-hover: #b5b5b5;
 }
-.hero-r-big {
+.hero-l-small {
+  grid-column: span 2 / span 2;
   clip-path: polygon(0 0, 100% 0, 60% 100%, 0% 100%);
+  right: 0;
+}
+.hero-l-medium {
+  grid-column: span 4 / span 4;
+  clip-path: polygon(0 0, 100% 0, 60% 100%, 0% 100%);
+  right: 0;
+}
+.hero-l-large {
+  grid-column: span 6 / span 6;
+  clip-path: polygon(0 0, 100% 0, 60% 100%, 0% 100%);
+  right: 0;
+}
+.hero-cover {
+  grid-column: span 6 / span 6;
   right: 0;
 }
 /* :root {

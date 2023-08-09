@@ -1,3 +1,4 @@
+import Navbar from "@/components/Navbar";
 import { getStoryblokApi, StoryblokComponent } from "@storyblok/react/rsc";
 import { debug } from "console";
 
