@@ -4,9 +4,11 @@ import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 import StoryblokBridgeLoader from "@storyblok/react/bridge-loader";
 
 import Page from "@/components/Page";
-import Teaser from "@/components/Teaser";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import Headline from "@/components/Headline";
+import GridCard from "@/components/GridCard";
 
 storyblokInit({
   accessToken: process.env.storyblokApiToken,
@@ -17,9 +19,11 @@ storyblokInit({
   use: [apiPlugin],
   components: {
     page: Page,
-    teaser: Teaser,
     hero: Hero,
     navbar: Navbar,
+    footer: Footer,
+    headline: Headline,
+    image_l_content: GridCard,
   },
 });
 
