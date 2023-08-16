@@ -8,7 +8,7 @@ import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer/Footer";
 import FooterCol from "@/components/Footer/FooterColumn";
-import FooterLink from "@/components/Footer/FooterLink";
+import Link from "@/components/Basic/Link";
 import Headline from "@/components/Headline";
 import GridCard from "@/components/GridCard";
 
@@ -21,11 +21,11 @@ storyblokInit({
   use: [apiPlugin],
   components: {
     page: Page,
+    custom_link: Link,
     hero: Hero,
     navbar: Navbar,
     footer: Footer,
     fotter_col: FooterCol,
-    footer_link: FooterLink,
     headline: Headline,
     image_l_content: GridCard,
   },
