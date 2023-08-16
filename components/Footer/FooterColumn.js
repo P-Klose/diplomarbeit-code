@@ -1,5 +1,4 @@
 import { storyblokEditable, StoryblokComponent } from "@storyblok/react/rsc";
-import Link from "next/link";
 
 const FooterColumn = ({ blok }) => {
   return (

@@ -1,7 +1,7 @@
 import { storyblokEditable, StoryblokComponent } from "@storyblok/react/rsc";
 import Link from "next/link";
 
-const FooterLink = ({ blok }) => {
+const LinkComponent = ({ blok }) => {
   let url = "";
   if (blok.link.linktype == "url") {
     url = blok.link.url;
@@ -11,4 +11,4 @@ const FooterLink = ({ blok }) => {
   return <Link href={url}>{blok.display_name}</Link>;
 };
 
-export default FooterLink;
+export default LinkComponent;
