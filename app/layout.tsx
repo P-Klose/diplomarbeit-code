@@ -6,7 +6,9 @@ import StoryblokBridgeLoader from "@storyblok/react/bridge-loader";
 import Page from "@/components/Page";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import Footer from "@/components/Footer/Footer";
+import FooterCol from "@/components/Footer/FooterColumn";
+import FooterLink from "@/components/Footer/FooterLink";
 import Headline from "@/components/Headline";
 import GridCard from "@/components/GridCard";
 
@@ -22,6 +24,8 @@ storyblokInit({
     hero: Hero,
     navbar: Navbar,
     footer: Footer,
+    fotter_col: FooterCol,
+    footer_link: FooterLink,
     headline: Headline,
     image_l_content: GridCard,
   },

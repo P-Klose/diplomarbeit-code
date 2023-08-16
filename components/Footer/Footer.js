@@ -1,11 +1,14 @@
-import { storyblokEditable } from "@storyblok/react/rsc";
+import { storyblokEditable, StoryblokComponent } from "@storyblok/react/rsc";
 import Link from "next/link";
 
 const Footer = ({ blok }) => {
   return (
     <footer className="bg-gray-100 place-items-cente mt-4">
       <div className="max-w-7xl grid gap-4 sm:grid-cols-2 lg:grid-cols-4 mx-auto py-8">
-        <div className="col-span-1 flex flex-col gap-4 p-4">
+        {blok.columns.map((nestedBlok) => (
+          <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
+        ))}
+        {/* <div className="col-span-1 flex flex-col gap-4 p-4">
           <h3 className="font-bold text-xl">HTBLA Leonding</h3>
           <hr></hr>
           <p>Limesstraße 12-14A 4060 Leonding</p>
@@ -49,7 +52,7 @@ const Footer = ({ blok }) => {
           <Link href="https://www.linkedin.com/company/htl-leonding">
             LinkedIn
           </Link>
-        </div>
+        </div> */}
       </div>
     </footer>
   );
