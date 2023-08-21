@@ -9,8 +9,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer/Footer";
 import FooterCol from "@/components/Footer/FooterColumn";
 import Link from "@/components/Basic/Link";
-import Headline from "@/components/Headline";
-import GridCard from "@/components/GridCard";
+import Headline from "@/components/Basic/Headline";
+import GridItem from "@/components/Basic/GirdItem";
+import Grid from "@/components/Grid";
 
 storyblokInit({
   accessToken: process.env.storyblokApiToken,
@@ -27,7 +28,8 @@ storyblokInit({
     footer: Footer,
     fotter_col: FooterCol,
     headline: Headline,
-    image_l_content: GridCard,
+    grid: Grid,
+    grid_item: GridItem,
   },
 });
 

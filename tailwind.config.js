@@ -5,6 +5,26 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+
+  safelist: [
+    {
+      pattern: /grid-cols-.+/,
+      variants: ["md"],
+    },
+    {
+      pattern: /col-span-.+/,
+      variants: ["md"],
+    },
+    {
+      pattern: /col-start-.+/,
+      variants: ["md"],
+    },
+    {
+      pattern: /max-w-.+/,
+      variants: ["md"],
+    },
+  ],
+
   theme: {
     extend: {
       textColor: {
