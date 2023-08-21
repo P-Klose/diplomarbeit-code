@@ -1,6 +1,16 @@
 import { storyblokEditable } from "@storyblok/react/rsc";
 
 const Hero = ({ blok }) => {
+  function renderAdditionalContent() {
+    if (blok.additional_content != undefined) {
+      {
+        blok.additional_content.map((nestedBlok) => (
+          <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
+        ));
+      }
+    }
+  }
+
   return (
     <div className="grid md:grid-cols-6 h-[calc(100vh-3.5rem)] bg-white">
       <div
@@ -9,7 +19,7 @@ const Hero = ({ blok }) => {
           blok.type
         }
         style={{
-          backgroundImage: `url(${blok.background_image.filename})`,
+          background: `linear-gradient(rgba(0,0, 0, 0.6),rgba(0, 0, 0, 0.3)),url(${blok.background_image.filename}) no-repeat bottom center / cover`,
         }}
       >
         <h1
@@ -19,6 +29,9 @@ const Hero = ({ blok }) => {
           {blok.headline}
         </h1>
       </div>
+      {blok.additional_content?.map((nestedBlok) => (
+        <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
+      ))}
     </div>
   );
 };
