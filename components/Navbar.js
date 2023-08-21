@@ -14,7 +14,7 @@ const Navbar = ({ blok }) => {
   return (
     <header className="">
       <nav className="bg-gray-50">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-screen-xl mx-auto">
           <div className="flex justify-between items-center p-4 h-14">
             <div className="">
               <Link className=" text-nav-base" href="/">
