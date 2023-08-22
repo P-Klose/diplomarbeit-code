@@ -6,25 +6,49 @@
   --color-nav-primary: #000000;
   --color-nav-hover: #b5b5b5;
 }
-.hero-l-small {
-  grid-column: span 2 / span 2;
-  clip-path: polygon(0 0, 100% 0, 60% 100%, 0% 100%);
+/* .hero-l-small {
+  clip-path: none;
   right: 0;
 }
 .hero-l-medium {
-  grid-column: span 4 / span 4;
-  clip-path: polygon(0 0, 100% 0, 60% 100%, 0% 100%);
+  clip-path: none;
   right: 0;
 }
 .hero-l-large {
-  grid-column: span 6 / span 6;
-  clip-path: polygon(0 0, 100% 0, 60% 100%, 0% 100%);
+  clip-path: none;
   right: 0;
 }
 .hero-cover {
-  grid-column: span 6 / span 6;
   right: 0;
+} */
+
+/* X-Small */
+@media (min-width: 420px) {
 }
+/* Small */
+@media (min-width: 640px) {
+  .hero-l-small {
+    grid-column: span 3 / span 3;
+    clip-path: polygon(0 0, 100% 0, 50% 100%, 0% 100%);
+  }
+  .hero-l-medium {
+    grid-column: span 4 / span 4;
+    clip-path: polygon(0 0, 100% 0, 60% 100%, 0% 100%);
+  }
+  .hero-l-large {
+    grid-column: span 7 / span 7;
+    clip-path: polygon(0 0, 100% 0, 60% 100%, 0% 100%);
+  }
+  .hero-cover {
+    grid-column: span 7 / span 7;
+    right: 0;
+  }
+}
+
+/* Medium */
+@media (min-width: 768px) {
+}
+
 /* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;

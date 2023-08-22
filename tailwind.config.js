@@ -9,6 +9,8 @@ module.exports = {
   ],
 
   safelist: [
+    "sm:h-[calc(100vh-3.5rem)]",
+    "h-[calc(100vh-3.5rem)]",
     {
       pattern: /grid-cols-.+/,
       variants: ["xs", "md", "lg"],
@@ -18,12 +20,12 @@ module.exports = {
       variants: ["md"],
     },
     {
-      pattern: /col-start-.+/,
+      pattern: /max-w-.+/,
       variants: ["md"],
     },
     {
-      pattern: /max-w-.+/,
-      variants: ["md"],
+      pattern: /h-.+/,
+      variants: ["xs", "sm"],
     },
   ],
 
