@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -9,7 +11,7 @@ module.exports = {
   safelist: [
     {
       pattern: /grid-cols-.+/,
-      variants: ["md", "lg"],
+      variants: ["xs", "md", "lg"],
     },
     {
       pattern: /col-span-.+/,
@@ -26,6 +28,10 @@ module.exports = {
   ],
 
   theme: {
+    screens: {
+      xs: "420px",
+      ...defaultTheme.screens,
+    },
     extend: {
       textColor: {
         nav: {

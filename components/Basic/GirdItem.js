@@ -2,17 +2,26 @@ import { storyblokEditable } from "@storyblok/react/rsc";
 
 const GridItem = ({ blok }) => {
   return (
-    <div className="bg-gray-100 grid grid-cols-3">
+    <div
+      {...storyblokEditable(blok)}
+      className={`bg-gray-100 ${
+        blok.type == "kontakt-small"
+          ? "grid grid-cols-3"
+          : blok.type == "kontakt-big"
+          ? "grid grid-cols-1 xs:grid-cols-3"
+          : ""
+      }`}
+    >
       <div
         className={`w-auto grid place-items-center ${
-          blok.image_right ? "col-start-3" : ""
+          blok.image_right ? "lg:col-start-3" : ""
         }`}
       >
-        <img className="p-4" src={blok.main_image.filename}></img>
+        <img className="p-4 w-full" src={blok.main_image.filename}></img>
       </div>
       <div
         className={`grid place-items-center col-span-2 m-8 ${
-          blok.image_right ? "col-start-1 row-start-1" : ""
+          blok.image_right ? "lg:col-start-1 lg:row-start-1" : ""
         }`}
       >
         <div>
