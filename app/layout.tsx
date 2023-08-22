@@ -10,6 +10,7 @@ import Footer from "@/components/Footer/Footer";
 import FooterCol from "@/components/Footer/FooterColumn";
 import Link from "@/components/Basic/Link";
 import Headline from "@/components/Basic/Headline";
+import Text from "@/components/Basic/Text";
 import GridItem from "@/components/Basic/GirdItem";
 import Grid from "@/components/Grid";
 
@@ -30,6 +31,7 @@ storyblokInit({
     headline: Headline,
     grid: Grid,
     grid_item: GridItem,
+    text: Text,
   },
 });
 
