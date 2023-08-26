@@ -13,6 +13,7 @@ import Headline from "@/components/Basic/Headline";
 import Text from "@/components/Basic/Text";
 import GridItem from "@/components/Basic/GirdItem";
 import Grid from "@/components/Grid";
+import Slider from "@/components/Slider/HorizontalScrollSlider";
 
 storyblokInit({
   accessToken: process.env.storyblokApiToken,
@@ -32,6 +33,7 @@ storyblokInit({
     grid: Grid,
     grid_item: GridItem,
     text: Text,
+    slider: Slider,
   },
 });
 

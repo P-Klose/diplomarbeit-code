@@ -7,7 +7,7 @@ export default async function Home() {
   // console.log("Fetching Data");
   // debug(data);
   return (
-    <main className="overflow-hidden">
+    <main className="">
       <StoryblokComponent blok={data.story.content} />
     </main>
   );
