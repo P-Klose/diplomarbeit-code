@@ -14,14 +14,14 @@ const Navbar = ({ blok }) => {
   return (
     <header className="">
       <nav className="bg-gray-50">
-        <div className="max-w-screen-xl mx-auto">
-          <div className="flex justify-between items-center p-4 h-14">
+        <div className="mx-auto max-w-screen-xl">
+          <div className="flex h-14 items-center justify-between p-4">
             <div className="">
               <Link className=" text-nav-base" href="/">
                 <img className="w-40" src={blok.logo.filename}></img>
               </Link>
             </div>
-            <div className="hidden md:flex items-center space-x-4">
+            <div className="hidden items-center space-x-4 md:flex">
               {blok.middle_nav.map((nestedBlok) => {
                 let url = "";
                 if (nestedBlok.link.linktype == "url") {
@@ -30,13 +30,18 @@ const Navbar = ({ blok }) => {
                   url = "/" + nestedBlok.link.cached_url;
                 }
                 return (
-                  <Link className={nestedBlok.style} href={url}>
+                  <Link
+                    className={nestedBlok.style}
+                    href={url}
+                    key={nestedBlok._uid}
+                  >
                     {nestedBlok.display_name}
                   </Link>
                 );
               })}
             </div>
-            <div className="hidden md:flex items-center">
+
+            <div className="hidden items-center md:flex">
               {/* <Link
                 className="underline decoration-2 decoration-orange-400 transition duration-300"
                 href="/schueler-innen"
@@ -51,15 +56,19 @@ const Navbar = ({ blok }) => {
                   url = "/" + nestedBlok.link.cached_url;
                 }
                 return (
-                  <Link className={nestedBlok.style} href={url}>
+                  <Link
+                    className={nestedBlok.style}
+                    href={url}
+                    key={nestedBlok._uid}
+                  >
                     {nestedBlok.display_name}
                   </Link>
                 );
               })}
             </div>
-            <div className="md:hidden flex items-center">
+            <div className="flex items-center md:hidden">
               <button onClick={showNavbar}>
-                <FaBars className="w-6 h-6" />
+                <FaBars className="h-6 w-6" />
               </button>
             </div>
           </div>
@@ -74,8 +83,9 @@ const Navbar = ({ blok }) => {
             }
             return (
               <Link
-                className="block py-2 px-4 text-sm hover:bg-gray-200"
+                className="block px-4 py-2 text-sm hover:bg-gray-200"
                 href={url}
+                key={nestedBlok._uid}
               >
                 {nestedBlok.display_name}
               </Link>
