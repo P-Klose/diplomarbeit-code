@@ -15,7 +15,7 @@ const Slider = ({ blok }) => {
   return (
     <motion.div
       ref={carousel}
-      className="cursor-grab overflow-hidden max-w-screen-xl mx-auto"
+      className="mx-auto max-w-screen-xl cursor-grab overflow-hidden"
       whileTap={{ cursor: "grabbing" }}
       {...storyblokEditable(blok)}
     >
@@ -26,7 +26,7 @@ const Slider = ({ blok }) => {
       >
         {blok.content?.map((box) => {
           return (
-            <motion.div className="flex justify-center items-center h-20 min-w-[30rem] p-10 bg-gray-100">
+            <motion.div className="flex h-20 min-w-[30rem] items-center justify-center bg-gray-100 p-10">
               <h3>BOX</h3>
             </motion.div>
           );

@@ -7,10 +7,10 @@ const Text = ({ blok }) => {
   return (
     <div
       {...storyblokEditable(blok)}
-      className="bg-white mx-auto max-w-screen-xl w-full"
+      className="mx-auto w-full max-w-screen-xl bg-white"
     >
       <h1
-        className={`text-4xl font-semibold py-2
+        className={`py-2 text-4xl font-semibold
         ${blok.divider ? "border-b-2 border-neutral-500" : ""} `}
       >
         {blok.headline}

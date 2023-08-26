@@ -13,16 +13,16 @@ const Hero = ({ blok }) => {
 
   return (
     <div
-      className={`grid sm:grid-cols-7 h-32 sm:${blok.height} bg-white max-w-screen-2xl mx-auto`}
+      className={`grid h-32 sm:grid-cols-7 sm:${blok.height} mx-auto max-w-screen-2xl bg-white`}
     >
       <div
-        className={`h-full overflow-hidden bg-cover bg-no-repeat flex justify-start items-center ${blok.type}`}
+        className={`flex h-full items-center justify-start overflow-hidden bg-cover bg-no-repeat ${blok.type}`}
         style={{
           background: `linear-gradient(rgba(0,0, 0, 0.6),rgba(0, 0, 0, 0.3)),url(${blok.background_image.filename}) no-repeat bottom center / cover`,
         }}
       >
         <h1
-          className="text-5xl text-center sm:text-left w-full sm:ml-8 md:text-7xl xl:text-9xl md:ml-16 sm:w-1/2 font-extrabold text-white"
+          className="w-full text-center text-5xl font-extrabold text-white sm:ml-8 sm:w-1/2 sm:text-left md:ml-16 md:text-7xl xl:text-9xl"
           // {...storyblokEditable(blok)}
           //ml-4
         >

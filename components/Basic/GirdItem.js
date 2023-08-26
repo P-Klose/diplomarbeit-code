@@ -13,25 +13,25 @@ const GridItem = ({ blok }) => {
       }`}
     >
       <div
-        className={`w-auto grid place-items-center ${
+        className={`grid w-auto place-items-center ${
           blok.image_right ? "lg:col-start-3" : ""
         }`}
       >
-        <img className="p-4 w-full" src={blok.main_image.filename}></img>
+        <img className="w-full p-4" src={blok.main_image.filename}></img>
       </div>
       <div
-        className={`grid place-items-center col-span-2 m-8 ${
+        className={`col-span-2 m-8 grid place-items-center ${
           blok.image_right ? "lg:col-start-1 lg:row-start-1" : ""
         }`}
       >
         <div>
-          <h1 className="text-lg md:text-xl xl:text-2xl font-semibold text-center">
+          <h1 className="text-center text-lg font-semibold md:text-xl xl:text-2xl">
             {blok.headline}
           </h1>
-          <h2 className="text-base md:text-lg xl:text-xl font-normal text-center">
+          <h2 className="text-center text-base font-normal md:text-lg xl:text-xl">
             {blok.subline}
           </h2>
-          <h2 className="text-sm md:text-base xl:text-lg font-light text-center">
+          <h2 className="text-center text-sm font-light md:text-base xl:text-lg">
             {blok.subheadline}
           </h2>
         </div>
