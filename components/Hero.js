@@ -1,4 +1,4 @@
-import { storyblokEditable } from "@storyblok/react/rsc";
+import { storyblokEditable, StoryblokComponent } from "@storyblok/react/rsc";
 
 const Hero = ({ blok }) => {
   function renderAdditionalContent() {
@@ -14,10 +14,16 @@ const Hero = ({ blok }) => {
   return (
     <div
       {...storyblokEditable(blok)}
-      className={`grid h-32 sm:grid-cols-7 sm:${blok.height} mx-auto max-w-screen-2xl bg-white`}
+      className={`mx-auto grid h-auto max-w-screen-2xl sm:grid-cols-7 ${
+        blok.themeisdark ? "bg-zinc-900" : "bg-white"
+      }`}
     >
       <div
-        className={`flex h-full items-center justify-start overflow-hidden bg-cover bg-no-repeat ${blok.type}`}
+        className={`flex h-32 sm:${blok.height} ${
+          blok.fixed ? "sticky top-0" : ""
+        } items-center justify-start overflow-hidden bg-cover bg-no-repeat ${
+          blok.type
+        }`}
         style={{
           background: `linear-gradient(rgba(0,0, 0, 0.6),rgba(0, 0, 0, 0.3)),url(${blok.background_image.filename}) no-repeat bottom center / cover`,
         }}
