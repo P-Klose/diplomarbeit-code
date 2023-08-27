@@ -13,6 +13,7 @@ const Hero = ({ blok }) => {
 
   return (
     <div
+      {...storyblokEditable(blok)}
       className={`grid h-32 sm:grid-cols-7 sm:${blok.height} mx-auto max-w-screen-2xl bg-white`}
     >
       <div

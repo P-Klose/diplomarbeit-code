@@ -21,7 +21,11 @@ const Slider = ({ blok }) => {
   }, []);
   const x = useTransform(scrollYProgress, [0, 1], ["100%", "0%"]);
   return (
-    <section ref={targetRef} className="relative h-[200vh]">
+    <section
+      {...storyblokEditable(blok)}
+      ref={targetRef}
+      className="relative h-[200vh]"
+    >
       <div className="sticky top-0 flex h-screen items-center overflow-hidden p-4">
         <div
           ref={carousel}

@@ -1,4 +1,6 @@
 "use client";
+import { storyblokEditable } from "@storyblok/react/rsc";
+
 import { useRef } from "react";
 
 import Link from "next/link";
@@ -12,7 +14,7 @@ const Navbar = ({ blok }) => {
   };
 
   return (
-    <header className="">
+    <header {...storyblokEditable(blok)} className="">
       <nav className="bg-gray-50">
         <div className="mx-auto max-w-screen-xl">
           <div className="flex h-14 items-center justify-between p-4">

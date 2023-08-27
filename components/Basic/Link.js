@@ -1,4 +1,4 @@
-import { storyblokEditable, StoryblokComponent } from "@storyblok/react/rsc";
+import { storyblokEditable } from "@storyblok/react/rsc";
 import Link from "next/link";
 
 const LinkComponent = ({ blok }) => {
@@ -8,7 +8,11 @@ const LinkComponent = ({ blok }) => {
   } else if (blok.link.linktype == "story") {
     url = "/" + blok.link.cached_url;
   }
-  return <Link href={url}>{blok.display_name}</Link>;
+  return (
+    <Link {...storyblokEditable(blok)} href={url}>
+      {blok.display_name}
+    </Link>
+  );
 };
 
 export default LinkComponent;
