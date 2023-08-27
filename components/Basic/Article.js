@@ -11,10 +11,10 @@ const Article = ({ blok }) => {
         />
         <div className="w-full text-center lg:w-2/3">
           <h1 className="title-font mb-4 text-3xl font-medium text-gray-900 sm:text-4xl">
-            {blok.title}
+            {blok.headline}
           </h1>
           <h1 className="title-font mb-4 text-2xl font-medium text-gray-600 sm:text-3xl">
-            {blok.subtitle}
+            {blok.subline}
           </h1>
           <div className="mb-8 text-justify leading-relaxed">
             {render(blok.content)}

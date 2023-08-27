@@ -17,13 +17,12 @@ const ArticleTeaser = ({ article }) => {
           {render(article.teaser)}
         </div>
         <div className="mt-4">
-          <Link href={`/blog/${article.slug}`}>
-            <a
-              className="mt-4 inline-flex items-center font-semibold text-blue-600 hover:text-neutral-600 lg:mb-0"
-              title="read more"
-            >
-              Read More »
-            </a>
+          <Link
+            href={`/news/${article.slug}`}
+            className="mt-4 inline-flex items-center font-semibold text-blue-600 hover:text-neutral-600 lg:mb-0"
+            title="read more"
+          >
+            Read More »
           </Link>
         </div>
       </div>
