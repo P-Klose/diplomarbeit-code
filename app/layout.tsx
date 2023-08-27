@@ -14,6 +14,8 @@ import Text from "@/components/Basic/Text";
 import GridItem from "@/components/Basic/GirdItem";
 import Grid from "@/components/Grid";
 import Slider from "@/components/Slider/HorizontalScrollSlider";
+import Article from "@/components/Basic/Article";
+import AllArticles from "@/components/Basic/AllArticles";
 
 storyblokInit({
   accessToken: process.env.storyblokApiToken,
@@ -34,6 +36,8 @@ storyblokInit({
     grid_item: GridItem,
     text: Text,
     slider: Slider,
+    article: Article,
+    all_articles: AllArticles,
   },
 });
 
