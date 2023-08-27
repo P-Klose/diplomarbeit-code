@@ -4,9 +4,9 @@ const FooterColumn = ({ blok }) => {
   return (
     <div
       {...storyblokEditable(blok)}
-      className="col-span-1 flex flex-col gap-4 p-4"
+      className="col-span-1 flex flex-col gap-4 p-4 text-sm text-zinc-700"
     >
-      <h3 className="text-xl font-bold">{blok.headline}</h3>
+      <h3 className="text-lg font-semibold text-black">{blok.headline}</h3>
       <hr></hr>
       {blok.links.map((nestedBlok) => (
         <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
