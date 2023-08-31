@@ -20,8 +20,8 @@ const AllArticles = ({ blok }) => {
     const getArticles = async () => {
       const storyblokApi = getStoryblokApi();
       const { data } = await storyblokApi.get(`cdn/stories`, {
-        version: "draft", // or 'published'
-        starts_with: "news/",
+        version: "draft",
+        starts_with: blok.type,
         is_startpage: false,
       });
 
@@ -35,9 +35,9 @@ const AllArticles = ({ blok }) => {
     getArticles();
   }, []);
   return (
-    <div className="place-items-cente col-span-full my-4 w-full bg-white">
+    <div className="place-items-cente col-span-4 w-full p-4">
       <p className="text-3xl ">{blok.headline}</p>
-      <div className="mx-auto grid w-full grid-cols-1 gap-6 md:px-16   lg:grid-cols-3 lg:px-24">
+      <div className="grid w-full grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 [&>*:nth-child(odd)]:lg:col-start-2">
         {articles[0] &&
           articles.map((article) => (
             <ArticleTeaser article={article.content} key={article.uuid} />

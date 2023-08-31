@@ -3,28 +3,17 @@ import { render } from "storyblok-rich-text-react-renderer";
 
 const ArticleTeaser = ({ article }) => {
   return (
-    <div className="column feature">
-      <div className="p-6">
-        <img
-          className="mb-8 w-full rounded-xl object-cover object-center md:h-36 lg:h-48"
-          src={article.image.filename}
-          alt="blog"
-        />
-        <h1 className="mx-auto mb-8 text-2xl font-semibold leading-none tracking-tighter text-neutral-600 lg:text-3xl">
-          {article.title}
-        </h1>
-        <div className="mx-auto line-clamp-2 text-base leading-relaxed text-gray-500">
-          {render(article.teaser)}
-        </div>
-        <div className="mt-4">
-          <Link
-            href={`/news/${article.slug}`}
-            className="mt-4 inline-flex items-center font-semibold text-blue-600 hover:text-neutral-600 lg:mb-0"
-            title="read more"
-          >
-            Read More »
-          </Link>
-        </div>
+    <div className="col-span-1 min-h-max rounded bg-gray-50 md:col-span-2">
+      <img
+        className="float-none ml-0 w-full md:float-right md:ml-4 md:max-w-xs"
+        src={article.image.filename}
+        alt="blog"
+      />
+      <div className="mx-4">
+        <h1 className="mt-4 text-left text-2xl font-semibold">Test</h1>
+        <p className="ml-1 line-clamp-4 text-zinc-700">
+          {render(article.content)}
+        </p>
       </div>
     </div>
   );
