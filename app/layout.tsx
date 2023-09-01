@@ -3,6 +3,8 @@ import "./globals.css";
 import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 import StoryblokBridgeLoader from "@storyblok/react/bridge-loader";
 
+// import { LayoutGroup } from "framer-motion";
+
 import Page from "@/components/Page";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
@@ -55,8 +57,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      {/* <LayoutGroup> */}
       <body>{children}</body>
       <StoryblokBridgeLoader options={{}} />
+      {/* </LayoutGroup> */}
     </html>
   );
 }

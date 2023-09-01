@@ -27,6 +27,12 @@ module.exports = {
       pattern: /h-.+/,
       variants: ["xs", "sm"],
     },
+    {
+      pattern: /border-.+/,
+    },
+    {
+      pattern: /bg-.+/,
+    },
   ],
 
   theme: {
@@ -35,6 +41,15 @@ module.exports = {
       ...defaultTheme.screens,
     },
     extend: {
+      colors: {
+        "it-medientechnik": "#86B5D7",
+        "informatik-sse": "#0A529A",
+        "informatik-ddp": "#243c5a",
+        "informatik-csi": "#0A529A",
+        elektronik: "#A2122A",
+        medizintechnik: "#DC931A",
+        allgemein: "#846b6d",
+      },
       textColor: {
         nav: {
           base: "var(--color-nav-primary)",

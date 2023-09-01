@@ -11,41 +11,58 @@ const ArticleTeaser = ({ article }) => {
       transition={{ layout: { duration: 1, type: "spring" } }}
       layout
       onClick={() => setIsOpen(!isOpen)}
-      className="col-span-1 min-h-max rounded bg-gray-50 md:col-span-3"
+      className="col-span-1 grid min-h-max grid-cols-2 justify-items-stretch gap-2 rounded hover:cursor-pointer lg:col-span-3"
     >
-      <motion.img
+      <motion.div
         layout="position"
-        className="float-none ml-0 w-full md:float-right md:ml-4 md:max-w-[15rem]  "
-        src={article.image.filename}
-        alt="blog"
-      />
-      <div className="mx-4 pb-4 ">
+        className={`border-${article.allocate} col-span-2 flex h-full flex-col items-end justify-end border-b-4 md:col-span-1 md:border-b-0 md:border-r-4`}
+      >
         <motion.h1
           layout="position"
-          className="mt-4 text-center text-2xl font-semibold md:text-left"
+          className="mr-3 text-right text-xl font-semibold"
         >
           {article.headline}
         </motion.h1>
-        {!isOpen && (
+        <motion.h2
+          layout="position"
+          className="mb-3 mr-3 text-right text-lg font-medium"
+        >
+          {article.subline}
+        </motion.h2>
+        {article.date && (
+          <motion.p
+            layout="position"
+            className={`bg-${article.allocate} p-2 text-right text-xs font-normal`}
+          >
+            {article.date}
+          </motion.p>
+        )}
+        {/* {!isOpen && (
           <motion.p
             layout="position"
             className={`ml-1 line-clamp-4 text-zinc-700`}
           >
             {render(article.content)}
           </motion.p>
-        )}
-        {isOpen && (
-          <motion.p
-            layout="position"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1 }}
-            className={`ml-1 text-zinc-700`}
-          >
-            {render(article.content)}
-          </motion.p>
-        )}
-      </div>
+        )} */}
+      </motion.div>
+      <motion.img
+        layout="position"
+        className="col-span-2 ml-0 w-full justify-self-end md:col-span-1"
+        src={article.image.filename}
+        alt=""
+      />
+      {isOpen && (
+        <motion.p
+          layout="position"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className={`col-span-2 my-2 text-sm text-zinc-900`}
+        >
+          {render(article.content)}
+        </motion.p>
+      )}
     </motion.div>
   );
 };
