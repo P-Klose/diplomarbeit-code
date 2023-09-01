@@ -8,6 +8,7 @@ import {
 } from "@storyblok/react/rsc";
 
 import { useState, useEffect } from "react";
+import { LayoutGroup } from "framer-motion";
 
 storyblokInit({
   accessToken: process.env.storyblokApiToken,
@@ -37,11 +38,13 @@ const AllArticles = ({ blok }) => {
   return (
     <div className="place-items-cente col-span-4 w-full p-4">
       <p className="text-3xl ">{blok.headline}</p>
-      <div className="grid w-full grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 [&>*:nth-child(odd)]:lg:col-start-2">
-        {articles[0] &&
-          articles.map((article) => (
-            <ArticleTeaser article={article.content} key={article.uuid} />
-          ))}
+      <div className="grid w-full grid-cols-1 gap-6 md:grid-cols-3 lg:grid-cols-4 [&>*:nth-child(odd)]:lg:col-start-2">
+        <LayoutGroup>
+          {articles[0] &&
+            articles.map((article) => (
+              <ArticleTeaser article={article.content} key={article.uuid} />
+            ))}
+        </LayoutGroup>
       </div>
     </div>
   );
