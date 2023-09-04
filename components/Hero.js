@@ -20,7 +20,7 @@ const Hero = ({ blok }) => {
     >
       <div
         className={`flex h-32 sm:${blok.height} ${
-          blok.fixed ? "sticky top-0" : ""
+          blok.fixed ? "md:sticky md:top-0" : ""
         } items-center justify-start overflow-hidden bg-cover bg-no-repeat ${
           blok.type
         }`}

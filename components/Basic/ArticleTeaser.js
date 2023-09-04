@@ -6,6 +6,23 @@ import { useState } from "react";
 const ArticleTeaser = ({ article }) => {
   const [isOpen, setIsOpen] = useState(false);
 
+  function transformDateFormat(inputDate) {
+    // Split the input date string into parts
+    const dateParts = inputDate.split(" ");
+    if (dateParts.length === 2) {
+      const [datePart, timePart] = dateParts;
+      const [year, month, day] = datePart.split("-");
+
+      // Create the transformed date string
+      const transformedDate = `${day}.${month}.${year}`;
+
+      return transformedDate;
+    } else {
+      // Handle invalid input format
+      return "Invalid Date Format";
+    }
+  }
+
   return (
     <motion.div
       transition={{ layout: { duration: 1, type: "spring" } }}
@@ -34,7 +51,7 @@ const ArticleTeaser = ({ article }) => {
             layout="position"
             className={`bg-${article.allocate} p-2 text-right text-xs font-normal`}
           >
-            {article.date}
+            {transformDateFormat(article.date)}
           </motion.p>
         )}
         {/* {!isOpen && (
