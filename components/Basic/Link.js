@@ -9,7 +9,15 @@ const LinkComponent = ({ blok }) => {
     url = "/" + blok.link.cached_url;
   }
   return (
-    <Link {...storyblokEditable(blok)} href={url}>
+    <Link
+      {...storyblokEditable(blok)}
+      className={`${
+        blok.style == "marquee"
+          ? "mx-6 text-xl font-semibold text-neutral-600 transition-colors hover:text-black"
+          : ""
+      } `}
+      href={url}
+    >
       {blok.display_name}
     </Link>
   );
