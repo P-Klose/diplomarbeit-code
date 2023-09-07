@@ -15,9 +15,10 @@ import Headline from "@/components/Basic/Headline";
 import Text from "@/components/Basic/Text";
 import GridItem from "@/components/Basic/GirdItem";
 import Grid from "@/components/Grid";
-import Slider from "@/components/Slider/HorizontalScrollSlider";
+import ScrollSlider from "@/components/Slider/HorizontalScrollSlider";
 import Article from "@/components/Basic/Article";
 import AllArticles from "@/components/Basic/AllArticles";
+import Marquee from "@/components/Slider/Marquee";
 
 storyblokInit({
   accessToken: process.env.storyblokApiToken,
@@ -37,9 +38,10 @@ storyblokInit({
     grid: Grid,
     grid_item: GridItem,
     text: Text,
-    slider: Slider,
+    scroll_slider: ScrollSlider,
     article: Article,
     all_articles: AllArticles,
+    marquee: Marquee,
   },
 });
 
