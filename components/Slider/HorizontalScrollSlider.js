@@ -11,6 +11,7 @@ const Slider = ({ blok }) => {
   const { scrollYProgress } = useScroll({
     target: targetRef,
   });
+  // console.log(blok.scroll_width);
   useEffect(() => {
     setWidth(
       carousel.current.scrollWidth -
@@ -18,7 +19,7 @@ const Slider = ({ blok }) => {
         carousel.current.offsetWidth,
     );
   }, []);
-  const x = useTransform(scrollYProgress, [0, 1], ["100%", "0%"]);
+  const x = useTransform(scrollYProgress, [0, 1], ["100%", blok.scroll_width]);
   return (
     <section
       {...storyblokEditable(blok)}
@@ -34,13 +35,13 @@ const Slider = ({ blok }) => {
             drag="x"
             dragConstraints={{ right: 0, left: -width }}
             style={{ x }}
-            className={`flex gap-4`}
+            className={`flex gap-4 `}
           >
             {blok.content?.map((box) => {
               if (box.type == "event") {
                 return (
                   <div
-                    className={`border-${box.allocate} relative mr-4 flex min-w-[25rem] max-w-[32rem] flex-col items-start justify-start border-l-4`}
+                    className={`border-${box.allocate} relative mr-8 flex min-w-[32rem] max-w-[32rem] flex-col items-start justify-start border-l-4`}
                     key={box._uid}
                   >
                     <img
