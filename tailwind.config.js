@@ -11,6 +11,16 @@ module.exports = {
   safelist: [
     "sm:h-[calc(100vh-3.5rem)]",
     "h-[calc(100vh-3.5rem)]",
+    "pr-[17%]",
+    "pr-[24%]",
+    "pr-[31%]",
+    "pr-[38%]",
+    "pr-[45%]",
+    "pr-[12%]",
+    "pr-[19%]",
+    "pr-[26%]",
+    "pr-[33%]",
+    "pr-[40%]",
     {
       pattern: /grid-cols-.+/,
       variants: ["xs", "md", "lg"],
