@@ -3,8 +3,6 @@ import { cache } from "react";
 
 export default async function Home() {
   const { data } = await fetchData();
-  // console.log("Fetching Data");
-  // debug(data);
   return (
     <main className="overflow-hidden">
       {/* <h1>Story: {data.story.id}</h1> */}

@@ -19,6 +19,8 @@ import ScrollSlider from "@/components/Slider/HorizontalScrollSlider";
 import Article from "@/components/Basic/Article";
 import AllArticles from "@/components/Basic/AllArticles";
 import Marquee from "@/components/Slider/Marquee";
+import ValueDokument from "@/components/Custom/ValueDokument";
+import ValueDokumentEntry from "@/components/Custom/ValueDokumentEntry";
 
 storyblokInit({
   accessToken: process.env.storyblokApiToken,
@@ -42,6 +44,8 @@ storyblokInit({
     article: Article,
     all_articles: AllArticles,
     marquee: Marquee,
+    value_document: ValueDokument,
+    value_document_entry: ValueDokumentEntry,
   },
 });
 

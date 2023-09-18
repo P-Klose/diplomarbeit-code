@@ -43,6 +43,13 @@
     grid-column: span 7 / span 7;
     right: 0;
   }
+  .shaped-value-document {
+    clip-path: polygon(0 0, 95% 0, 60% 100%, 0% 100%);
+  }
+}
+
+.headline-clippath {
+  clip-path: polygon(0 0, 100% 0, 90% 100%, 0% 100%);
 }
 
 /* Medium */
