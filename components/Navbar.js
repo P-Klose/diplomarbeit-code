@@ -80,7 +80,6 @@ const Navbar = () => {
                   );
                 })}
               </div>
-              345r
               <div className="flex items-center md:hidden">
                 <button onClick={showNavbar}>
                   <FaBars className="h-6 w-6" />
@@ -107,6 +106,17 @@ const Navbar = () => {
               );
             })}
           </div>
+        </nav>
+      </header>
+    );
+  } else {
+    return (
+      <header className="">
+        <nav className="bg-gray-50">
+          <div className="mx-auto max-w-screen-xl">
+            <div className="flex h-14 items-center justify-between p-4"></div>
+          </div>
+          <div ref={navRef} className="hidden md:hidden"></div>
         </nav>
       </header>
     );
