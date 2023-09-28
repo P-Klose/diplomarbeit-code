@@ -1,10 +1,5 @@
 "use client";
-import {
-  apiPlugin,
-  getStoryblokApi,
-  storyblokInit,
-  storyblokEditable,
-} from "@storyblok/react/rsc";
+import { getStoryblokApi, storyblokEditable } from "@storyblok/react/rsc";
 
 import { useRef, useState, useEffect } from "react"; // Beachte die hinzugefügte useEffect-Importierung
 
@@ -14,11 +9,6 @@ import { FaXmark, FaBars } from "react-icons/fa6";
 const Navbar = () => {
   const [navbar, setNavbar] = useState();
 
-  storyblokInit({
-    accessToken: process.env.storyblokApiToken,
-    use: [apiPlugin],
-  });
-
   const navRef = useRef();
   const showNavbar = () => {
     navRef.current.classList.toggle("hidden");
@@ -26,7 +16,6 @@ const Navbar = () => {
 
   useEffect(() => {
     const getNavbar = async () => {
-      const storyblokApi = getStoryblokApi();
       const { data } = await fetchData();
       setNavbar(data.story.content);
     };
@@ -66,7 +55,6 @@ const Navbar = () => {
                   );
                 })}
               </div>
-
               <div className="hidden items-center md:flex">
                 {/* <Link
                 className="underline decoration-2 decoration-orange-400 transition duration-300"
@@ -92,6 +80,7 @@ const Navbar = () => {
                   );
                 })}
               </div>
+              345r
               <div className="flex items-center md:hidden">
                 <button onClick={showNavbar}>
                   <FaBars className="h-6 w-6" />
