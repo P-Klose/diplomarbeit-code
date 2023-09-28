@@ -54,7 +54,7 @@ module.exports = {
       colors: {
         "it-medientechnik": "#86B5D7",
         "informatik-sse": "#0A529A",
-        "informatik-ddp": "#243c5a",
+        "informatik-ddp": "#4380B6",
         "informatik-csi": "#0A529A",
         elektronik: "#A2122A",
         medizintechnik: "#DC931A",

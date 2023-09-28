@@ -10,15 +10,21 @@ const GridItem = ({ blok }) => {
         }`}
       >
         <div
-          className={`col-span-1 place-items-center border-${blok.allocate} ${
-            blok.image_right ? "xs:col-start-2 xs:border-l-4" : "xs:border-r-4"
+          className={`col-span-1 place-items-center border-${
+            blok.allocate
+          } border-b-8 xs:border-b-0 ${
+            blok.image_right
+              ? "xs:col-start-2 xs:border-l-4 md:border-l-8"
+              : "xs:border-r-4 md:border-r-8"
           }`}
         >
           <img className="w-full" src={blok.main_image.filename}></img>
         </div>
         <div
-          className={`col-span-1 m-6 grid place-items-center ${
+          className={`col-span-1 grid place-items-center p-6 ${
             blok.image_right ? "xs:col-start-1  xs:row-start-1" : ""
+          } border-${blok.allocate} md:border-none ${
+            blok.image_right ? "xs:border-r-4" : "xs:border-l-4"
           }`}
         >
           <div>

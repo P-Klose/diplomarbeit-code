@@ -43,6 +43,10 @@
     grid-column: span 7 / span 7;
     right: 0;
   }
+  .school {
+    grid-column: span 7 / span 7;
+    right: 0;
+  }
   .shaped-value-document {
     clip-path: polygon(0 0, 95% 0, 60% 100%, 0% 100%);
   }

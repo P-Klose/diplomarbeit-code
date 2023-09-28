@@ -39,6 +39,16 @@ const Hero = ({ blok }) => {
       {blok.additional_content?.map((nestedBlok) => (
         <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
       ))}
+      {blok.type == "school" && (
+        <div className="relative -top-32 sm:col-span-7">
+          <img
+            // src={process.env.PUBLIC_URL + "/schule_weiss.png"}
+            src="./schule_weiss.png"
+            alt="schule in schwarz weiß"
+            className="mx-auto w-full max-w-screen-xl"
+          />
+        </div>
+      )}
     </div>
   );
 };
