@@ -1,4 +1,5 @@
 import { storyblokEditable, StoryblokComponent } from "@storyblok/react/rsc";
+import LinkComponent from "../Basic/Link";
 
 const FooterColumn = ({ blok }) => {
   return (
@@ -8,9 +9,14 @@ const FooterColumn = ({ blok }) => {
     >
       <h3 className="text-lg font-semibold text-black">{blok.headline}</h3>
       <hr></hr>
-      {blok.links.map((nestedBlok) => (
-        <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
-      ))}
+      {blok.links.map((nestedBlok) => {
+        return (
+          <LinkComponent
+            key={nestedBlok._uid}
+            blok={nestedBlok}
+          ></LinkComponent>
+        );
+      })}
     </div>
   );
 };
