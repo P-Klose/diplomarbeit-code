@@ -9,11 +9,6 @@ import {
 import { useState, useEffect } from "react";
 import FooterColumn from "./FooterColumn";
 
-storyblokInit({
-  accessToken: process.env.storyblokApiToken,
-  use: [apiPlugin],
-});
-
 const Footer = () => {
   const [footer, setFooter] = useState();
 
