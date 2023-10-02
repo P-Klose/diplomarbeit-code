@@ -11,10 +11,10 @@ const Home: FC<pageProps> = async ({ params }) => {
 
   return (
     <div>
-      {/* <StoryblokComponent
+      <StoryblokComponent
         blok={data.story.content}
         key={data.story.content._uid}
-      /> */}
+      />
     </div>
   );
 };

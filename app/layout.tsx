@@ -6,6 +6,7 @@ import StoryblokBridgeLoader from "@storyblok/react/bridge-loader";
 // import { LayoutGroup } from "framer-motion";
 
 import Page from "@/components/Page";
+import Branch from "@/components/Branch";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer/Footer";
@@ -31,6 +32,7 @@ storyblokInit({
   use: [apiPlugin],
   components: {
     page: Page,
+    branch: Branch,
     custom_link: Link,
     hero: Hero,
     navbar: Navbar,
