@@ -24,16 +24,18 @@ const Branch = ({ blok }) => (
           et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
           takimata sanctus est Lorem ipsum dolor sit amet.
         </p>
-        <button className="mt-8 flex items-center justify-center bg-it-medientechnik bg-opacity-20 px-6 py-4 transition ease-in-out hover:bg-opacity-50 hover:text-neutral-800">
-          <FaFileArrowDown className="mr-2"></FaFileArrowDown>
-          Download Flyer {blok.headline}
-        </button>
+        <a href={blok.folder.filename} target="_blank">
+          <button className="mt-8 flex items-center justify-center bg-it-medientechnik bg-opacity-20 px-6 py-4 transition ease-in-out hover:bg-opacity-50 hover:text-neutral-800">
+            <FaFileArrowDown className="mr-2"></FaFileArrowDown>
+            Download Flyer {blok.headline}
+          </button>
+        </a>
         {/* <p>{blok.description}</p> RICHTEXT Resolver */}
       </div>
       <div className="md:col-span-1 md:row-start-2">
         <iframe
           className="aspect-video w-full"
-          src="https://www.youtube.com/embed/3XKDhT4mfJo?si=OmlPYJQGtqEzluaT&amp;controls=0"
+          src={blok.imagevideo.url}
           title="YouTube video player"
         ></iframe>
       </div>
