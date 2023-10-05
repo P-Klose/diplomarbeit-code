@@ -12,6 +12,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer/Footer";
 import FooterCol from "@/components/Footer/FooterColumn";
 import Link from "@/components/Basic/Link";
+import Image from "@/components/Basic/Image";
 import Headline from "@/components/Basic/Headline";
 import Text from "@/components/Basic/Text";
 import GridItem from "@/components/Basic/GirdItem";
@@ -34,6 +35,7 @@ storyblokInit({
     page: Page,
     branch: Branch,
     custom_link: Link,
+    custom_image: Image,
     hero: Hero,
     navbar: Navbar,
     footer: Footer,
