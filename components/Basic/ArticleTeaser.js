@@ -46,7 +46,7 @@ const ArticleTeaser = ({ article }) => {
         >
           {article.subline}
         </motion.h2>
-        {article.date && (
+        {article.date ? null : (
           <motion.p
             layout="position"
             className={`bg-${article.allocate} p-2 text-right text-xs font-normal`}
@@ -54,14 +54,6 @@ const ArticleTeaser = ({ article }) => {
             {transformDateFormat(article.date)}
           </motion.p>
         )}
-        {/* {!isOpen && (
-          <motion.p
-            layout="position"
-            className={`ml-1 line-clamp-4 text-zinc-700`}
-          >
-            {render(article.content)}
-          </motion.p>
-        )} */}
       </motion.div>
       <motion.img
         layout="position"

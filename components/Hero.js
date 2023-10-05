@@ -39,7 +39,7 @@ const Hero = ({ blok }) => {
       {blok.additional_content?.map((nestedBlok) => (
         <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
       ))}
-      {blok.type == "school" && (
+      {blok.type == "school" ? null : (
         <div className="relative -top-32 sm:col-span-7">
           <img
             // src={process.env.PUBLIC_URL + "/schule_weiss.png"}
