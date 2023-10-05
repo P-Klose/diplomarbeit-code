@@ -23,7 +23,7 @@ const ValueDokumentEntry = ({ blok, count }) => {
           {blok.headline}
         </motion.h2>
 
-        {isOpen && (
+        {isOpen ? null : (
           <motion.div
             layout="position"
             initial={{ opacity: 0 }}

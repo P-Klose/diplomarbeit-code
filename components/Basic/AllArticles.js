@@ -33,17 +33,18 @@ const AllArticles = ({ blok }) => {
         }),
       );
     };
+
     getArticles();
   }, []);
+
   return (
     <div className="w-full p-4 sm:col-span-4">
       <p className="text-3xl ">{blok.headline}</p>
       <div className="grid w-full grid-cols-1 gap-8 lg:grid-cols-3 xl:grid-cols-4 [&>*:nth-child(odd)]:xl:col-start-2">
         <LayoutGroup>
-          {articles[0] &&
-            articles.map((article) => (
-              <ArticleTeaser article={article.content} key={article.uuid} />
-            ))}
+          {articles?.map((article) => (
+            <ArticleTeaser article={article.content} key={article.uuid} />
+          ))}
         </LayoutGroup>
       </div>
     </div>

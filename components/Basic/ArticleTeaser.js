@@ -69,7 +69,7 @@ const ArticleTeaser = ({ article }) => {
         src={article.image.filename}
         alt=""
       />
-      {isOpen && (
+      {isOpen ? null : (
         <motion.p
           layout="position"
           initial={{ opacity: 0 }}
