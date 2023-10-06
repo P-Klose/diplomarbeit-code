@@ -29,7 +29,7 @@ const Navbar = () => {
     return (
       <header {...storyblokEditable(navbar)} className="">
         <nav className="bg-gray-50">
-          <div className="mx-auto max-w-screen-xl">
+          <div className="mx-auto max-w-screen-2xl">
             <div className="flex h-14 items-center justify-between p-4">
               <div className="">
                 <Link className=" text-nav-base" href="/">
