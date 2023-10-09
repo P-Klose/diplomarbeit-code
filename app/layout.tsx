@@ -1,5 +1,5 @@
 import "./globals.css";
-// import { Inter } from "next/font/google";
+import { Manrope } from "next/font/google";
 
 import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 import StoryblokBridgeLoader from "@storyblok/react/bridge-loader";
@@ -60,7 +60,7 @@ storyblokInit({
   },
 });
 
-// const inter = Inter({ subsets: ["latin"] });
+const manrope = Manrope({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Storyblok and Next.js 13",
@@ -75,7 +75,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       {/* <LayoutGroup> */}
-      <body>{children}</body>
+      <body className={manrope.className}>{children}</body>
       <StoryblokBridgeLoader options={{}} />
       {/* </LayoutGroup> */}
     </html>
