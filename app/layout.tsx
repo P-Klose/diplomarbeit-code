@@ -1,5 +1,6 @@
 import "./globals.css";
 // import { Inter } from "next/font/google";
+
 import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 import StoryblokBridgeLoader from "@storyblok/react/bridge-loader";
 
@@ -23,6 +24,9 @@ import AllArticles from "@/components/Basic/AllArticles";
 import Marquee from "@/components/Slider/Marquee";
 import ValueDokument from "@/components/Custom/ValueDokument";
 import ValueDokumentEntry from "@/components/Custom/ValueDokumentEntry";
+import Timetable from "@/components/Custom/Timetable";
+import TimetableColumn from "@/components/Custom/TimetableColums";
+import TimetableSubject from "@/components/Custom/TimetableSubject";
 
 storyblokInit({
   accessToken: process.env.storyblokApiToken,
@@ -50,6 +54,9 @@ storyblokInit({
     marquee: Marquee,
     value_document: ValueDokument,
     value_document_entry: ValueDokumentEntry,
+    timetable: Timetable,
+    timetable_subject: TimetableSubject,
+    timetable_cols: TimetableColumn,
   },
 });
 
