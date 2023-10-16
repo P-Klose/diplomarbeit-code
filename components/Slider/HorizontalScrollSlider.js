@@ -59,11 +59,39 @@ const Slider = ({ blok }) => {
       ref={targetRef}
       className={`relative ${pre_defined_width.at(blok.scroll_speed)}`}
     >
-      <div className="sticky top-0 h-screen">
+      <div className="sticky top-0  h-screen ">
         <h1 className="px-8 pt-8 text-end text-7xl font-bold uppercase">
           {blok.title}
         </h1>
-        <div className="flex h-[90vh] items-center overflow-hidden p-4">
+        <table className="my-4 ml-auto w-full sm:w-1/2 md:w-1/3">
+          <thead className="mb-4">
+            <tr>
+              {blok.slider_table?.thead?.map((th) => {
+                return (
+                  <th className="text-left text-xl font-semibold">
+                    {th.value}
+                  </th>
+                );
+              })}
+            </tr>
+          </thead>
+          <tbody>
+            {blok.slider_table?.tbody?.map((tr) => {
+              return (
+                <tr>
+                  {tr.body?.map((td) => {
+                    return (
+                      <th className="text-left text-lg font-normal">
+                        {td.value}
+                      </th>
+                    );
+                  })}
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+        <div className="flex h-[80vh] items-center overflow-hidden p-4">
           <div ref={carousel} className="w-screen overflow-visible">
             <motion.div
               drag="x"
