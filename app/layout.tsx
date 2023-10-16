@@ -4,7 +4,14 @@ import { Manrope } from "next/font/google";
 import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 import StoryblokBridgeLoader from "@storyblok/react/bridge-loader";
 
-// import { LayoutGroup } from "framer-motion";
+import dynamic from "next/dynamic";
+
+const DynamicScrollSlider = dynamic(
+  () => import("../components/Slider/HorizontalScrollSlider"),
+  {
+    ssr: false,
+  },
+);
 
 import Page from "@/components/Page";
 import Branch from "@/components/Branch";
@@ -48,7 +55,7 @@ storyblokInit({
     grid: Grid,
     grid_item: GridItem,
     text: Text,
-    scroll_slider: ScrollSlider,
+    scroll_slider: DynamicScrollSlider,
     article: Article,
     all_articles: AllArticles,
     marquee: Marquee,

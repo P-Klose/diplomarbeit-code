@@ -8,35 +8,55 @@ import { useEffect, useRef, useState } from "react";
 const Slider = ({ blok }) => {
   const targetRef = useRef();
   const carousel = useRef();
-  const [width, setWidth] = useState(0);
   const { scrollYProgress } = useScroll({
     target: targetRef,
   });
-  // console.log(blok.scroll_width);
-  useEffect(() => {
-    setWidth(
-      carousel.current.scrollWidth -
-        carousel.current.offsetWidth -
-        carousel.current.offsetWidth,
-    );
-  }, []);
+
+  let scroll_width_summe = 0;
+  let width = window.innerWidth;
+
+  blok.content.forEach((subblok) => {
+    if (width >= 768) {
+      if (subblok.type === "event" || subblok.type === "k-small") {
+        scroll_width_summe += 512 + 16 + 32 + 4;
+      } else if (subblok.type === "k-big") {
+        scroll_width_summe += 512 + 16 + 48;
+      } else {
+        // Wenn es etwas anderes ist oder 'k-big' nicht existiert
+        scroll_width_summe += 480;
+      }
+    } else {
+      if (subblok.type === "event") {
+        scroll_width_summe += 416 + 16 + 32 + 4;
+      } else if (subblok.type === "k-big") {
+        scroll_width_summe += 416 + 16 + 48;
+      } else {
+        // Wenn es etwas anderes ist oder 'k-big' nicht existiert
+        scroll_width_summe += 480;
+      }
+    }
+  });
+  scroll_width_summe = scroll_width_summe - width;
+  scroll_width_summe = "-" + scroll_width_summe + "px";
+  width = width + "px";
+  console.log(width);
   const x = useTransform(
     scrollYProgress,
     [0, 1],
-    [blok.scroll_start_right ? "0%" : "100%", blok.scroll_width],
+    [blok.scroll_start_right ? "0%" : width, scroll_width_summe],
   );
   return (
     <section
       {...storyblokEditable(blok)}
       ref={targetRef}
-      className="relative h-[200vh]"
+      className="relative h-[350vh] md:h-[250vh]"
     >
       <div className="sticky top-0 h-screen">
         <h1 className="px-8 pt-8 text-end text-7xl font-bold uppercase">
           {blok.title}
         </h1>
         <div className="flex h-full items-center overflow-hidden p-4">
-          <div ref={carousel} className="mx-6 w-screen overflow-visible">
+          <div ref={carousel} className="w-screen overflow-visible">
             <motion.div
               drag="x"
               dragConstraints={{ right: 0, left: -width }}
@@ -47,7 +67,7 @@ const Slider = ({ blok }) => {
                 if (box.type == "event") {
                   return (
                     <div
-                      className={`border-${box.allocate} relative mr-8 flex min-w-[32rem] max-w-[32rem] flex-col items-start justify-start border-l-4`}
+                      className={`border-${box.allocate} relative mr-8 flex min-w-[26rem] max-w-[26rem] flex-col items-start justify-start border-l-4 md:min-w-[32rem] md:max-w-[32rem]`}
                       key={box._uid}
                     >
                       <img
@@ -69,7 +89,7 @@ const Slider = ({ blok }) => {
                 if (box.type == "k-big") {
                   return (
                     <div
-                      className="mr-12 flex min-w-[32rem] max-w-[32rem] flex-col"
+                      className="mr-12 flex min-w-[26rem] max-w-[26rem] flex-col md:min-w-[32rem] md:max-w-[32rem]"
                       key={box._uid}
                     >
                       <div
