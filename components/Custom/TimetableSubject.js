@@ -25,7 +25,6 @@ const TimetableSubject = ({ blok }) => {
       href={`?subject=${subject}&#timetable`}
       scroll={true}
     >
-      <h3>{blok.name}</h3>
       <h4>{blok.short_name}</h4>
     </Link>
   );
