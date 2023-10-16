@@ -2,14 +2,14 @@ import { storyblokEditable, StoryblokComponent } from "@storyblok/react/rsc";
 
 const Grid = ({ blok }) => {
   return (
-    <div
+    <section
       {...storyblokEditable(blok)}
       className={`grid gap-4 p-4 ${blok.columns} ${blok.mediumcolumns} ${blok.largecolumns} ${blok.max_w} mx-auto`}
     >
       {blok.content?.map((nestedBlok) => (
         <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
       ))}
-    </div>
+    </section>
   );
 };
 

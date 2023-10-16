@@ -6,11 +6,7 @@ export default async function Home() {
   const { data } = await fetchData();
   // console.log("Fetching Data");
   // debug(data);
-  return (
-    <main className="">
-      <StoryblokComponent blok={data.story.content} />
-    </main>
-  );
+  return <StoryblokComponent blok={data.story.content} />;
 }
 
 export async function fetchData() {

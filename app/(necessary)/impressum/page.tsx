@@ -2,11 +2,7 @@ import { getStoryblokApi, StoryblokComponent } from "@storyblok/react/rsc";
 
 export default async function Home() {
   const { data } = await fetchData();
-  return (
-    <main className="overflow-hidden">
-      <StoryblokComponent blok={data.story.content} />
-    </main>
-  );
+  return <StoryblokComponent blok={data.story.content} />;
 }
 
 export async function fetchData() {

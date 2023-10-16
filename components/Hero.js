@@ -12,7 +12,7 @@ const Hero = ({ blok }) => {
   }
 
   return (
-    <div
+    <section
       {...storyblokEditable(blok)}
       className={`mx-auto grid h-auto max-w-screen-2xl sm:grid-cols-7 ${
         blok.themeisdark ? "bg-zinc-900" : "bg-white"
@@ -49,7 +49,7 @@ const Hero = ({ blok }) => {
           />
         </div>
       ) : null}
-    </div>
+    </section>
   );
 };
 

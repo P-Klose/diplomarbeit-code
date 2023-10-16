@@ -10,12 +10,10 @@ const Home: FC<pageProps> = async ({ params }) => {
   const { data } = await fetchData(params.article);
 
   return (
-    <div>
-      <StoryblokComponent
-        blok={data.story.content}
-        key={data.story.content._uid}
-      />
-    </div>
+    <StoryblokComponent
+      blok={data.story.content}
+      key={data.story.content._uid}
+    />
   );
 };
 

@@ -26,7 +26,7 @@ export default function Error({
   }, [error]);
 
   return (
-    <main>
+    <>
       <Navbar></Navbar>
       <div className="mx-auto flex h-screen w-full max-w-screen-2xl flex-col items-center justify-center">
         <h2 className="text-6xl uppercase">Something went wrong!</h2>
@@ -40,6 +40,6 @@ export default function Error({
         </button>
       </div>
       <Footer></Footer>
-    </main>
+    </>
   );
 }

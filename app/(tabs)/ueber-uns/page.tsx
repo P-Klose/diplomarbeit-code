@@ -3,12 +3,7 @@ import { cache } from "react";
 
 export default async function Home() {
   const { data } = await fetchData();
-  return (
-    <main className="overflow-hidden">
-      {/* <h1>Story: {data.story.id}</h1> */}
-      <StoryblokComponent blok={data.story.content} />
-    </main>
-  );
+  return <StoryblokComponent blok={data.story.content} />;
 }
 
 export async function fetchData() {
