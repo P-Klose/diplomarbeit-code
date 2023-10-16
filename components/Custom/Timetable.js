@@ -30,6 +30,7 @@ const Timetable = ({ blok }) => {
   return (
     <section
       className="mx-auto grid max-w-screen-2xl grid-cols-2 gap-6 p-6 md:grid-cols-3"
+      id="timetable"
       {...storyblokEditable(blok)}
     >
       <div className="col-span-2 grid grid-cols-5 text-center">

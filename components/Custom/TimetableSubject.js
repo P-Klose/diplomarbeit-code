@@ -21,9 +21,9 @@ const TimetableSubject = ({ blok }) => {
   ];
   return (
     <Link
-      className={`flex flex-col items-center justify-center border-x-4 border-${blok.color} border-opacity-25 py-2 text-center hover:border-opacity-100`}
-      href={`?subject=${subject}`}
-      scroll={false}
+      className={`flex flex-col items-center justify-center border-x-4 border-${blok.color} border-opacity-50 py-2 text-center transition ease-in-out hover:border-opacity-100`}
+      href={`?subject=${subject}&#timetable`}
+      scroll={true}
     >
       <h3>{blok.name}</h3>
       <h4>{blok.short_name}</h4>
