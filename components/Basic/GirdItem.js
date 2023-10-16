@@ -1,10 +1,18 @@
 import { storyblokEditable } from "@storyblok/react/rsc";
+import Link from "next/link";
 
 const GridItem = ({ blok }) => {
   if (blok.type == "ausbildung") {
+    let url = "";
+    if (blok.link.linktype == "url") {
+      url = blok.link.url;
+    } else if (blok.link.linktype == "story") {
+      url = "/" + blok.link.cached_url;
+    }
     return (
-      <div
+      <Link
         {...storyblokEditable(blok)}
+        href={url}
         className={`grid grid-cols-1 xs:grid-cols-2 ${blok.width} ${
           blok.image_right ? "md:col-start-1" : "md:col-start-2"
         }`}
@@ -48,7 +56,7 @@ const GridItem = ({ blok }) => {
             </h2>
           </div>
         </div>
-      </div>
+      </Link>
     );
   }
 
