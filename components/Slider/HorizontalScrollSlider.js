@@ -15,12 +15,14 @@ const Slider = ({ blok }) => {
   let scroll_width_summe = 0;
   let width = window.innerWidth;
 
-  blok.content.forEach((subblok) => {
+  blok.slider.forEach((subblok) => {
     if (width >= 768) {
-      if (subblok.type === "event" || subblok.type === "k-small") {
+      if (subblok.type === "event") {
         scroll_width_summe += 512 + 16 + 32 + 4;
       } else if (subblok.type === "k-big") {
         scroll_width_summe += 512 + 16 + 48;
+      } else if (subblok.type === "k-small") {
+        scroll_width_summe += 448 + 16;
       } else {
         // Wenn es etwas anderes ist oder 'k-big' nicht existiert
         scroll_width_summe += 480;
@@ -36,10 +38,16 @@ const Slider = ({ blok }) => {
       }
     }
   });
+  const pre_defined_width = [
+    "h-[150vh]",
+    "h-[200vh]",
+    "h-[250vh]",
+    "h-[300vh]",
+    "h-[350vh]",
+  ];
   scroll_width_summe = scroll_width_summe - width;
   scroll_width_summe = "-" + scroll_width_summe + "px";
   width = width + "px";
-  console.log(width);
   const x = useTransform(
     scrollYProgress,
     [0, 1],
@@ -49,21 +57,25 @@ const Slider = ({ blok }) => {
     <section
       {...storyblokEditable(blok)}
       ref={targetRef}
-      className="relative h-[350vh] md:h-[250vh]"
+      className={`relative ${pre_defined_width.at(blok.scroll_speed)}`}
     >
       <div className="sticky top-0 h-screen">
         <h1 className="px-8 pt-8 text-end text-7xl font-bold uppercase">
           {blok.title}
         </h1>
-        <div className="flex h-full items-center overflow-hidden p-4">
+        <div className="flex h-[90vh] items-center overflow-hidden p-4">
           <div ref={carousel} className="w-screen overflow-visible">
             <motion.div
               drag="x"
               dragConstraints={{ right: 0, left: -width }}
               style={{ x }}
-              className={`flex gap-4 `}
+              className={`flex ${
+                blok.alternating
+                  ? "[&>*:nth-child(even)]:mt-20 [&>*:nth-child(odd)]:mb-20" //16
+                  : ""
+              }  gap-4 `}
             >
-              {blok.content?.map((box) => {
+              {blok.slider?.map((box) => {
                 if (box.type == "event") {
                   return (
                     <div
@@ -85,7 +97,6 @@ const Slider = ({ blok }) => {
                     </div>
                   );
                 }
-
                 if (box.type == "k-big") {
                   return (
                     <div
@@ -117,11 +128,10 @@ const Slider = ({ blok }) => {
                     </div>
                   );
                 }
-
                 if (box.type == "k-small") {
                   return (
                     <div
-                      className="mr-8 grid min-w-[32rem] max-w-[32rem] grid-cols-3 gap-6"
+                      className="grid min-w-[28rem] max-w-[28rem] grid-cols-3 gap-6"
                       key={box._uid}
                     >
                       <div className="col-span-1">
@@ -139,7 +149,6 @@ const Slider = ({ blok }) => {
                     </div>
                   );
                 }
-
                 return (
                   <div
                     className="relative flex h-32 min-w-[30rem] items-center justify-center bg-neutral-800 p-10"
