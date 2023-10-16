@@ -1,4 +1,5 @@
 import { storyblokEditable, StoryblokComponent } from "@storyblok/react/rsc";
+import { render } from "storyblok-rich-text-react-renderer";
 import Navbar from "./Navbar";
 import Footer from "./Footer/Footer";
 
@@ -13,24 +14,13 @@ const Branch = ({ blok }) => (
         <h2 className="text-3xl font-medium uppercase">{blok.subline}</h2>
       </div>
       <div className="md:col-span-2 md:row-start-2">
-        <p>
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-          nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-          sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
-          rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
-          ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-          sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
-          dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
-          et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
-          takimata sanctus est Lorem ipsum dolor sit amet.
-        </p>
+        {render(blok.description)}
         <a href={blok.folder.filename} target="_blank">
           <button className="mt-8 flex items-center justify-center bg-it-medientechnik bg-opacity-20 px-6 py-4 transition ease-in-out hover:bg-opacity-50 hover:text-neutral-800">
             <FaFileArrowDown className="mr-2"></FaFileArrowDown>
             Download Flyer {blok.headline}
           </button>
         </a>
-        {/* <p>{blok.description}</p> RICHTEXT Resolver */}
       </div>
       <div className="md:col-span-1 md:row-start-2">
         <iframe
