@@ -25,6 +25,7 @@ import Headline from "@/components/Basic/Headline";
 import Text from "@/components/Basic/Text";
 import GridItem from "@/components/Basic/GirdItem";
 import Grid from "@/components/Grid";
+import Table from "@/components/Basic/Table";
 import ScrollSlider from "@/components/Slider/HorizontalScrollSlider";
 import Article from "@/components/Basic/Article";
 import AllArticles from "@/components/Basic/AllArticles";
@@ -55,6 +56,7 @@ storyblokInit({
     grid: Grid,
     grid_item: GridItem,
     text: Text,
+    table: Table,
     scroll_slider: DynamicScrollSlider,
     article: Article,
     all_articles: AllArticles,
