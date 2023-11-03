@@ -7,7 +7,7 @@ const ArticleTeaser = ({ article }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   function transformDateFormat(inputDate) {
-    // Split the input date string into parts
+    console.log(inputDate);
     const dateParts = inputDate.split(" ");
     if (dateParts.length === 2) {
       const [datePart, timePart] = dateParts;
@@ -46,14 +46,14 @@ const ArticleTeaser = ({ article }) => {
         >
           {article.subline}
         </motion.h2>
-        {article.date ? null : (
+        {article.date ? (
           <motion.p
             layout="position"
             className={`bg-${article.allocate} p-2 text-right text-xs font-normal`}
           >
             {transformDateFormat(article.date)}
           </motion.p>
-        )}
+        ) : null}
       </motion.div>
       <motion.img
         layout="position"
