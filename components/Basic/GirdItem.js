@@ -26,7 +26,7 @@ const GridItem = ({ blok }) => {
               : "xs:border-r-4 md:border-r-8"
           }`}
         >
-          <img className="w-full" src={blok.main_image.filename}></img>
+          <video className="w-full" src = {blok.main_image.filename} type="video/mp4" autoplay loop></video>
         </div>
         <div
           className={`col-span-1 grid place-items-center p-6 ${
