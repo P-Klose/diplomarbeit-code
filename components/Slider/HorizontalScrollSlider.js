@@ -68,20 +68,23 @@ const Slider = ({ blok }) => {
             <tr>
               {blok.slider_table?.thead?.map((th) => {
                 return (
-                  <th className="text-left text-xl font-semibold">
+                  <th className="text-left text-xl font-semibold" key={th._uid}>
                     {th.value}
                   </th>
                 );
               })}
             </tr>
           </thead>
-          <tbody>
+          <tbody className="">
             {blok.slider_table?.tbody?.map((tr) => {
               return (
-                <tr>
+                <tr key={tr._uid}>
                   {tr.body?.map((td) => {
                     return (
-                      <th className="text-left text-lg font-normal">
+                      <th
+                        className="text-left text-lg font-normal"
+                        key={td._uid}
+                      >
                         {td.value}
                       </th>
                     );
@@ -99,7 +102,7 @@ const Slider = ({ blok }) => {
               style={{ x }}
               className={`flex ${
                 blok.alternating
-                  ? "[&>*:nth-child(even)]:mt-20 [&>*:nth-child(odd)]:mb-20" //16
+                  ? "[&>*:nth-child(even)]:mt-20 [&>*:nth-child(odd)]:mb-20"
                   : ""
               }  gap-4 `}
             >
@@ -177,14 +180,14 @@ const Slider = ({ blok }) => {
                     </div>
                   );
                 }
-                return (
-                  <div
-                    className="relative flex h-32 min-w-[30rem] items-center justify-center bg-neutral-800 p-10"
-                    key={box._uid}
-                  >
-                    <h3>Bitte setzen sie den richten Typen des Sliders</h3>
-                  </div>
-                );
+                // return (
+                //   <div
+                //     className="relative flex h-32 min-w-[30rem] items-center justify-center bg-neutral-800 p-10"
+                //     key={box._uid}
+                //   >
+                //     <h3>Bitte setzen sie den richten Typen des Sliders</h3>
+                //   </div>
+                // );
               })}
             </motion.div>
           </div>
