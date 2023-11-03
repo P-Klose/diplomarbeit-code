@@ -46,6 +46,7 @@ const Navbar = () => {
                   }
                   return (
                     <Link
+                      // className={`${nestedBlok.style} border-b-2 border-transparent transition ease-in-out hover:border-neutral-600`}
                       className={nestedBlok.style}
                       href={url}
                       key={nestedBlok._uid}
