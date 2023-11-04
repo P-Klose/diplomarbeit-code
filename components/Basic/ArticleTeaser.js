@@ -55,12 +55,14 @@ const ArticleTeaser = ({ article }) => {
           </motion.p>
         ) : null}
       </motion.div>
-      <motion.img
-        layout="position"
-        className="col-span-2 ml-0 w-full justify-self-end md:col-span-1"
-        src={article.image.filename}
-        alt=""
-      />
+      {article.image.filename ? (
+        <motion.img
+          layout="position"
+          className="col-span-2 ml-0 w-full justify-self-end md:col-span-1"
+          src={article.image.filename}
+          alt=""
+        />
+      ) : null}
       {isOpen ? null : (
         <motion.p
           layout="position"
