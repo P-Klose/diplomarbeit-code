@@ -50,6 +50,9 @@
   .shaped-value-document {
     clip-path: polygon(0 0, 95% 0, 60% 100%, 0% 100%);
   }
+  .shaped-value-document-overlay {
+    clip-path: polygon(100% 22%, 100% 22%, 100% 100%, 75% 100%);
+  }
 }
 
 .headline-clippath {
