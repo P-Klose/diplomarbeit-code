@@ -13,6 +13,7 @@ export async function fetchData() {
   let sbParams = {
     // cache: "no-store",
     version: process.env.storyblokApiVersion,
+    resolve_relations: ["featured_articles.articles"],
   };
 
   const stroyblokApi = getStoryblokApi();

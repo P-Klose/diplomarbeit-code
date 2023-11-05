@@ -29,6 +29,7 @@ import Table from "@/components/Basic/Table";
 import ScrollSlider from "@/components/Slider/HorizontalScrollSlider";
 import Article from "@/components/Basic/Article";
 import AllArticles from "@/components/Basic/AllArticles";
+import FeatArticles from "@/components/Basic/FeatArticles";
 import Marquee from "@/components/Slider/Marquee";
 import ValueDokument from "@/components/Custom/ValueDokument";
 import ValueDokumentEntry from "@/components/Custom/ValueDokumentEntry";
@@ -60,6 +61,8 @@ storyblokInit({
     scroll_slider: DynamicScrollSlider,
     article: Article,
     all_articles: AllArticles,
+    featured_articles: FeatArticles,
+    FeatArticles,
     marquee: Marquee,
     value_document: ValueDokument,
     value_document_entry: ValueDokumentEntry,
