@@ -32,7 +32,7 @@ const LinkComponent = ({ blok }) => {
       href={url}
     >
       <MediaIcon iconName={blok.symbol} />
-      {blok.symbol ? <spa className="px-1"></spa> : null}
+      {blok.symbol ? <span className="px-1"></span> : null}
       {blok.display_name}
     </Link>
   );
