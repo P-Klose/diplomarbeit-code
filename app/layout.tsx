@@ -23,6 +23,7 @@ import Link from "@/components/Basic/Link";
 import Image from "@/components/Basic/Image";
 import Headline from "@/components/Basic/Headline";
 import Text from "@/components/Basic/Text";
+import Sponsor from "@/components/Basic/Sponsor";
 import GridItem from "@/components/Basic/GirdItem";
 import Grid from "@/components/Grid";
 import Table from "@/components/Basic/Table";
@@ -58,6 +59,7 @@ storyblokInit({
     grid_item: GridItem,
     text: Text,
     table: Table,
+    sponsor: Sponsor,
     scroll_slider: DynamicScrollSlider,
     article: Article,
     all_articles: AllArticles,
