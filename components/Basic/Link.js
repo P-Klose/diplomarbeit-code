@@ -8,6 +8,16 @@ const LinkComponent = ({ blok }) => {
   } else if (blok.link.linktype == "story") {
     url = "/" + blok.link.cached_url;
   }
+  const colors = [
+    "text-allgemein",
+    "text-it-medientechnik",
+    "text-informatik-sse",
+    "text-elektronik",
+    "text-medizintechnik",
+    "text-informatik-sse",
+    "text-informatik-ddp",
+    "text-informatik-csi",
+  ];
   return (
     <Link
       {...storyblokEditable(blok)}
@@ -15,7 +25,7 @@ const LinkComponent = ({ blok }) => {
         blok.style == "marquee"
           ? "mx-6 text-xl font-semibold text-neutral-600 transition-colors hover:text-black"
           : ""
-      } `}
+      } text-${blok.allocate}`}
       href={url}
     >
       {blok.display_name}
