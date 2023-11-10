@@ -5,6 +5,7 @@ import Link from "next/link";
 const InfiniteMarquee = ({ blok }) => {
   return (
     <Marquee
+      {...storyblokEditable(blok)}
       direction={`${blok.reverse_direction ? "left" : "right"}`}
       className={`mx-auto flex max-w-screen-2xl ${
         blok.spacing_top ? "mt-6" : "mt-4"
