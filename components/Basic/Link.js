@@ -1,6 +1,8 @@
 import { storyblokEditable } from "@storyblok/react/rsc";
 import Link from "next/link";
 
+import MediaIcon from "@/components/Custom/MediaIcon";
+
 const LinkComponent = ({ blok }) => {
   let url = "";
   if (blok.link.linktype == "url") {
@@ -18,6 +20,7 @@ const LinkComponent = ({ blok }) => {
     "text-informatik-ddp",
     "text-informatik-csi",
   ];
+  console.log(blok.symbol);
   return (
     <Link
       {...storyblokEditable(blok)}
@@ -25,9 +28,11 @@ const LinkComponent = ({ blok }) => {
         blok.style == "marquee"
           ? "mx-6 text-xl font-semibold text-neutral-600 transition-colors hover:text-black"
           : ""
-      } text-${blok.allocate}`}
+      } text-${blok.allocate} flex items-center`}
       href={url}
     >
+      <MediaIcon iconName={blok.symbol} />
+      {blok.symbol ? <spa className="px-1"></spa> : null}
       {blok.display_name}
     </Link>
   );
