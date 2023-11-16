@@ -13,6 +13,13 @@ const DynamicScrollSlider = dynamic(
   },
 );
 
+const DynamicScrollSelectSlider = dynamic(
+  () => import("../components/Slider/HorizontalScrollSelectSlider"),
+  {
+    ssr: false,
+  },
+);
+
 import Page from "@/components/Page";
 import Branch from "@/components/Branch";
 import Hero from "@/components/Hero";
@@ -27,7 +34,6 @@ import Sponsor from "@/components/Basic/Sponsor";
 import GridItem from "@/components/Basic/GirdItem";
 import Grid from "@/components/Grid";
 import Table from "@/components/Basic/Table";
-import ScrollSlider from "@/components/Slider/HorizontalScrollSlider";
 import Article from "@/components/Basic/Article";
 import AllArticles from "@/components/Basic/AllArticles";
 import FeatArticles from "@/components/Basic/FeatArticles";
@@ -61,6 +67,7 @@ storyblokInit({
     table: Table,
     sponsor: Sponsor,
     scroll_slider: DynamicScrollSlider,
+    scroll_slider_select: DynamicScrollSelectSlider,
     article: Article,
     all_articles: AllArticles,
     featured_articles: FeatArticles,
