@@ -24,7 +24,7 @@ const AllArticles = ({ blok }) => {
         <div className="box-border grid w-full grid-cols-1 gap-12 px-8 py-10 lg:grid-cols-3 [&>*:nth-child(even)]:justify-self-end [&>*:nth-child(odd)]:justify-self-start">
           {/* odd:justify-self-end even:justify-self-start */}
           {blok.articles?.map((article) => {
-            console.log(article);
+            //console.log(article);
             return <FeatArticle article={article.content}></FeatArticle>;
             // ;
           })}
