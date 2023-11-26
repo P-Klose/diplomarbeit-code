@@ -20,7 +20,6 @@ const LinkComponent = ({ blok }) => {
     "text-informatik-ddp",
     "text-informatik-csi",
   ];
-  console.log(blok.symbol);
   return (
     <Link
       {...storyblokEditable(blok)}
