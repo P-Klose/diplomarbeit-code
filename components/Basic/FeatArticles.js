@@ -25,7 +25,12 @@ const AllArticles = ({ blok }) => {
           {/* odd:justify-self-end even:justify-self-start */}
           {blok.articles?.map((article) => {
             //console.log(article);
-            return <FeatArticle article={article.content}></FeatArticle>;
+            return (
+              <FeatArticle
+                article={article.content}
+                key={article.uuid}
+              ></FeatArticle>
+            );
             // ;
           })}
         </div>
