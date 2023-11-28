@@ -20,8 +20,10 @@ const AllArticles = ({ blok }) => {
   return (
     <LayoutGroup>
       <section className="mx-auto w-full max-w-screen-2xl">
-        <h2 className="pl-6 text-3xl font-medium">{blok.headline}</h2>
-        <div className="box-border grid w-full grid-cols-1 gap-12 px-8 py-10 lg:grid-cols-3 [&>*:nth-child(even)]:justify-self-end [&>*:nth-child(odd)]:justify-self-start">
+        <h2 className="p-4 pb-3 text-3xl font-semibold uppercase">
+          {blok.headline}
+        </h2>
+        <div className="box-border grid w-full grid-cols-1 gap-12 px-8 pb-12 pt-10 lg:grid-cols-3 [&>*:nth-child(even)]:justify-self-end [&>*:nth-child(odd)]:justify-self-start">
           {/* odd:justify-self-end even:justify-self-start */}
           {blok.articles?.map((article) => {
             //console.log(article);

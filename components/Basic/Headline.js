@@ -4,9 +4,11 @@ const Headline = ({ blok }) => {
   return (
     <div
       {...storyblokEditable(blok)}
-      className="place-items-cente col-span-full my-4 w-full bg-white"
+      className="col-span-full mx-auto w-full max-w-screen-2xl bg-white"
     >
-      <h1 className="text-center text-4xl font-extrabold">{blok.headline}</h1>
+      <h2 className="p-4 pb-3 text-3xl font-semibold uppercase">
+        {blok.headline}
+      </h2>
     </div>
   );
 };
