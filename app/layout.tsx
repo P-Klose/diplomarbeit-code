@@ -33,6 +33,7 @@ import Text from "@/components/Basic/Text";
 import Sponsor from "@/components/Basic/Sponsor";
 import GridItem from "@/components/Basic/GirdItem";
 import Grid from "@/components/Grid";
+import Classes from "@/components/Custom/Classes";
 import Table from "@/components/Basic/Table";
 import Article from "@/components/Basic/Article";
 import AllArticles from "@/components/Basic/AllArticles";
@@ -66,12 +67,12 @@ storyblokInit({
     text: Text,
     table: Table,
     sponsor: Sponsor,
+    classes: Classes,
     scroll_slider: DynamicScrollSlider,
     scroll_slider_select: DynamicScrollSelectSlider,
     article: Article,
     all_articles: AllArticles,
     featured_articles: FeatArticles,
-    FeatArticles,
     marquee: Marquee,
     value_document: ValueDokument,
     value_document_entry: ValueDokumentEntry,
