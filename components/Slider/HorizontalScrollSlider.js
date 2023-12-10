@@ -8,6 +8,7 @@ import { useEffect, useRef, useState } from "react";
 const Slider = ({ blok }) => {
   const targetRef = useRef();
   const carousel = useRef();
+  let count = 0;
   const { scrollYProgress } = useScroll({
     target: targetRef,
   });
@@ -25,7 +26,7 @@ const Slider = ({ blok }) => {
         scroll_width_summe += 448 + 16;
       } else {
         // Wenn es etwas anderes ist oder 'k-big' nicht existiert
-        scroll_width_summe += 480;
+        scroll_width_summe += 512;
       }
     } else {
       if (subblok.type === "event") {
@@ -38,6 +39,9 @@ const Slider = ({ blok }) => {
       }
     }
   });
+  if (blok.slider[0].type == "bewerbung") {
+    scroll_width_summe += 64;
+  }
   const pre_defined_width = [
     "h-[150vh]",
     "h-[200vh]",
@@ -51,7 +55,7 @@ const Slider = ({ blok }) => {
   const x = useTransform(
     scrollYProgress,
     [0, 1],
-    [blok.scroll_start_right ? "0%" : width, scroll_width_summe],
+    [blok.scroll_start_right ? "0px" : width, scroll_width_summe],
   );
   return (
     <section
@@ -94,7 +98,7 @@ const Slider = ({ blok }) => {
             })}
           </tbody>
         </table>
-        <div className="flex h-[80vh] items-center overflow-hidden p-4">
+        <div className="flex h-[80vh] items-center overflow-hidden p-8">
           <div ref={carousel} className="w-screen overflow-visible">
             <motion.div
               drag="x"
@@ -104,9 +108,11 @@ const Slider = ({ blok }) => {
                 blok.alternating
                   ? "[&>*:nth-child(even)]:mt-20 [&>*:nth-child(odd)]:mb-20"
                   : ""
-              }  gap-4 `}
+              }
+              ${blok.slider[0].type == "bewerbung" ? "" : "gap-4"} `}
             >
               {blok.slider?.map((box) => {
+                count++;
                 if (box.type == "event") {
                   return (
                     <div
@@ -177,6 +183,35 @@ const Slider = ({ blok }) => {
                         </h2>
                         <h3>{box.subline}</h3>
                       </div>
+                    </div>
+                  );
+                }
+                if (box.type == "bewerbung") {
+                  console.log(count);
+                  return (
+                    <div
+                      className="row-span-1 grid min-w-[26rem] max-w-[26rem] bg-gray-100 md:row-span-2 md:min-w-[32rem] md:max-w-[32rem]"
+                      key={box._uid}
+                    >
+                      <div
+                        className={`row-start-1 box-border h-80 border-b-4 border-black p-6 tall:h-96 ${
+                          count % 2 !== 0
+                            ? "tall:row-start-1 tall:border-b-4"
+                            : "tall:row-start-2 tall:border-b-0 tall:border-t-4"
+                        }`}
+                      >
+                        <h1 className="text-4xl font-semibold">
+                          {box.headline}
+                        </h1>
+                        <div className="">{render(box.content)}</div>
+                      </div>
+                      <div
+                        className={`max-w- row-start-2 box-border p-6 tall:h-96 ${
+                          count % 2 === 0
+                            ? "tall:row-start-1"
+                            : "tall:row-start-2"
+                        } `}
+                      ></div>
                     </div>
                   );
                 }

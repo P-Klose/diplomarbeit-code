@@ -51,6 +51,9 @@ module.exports = {
       ...defaultTheme.screens,
     },
     extend: {
+      screens: {
+        tall: { raw: "(min-height: 768px)" },
+      },
       colors: {
         "it-medientechnik": "#86B5D7",
         "informatik-sse": "#0A529A",
