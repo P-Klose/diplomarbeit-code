@@ -61,7 +61,7 @@ const LinkComponent = ({ blok }) => {
       {...storyblokEditable(blok)}
       className={`${
         blok.style == "marquee"
-          ? `mx-4 border-x-4 px-2 text-xl font-semibold text-neutral-400 transition-colors border-${blok.color} hover:text-neutral-700`
+          ? `mx-4 border-x-4 px-2 text-xl font-medium text-neutral-400 transition-colors border-${blok.color} hover:text-neutral-700`
           : `text-${blok.color}`
       } flex items-center`}
       href={url}

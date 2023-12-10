@@ -41,7 +41,7 @@ const Timetable = ({ blok }) => {
     (subject) => subject.short_name.toLowerCase() === selectedSubjectStr,
   );
 
-  console.log(selectedSubject);
+  // console.log(selectedSubject);
 
   return (
     <section
