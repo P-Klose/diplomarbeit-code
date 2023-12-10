@@ -31,7 +31,7 @@ const ClassesOverview = ({ blok }) => {
   }
 
   return (
-    <motion.div
+    <motion.section
       {...storyblokEditable(blok)}
       className="mx-auto max-w-screen-2xl p-4"
     >
@@ -71,7 +71,7 @@ const ClassesOverview = ({ blok }) => {
           );
         })}
       </div>
-    </motion.div>
+    </motion.section>
   );
 };
 export default ClassesOverview;
