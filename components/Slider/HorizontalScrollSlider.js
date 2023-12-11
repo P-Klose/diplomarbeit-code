@@ -70,9 +70,12 @@ const Slider = ({ blok }) => {
         <table className="my-4 ml-auto w-full sm:w-1/2 md:w-1/3">
           <thead className="mb-4">
             <tr>
-              {blok.slider_table?.thead?.map((th) => {
+              {blok.slider_table?.thead?.map((th, index) => {
                 return (
-                  <th className="text-left text-xl font-semibold" key={th._uid}>
+                  <th
+                    className="text-left text-xl font-semibold"
+                    key={`${th.value}-${index}`}
+                  >
                     {th.value}
                   </th>
                 );
