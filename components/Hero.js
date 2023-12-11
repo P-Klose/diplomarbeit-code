@@ -40,12 +40,12 @@ const Hero = ({ blok }) => {
         <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
       ))}
       {blok.type == "school" ? (
-        <div className="relative -top-32 sm:col-span-7">
+        <div className="relative -top-8 xs:-top-10 sm:-top-12 sm:col-span-7 md:-top-16">
           <img
             // src={process.env.PUBLIC_URL + "/schule_weiss.png"}
             src="./schule_weiss.png"
             alt="schule in schwarz weiß"
-            className="mx-auto w-full max-w-screen-xl"
+            className="mx-auto w-full max-w-screen-xl p-4"
           />
         </div>
       ) : null}
