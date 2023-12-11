@@ -190,7 +190,7 @@ const Slider = ({ blok }) => {
                   );
                 }
                 if (box.type == "bewerbung") {
-                  console.log(count);
+                  // console.log(count);
                   return (
                     <div
                       className="row-span-1 grid min-w-[26rem] max-w-[26rem] bg-gray-100 md:row-span-2 md:min-w-[32rem] md:max-w-[32rem]"

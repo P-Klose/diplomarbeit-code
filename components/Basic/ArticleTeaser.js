@@ -7,7 +7,7 @@ const ArticleTeaser = ({ article }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   function transformDateFormat(inputDate) {
-    console.log(inputDate);
+    // console.log(inputDate);
     const dateParts = inputDate.split(" ");
     if (dateParts.length === 2) {
       const [datePart, timePart] = dateParts;
