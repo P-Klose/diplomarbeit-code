@@ -10,8 +10,12 @@ const Branch = ({ blok }) => (
     <Navbar></Navbar>
     <section className="mx-auto grid max-w-screen-2xl grid-cols-2 gap-20 p-6 md:grid-cols-3">
       <div className="col-span-2 md:mt-16">
-        <h1 className="mb-4 text-6xl font-medium uppercase">{blok.headline}</h1>
-        <h2 className="text-3xl font-medium uppercase">{blok.subline}</h2>
+        <h1 className="mb-4 text-4xl font-medium uppercase md:text-6xl">
+          {blok.headline}
+        </h1>
+        <h2 className="text-2xl font-medium uppercase md:text-3xl">
+          {blok.subline}
+        </h2>
       </div>
       <div className="md:col-span-2 md:row-start-2">
         {render(blok.description)}

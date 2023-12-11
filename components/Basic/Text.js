@@ -8,7 +8,7 @@ const Text = ({ blok }) => {
       className="mx-auto w-full max-w-screen-xl bg-white"
     >
       <h1
-        className={`py-3 text-3xl font-semibold uppercase
+        className={`py-3 text-2xl font-semibold uppercase md:text-3xl
         ${blok.divider ? "border-b-2 border-neutral-500" : ""} `}
       >
         {blok.headline}

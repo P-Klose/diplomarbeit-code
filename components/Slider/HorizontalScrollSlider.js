@@ -64,7 +64,7 @@ const Slider = ({ blok }) => {
       className={`relative ${pre_defined_width.at(blok.scroll_speed)}`}
     >
       <div className="sticky top-0  h-screen ">
-        <h1 className="px-8 pt-8 text-end text-7xl font-bold uppercase">
+        <h1 className="px-8 pt-8 text-center text-5xl font-bold uppercase sm:text-end sm:text-7xl">
           {blok.title}
         </h1>
         <table className="my-4 ml-auto w-full sm:w-1/2 md:w-1/3">
