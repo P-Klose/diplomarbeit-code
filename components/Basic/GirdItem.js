@@ -1,5 +1,6 @@
 import { storyblokEditable } from "@storyblok/react/rsc";
 import Link from "next/link";
+import { render } from "storyblok-rich-text-react-renderer";
 
 const GridItem = ({ blok }) => {
   if (blok.type == "ausbildung") {
@@ -22,17 +23,23 @@ const GridItem = ({ blok }) => {
             blok.allocate
           } border-b-8 xs:border-b-0 ${
             blok.image_right
-              ? "xs:col-start-2 xs:border-l-4 md:border-l-8"
-              : "xs:border-r-4 md:border-r-8"
+              ? "xs:col-start-2 xs:border-l-[3px] md:border-l-8"
+              : "xs:border-r-[3px] md:border-r-8"
           }`}
         >
-          <video className="w-full" src = {blok.main_image.filename} type="video/mp4" autoplay loop></video>
+          <video
+            className="w-full"
+            src={blok.main_image.filename}
+            type="video/mp4"
+            autoPlay
+            loop
+          ></video>
         </div>
         <div
           className={`col-span-1 grid place-items-center p-6 ${
             blok.image_right ? "xs:col-start-1  xs:row-start-1" : ""
           } border-${blok.allocate} md:border-none ${
-            blok.image_right ? "xs:border-r-4" : "xs:border-l-4"
+            blok.image_right ? "xs:border-r-[3px]" : "xs:border-l-[3px]"
           }`}
         >
           <div>
@@ -59,21 +66,55 @@ const GridItem = ({ blok }) => {
       </Link>
     );
   }
-
-  return (
-    <div
-      {...storyblokEditable(blok)}
-      className={`${
-        blok.type == "kontakt-small"
-          ? "grid grid-cols-3"
-          : blok.type == "kontakt-big"
-          ? "grid grid-cols-1 xs:grid-cols-3"
-          : blok.type == "ausbildung"
-          ? "grid grid-cols-1 xs:grid-cols-2"
-          : "bg-gray-100"
-      } ${blok.width}`}
-    ></div>
-  );
+  if (blok.type == "ausbildung-content-x") {
+    return (
+      <div
+        {...storyblokEditable(blok)}
+        className={`col-start-1 flex flex-col md:col-span-3 ${
+          blok.image_right
+            ? "sm:flex-row-reverse lg:col-start-2"
+            : "sm:flex-row"
+        }`}
+      >
+        <div
+          className={`xxl:min-w-[66%] xxl:-translate-x-1/3 float-right min-w-[33%] ${
+            blok.image_right ? "xxl:translate-x-1/3" : "xxl:-translate-x-1/3"
+          }`}
+        >
+          <img className="inline-block" src={blok.main_image.filename}></img>
+        </div>
+        <div
+          className={`w-full p-4 sm:min-w-[50%] md:min-w-[66%] md:max-w-[66%] ${
+            blok.image_right ? "xxl:translate-x-1/3" : "xxl:-translate-x-1/3"
+          }`}
+        >
+          <h3 className="pb-3 text-xl font-semibold md:text-2xl">
+            {blok.headline}
+          </h3>
+          {render(blok.content)}
+        </div>
+      </div>
+    );
+  }
+  // if (blok.type == "ausbildung-content-y") {
+  //   return (
+  //     <div
+  //       {...storyblokEditable(blok)}
+  //       className={`flex flex-row md:col-span-3`}
+  //     >
+  //       <img
+  //         className="min-w-[33%] 2xl:min-w-[66%] 2xl:-translate-x-1/3"
+  //         src={blok.main_image.filename}
+  //       ></img>
+  //       <div className="min-w-[66%] max-w-[66%] p-4 2xl:-translate-x-1/3">
+  //         <h3 className="hidden pb-3 text-xl font-semibold md:inline-block md:text-2xl">
+  //           {blok.headline}
+  //         </h3>
+  //         {render(blok.content)}
+  //       </div>
+  //     </div>
+  //   );
+  // }
 };
 
 export default GridItem;
