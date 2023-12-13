@@ -199,8 +199,8 @@ const Slider = ({ blok }) => {
                       <div
                         className={`row-start-1 box-border h-80 border-b-4 border-black p-6 tall:h-96 ${
                           count % 2 !== 0
-                            ? "tall:row-start-1 tall:border-b-4"
-                            : "tall:row-start-2 tall:border-b-0 tall:border-t-4"
+                            ? "tall:row-start-1 tall:border-b-[3px]"
+                            : "tall:row-start-2 tall:border-b-0 tall:border-t-[3px]"
                         }`}
                       >
                         <h1 className="text-4xl font-semibold">
@@ -209,10 +209,10 @@ const Slider = ({ blok }) => {
                         <div className="">{render(box.content)}</div>
                       </div>
                       <div
-                        className={`max-w- row-start-2 box-border p-6 tall:h-96 ${
+                        className={`row-start-2 box-border border-black p-6 tall:h-96 ${
                           count % 2 === 0
-                            ? "tall:row-start-1"
-                            : "tall:row-start-2"
+                            ? "tall:row-start-1 tall:border-b-[3px]"
+                            : "tall:row-start-2 tall:border-t-[3px]"
                         } `}
                       ></div>
                     </div>
