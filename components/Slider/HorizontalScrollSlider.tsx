@@ -6,8 +6,8 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 const Slider = ({ blok }) => {
-  const targetRef = useRef();
-  const carousel = useRef();
+  const targetRef = useRef<any>();
+  const carousel = useRef<any>();
   let count = 0;
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -16,7 +16,7 @@ const Slider = ({ blok }) => {
   let scroll_width_summe = 0;
   let width = window.innerWidth;
 
-  blok.slider.forEach((subblok) => {
+  blok.slider.forEach((subblok: any) => {
     if (width >= 768) {
       if (subblok.type === "event") {
         scroll_width_summe += 512 + 16 + 32 + 4;
@@ -50,12 +50,12 @@ const Slider = ({ blok }) => {
     "h-[350vh]",
   ];
   scroll_width_summe = scroll_width_summe - width;
-  scroll_width_summe = "-" + scroll_width_summe + "px";
-  width = width + "px";
+  let scroll_width_summe_str = "-" + scroll_width_summe + "px";
+  let width_str = width + "px";
   const x = useTransform(
     scrollYProgress,
     [0, 1],
-    [blok.scroll_start_right ? "0px" : width, scroll_width_summe],
+    [blok.scroll_start_right ? "0%" : width_str, scroll_width_summe_str],
   );
   return (
     <section
@@ -70,7 +70,7 @@ const Slider = ({ blok }) => {
         <table className="my-4 ml-auto w-full sm:w-1/2 md:w-1/3">
           <thead className="mb-4">
             <tr>
-              {blok.slider_table?.thead?.map((th, index) => {
+              {blok.slider_table?.thead?.map((th: any, index: number) => {
                 return (
                   <th
                     className="text-left text-xl font-semibold"
@@ -83,10 +83,10 @@ const Slider = ({ blok }) => {
             </tr>
           </thead>
           <tbody className="">
-            {blok.slider_table?.tbody?.map((tr) => {
+            {blok.slider_table?.tbody?.map((tr: any) => {
               return (
                 <tr key={tr._uid}>
-                  {tr.body?.map((td) => {
+                  {tr.body?.map((td: any) => {
                     return (
                       <th
                         className="text-left text-lg font-normal"
@@ -114,7 +114,7 @@ const Slider = ({ blok }) => {
               }
               ${blok.slider[0].type == "bewerbung" ? "" : "gap-4"} `}
             >
-              {blok.slider?.map((box) => {
+              {blok.slider?.map((box: any) => {
                 count++;
                 if (box.type == "event") {
                   return (

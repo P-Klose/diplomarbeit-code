@@ -95,7 +95,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="de">
       {/* <LayoutGroup> */}
       <body className={manrope.className}>{children}</body>
       <StoryblokBridgeLoader options={{}} />

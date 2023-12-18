@@ -11,7 +11,7 @@ const InfiniteMarquee = ({ blok }) => {
         blok.spacing_top ? "mt-8" : "mt-4"
       } ${blok.spacing_bottom ? "mb-8" : "mb-4"}`}
     >
-      {blok.content?.map((nestedBlok) => (
+      {blok.content?.map((nestedBlok: any) => (
         <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
       ))}
     </Marquee>

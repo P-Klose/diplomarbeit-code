@@ -16,7 +16,7 @@ const ValueDokument = ({ blok }) => {
       <h3 className="pl-4 text-lg font-medium ">{blok.subline}</h3>
       <div className="relative h-full">
         <div className="shaped-value-document">
-          {blok.content?.map((nestedBlok) => {
+          {blok.content?.map((nestedBlok: any) => {
             content_count = content_count + 1;
 
             return (

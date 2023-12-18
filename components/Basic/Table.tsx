@@ -10,7 +10,7 @@ const Table = ({ blok }) => {
       >
         <thead className="mb-4  ">
           <tr>
-            {blok.table?.thead?.map((th) => {
+            {blok.table?.thead?.map((th: any) => {
               return (
                 <th
                   className="px-2 py-2 text-left text-lg font-semibold md:text-xl"
@@ -26,10 +26,10 @@ const Table = ({ blok }) => {
           className="divide-y-2"
           //className="[&>*:nth-child(even)]:bg-neutral-50 [&>*:nth-child(odd)]:bg-neutral-100"
         >
-          {blok.table?.tbody?.map((tr) => {
+          {blok.table?.tbody?.map((tr: any) => {
             return (
               <tr key={tr._uid}>
-                {tr.body?.map((td) => {
+                {tr.body?.map((td: any) => {
                   return (
                     <th
                       className="px-2 py-1 text-left text-lg font-normal"

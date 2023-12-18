@@ -11,7 +11,7 @@ const ClassesOverview = ({ blok }) => {
   const searchParams = useSearchParams();
   const selectedClassStr = searchParams.get("class");
   var selectedClass = blok.classes.find(
-    (subject) => subject.classname.toLowerCase() === selectedClassStr,
+    (subject: any) => subject.classname.toLowerCase() === selectedClassStr,
   );
   if (selectedClass == undefined) {
     selectedClass = blok.classes[0];
@@ -39,7 +39,7 @@ const ClassesOverview = ({ blok }) => {
         {blok.headline}
       </h2>
       <div className="flex flex-row">
-        {blok.classes?.map((nestedBlok) => {
+        {blok.classes?.map((nestedBlok: any) => {
           return (
             <Link
               href={`?class=${nestedBlok.classname.toLowerCase()}`}

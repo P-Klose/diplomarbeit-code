@@ -6,7 +6,7 @@ import { useRef, useEffect, useState } from "react";
 
 const Slider = ({ blok }) => {
   const [width, setWidth] = useState(0);
-  const carousel = useRef();
+  const carousel = useRef<any>();
 
   useEffect(() => {
     // console.log(carousel.current.scrollWidth, carousel.current.offsetWidth);
@@ -24,7 +24,7 @@ const Slider = ({ blok }) => {
         dragConstraints={{ right: 0, left: -width }}
         className="flex gap-4"
       >
-        {blok.content?.map((box) => {
+        {blok.content?.map((box: any) => {
           return (
             <motion.div className="flex h-20 min-w-[30rem] items-center justify-center bg-gray-100 p-10">
               <h3>BOX</h3>

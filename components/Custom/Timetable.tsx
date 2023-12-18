@@ -10,7 +10,7 @@ const Timetable = ({ blok }) => {
   const searchParams = useSearchParams();
   const selectedSubjectStr = searchParams.get("subject");
   const classes = ["1.", "2.", "3.", "4.", "5."];
-  const allSubjects = [];
+  const allSubjects: any[] = [];
   const colors = [
     "text-red-600",
     "text-cyan-300",
@@ -26,9 +26,9 @@ const Timetable = ({ blok }) => {
     "text-lime-300",
     "text-green-700",
   ];
-  blok.columns.forEach((dayColumn) => {
+  blok.columns.forEach((dayColumn: any) => {
     // Durchlaufe jedes Fach in diesem Wochentag und füge es zum allSubjects Array hinzu
-    dayColumn.subjects.forEach((subject) => {
+    dayColumn.subjects.forEach((subject: any) => {
       allSubjects.push(subject);
     });
   });
@@ -50,7 +50,7 @@ const Timetable = ({ blok }) => {
       {...storyblokEditable(blok)}
     >
       <div className="col-span-2 grid grid-cols-5 text-center">
-        {blok.columns?.map((nestedBlok) => {
+        {blok.columns?.map((nestedBlok: any) => {
           return <TimetableColums blok={nestedBlok} key={nestedBlok._uid} />;
         })}
       </div>

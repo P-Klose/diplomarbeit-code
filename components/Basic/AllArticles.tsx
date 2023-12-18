@@ -27,7 +27,7 @@ const AllArticles = ({ blok }) => {
       });
 
       setArticles((prev) =>
-        data.stories.map((article) => {
+        data.stories.map((article: any) => {
           article.content.slug = article.slug;
           return article;
         }),
@@ -42,7 +42,7 @@ const AllArticles = ({ blok }) => {
       <p className="text-2xl md:text-3xl">{blok.headline}</p>
       <div className="grid w-full grid-cols-1 gap-8 lg:grid-cols-3 xl:grid-cols-4 [&>*:nth-child(odd)]:xl:col-start-2">
         <LayoutGroup>
-          {articles?.map((article) => (
+          {articles?.map((article: any) => (
             <ArticleTeaser article={article.content} key={article.uuid} />
           ))}
         </LayoutGroup>

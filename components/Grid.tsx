@@ -6,7 +6,7 @@ const Grid = ({ blok }) => {
       {...storyblokEditable(blok)}
       className={`grid gap-4 p-4 ${blok.columns} ${blok.mediumcolumns} ${blok.largecolumns} ${blok.max_w} mx-auto`}
     >
-      {blok.content?.map((nestedBlok) => (
+      {blok.content?.map((nestedBlok: any) => (
         <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
       ))}
     </section>

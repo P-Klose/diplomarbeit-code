@@ -6,8 +6,8 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 const SelectSlider = ({ blok }) => {
-  const targetRef = useRef();
-  const carousel = useRef();
+  const targetRef = useRef<any>();
+  const carousel = useRef<any>();
   const { scrollYProgress } = useScroll({
     target: targetRef,
   });
@@ -15,7 +15,7 @@ const SelectSlider = ({ blok }) => {
   let scroll_width_summe = 0;
   let width = window.innerWidth;
 
-  blok.slider.forEach((subblok) => {
+  blok.slider.forEach((subblok: any) => {
     if (width >= 768) {
       scroll_width_summe += 512 + 16 + 32 + 4;
     } else {
@@ -30,12 +30,12 @@ const SelectSlider = ({ blok }) => {
     "h-[350vh]",
   ];
   scroll_width_summe = scroll_width_summe - width;
-  scroll_width_summe = "-" + scroll_width_summe + "px";
-  width = width + "px";
+  let scroll_width_summe_str = "-" + scroll_width_summe + "px";
+  let width_str = width + "px";
   const x = useTransform(
     scrollYProgress,
     [0, 1],
-    [blok.scroll_start_right ? "0%" : width, scroll_width_summe],
+    [blok.scroll_start_right ? "0%" : width_str, scroll_width_summe_str],
   );
   return (
     <section
@@ -59,7 +59,7 @@ const SelectSlider = ({ blok }) => {
                   : ""
               }  gap-4 `}
             >
-              {blok.slider?.map((boxinfo) => {
+              {blok.slider?.map((boxinfo: any) => {
                 let box = boxinfo.content;
                 if (box.type == "event") {
                   return (

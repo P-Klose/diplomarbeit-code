@@ -7,9 +7,9 @@ import Link from "next/link";
 import { FaXmark, FaBars } from "react-icons/fa6";
 
 const Navbar = () => {
-  const [navbar, setNavbar] = useState();
+  const [navbar, setNavbar] = useState<any>();
 
-  const navRef = useRef();
+  const navRef = useRef<any>();
   const showNavbar = () => {
     navRef.current.classList.toggle("hidden");
   };
@@ -37,7 +37,7 @@ const Navbar = () => {
                 </Link>
               </div>
               <div className="hidden items-center space-x-4 md:flex">
-                {navbar.middle_nav.map((nestedBlok) => {
+                {navbar.middle_nav.map((nestedBlok: any) => {
                   let url = "";
                   if (nestedBlok.link.linktype == "url") {
                     url = nestedBlok.link.url;
@@ -63,7 +63,7 @@ const Navbar = () => {
               >
                 Schüler:innen
               </Link> */}
-                {navbar.side_nav.map((nestedBlok) => {
+                {navbar.side_nav.map((nestedBlok: any) => {
                   let url = "";
                   if (nestedBlok.link.linktype == "url") {
                     url = nestedBlok.link.url;
@@ -89,7 +89,7 @@ const Navbar = () => {
             </div>
           </div>
           <div ref={navRef} className="hidden md:hidden">
-            {navbar.middle_nav.map((nestedBlok) => {
+            {navbar.middle_nav.map((nestedBlok: any) => {
               let url = "";
               if (nestedBlok.link.linktype == "url") {
                 url = nestedBlok.link.url;

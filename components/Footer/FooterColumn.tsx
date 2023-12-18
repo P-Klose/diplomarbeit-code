@@ -9,7 +9,7 @@ const FooterColumn = ({ blok }) => {
     >
       <h3 className="text-lg font-semibold text-black">{blok.headline}</h3>
       <hr></hr>
-      {blok.links.map((nestedBlok) => {
+      {blok.links.map((nestedBlok: any) => {
         return (
           <LinkComponent
             key={nestedBlok._uid}

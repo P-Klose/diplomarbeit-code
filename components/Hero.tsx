@@ -4,7 +4,7 @@ const Hero = ({ blok }) => {
   function renderAdditionalContent() {
     if (blok.additional_content != undefined) {
       {
-        blok.additional_content.map((nestedBlok) => (
+        blok.additional_content.map((nestedBlok: any) => (
           <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
         ));
       }
@@ -36,7 +36,7 @@ const Hero = ({ blok }) => {
           {blok.headline}
         </h1>
       </div>
-      {blok.additional_content?.map((nestedBlok) => (
+      {blok.additional_content?.map((nestedBlok: any) => (
         <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
       ))}
       {blok.type == "school" ? (

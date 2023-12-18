@@ -10,7 +10,7 @@ import { useState, useEffect } from "react";
 import FooterColumn from "./FooterColumn";
 
 const Footer = () => {
-  const [footer, setFooter] = useState();
+  const [footer, setFooter] = useState<any>();
 
   useEffect(() => {
     const getFooter = async () => {
@@ -29,7 +29,7 @@ const Footer = () => {
         className="place-items-cente bg-zinc-100"
       >
         <div className="mx-auto grid max-w-screen-xl gap-4 py-8 sm:grid-cols-2 lg:grid-cols-4">
-          {footer.columns.map((nestedBlok) => {
+          {footer.columns.map((nestedBlok: any) => {
             return (
               <FooterColumn
                 key={nestedBlok._uid}

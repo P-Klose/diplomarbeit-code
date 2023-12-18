@@ -6,4 +6,8 @@ module.exports = {
     storyblokApiToken: process.env.STORYBLOK_API_KEY,
     storyblokApiVersion: process.env.STORYBLOK_API_VERSION,
   },
+  i18n: {
+    locales: ["de", "en"],
+    defaultLocale: "de",
+  },
 };

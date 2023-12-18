@@ -34,7 +34,7 @@ const Branch = ({ blok }) => (
         ></iframe>
       </div>
     </section>
-    {blok.body.map((nestedBlok) => (
+    {blok.body.map((nestedBlok: any) => (
       <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
     ))}
     <Footer></Footer>

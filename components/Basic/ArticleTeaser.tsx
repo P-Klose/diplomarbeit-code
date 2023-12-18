@@ -6,7 +6,7 @@ import { useState } from "react";
 const ArticleTeaser = ({ article }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  function transformDateFormat(inputDate) {
+  function transformDateFormat(inputDate: string) {
     // console.log(inputDate);
     const dateParts = inputDate.split(" ");
     if (dateParts.length === 2) {

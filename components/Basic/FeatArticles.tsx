@@ -25,7 +25,7 @@ const AllArticles = ({ blok }) => {
         </h2>
         <div className="box-border grid w-full grid-cols-1 gap-12 px-8 pb-12 pt-10 lg:grid-cols-3 [&>*:nth-child(even)]:justify-self-end [&>*:nth-child(odd)]:justify-self-start">
           {/* odd:justify-self-end even:justify-self-start */}
-          {blok.articles?.map((article) => {
+          {blok.articles?.map((article: any) => {
             //console.log(article);
             return (
               <FeatArticle
@@ -42,7 +42,7 @@ const AllArticles = ({ blok }) => {
 };
 
 const FeatArticle = ({ article }) => {
-  function transformDateFormat(inputDate) {
+  function transformDateFormat(inputDate: string) {
     const dateParts = inputDate.split(" ");
     if (dateParts.length === 2) {
       const [datePart, timePart] = dateParts;
