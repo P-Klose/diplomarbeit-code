@@ -13,21 +13,25 @@ const Sponsor = ({ blok }) => {
     return (
       <img
         {...storyblokEditable(blok)}
-        className="mx-10 h-full max-h-10"
+        className="mx-5 h-auto w-full max-w-[160px] self-center sm:mx-10 sm:h-full sm:max-h-10 sm:w-auto sm:max-w-none"
         src={blok.image.filename}
       ></img>
     );
   } else {
     return (
-      <div className="col-span-1 mx-12 grid max-w-sm gap-4 md:col-span-2">
-        <img
-          {...storyblokEditable(blok)}
-          className="col-span-full h-full max-w-sm"
-          src={blok.image.filename}
-        ></img>
-        <h3 className="text-2xl font-medium">{blok.headline}</h3>
-        <h3 className="text-lg font-normal">{blok.subline}</h3>
-        <Link href={url}>{shortUrl}</Link>
+      <div className="col-span-1 box-border grid gap-4 px-4 sm:mx-12 sm:max-w-sm">
+        <div className="flex items-start">
+          <img
+            {...storyblokEditable(blok)}
+            className="h-16 w-full object-contain object-left-bottom sm:object-left-top"
+            src={blok.image.filename}
+          />
+        </div>
+        <div className="flex flex-col justify-start">
+          <h3 className="text-2xl font-medium">{blok.headline}</h3>
+          <h3 className="text-lg font-normal">{blok.subline}</h3>
+          <Link href={url}>{shortUrl}</Link>
+        </div>
       </div>
     );
   }
