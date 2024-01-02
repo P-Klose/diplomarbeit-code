@@ -11,27 +11,27 @@ const LinkComponent = ({ blok }) => {
     url = "/" + blok.link.cached_url;
   }
   const borderColors = [
-    "border-allgemein",
-    "border-it-medientechnik",
-    "border-informatik-sse",
-    "border-elektronik",
-    "border-medizintechnik",
-    "border-informatik-sse",
-    "border-informatik-ddp",
-    "border-informatik-csi",
-    "border-red-600",
-    "border-cyan-300",
-    "border-sky-400",
-    "border-blue-700",
-    "border-amber-500",
-    "border-red-400",
-    "border-pink-500",
-    "border-yellow-350",
-    "border-yellow-700",
-    "border-red-200",
-    "border-orange-950",
-    "border-lime-300",
-    "border-green-700",
+    "hover:border-allgemein",
+    "hover:border-it-medientechnik",
+    "hover:border-informatik-sse",
+    "hover:border-elektronik",
+    "hover:border-medizintechnik",
+    "hover:border-informatik-sse",
+    "hover:border-informatik-ddp",
+    "hover:border-informatik-csi",
+    "hover:border-red-600",
+    "hover:border-cyan-300",
+    "hover:border-sky-400",
+    "hover:border-blue-700",
+    "hover:border-amber-500",
+    "hover:border-red-400",
+    "hover:border-pink-500",
+    "hover:border-yellow-350",
+    "hover:border-yellow-700",
+    "hover:border-red-200",
+    "hover:border-orange-950",
+    "hover:border-lime-300",
+    "hover:border-green-700",
   ];
   const textColors = [
     "text-allgemein",
@@ -61,7 +61,7 @@ const LinkComponent = ({ blok }) => {
       {...storyblokEditable(blok)}
       className={`${
         blok.style == "marquee"
-          ? `mx-4 border-x-4 px-2 text-xl font-medium text-neutral-400 transition-colors border-${blok.color} hover:text-neutral-700`
+          ? `mx-4 border-x-2 border-white px-2 text-base font-medium text-neutral-400 transition-all duration-500 sm:text-lg lg:text-xl hover:border-${blok.color} hover:text-neutral-700`
           : `text-${blok.color}`
       } flex items-center`}
       href={url}
