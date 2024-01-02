@@ -5,7 +5,7 @@ export default async function Home() {
   return <StoryblokComponent blok={data.story.content} />;
 }
 
-export async function fetchData() {
+async function fetchData() {
   let sbParams = {
     version: process.env.storyblokApiVersion,
   };

@@ -9,7 +9,7 @@ export default async function Home() {
   return <StoryblokComponent blok={data.story.content} />;
 }
 
-export async function fetchData() {
+async function fetchData() {
   let sbParams = {
     // cache: "no-store",
     version: process.env.storyblokApiVersion,

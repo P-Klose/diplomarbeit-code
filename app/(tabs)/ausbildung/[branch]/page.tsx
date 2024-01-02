@@ -19,7 +19,7 @@ const Home: FC<pageProps> = async ({ params }) => {
 
 export default Home;
 
-export async function fetchData(articlename: string) {
+async function fetchData(articlename: string) {
   let sbParams = {
     // cache: "no-store",
     version: process.env.storyblokApiVersion,
