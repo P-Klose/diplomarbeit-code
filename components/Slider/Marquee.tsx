@@ -7,8 +7,8 @@ const InfiniteMarquee = ({ blok }) => {
     <>
       <section
         className={`mx-auto max-w-screen-2xl ${
-          blok.spacing_top ? "mt-5 sm:mt-8" : "mt-3 sm:mt-4"
-        } ${blok.spacing_bottom ? "mb-5 sm:mb-8" : "mb-3 sm:mb-4"}
+          blok.spacing_top ? "pt-5 sm:pt-8" : "pt-2 sm:pt-3"
+        } ${blok.spacing_bottom ? "pb-5 sm:pb-8" : "pb-2 sm:pb-3"}
       ${blok.display_all_mobile ? "hidden sm:block" : "block"}
       `}
       >
@@ -27,8 +27,8 @@ const InfiniteMarquee = ({ blok }) => {
             ? "grid grid-cols-1 place-items-center gap-12 px-8 sm:hidden"
             : "hidden"
         }
-        ${blok.spacing_top ? "mt-8" : "mt-4"} ${
-          blok.spacing_bottom ? "mb-8" : "mb-4"
+        ${blok.spacing_top ? "pt-8" : "pt-4"} ${
+          blok.spacing_bottom ? "pb-8" : "pb-4"
         }`}
       >
         {blok.content?.map((nestedBlok: any) => (
