@@ -8,8 +8,8 @@ import { FaFileArrowDown } from "react-icons/fa6";
 const Branch = ({ blok }) => (
   <main {...storyblokEditable(blok)}>
     <Navbar></Navbar>
-    <section className="mx-auto grid max-w-screen-2xl grid-cols-2 gap-20 p-6 md:grid-cols-3">
-      <div className="col-span-2 md:mt-16">
+    <section className="mx-auto grid max-w-screen-2xl grid-cols-6 gap-10 p-6 md:gap-20">
+      <div className="col-span-full md:mt-16">
         <h1 className="mb-4 text-4xl font-medium uppercase md:text-6xl">
           {blok.headline}
         </h1>
@@ -17,7 +17,7 @@ const Branch = ({ blok }) => (
           {blok.subline}
         </h2>
       </div>
-      <div className="md:col-span-2 md:row-start-2">
+      <div className="col-span-full md:col-span-3 md:row-start-2 lg:col-span-4">
         {render(blok.description)}
         <a href={blok.folder.filename} target="_blank">
           <button className="mt-8 flex items-center justify-center bg-it-medientechnik bg-opacity-20 px-6 py-4 transition ease-in-out hover:bg-opacity-50 hover:text-neutral-800">
@@ -26,7 +26,7 @@ const Branch = ({ blok }) => (
           </button>
         </a>
       </div>
-      <div className="md:col-span-1 md:row-start-2">
+      <div className="col-span-full md:col-span-3 md:row-start-2 lg:col-span-2">
         <iframe
           className="aspect-video w-full"
           src={blok.imagevideo.url}
