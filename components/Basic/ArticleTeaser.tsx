@@ -25,6 +25,9 @@ const ArticleTeaser = ({ article }) => {
 
   return (
     <motion.div
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, x: 0.9 }}
       transition={{ layout: { duration: 1, type: "spring" } }}
       layout
       onClick={() => setIsOpen(!isOpen)}
@@ -63,8 +66,8 @@ const ArticleTeaser = ({ article }) => {
           alt=""
         />
       ) : null}
-      {isOpen ? null : (
-        <motion.p
+      {isOpen ? (
+        <motion.div
           layout="position"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -72,8 +75,8 @@ const ArticleTeaser = ({ article }) => {
           className={`col-span-2 my-2 text-sm text-zinc-900`}
         >
           {render(article.content)}
-        </motion.p>
-      )}
+        </motion.div>
+      ) : null}
     </motion.div>
   );
 };
