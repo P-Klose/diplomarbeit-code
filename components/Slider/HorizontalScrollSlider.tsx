@@ -135,7 +135,7 @@ const Slider: React.FC<SliderProps> = ({ blok }) => {
           </div>
         </div>
       </div>
-      <div className="p4 flex flex-col px-2 xs:px-4">
+      <div className="flex flex-col pt-4 xs:px-4">
         <h1 className="pl-4 text-2xl font-semibold uppercase md:hidden">
           {blok.title}
         </h1>
@@ -176,7 +176,7 @@ const Slider: React.FC<SliderProps> = ({ blok }) => {
           </table>
         ) : null}
 
-        <div className="mx-8 my-8 grid grid-cols-1 gap-8 md:hidden md:gap-4 ">
+        <div className="mx-4 my-8 grid grid-cols-1 gap-8 xs:mx-8 md:hidden md:gap-4 ">
           <SliderContent slider={blok.slider}></SliderContent>
         </div>
       </div>
