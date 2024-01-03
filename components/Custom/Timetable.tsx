@@ -4,6 +4,7 @@ import { storyblokEditable, StoryblokComponent } from "@storyblok/react/rsc";
 import { useSearchParams } from "next/navigation";
 import { render } from "storyblok-rich-text-react-renderer";
 import TimetableColums from "./TimetableColums";
+import TimetableSubject from "./TimetableSubject";
 // import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 
 const Timetable = ({ blok }) => {
@@ -36,6 +37,12 @@ const Timetable = ({ blok }) => {
     (subject, index, self) =>
       index === self.findIndex((s) => s.name === subject.name),
   );
+  const specializedSubjects = uniqueSubjects.filter(
+    (subject) => subject.is_specialized_subject,
+  );
+  const nonSpecializedSubjects = uniqueSubjects.filter(
+    (subject) => !subject.is_specialized_subject,
+  );
 
   const selectedSubject = uniqueSubjects.find(
     (subject) => subject.short_name.toLowerCase() === selectedSubjectStr,
@@ -49,9 +56,26 @@ const Timetable = ({ blok }) => {
       id="timetable"
       {...storyblokEditable(blok)}
     >
-      <div className="col-span-2 grid grid-cols-5 text-center">
+      <h2 className="col-span-full p-2 text-2xl font-semibold uppercase md:text-3xl">
+        {blok.headline}
+      </h2>
+      <div className="col-span-2 hidden grid-cols-5 text-center md:grid">
         {blok.columns?.map((nestedBlok: any) => {
           return <TimetableColums blok={nestedBlok} key={nestedBlok._uid} />;
+        })}
+      </div>
+      <div className="col-span-2 grid grid-cols-2 gap-4 text-left md:hidden">
+        <h3 className="col-span-full p-2 text-2xl font-medium">
+          Allgemeine Fächer:
+        </h3>
+        {nonSpecializedSubjects.map((subject) => {
+          return <TimetableSubject blok={subject} key={subject._uid} />;
+        })}
+        <h3 className="col-span-full p-2 text-2xl font-medium">
+          Fachspezifische Fächer:
+        </h3>
+        {specializedSubjects.map((subject) => {
+          return <TimetableSubject blok={subject} key={subject._uid} />;
         })}
       </div>
       {selectedSubject ? (
@@ -62,7 +86,7 @@ const Timetable = ({ blok }) => {
             {selectedSubject.short_name}
           </h3>
           <h4 className="p-2 text-xl">{selectedSubject.name}</h4>
-          <section className="min-h-[16rem] p-2">
+          <section className="min-h-0 p-2 pb-4 md:min-h-[16rem]">
             {render(selectedSubject.description)}
           </section>
           <section className="grid grid-cols-5">
