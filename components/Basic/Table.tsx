@@ -3,9 +3,11 @@ import { storyblokEditable } from "@storyblok/react/rsc";
 const Table = ({ blok }) => {
   return (
     <section className="mx-auto max-w-screen-2xl p-4">
-      <h3 className="text-xl font-semibold xs:p-4 md:text-2xl">
-        {blok.headline}
-      </h3>
+      {blok.headline == "" ? null : (
+        <h3 className="text-xl font-semibold xs:p-4 md:text-2xl">
+          {blok.headline}
+        </h3>
+      )}
       <table
         className="mb-4 w-full table-fixed xs:mx-4"
         {...storyblokEditable(blok)}
