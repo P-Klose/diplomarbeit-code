@@ -32,6 +32,7 @@ const SelectSlider = ({ blok }) => {
 
   let scroll_width_summe = 0;
   let width = window.innerWidth;
+  let ultrawide = false;
 
   blok.slider.forEach((subblok: any) => {
     if (width >= 768) {
@@ -47,19 +48,30 @@ const SelectSlider = ({ blok }) => {
     "md:h-[300vh]",
     "md:h-[350vh]",
   ];
-  scroll_width_summe = scroll_width_summe - width;
-  let scroll_width_summe_str = "-" + scroll_width_summe + "px";
+  //scroll_width_summe = startpoint (distance from right)
+  //width = endpoint (distance from right)
+  scroll_width_summe = (scroll_width_summe - width) * -1;
+  let scroll_width_summe_str = scroll_width_summe + "px";
   let width_str = width + "px";
+  if (scroll_width_summe > 0) {
+    ultrawide = true;
+  }
   const x = useTransform(
     scrollYProgress,
     [0, 1],
-    [blok.scroll_start_right ? "0%" : width_str, scroll_width_summe_str],
+    [
+      ultrawide ? "0%" : blok.scroll_start_right ? "0%" : width_str,
+      ultrawide ? "0%" : scroll_width_summe_str,
+    ],
   );
+
   return (
     <section
       {...storyblokEditable(blok)}
       ref={targetRef}
-      className={`relative ${pre_defined_width.at(blok.scroll_speed)}`}
+      className={`relative ${
+        ultrawide ? "md:100vh" : pre_defined_width.at(blok.scroll_speed)
+      }`}
     >
       <div className="sticky top-0 hidden h-screen md:block">
         <h1 className="px-8 pt-8 text-center text-5xl font-semibold uppercase sm:text-end sm:text-7xl">

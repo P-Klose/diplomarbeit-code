@@ -80,7 +80,7 @@ const SliderContent: React.FC<SliderContentProps> = ({ slider }) => {
               className="flex flex-row md:grid md:min-w-[28rem] md:max-w-[28rem] md:grid-cols-3 md:gap-6"
               key={box._uid}
             >
-              <div className="mr-6 w-1/3 md:col-span-1 md:mr-0">
+              <div className="mr-6 w-1/3 md:col-span-1 md:mr-0 md:w-full">
                 <img
                   className="w-full object-contain object-bottom"
                   src={box.image.filename}

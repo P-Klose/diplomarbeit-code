@@ -31,6 +31,7 @@ const Slider: React.FC<SliderProps> = ({ blok }) => {
 
   let scroll_width_summe = 0;
   let width = window.innerWidth;
+  let ultrawide = false;
 
   blok.slider.forEach((subblok: any) => {
     if (width >= 768) {
@@ -65,19 +66,30 @@ const Slider: React.FC<SliderProps> = ({ blok }) => {
     "md:h-[300vh]",
     "md:h-[350vh]",
   ];
-  scroll_width_summe = scroll_width_summe - width;
-  let scroll_width_summe_str = "-" + scroll_width_summe + "px";
+  //scroll_width_summe = startpoint (distance from right)
+  //width = endpoint (distance from right)
+  scroll_width_summe = (scroll_width_summe - width) * -1;
+  let scroll_width_summe_str = scroll_width_summe + "px";
   let width_str = width + "px";
+  if (scroll_width_summe > 0) {
+    ultrawide = true;
+  }
   const x = useTransform(
     scrollYProgress,
     [0, 1],
-    [blok.scroll_start_right ? "0%" : width_str, scroll_width_summe_str],
+    [
+      ultrawide ? "0%" : blok.scroll_start_right ? "0%" : width_str,
+      ultrawide ? "0%" : scroll_width_summe_str,
+    ],
   );
+
   return (
     <section
       {...storyblokEditable(blok)}
       ref={targetRef}
-      className={`relative ${pre_defined_width.at(blok.scroll_speed)}`}
+      className={`relative ${
+        ultrawide ? "md:100vh" : pre_defined_width.at(blok.scroll_speed)
+      }`}
     >
       <div className="sticky top-0 hidden h-screen md:block">
         <h1 className="px-8 pt-8 text-left text-5xl font-semibold uppercase sm:text-7xl">
@@ -135,12 +147,10 @@ const Slider: React.FC<SliderProps> = ({ blok }) => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col pt-4 xs:px-4">
-        <h1 className="pl-4 text-2xl font-semibold uppercase md:hidden">
-          {blok.title}
-        </h1>
+      <div className="flex flex-col pt-4 xs:px-4 md:hidden">
+        <h1 className="pl-4 text-2xl font-semibold uppercase ">{blok.title}</h1>
         {blok.slider_table ? (
-          <table className="m-4 w-[calc(100%-16px)]">
+          <table className="m-4  w-[calc(100%-16px)] ">
             <thead className="mb-4">
               <tr>
                 {blok.slider_table?.thead?.map((th: any, index: number) => {
@@ -176,7 +186,7 @@ const Slider: React.FC<SliderProps> = ({ blok }) => {
           </table>
         ) : null}
 
-        <div className="mx-4 my-8 grid grid-cols-1 gap-8 xs:mx-8 md:hidden md:gap-4 ">
+        <div className="mx-4 my-8 grid grid-cols-1 gap-8 xs:mx-8 md:gap-4 ">
           <SliderContent slider={blok.slider}></SliderContent>
         </div>
       </div>
