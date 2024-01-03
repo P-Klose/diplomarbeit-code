@@ -46,12 +46,16 @@ const SliderContent: React.FC<SliderContentProps> = ({ slider }) => {
         if (box.type == "k-big") {
           return (
             <div
-              className="mr-12 flex min-w-[26rem] max-w-[26rem] flex-col md:min-w-[32rem] md:max-w-[32rem]"
+              className="mb-4 flex flex-col md:mb-0 md:mr-12 md:min-w-[32rem] md:max-w-[32rem]"
               key={box._uid}
             >
-              <div className={`mb-4 h-5 w-1/4 bg-${box.allocate}`}></div>
-              <h2 className="h-14 w-full text-lg uppercase">{box.headline}</h2>
-              <div className="grid h-full grid-cols-4">
+              <div
+                className={`mb-2 h-4 w-1/4 md:mb-4 md:h-5 bg-${box.allocate}`}
+              ></div>
+              <h2 className="min-h[14rem] w-full text-lg uppercase">
+                {box.headline}
+              </h2>
+              <div className="grid h-full grid-cols-3 gap-4 sm:grid-cols-4">
                 <div className="col-span-2 flex h-full flex-col justify-between">
                   <div className="flex h-1/2 flex-col justify-around">
                     <h3>{box.subline}</h3>
@@ -60,9 +64,9 @@ const SliderContent: React.FC<SliderContentProps> = ({ slider }) => {
                     {render(box.content)}
                   </div>
                 </div>
-                <div className="col-span-2">
+                <div className="col-span-1 xs:col-span-2">
                   <img
-                    className="h-full max-w-full"
+                    className="h-full max-w-full object-contain object-right-top"
                     src={box.image.filename}
                   ></img>
                 </div>
@@ -73,16 +77,16 @@ const SliderContent: React.FC<SliderContentProps> = ({ slider }) => {
         if (box.type == "k-small") {
           return (
             <div
-              className="grid min-w-[28rem] max-w-[28rem] grid-cols-3 gap-6"
+              className="flex flex-row md:grid md:min-w-[28rem] md:max-w-[28rem] md:grid-cols-3 md:gap-6"
               key={box._uid}
             >
-              <div className="col-span-1">
+              <div className="mr-6 w-1/3 md:col-span-1 md:mr-0">
                 <img
-                  className="h-full max-w-full"
+                  className="w-full object-contain object-bottom"
                   src={box.image.filename}
                 ></img>
               </div>
-              <div className="col-span-2 flex flex-col items-start justify-end">
+              <div className="flex flex-col items-start justify-end md:col-span-2">
                 <h2 className="h-14 text-lg uppercase">{box.headline}</h2>
                 <h3>{box.subline}</h3>
               </div>
@@ -93,7 +97,7 @@ const SliderContent: React.FC<SliderContentProps> = ({ slider }) => {
           // console.log(count);
           return (
             <div
-              className="row-span-1 grid min-w-[26rem] max-w-[26rem] bg-gray-100 md:row-span-2 md:min-w-[32rem] md:max-w-[32rem]"
+              className="row-span-1 grid bg-gray-100 md:row-span-2 md:min-w-[32rem] md:max-w-[32rem]"
               key={box._uid}
             >
               <div

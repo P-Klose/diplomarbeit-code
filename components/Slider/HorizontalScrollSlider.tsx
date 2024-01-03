@@ -135,6 +135,51 @@ const Slider: React.FC<SliderProps> = ({ blok }) => {
           </div>
         </div>
       </div>
+      <div className="p4 flex flex-col px-2 xs:px-4">
+        <h1 className="pl-4 text-2xl font-semibold uppercase md:hidden">
+          {blok.title}
+        </h1>
+        {blok.slider_table ? (
+          <table className="m-4 w-[calc(100%-16px)]">
+            <thead className="mb-4">
+              <tr>
+                {blok.slider_table?.thead?.map((th: any, index: number) => {
+                  return (
+                    <th
+                      className="text-left text-lg font-semibold"
+                      key={`${th.value}-${index}`}
+                    >
+                      {th.value}
+                    </th>
+                  );
+                })}
+              </tr>
+            </thead>
+            <tbody className="">
+              {blok.slider_table?.tbody?.map((tr: any) => {
+                return (
+                  <tr key={tr._uid}>
+                    {tr.body?.map((td: any) => {
+                      return (
+                        <th
+                          className="text-left text-base font-normal"
+                          key={td._uid}
+                        >
+                          {td.value}
+                        </th>
+                      );
+                    })}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        ) : null}
+
+        <div className="mx-8 my-8 grid grid-cols-1 gap-8 md:hidden md:gap-4 ">
+          <SliderContent slider={blok.slider}></SliderContent>
+        </div>
+      </div>
     </section>
   );
 };
