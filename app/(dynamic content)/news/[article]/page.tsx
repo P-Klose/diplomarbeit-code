@@ -1,7 +1,8 @@
 import Article from "@/components/Basic/Article";
 import Footer from "@/components/Footer/Footer";
 import Navbar from "@/components/Navbar";
-import { getStoryblokApi, StoryblokComponent } from "@storyblok/react/rsc";
+import { getStoryblokApi } from "@storyblok/react/rsc";
+import StoryblokStory from "@storyblok/react/story";
 import { FC } from "react";
 
 interface pageProps {
@@ -14,10 +15,7 @@ const Home: FC<pageProps> = async ({ params }) => {
   return (
     <main>
       <Navbar></Navbar>
-      <StoryblokComponent
-        blok={data.story.content}
-        key={data.story.content._uid}
-      />
+      <StoryblokStory story={data.story} key={data.story.content._uid} />
       <Footer></Footer>
     </main>
   );

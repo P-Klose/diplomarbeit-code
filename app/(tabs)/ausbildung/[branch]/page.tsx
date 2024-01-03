@@ -1,5 +1,6 @@
 import Article from "@/components/Basic/Article";
 import { getStoryblokApi, StoryblokComponent } from "@storyblok/react/rsc";
+import StoryblokStory from "@storyblok/react/story";
 import { FC } from "react";
 
 interface pageProps {
@@ -9,12 +10,7 @@ interface pageProps {
 const Home: FC<pageProps> = async ({ params }) => {
   const { data } = await fetchData(params.branch);
 
-  return (
-    <StoryblokComponent
-      blok={data.story.content}
-      key={data.story.content._uid}
-    />
-  );
+  return <StoryblokStory story={data.story} key={data.story.content._uid} />;
 };
 
 export default Home;
