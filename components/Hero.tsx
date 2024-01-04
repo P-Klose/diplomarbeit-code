@@ -14,13 +14,13 @@ const Hero = ({ blok }) => {
   return (
     <section
       {...storyblokEditable(blok)}
-      className={`relative mx-auto grid h-auto max-w-screen-2xl sm:grid-cols-7 ${
+      className={`relative mx-auto grid h-auto max-w-screen-2xl grid-cols-1 sm:grid-cols-7 ${
         blok.themeisdark ? "bg-zinc-900" : "bg-white"
       }
       ${blok.type == "school" ? "sm:mb-10 md:mb-14 lg:mb-20 xl:mb-40" : ""}`}
     >
       <div
-        className={`flex h-32 sm:${blok.height} ${
+        className={`flex h-32 sm:${blok.height} col-span-full ${
           blok.fixed ? "md:sticky md:top-0" : ""
         } items-center justify-start overflow-hidden bg-cover bg-no-repeat ${
           blok.type
@@ -29,7 +29,7 @@ const Hero = ({ blok }) => {
           background: `linear-gradient(rgba(0,0, 0, 0.6),rgba(0, 0, 0, 0.3)),url(${blok.background_image.filename}) no-repeat bottom center / cover`,
         }}
       >
-        <h1 className="w-full text-center text-5xl font-extrabold text-white sm:ml-8 sm:w-1/2 sm:text-left md:ml-16 md:text-7xl xl:text-8xl">
+        <h1 className="w-full text-center text-5xl font-extrabold uppercase text-white sm:ml-8 sm:w-1/2 sm:text-left md:ml-16 md:text-7xl xl:text-8xl">
           {blok.headline}
         </h1>
       </div>
