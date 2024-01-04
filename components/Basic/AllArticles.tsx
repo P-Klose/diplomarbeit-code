@@ -59,8 +59,6 @@ const AllArticles: React.FC<AllArticlesProps> = ({ blok }) => {
         },
       });
 
-      console.log(data);
-
       setArticles((prev) =>
         data.stories.map((article: any) => {
           article.content.slug = article.slug;

@@ -20,8 +20,6 @@ storyblokInit({
 });
 
 const FeatArticles: React.FC<FeatArticlesProps> = ({ blok }) => {
-  console.log(blok);
-
   return (
     <LayoutGroup>
       <section className="mx-auto w-full max-w-screen-2xl p-4">
