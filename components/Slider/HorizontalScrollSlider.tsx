@@ -82,7 +82,6 @@ const Slider: React.FC<SliderProps> = ({ blok }) => {
       ultrawide ? "0%" : scroll_width_summe_str,
     ],
   );
-  console.log(blok.slider_table);
 
   return (
     <section

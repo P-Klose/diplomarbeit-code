@@ -102,8 +102,6 @@ const SliderContent: React.FC<SliderContentProps> = ({ slider }) => {
           );
         }
         if (box.type == "bewerbung") {
-          console.log(box.content);
-
           return (
             <div
               className="grid h-full grid-cols-1 md:mr-8 md:min-w-[28rem] md:max-w-[28rem] md:gap-6"

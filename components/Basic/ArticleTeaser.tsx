@@ -8,7 +8,6 @@ const ArticleTeaser: React.FC<ArticleProps> = ({ blok }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   function transformDateFormat(inputDate: string) {
-    // console.log(inputDate);
     const dateParts = inputDate.split(" ");
     if (dateParts.length === 2) {
       const [datePart, timePart] = dateParts;

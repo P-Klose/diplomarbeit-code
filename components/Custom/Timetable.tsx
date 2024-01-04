@@ -48,8 +48,6 @@ const Timetable = ({ blok }) => {
     (subject) => subject.short_name.toLowerCase() === selectedSubjectStr,
   );
 
-  // console.log(selectedSubject);
-
   return (
     <section
       className="mx-auto grid max-w-screen-2xl grid-cols-2 gap-6 p-6 md:grid-cols-3"

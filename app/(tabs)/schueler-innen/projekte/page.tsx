@@ -4,8 +4,6 @@ import { cache } from "react";
 
 export default async function Home() {
   const { data } = await fetchData();
-  // console.log("Fetching Data");
-  // debug(data);
   return <StoryblokStory story={data.story} />;
 }
 

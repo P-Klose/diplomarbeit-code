@@ -9,7 +9,6 @@ const Slider = ({ blok }) => {
   const carousel = useRef<any>();
 
   useEffect(() => {
-    // console.log(carousel.current.scrollWidth, carousel.current.offsetWidth);
     setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
   }, []);
   return (

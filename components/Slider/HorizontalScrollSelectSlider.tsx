@@ -109,7 +109,6 @@ const SelectSlider = ({ blok }) => {
         <Carousel>
           {blok.slider?.map((boxinfo: any) => {
             let box = boxinfo.content;
-            // console.log(boxinfo);
 
             if (box.type == "event") {
               return (

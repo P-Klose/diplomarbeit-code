@@ -27,9 +27,7 @@ const borderColors = [
 ];
 
 const Article: React.FC<ArticleProps> = ({ blok }) => {
-  // console.log(blok);
   function transformDateFormat(inputDate: string) {
-    // console.log(inputDate);
     const dateParts = inputDate.split(" ");
     if (dateParts.length === 2) {
       const [datePart, timePart] = dateParts;
