@@ -38,6 +38,9 @@ import FeatArticles from "@/components/Basic/FeatArticles";
 import Marquee from "@/components/Slider/Marquee";
 import ValueDokument from "@/components/Custom/ValueDokument";
 import ValueDokumentEntry from "@/components/Custom/ValueDokumentEntry";
+import DesignableTable from "@/components/Custom/DesignableTable";
+import DesignableTableRow from "@/components/Custom/DesignableTableRow";
+import DesignableTableValue from "@/components/Custom/DesignableTableValue";
 import Timetable from "@/components/Custom/Timetable";
 import TimetableColumn from "@/components/Custom/TimetableColums";
 import TimetableSubject from "@/components/Custom/TimetableSubject";
@@ -66,6 +69,9 @@ const components = {
   marquee: Marquee,
   value_document: ValueDokument,
   value_document_entry: ValueDokumentEntry,
+  designable_table: DesignableTable,
+  table_row: DesignableTableRow,
+  table_value: DesignableTableValue,
   timetable: Timetable,
   timetable_subject: TimetableSubject,
   timetable_cols: TimetableColumn,
