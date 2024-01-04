@@ -33,6 +33,29 @@ const LinkComponent = ({ blok }) => {
     "hover:border-lime-300",
     "hover:border-green-700",
   ];
+  const borderLColors = [
+    "border-l-allgemein",
+    "border-l-it-medientechnik",
+    "border-l-informatik-sse",
+    "border-l-elektronik",
+    "border-l-medizintechnik",
+    "border-l-informatik-sse",
+    "border-l-informatik-ddp",
+    "border-l-informatik-csi",
+    "border-l-red-600",
+    "border-l-cyan-300",
+    "border-l-sky-400",
+    "border-l-blue-700",
+    "border-l-amber-500",
+    "border-l-red-400",
+    "border-l-pink-500",
+    "border-l-yellow-350",
+    "border-l-yellow-700",
+    "border-l-red-200",
+    "border-l-orange-950",
+    "border-l-lime-300",
+    "border-l-green-700",
+  ];
   const textColors = [
     "text-allgemein",
     "text-it-medientechnik",
@@ -56,10 +79,34 @@ const LinkComponent = ({ blok }) => {
     "text-lime-300",
     "text-green-700",
   ];
-  console.log(blok.style);
+  const bgColors = [
+    "bg-allgemein",
+    "bg-it-medientechnik",
+    "bg-informatik-sse",
+    "bg-elektronik",
+    "bg-medizintechnik",
+    "bg-informatik-sse",
+    "bg-informatik-ddp",
+    "bg-informatik-csi",
+    "bg-red-600",
+    "bg-cyan-300",
+    "bg-sky-400",
+    "bg-blue-700",
+    "bg-amber-500",
+    "bg-red-400",
+    "bg-pink-500",
+    "bg-yellow-350",
+    "bg-yellow-700",
+    "bg-red-200",
+    "bg-orange-950",
+    "bg-lime-300",
+    "bg-green-700",
+  ];
   return (
     <>
-      {blok.style != "h-video" && blok.style != "h-link" ? (
+      {blok.style == "text-nav-base" ||
+      blok.style == "marquee" ||
+      blok.style == "" ? (
         <Link
           {...storyblokEditable(blok)}
           className={`${
@@ -72,19 +119,7 @@ const LinkComponent = ({ blok }) => {
         >
           <MediaIcon iconName={blok.symbol} />
           {blok.symbol ? <span className="px-1"></span> : null}
-          {blok.style == "marquee" ? (
-            <>
-              {/* <span className={`text-${blok.color} px-1 text-xl font-extrabold`}>
-            |
-          </span> */}
-              {blok.display_name}
-              {/* <span className={`text-${blok.color} px-1 text-xl font-extrabold`}>
-            |
-          </span> */}
-            </>
-          ) : (
-            `${blok.display_name}`
-          )}
+          {blok.display_name}
         </Link>
       ) : null}
       {blok.style == "h-video" ? (
@@ -118,6 +153,14 @@ const LinkComponent = ({ blok }) => {
             </Link>
           </div>
         </div>
+      ) : null}
+      {blok.style == "default" ? (
+        <Link
+          className={`mb-2 block border-l-4 border-l-${blok.color} bg-${blok.color} bg-opacity-0 p-2 no-underline transition-all hover:bg-opacity-25`}
+          href={url}
+        >
+          {blok.display_name}
+        </Link>
       ) : null}
     </>
   );

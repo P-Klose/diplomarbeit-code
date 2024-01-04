@@ -1,6 +1,7 @@
 import { Asset } from "@/types/interfaces";
 import Link from "next/link";
 import { render } from "storyblok-rich-text-react-renderer";
+import LinkComponent from "../Basic/Link";
 
 interface Box {
   _uid: string;
@@ -101,29 +102,24 @@ const SliderContent: React.FC<SliderContentProps> = ({ slider }) => {
           );
         }
         if (box.type == "bewerbung") {
-          // console.log(count);
+          console.log(box.content);
+
           return (
             <div
-              className="row-span-1 grid bg-gray-100 md:row-span-2 md:min-w-[32rem] md:max-w-[32rem]"
+              className="grid h-full grid-cols-1 md:mr-8 md:min-w-[28rem] md:max-w-[28rem] md:gap-6"
               key={box._uid}
             >
-              <div
-                className={`row-start-1 box-border h-80 border-b-4 border-black p-6 tall:h-96 ${
-                  count % 2 !== 0
-                    ? "tall:row-start-1 tall:border-b-[3px]"
-                    : "tall:row-start-2 tall:border-b-0 tall:border-t-[3px]"
-                }`}
-              >
+              <div className="flex flex-col items-start justify-end md:col-span-1">
                 <h1 className="text-4xl font-semibold">{box.headline}</h1>
-                <div className="">{render(box.content)}</div>
+                <h3 className="text-2xl font-medium">{box.subline}</h3>
               </div>
-              <div
-                className={`row-start-2 box-border border-black p-6 tall:h-96 ${
-                  count % 2 === 0
-                    ? "tall:row-start-1 tall:border-b-[3px]"
-                    : "tall:row-start-2 tall:border-t-[3px]"
-                } `}
-              ></div>
+              <div className="prose max-w-none p-2 md:col-span-1">
+                {render(box.content, {
+                  blokResolvers: {
+                    ["custom_link"]: (props) => <LinkComponent blok={props} />,
+                  },
+                })}
+              </div>
             </div>
           );
         }

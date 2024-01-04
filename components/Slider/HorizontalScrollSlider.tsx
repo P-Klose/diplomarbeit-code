@@ -14,9 +14,9 @@ interface SliderProps {
     scroll_speed: number;
     alternating: boolean;
     title?: string;
-    slider_table?: {
-      thead?: any[];
-      tbody?: any[];
+    slider_table: {
+      thead: any[];
+      tbody: any[];
     };
   };
 }
@@ -43,7 +43,7 @@ const Slider: React.FC<SliderProps> = ({ blok }) => {
         scroll_width_summe += 448 + 16;
       } else {
         // Wenn es etwas anderes ist oder 'k-big' nicht existiert
-        scroll_width_summe += 512;
+        scroll_width_summe += 448 + 32;
       }
     } else {
       if (subblok.type === "event") {
@@ -82,6 +82,7 @@ const Slider: React.FC<SliderProps> = ({ blok }) => {
       ultrawide ? "0%" : scroll_width_summe_str,
     ],
   );
+  console.log(blok.slider_table);
 
   return (
     <section
@@ -95,40 +96,42 @@ const Slider: React.FC<SliderProps> = ({ blok }) => {
         <h1 className="px-8 pt-8 text-left text-5xl font-semibold uppercase sm:text-7xl">
           {blok.title}
         </h1>
-        <table className="my-4 ml-auto w-full sm:w-1/2 md:w-1/3">
-          <thead className="mb-4">
-            <tr>
-              {blok.slider_table?.thead?.map((th: any, index: number) => {
+        {blok.slider_table.thead.length > 0 ? (
+          <table className="my-4 ml-auto w-full sm:w-1/2 md:w-1/3">
+            <thead className="mb-4">
+              <tr>
+                {blok.slider_table?.thead?.map((th: any, index: number) => {
+                  return (
+                    <th
+                      className="text-left text-xl font-semibold"
+                      key={`${th.value}-${index}`}
+                    >
+                      {th.value}
+                    </th>
+                  );
+                })}
+              </tr>
+            </thead>
+            <tbody className="">
+              {blok.slider_table?.tbody?.map((tr: any) => {
                 return (
-                  <th
-                    className="text-left text-xl font-semibold"
-                    key={`${th.value}-${index}`}
-                  >
-                    {th.value}
-                  </th>
+                  <tr key={tr._uid}>
+                    {tr.body?.map((td: any) => {
+                      return (
+                        <th
+                          className="text-left text-lg font-normal"
+                          key={td._uid}
+                        >
+                          {td.value}
+                        </th>
+                      );
+                    })}
+                  </tr>
                 );
               })}
-            </tr>
-          </thead>
-          <tbody className="">
-            {blok.slider_table?.tbody?.map((tr: any) => {
-              return (
-                <tr key={tr._uid}>
-                  {tr.body?.map((td: any) => {
-                    return (
-                      <th
-                        className="text-left text-lg font-normal"
-                        key={td._uid}
-                      >
-                        {td.value}
-                      </th>
-                    );
-                  })}
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+            </tbody>
+          </table>
+        ) : null}
         <div className="flex h-[80vh] items-center overflow-hidden p-8">
           <div ref={carousel} className="w-screen overflow-visible">
             <motion.div
@@ -149,7 +152,7 @@ const Slider: React.FC<SliderProps> = ({ blok }) => {
       </div>
       <div className="flex flex-col pt-4 xs:px-4 md:hidden">
         <h1 className="pl-4 text-2xl font-semibold uppercase ">{blok.title}</h1>
-        {blok.slider_table ? (
+        {blok.slider_table.thead.length > 0 ? (
           <table className="m-4  w-[calc(100%-16px)] ">
             <thead className="mb-4">
               <tr>
