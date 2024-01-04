@@ -19,10 +19,12 @@ const Sponsor = ({ blok }) => {
     );
   } else {
     return (
-      <div className="col-span-1 box-border grid gap-4 px-4 sm:mx-12 sm:max-w-sm">
+      <div
+        {...storyblokEditable(blok)}
+        className="col-span-1 box-border grid gap-4 px-4 sm:mx-12 sm:max-w-sm"
+      >
         <div className="flex items-start">
           <img
-            {...storyblokEditable(blok)}
             className="h-16 w-full object-contain object-left-bottom sm:object-left-top"
             src={blok.image.filename}
           />

@@ -6,6 +6,7 @@ const InfiniteMarquee = ({ blok }) => {
   return (
     <>
       <section
+        {...storyblokEditable(blok)}
         className={`mx-auto max-w-screen-2xl ${
           blok.spacing_top ? "pt-5 sm:pt-8" : "pt-2 sm:pt-3"
         } ${blok.spacing_bottom ? "pb-5 sm:pb-8" : "pb-2 sm:pb-3"}
@@ -22,6 +23,7 @@ const InfiniteMarquee = ({ blok }) => {
         </Marquee>
       </section>
       <section
+        {...storyblokEditable(blok)}
         className={`${
           blok.display_all_mobile
             ? "grid grid-cols-1 place-items-center gap-12 px-8 sm:hidden"

@@ -1,5 +1,6 @@
 import { Asset } from "@/types/interfaces";
 import Link from "next/link";
+import { storyblokEditable } from "@storyblok/react/rsc";
 import { render } from "storyblok-rich-text-react-renderer";
 import LinkComponent from "../Basic/Link";
 
@@ -31,7 +32,11 @@ const SliderContent: React.FC<SliderContentProps> = ({ slider }) => {
 
         if (box.type === "event") {
           return (
-            <Link href={box.full_slug} key={box._uid}>
+            <Link
+              {...storyblokEditable(box)}
+              href={box.full_slug}
+              key={box._uid}
+            >
               <div
                 className={`border-${box.allocate} relative flex w-full flex-shrink-0 flex-col items-start justify-start border-l-4 bg-white md:mr-8 md:min-w-[32rem] md:max-w-[32rem] md:flex-shrink`}
               >
@@ -54,6 +59,7 @@ const SliderContent: React.FC<SliderContentProps> = ({ slider }) => {
         if (box.type == "k-big") {
           return (
             <div
+              {...storyblokEditable(box)}
               className="mb-4 flex flex-col md:mb-0 md:mr-12 md:min-w-[32rem] md:max-w-[32rem]"
               key={box._uid}
             >
@@ -85,6 +91,7 @@ const SliderContent: React.FC<SliderContentProps> = ({ slider }) => {
         if (box.type == "k-small") {
           return (
             <div
+              {...storyblokEditable(box)}
               className="flex flex-row md:grid md:min-w-[28rem] md:max-w-[28rem] md:grid-cols-3 md:gap-6"
               key={box._uid}
             >
@@ -104,6 +111,7 @@ const SliderContent: React.FC<SliderContentProps> = ({ slider }) => {
         if (box.type == "bewerbung") {
           return (
             <div
+              {...storyblokEditable(box)}
               className="grid h-full grid-cols-1 md:mr-8 md:min-w-[28rem] md:max-w-[28rem] md:gap-6"
               key={box._uid}
             >

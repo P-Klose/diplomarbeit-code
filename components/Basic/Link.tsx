@@ -106,7 +106,8 @@ const LinkComponent = ({ blok }) => {
     <>
       {blok.style == "text-nav-base" ||
       blok.style == "marquee" ||
-      blok.style == "" ? (
+      blok.style == "" ||
+      blok.style == undefined ? (
         <Link
           {...storyblokEditable(blok)}
           className={`${
@@ -156,6 +157,7 @@ const LinkComponent = ({ blok }) => {
       ) : null}
       {blok.style == "default" ? (
         <Link
+          {...storyblokEditable(blok)}
           className={`mb-2 block border-l-4 border-l-${blok.color} bg-${blok.color} bg-opacity-0 p-2 no-underline transition-all hover:bg-opacity-25`}
           href={url}
         >

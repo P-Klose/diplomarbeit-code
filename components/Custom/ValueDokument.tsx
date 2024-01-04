@@ -8,7 +8,10 @@ import ValueDokumentEntry from "./ValueDokumentEntry";
 const ValueDokument = ({ blok }) => {
   var content_count = 0;
   return (
-    <motion.div className="mx-auto max-w-screen-2xl py-4">
+    <motion.div
+      {...storyblokEditable(blok)}
+      className="mx-auto max-w-screen-2xl py-4"
+    >
       {/* <div className=" float-right w-full bg-white"></div> */}
       <h2 className="p-4 pb-3 text-2xl font-semibold uppercase md:text-3xl">
         {blok.headline}

@@ -22,7 +22,10 @@ storyblokInit({
 const FeatArticles: React.FC<FeatArticlesProps> = ({ blok }) => {
   return (
     <LayoutGroup>
-      <section className="mx-auto w-full max-w-screen-2xl p-4">
+      <section
+        {...storyblokEditable(blok)}
+        className="mx-auto w-full max-w-screen-2xl p-4"
+      >
         <h2 className="p-4 pb-3 text-2xl font-semibold uppercase md:text-3xl">
           {blok.headline}
         </h2>
