@@ -6,6 +6,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import Carousel from "./Carousel";
 import SliderContent from "./SliderContent";
+import Link from "next/link";
 
 const mapBlokSliderToSliderContent = (blokSlider) => {
   return blokSlider.map((boxInfo) => {
@@ -18,7 +19,8 @@ const mapBlokSliderToSliderContent = (blokSlider) => {
       headline: box.headline,
       subline: box.subline,
       content: box.content,
-      main_image: box.main_image, // Include other properties as needed
+      main_image: box.main_image,
+      full_slug: boxInfo.full_slug,
     };
   });
 };
@@ -107,24 +109,31 @@ const SelectSlider = ({ blok }) => {
         <Carousel>
           {blok.slider?.map((boxinfo: any) => {
             let box = boxinfo.content;
+            // console.log(boxinfo);
+
             if (box.type == "event") {
               return (
-                <div
-                  className={`border-${box.allocate} box-border flex w-full flex-shrink-0 flex-col items-start justify-start border-l-4 bg-white`}
+                <Link
+                  className="z-50 w-full flex-shrink-0"
+                  href={boxinfo.full_slug}
                   key={box._uid}
                 >
-                  <img
-                    className="box-border w-full max-w-full border-l-8 border-transparent "
-                    src={box.image.filename}
-                    alt={box.headline}
-                  />
-                  <h2 className="m-4 text-lg font-medium">{box.headline}</h2>
-                  <p
-                    className={`bg-${box.allocate} p-2 text-right text-xs font-normal`}
+                  <div
+                    className={`border-${box.allocate} box-border flex w-full flex-shrink-0 flex-col items-start justify-start border-l-4 bg-white`}
                   >
-                    {box.subline}
-                  </p>
-                </div>
+                    <img
+                      className="box-border w-full max-w-full border-l-8 border-transparent "
+                      src={box.image.filename}
+                      alt={box.headline}
+                    />
+                    <h2 className="m-4 text-lg font-medium">{box.headline}</h2>
+                    <p
+                      className={`bg-${box.allocate} p-2 text-right text-xs font-normal`}
+                    >
+                      {box.subline}
+                    </p>
+                  </div>
+                </Link>
               );
             }
             return null; // Skip rendering for other elements

@@ -25,6 +25,7 @@ export interface ArticleProps {
     allocate?: string;
     subpage_enabled?: boolean;
     slug: string;
+    type: string;
   };
   full_slug: string;
 }

@@ -27,6 +27,7 @@ const borderColors = [
 ];
 
 const Article: React.FC<ArticleProps> = ({ blok }) => {
+  // console.log(blok);
   function transformDateFormat(inputDate: string) {
     // console.log(inputDate);
     const dateParts = inputDate.split(" ");
@@ -95,7 +96,7 @@ const Article: React.FC<ArticleProps> = ({ blok }) => {
           </h2>
           <div className="col-span-full grid grid-cols-2 gap-2 p-2 md:col-span-2 lg:grid-cols-3 lg:p-4">
             {blok.assets.map((asset: Asset) => {
-              console.log(asset);
+              // console.log(asset);
               return (
                 <img
                   className="z-0 transition-transform hover:z-10 hover:scale-105"
@@ -109,12 +110,30 @@ const Article: React.FC<ArticleProps> = ({ blok }) => {
         </>
       ) : null}
       <div className="col-span-full flex items-center justify-start md:justify-end">
-        <Link
-          className={`px-4 py-2 bg-${blok.allocate} border-l-2 bg-opacity-0 text-base transition-all hover:bg-opacity-25 md:border-l-0 md:border-r-2 border-${blok.allocate}`}
-          href={`/news`}
-        >
-          Mehr News
-        </Link>
+        {blok.type == "event" ? (
+          <Link
+            className={`px-4 py-2 bg-${blok.allocate} w-full border-l-2 bg-opacity-0 text-base transition-all hover:bg-opacity-25 md:w-auto md:border-l-0 md:border-r-2 border-${blok.allocate}`}
+            href={`/schueler-innen/events`}
+          >
+            Mehr Events
+          </Link>
+        ) : null}
+        {blok.type == "news" ? (
+          <Link
+            className={`px-4 py-2 bg-${blok.allocate} w-full border-l-2 bg-opacity-0 text-base transition-all hover:bg-opacity-25 md:w-auto md:border-l-0 md:border-r-2 border-${blok.allocate}`}
+            href={`/schueler-innen/events`}
+          >
+            Mehr News
+          </Link>
+        ) : null}
+        {blok.type == "project" ? (
+          <Link
+            className={`px-4 py-2 bg-${blok.allocate} w-full border-l-2 bg-opacity-0 text-base transition-all hover:bg-opacity-25 md:w-auto md:border-l-0 md:border-r-2 border-${blok.allocate}`}
+            href={`/schueler-innen/projekte`}
+          >
+            Mehr Projekte
+          </Link>
+        ) : null}
       </div>
     </section>
   );

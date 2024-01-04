@@ -1,13 +1,19 @@
+import { Asset } from "@/types/interfaces";
+import Link from "next/link";
 import { render } from "storyblok-rich-text-react-renderer";
 
 interface Box {
-  type: string;
-  allocate: string;
   _uid: string;
-  image: { filename: string };
+  image: Asset;
+  assets: [Asset];
   headline: string;
   subline: string;
-  content?: any;
+  content: any;
+  date?: string;
+  allocate?: string;
+  subpage_enabled?: boolean;
+  full_slug: string;
+  type: string;
 }
 
 interface SliderContentProps {
@@ -24,23 +30,24 @@ const SliderContent: React.FC<SliderContentProps> = ({ slider }) => {
 
         if (box.type === "event") {
           return (
-            <div
-              className={`border-${box.allocate} relative flex w-full flex-shrink-0 flex-col items-start justify-start border-l-4 bg-white md:mr-8 md:min-w-[32rem] md:max-w-[32rem] md:flex-shrink`}
-              key={box._uid}
-            >
-              <img
-                className="border-box ml-2 max-w-full "
-                src={box.image.filename}
-              ></img>
-              <h2 className="col-span-3 row-start-3 m-4 text-lg font-medium">
-                {box.headline}
-              </h2>
-              <p
-                className={`bg-${box.allocate} p-2 text-right text-xs font-normal`}
+            <Link href={box.full_slug} key={box._uid}>
+              <div
+                className={`border-${box.allocate} relative flex w-full flex-shrink-0 flex-col items-start justify-start border-l-4 bg-white md:mr-8 md:min-w-[32rem] md:max-w-[32rem] md:flex-shrink`}
               >
-                {box.subline}
-              </p>
-            </div>
+                <img
+                  className="border-box ml-2 max-w-full "
+                  src={box.image.filename}
+                ></img>
+                <h2 className="col-span-3 row-start-3 m-4 text-lg font-medium">
+                  {box.headline}
+                </h2>
+                <p
+                  className={`bg-${box.allocate} p-2 text-right text-xs font-normal`}
+                >
+                  {box.subline}
+                </p>
+              </div>
+            </Link>
           );
         }
         if (box.type == "k-big") {
