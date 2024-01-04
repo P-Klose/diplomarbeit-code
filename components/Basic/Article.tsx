@@ -88,7 +88,7 @@ const Article: React.FC<ArticleProps> = ({ blok }) => {
       >
         {render(blok.content)}
       </div>
-      {blok.assets ? (
+      {blok.assets.length > 0 ? (
         <>
           <h2 className="col-span-full text-xl font-medium hover:cursor-pointer">
             Weitere Medien
@@ -113,7 +113,7 @@ const Article: React.FC<ArticleProps> = ({ blok }) => {
           className={`px-4 py-2 bg-${blok.allocate} border-l-2 bg-opacity-0 text-base transition-all hover:bg-opacity-25 md:border-l-0 md:border-r-2 border-${blok.allocate}`}
           href={`/news`}
         >
-          Zurück zu News
+          Mehr News
         </Link>
       </div>
     </section>

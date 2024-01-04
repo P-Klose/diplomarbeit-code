@@ -20,7 +20,7 @@ storyblokInit({
 });
 
 const FeatArticles: React.FC<FeatArticlesProps> = ({ blok }) => {
-  // console.log(blok);
+  console.log(blok);
 
   return (
     <LayoutGroup>
@@ -36,6 +36,7 @@ const FeatArticles: React.FC<FeatArticlesProps> = ({ blok }) => {
               <FeatArticle
                 blok={subblok.content}
                 key={subblok.uuid}
+                full_slug={subblok.full_slug}
               ></FeatArticle>
             );
             // ;
@@ -46,7 +47,7 @@ const FeatArticles: React.FC<FeatArticlesProps> = ({ blok }) => {
   );
 };
 
-const FeatArticle: React.FC<ArticleProps> = ({ blok }) => {
+const FeatArticle: React.FC<ArticleProps> = ({ blok, full_slug }) => {
   function transformDateFormat(inputDate: string) {
     const dateParts = inputDate.split(" ");
     if (dateParts.length === 2) {
@@ -64,36 +65,36 @@ const FeatArticle: React.FC<ArticleProps> = ({ blok }) => {
   }
 
   return (
-    // <Link href={`#`}>
-    <motion.div
-      layout="position"
-      whileHover={{
-        scale: 1.1,
-        transition: { duration: 0.5, type: "spring" },
-      }}
-      className={`border-${blok.allocate} relative box-border flex w-full max-w-lg flex-col items-start border-l-4`}
-      key={blok._uid}
-    >
-      <img
-        className="ml-2 box-border max-w-full pr-2"
-        src={blok.image.filename}
-      ></img>
-      <h2 className="col-span-3 row-start-3 m-4  text-xl font-medium">
-        {blok.headline}
-      </h2>
-      <h3 className="col-span-3 row-start-3 mx-4 mb-4 line-clamp-2 h-14 text-lg font-medium">
-        {blok.subline}
-      </h3>
-      {blok.date ? (
-        <motion.p
-          layout="position"
-          className={`bg-${blok.allocate} p-2 text-right text-xs font-normal`}
-        >
-          {transformDateFormat(blok.date)}
-        </motion.p>
-      ) : null}
-    </motion.div>
-    // </Link>
+    <Link href={full_slug}>
+      <motion.div
+        layout="position"
+        whileHover={{
+          scale: 1.1,
+          transition: { duration: 0.5, type: "spring" },
+        }}
+        className={`border-${blok.allocate} relative box-border flex w-full max-w-lg flex-col items-start border-l-4`}
+        key={blok._uid}
+      >
+        <img
+          className="ml-2 box-border max-w-full pr-2"
+          src={blok.image.filename}
+        ></img>
+        <h2 className="col-span-3 row-start-3 m-4  text-xl font-medium">
+          {blok.headline}
+        </h2>
+        <h3 className="col-span-3 row-start-3 mx-4 mb-4 line-clamp-2 h-14 text-lg font-medium">
+          {blok.subline}
+        </h3>
+        {blok.date ? (
+          <motion.p
+            layout="position"
+            className={`bg-${blok.allocate} p-2 text-right text-xs font-normal`}
+          >
+            {transformDateFormat(blok.date)}
+          </motion.p>
+        ) : null}
+      </motion.div>
+    </Link>
   );
 };
 

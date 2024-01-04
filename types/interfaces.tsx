@@ -26,6 +26,7 @@ export interface ArticleProps {
     subpage_enabled?: boolean;
     slug: string;
   };
+  full_slug: string;
 }
 
 export interface AllArticlesProps {
