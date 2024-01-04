@@ -1,27 +1,123 @@
 import { render } from "storyblok-rich-text-react-renderer";
+import { Asset, ArticleProps } from "../../types/interfaces";
+import Link from "next/link";
 
-const Article = ({ blok }) => {
+const borderColors = [
+  "border-allgemein",
+  "border-it-medientechnik",
+  "border-informatik-sse",
+  "border-elektronik",
+  "border-medizintechnik",
+  "border-informatik-sse",
+  "border-informatik-ddp",
+  "border-informatik-csi",
+  "border-red-600",
+  "border-cyan-300",
+  "border-sky-400",
+  "border-blue-700",
+  "border-amber-500",
+  "border-red-400",
+  "border-pink-500",
+  "border-yellow-350",
+  "border-yellow-700",
+  "border-red-200",
+  "border-orange-950",
+  "border-lime-300",
+  "border-green-700",
+];
+
+const Article: React.FC<ArticleProps> = ({ blok }) => {
+  function transformDateFormat(inputDate: string) {
+    // console.log(inputDate);
+    const dateParts = inputDate.split(" ");
+    if (dateParts.length === 2) {
+      const [datePart, timePart] = dateParts;
+      const [year, month, day] = datePart.split("-");
+
+      // Create the transformed date string
+      const transformedDate = `${day}.${month}.${year}`;
+
+      return transformedDate;
+    } else {
+      // Handle invalid input format
+      return "Invalid Date Format";
+    }
+  }
+
   return (
-    <section className="body-font text-gray-600">
-      <div className="container mx-auto flex flex-col items-center justify-center px-5 py-24">
+    <section className="mx-auto grid max-w-screen-xl grid-cols-2 gap-4 p-4 sm:p-6 md:grid-cols-4">
+      <div className="col-span-2 row-start-2 md:row-start-1 md:mb-2 lg:col-span-2">
         <img
-          className="  mb-10 w-full rounded object-cover object-center md:h-96"
+          className="w-full object-contain object-center"
           alt={blok.image.alt}
           src={blok.image.filename}
         />
-        <div className="w-full text-center lg:w-2/3">
-          <h1 className="title-font mb-4 text-3xl font-medium text-gray-900 sm:text-4xl">
-            {blok.headline}
-          </h1>
-          <h1 className="title-font mb-4 text-2xl font-medium text-gray-600 sm:text-3xl">
-            {blok.subline}
-          </h1>
-          <div className="mb-8 text-justify leading-relaxed">
-            {render(blok.content)}
-          </div>
+      </div>
+      <div
+        className={`border-${blok.allocate} col-span-2 row-start-1 flex h-full flex-col items-start justify-end border-b-4 md:border-b-0 md:border-l-4`}
+      >
+        <h1 className="ml-3 text-left text-2xl font-semibold hover:cursor-pointer">
+          {blok.headline}
+        </h1>
+        <h2 className="mb-3 ml-3 text-left text-xl font-medium hover:cursor-pointer">
+          {blok.subline}
+        </h2>
+        <div className="grid grid-cols-2 gap-2 ">
+          {/* { blok.subpage_enabled ? (
+            <motion.div layout="position" className={`col-span-1 row-start-1 `}>
+              <Link
+                className={`bg-${ blok.allocate} z-10 block p-2 text-xs font-medium transition-colors text-neutral-200`}
+                href={`news/${ blok.slug}`}
+              >
+                Mehr Lesen
+              </Link>
+            </motion.div>
+          ) : null} */}
+          {blok.date ? (
+            <p
+              className={`bg-${blok.allocate} col-span-1 p-2 text-center text-xs font-semibold text-neutral-200 hover:cursor-pointer`}
+            >
+              {transformDateFormat(blok.date)}
+            </p>
+          ) : null}
         </div>
+      </div>
+      <div
+        className={`prose prose-p:text-zinc-900 col-span-full p-2 lg:p-4
+        ${blok.assets ? "mb-0" : "mb-8"} max-w-none text-left`}
+      >
+        {render(blok.content)}
+      </div>
+      {blok.assets ? (
+        <>
+          <h2 className="col-span-full text-xl font-medium hover:cursor-pointer">
+            Weitere Medien
+          </h2>
+          <div className="col-span-full grid grid-cols-2 gap-2 p-2 md:col-span-2 lg:grid-cols-3 lg:p-4">
+            {blok.assets.map((asset: Asset) => {
+              console.log(asset);
+              return (
+                <img
+                  className="z-0 transition-transform hover:z-10 hover:scale-105"
+                  alt={asset.alt}
+                  src={asset.filename}
+                  key={asset.id}
+                ></img>
+              );
+            })}
+          </div>
+        </>
+      ) : null}
+      <div className="col-span-full flex items-center justify-start md:justify-end">
+        <Link
+          className={`px-4 py-2 bg-${blok.allocate} border-l-2 bg-opacity-0 text-base transition-all hover:bg-opacity-25 md:border-l-0 md:border-r-2 border-${blok.allocate}`}
+          href={`/news`}
+        >
+          Zurück zu News
+        </Link>
       </div>
     </section>
   );
 };
+
 export default Article;

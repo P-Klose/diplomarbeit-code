@@ -12,12 +12,14 @@ import { LayoutGroup } from "framer-motion";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 
+import { AllArticlesProps } from "../../types/interfaces"; //
+
 storyblokInit({
   accessToken: process.env.storyblokApiToken,
   use: [apiPlugin],
 });
 
-const AllArticles = ({ blok }) => {
+const AllArticles: React.FC<AllArticlesProps> = ({ blok }) => {
   const searchParams = useSearchParams();
   const urlFilterStr = searchParams.get("filter");
   const selectedFilterStr = urlFilterStr ? urlFilterStr : "Alles";
@@ -99,7 +101,7 @@ const AllArticles = ({ blok }) => {
         <div className="grid w-full grid-cols-1 gap-8 lg:grid-cols-3 xl:grid-cols-4 [&>*:nth-child(odd)]:xl:col-start-2">
           <LayoutGroup>
             {articles?.map((article: any) => (
-              <ArticleTeaser article={article.content} key={article.uuid} />
+              <ArticleTeaser blok={article.content} key={article.uuid} />
             ))}
           </LayoutGroup>
         </div>

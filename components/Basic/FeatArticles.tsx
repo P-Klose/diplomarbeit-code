@@ -7,16 +7,21 @@ import {
   storyblokEditable,
 } from "@storyblok/react/rsc";
 
+import { FeatArticlesProps, ArticleProps } from "../../types/interfaces";
+
 import { useState, useEffect } from "react";
 import { LayoutGroup } from "framer-motion";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 storyblokInit({
   accessToken: process.env.storyblokApiToken,
   use: [apiPlugin],
 });
 
-const AllArticles = ({ blok }) => {
+const FeatArticles: React.FC<FeatArticlesProps> = ({ blok }) => {
+  // console.log(blok);
+
   return (
     <LayoutGroup>
       <section className="mx-auto w-full max-w-screen-2xl p-4">
@@ -25,12 +30,12 @@ const AllArticles = ({ blok }) => {
         </h2>
         <div className="box-border grid w-full grid-cols-1 gap-12 px-8 pb-12 pt-10 lg:grid-cols-3 [&>*:nth-child(even)]:justify-self-end [&>*:nth-child(odd)]:justify-self-start">
           {/* odd:justify-self-end even:justify-self-start */}
-          {blok.articles?.map((article: any) => {
+          {blok.articles?.map((subblok: any) => {
             //console.log(article);
             return (
               <FeatArticle
-                article={article.content}
-                key={article.uuid}
+                blok={subblok.content}
+                key={subblok.uuid}
               ></FeatArticle>
             );
             // ;
@@ -41,7 +46,7 @@ const AllArticles = ({ blok }) => {
   );
 };
 
-const FeatArticle = ({ article }) => {
+const FeatArticle: React.FC<ArticleProps> = ({ blok }) => {
   function transformDateFormat(inputDate: string) {
     const dateParts = inputDate.split(" ");
     if (dateParts.length === 2) {
@@ -59,33 +64,37 @@ const FeatArticle = ({ article }) => {
   }
 
   return (
+    // <Link href={`#`}>
     <motion.div
+      layout="position"
       whileHover={{
         scale: 1.1,
         transition: { duration: 0.5, type: "spring" },
       }}
-      className={`border-${article.allocate} relative box-border flex w-full max-w-lg flex-col items-start border-l-4`}
-      key={article._uid}
+      className={`border-${blok.allocate} relative box-border flex w-full max-w-lg flex-col items-start border-l-4`}
+      key={blok._uid}
     >
       <img
         className="ml-2 box-border max-w-full pr-2"
-        src={article.image.filename}
+        src={blok.image.filename}
       ></img>
       <h2 className="col-span-3 row-start-3 m-4  text-xl font-medium">
-        {article.headline}
+        {blok.headline}
       </h2>
       <h3 className="col-span-3 row-start-3 mx-4 mb-4 line-clamp-2 h-14 text-lg font-medium">
-        {article.subline}
+        {blok.subline}
       </h3>
-      {article.date ? (
-        <p
-          className={`bg-${article.allocate} p-2 text-right text-xs font-normal`}
+      {blok.date ? (
+        <motion.p
+          layout="position"
+          className={`bg-${blok.allocate} p-2 text-right text-xs font-normal`}
         >
-          {transformDateFormat(article.date)}
-        </p>
+          {transformDateFormat(blok.date)}
+        </motion.p>
       ) : null}
     </motion.div>
+    // </Link>
   );
 };
 
-export default AllArticles;
+export default FeatArticles;
