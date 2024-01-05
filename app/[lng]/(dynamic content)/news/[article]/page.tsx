@@ -9,13 +9,7 @@ import { FC } from "react";
 const Home: FC<ArticlePageProps> = async ({ params }) => {
   const { data } = await fetchData(params.article);
 
-  return (
-    <main>
-      <Navbar></Navbar>
-      <StoryblokStory story={data.story} key={data.story.content._uid} />
-      <Footer></Footer>
-    </main>
-  );
+  return <StoryblokStory story={data.story} key={data.story.content._uid} />;
 };
 
 export default Home;

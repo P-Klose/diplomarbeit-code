@@ -1,4 +1,4 @@
-import "./globals.css";
+import "./[lng]/globals.css";
 import { Manrope } from "next/font/google";
 
 import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
@@ -6,7 +6,7 @@ import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 import StoryblokProvider from "@/components/StoryblokProvider";
 
 import { dir } from "i18next";
-import { languages } from "../i18n/settings";
+import { languages } from "./i18n/settings";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer/Footer";
 

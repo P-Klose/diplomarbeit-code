@@ -26,22 +26,16 @@ export default function Error({
   }, [error]);
 
   return (
-    <>
-      <Navbar></Navbar>
-      <div className="mx-auto flex h-screen w-full max-w-screen-2xl flex-col items-center justify-center">
-        <h2 className="text-4xl uppercase md:text-6xl">
-          Something went wrong!
-        </h2>
-        <button
-          onClick={
-            // Attempt to recover by trying to re-render the segment
-            () => reset()
-          }
-        >
-          Try again
-        </button>
-      </div>
-      <Footer></Footer>
-    </>
+    <div className="mx-auto flex h-screen w-full max-w-screen-2xl flex-col items-center justify-center">
+      <h2 className="text-4xl uppercase md:text-6xl">Something went wrong!</h2>
+      <button
+        onClick={
+          // Attempt to recover by trying to re-render the segment
+          () => reset()
+        }
+      >
+        Try again
+      </button>
+    </div>
   );
 }

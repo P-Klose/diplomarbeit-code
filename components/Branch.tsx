@@ -6,9 +6,11 @@ import Footer from "./Footer/Footer";
 import { FaFileArrowDown } from "react-icons/fa6";
 
 const Branch = ({ blok }) => (
-  <main {...storyblokEditable(blok)}>
-    <Navbar></Navbar>
-    <section className="mx-auto grid max-w-screen-2xl grid-cols-6 gap-10 p-6 md:gap-20">
+  <>
+    <section
+      {...storyblokEditable(blok)}
+      className="mx-auto grid max-w-screen-2xl grid-cols-6 gap-10 p-6 md:gap-20"
+    >
       <div className="col-span-full md:mt-16">
         <h1 className="mb-4 text-4xl font-medium uppercase md:text-6xl">
           {blok.headline}
@@ -37,8 +39,7 @@ const Branch = ({ blok }) => (
     {blok.body.map((nestedBlok: any) => (
       <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
     ))}
-    <Footer></Footer>
-  </main>
+  </>
 );
 
 export default Branch;
