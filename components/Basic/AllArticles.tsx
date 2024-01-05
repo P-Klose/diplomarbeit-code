@@ -99,7 +99,11 @@ const AllArticles: React.FC<AllArticlesProps> = ({ blok }) => {
         <div className="grid w-full grid-cols-1 gap-8 lg:grid-cols-3 xl:grid-cols-4 [&>*:nth-child(odd)]:xl:col-start-2">
           <LayoutGroup>
             {articles?.map((article: any) => (
-              <ArticleTeaser blok={article.content} key={article.uuid} />
+              <ArticleTeaser
+                blok={article.content}
+                key={article.uuid}
+                full_slug={article.full_slug}
+              />
             ))}
           </LayoutGroup>
         </div>

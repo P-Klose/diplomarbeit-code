@@ -5,6 +5,13 @@ import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 
 import StoryblokProvider from "@/components/StoryblokProvider";
 
+import { dir } from "i18next";
+import { languages } from "../i18n/settings";
+
+export async function generateStaticParams() {
+  return languages.map((lng) => ({ lng }));
+}
+
 storyblokInit({
   accessToken: process.env.storyblokApiToken,
   apiOptions: {
@@ -23,12 +30,16 @@ export const metadata = {
 
 export default function RootLayout({
   children,
+  params: { lng },
 }: {
   children: React.ReactNode;
+  params: {
+    lng: string;
+  };
 }) {
   return (
     <StoryblokProvider>
-      <html lang="de">
+      <html lang={lng} dir={dir(lng)}>
         {/* <LayoutGroup> */}
         <body className={manrope.className}>{children}</body>
         {/* <StoryblokBridgeLoader options={{}} /> */}
