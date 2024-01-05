@@ -1,7 +1,10 @@
-import { HeroProps } from "@/types/interfaces";
+import { HeroFeatureProps, HeroProps } from "@/types/interfaces";
 import { storyblokEditable, StoryblokComponent } from "@storyblok/react/rsc";
+import HeroFeature from "./HeroFeature";
 
 const Hero: React.FC<{ blok: HeroProps }> = ({ blok }) => {
+  console.log(blok);
+
   function renderAdditionalContent() {
     if (blok.additional_content != undefined) {
       {
@@ -31,6 +34,13 @@ const Hero: React.FC<{ blok: HeroProps }> = ({ blok }) => {
         <h1 className="w-full text-center text-5xl font-extrabold uppercase text-white sm:ml-8 sm:w-1/2 sm:text-left md:ml-16 md:text-7xl xl:text-8xl">
           {blok.headline}
         </h1>
+      </div>
+      <div className="sm:absolute sm:bottom-0 sm:right-0 sm:block">
+        <div className="mb-4 grid grid-cols-1 gap-2 px-4 sm:flex sm:flex-col sm:justify-end sm:gap-4">
+          {blok.hero_features?.map((feat: HeroFeatureProps) => {
+            return <HeroFeature blok={feat} key={feat._uid}></HeroFeature>;
+          })}
+        </div>
       </div>
       {blok.additional_content?.map((nestedBlok: any) => (
         <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />

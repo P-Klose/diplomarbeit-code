@@ -122,12 +122,22 @@ export interface HeroProps {
   _uid: string;
   _editable: string;
   additional_content: any[];
+  hero_features: HeroFeatureProps[];
   background_image: Asset;
   component: string;
   fixed: boolean;
   headline: string;
   height: string;
   type: string;
+}
+
+export interface HeroFeatureProps {
+  _uid: string;
+  _editable: string;
+  symbol: string;
+  type: string;
+  link: any;
+  text: string;
 }
 
 export interface GridProps {

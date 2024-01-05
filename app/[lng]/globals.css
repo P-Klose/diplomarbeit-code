@@ -32,12 +32,12 @@
     clip-path: polygon(0 0, 100% 0, 50% 100%, 0% 100%);
   }
   .hero-l-medium {
-    grid-column: span 4 / span 4;
-    clip-path: polygon(0 0, 100% 0, 60% 100%, 0% 100%);
+    grid-column: span 5 / span 5;
+    clip-path: polygon(0 0, 100% 0, 65% 100%, 0% 100%);
   }
   .hero-l-large {
     grid-column: span 7 / span 7;
-    clip-path: polygon(0 0, 100% 0, 60% 100%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0, 70% 100%, 0% 100%);
   }
   .hero-cover {
     grid-column: span 7 / span 7;

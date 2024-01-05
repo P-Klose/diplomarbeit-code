@@ -7,6 +7,10 @@ import {
   FaTiktok,
   FaNewspaper,
   FaYoutube,
+  FaAngleRight,
+  FaPhone,
+  FaBoxArchive,
+  FaMapLocation,
 } from "react-icons/fa6";
 import { MediaIconProps } from "@/types/interfaces";
 
@@ -26,6 +30,14 @@ const MediaIcon: React.FC<MediaIconProps> = ({ iconName }) => {
       return <FaNewspaper />;
     case "youtube":
       return <FaYoutube />;
+    case "arrow-right":
+      return <FaAngleRight />;
+    case "phone":
+      return <FaPhone />;
+    case "box":
+      return <FaBoxArchive />;
+    case "map":
+      return <FaMapLocation />;
     default:
       return null;
   }
