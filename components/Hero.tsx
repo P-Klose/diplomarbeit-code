@@ -21,7 +21,7 @@ const Hero = ({ blok }) => {
     >
       <div
         className={`flex h-32 sm:${blok.height} col-span-full ${
-          blok.fixed ? "md:sticky md:top-0" : ""
+          blok.fixed ? "md:sticky md:top-0" : "mb-4"
         } items-center justify-start overflow-hidden bg-cover bg-no-repeat ${
           blok.type
         }`}

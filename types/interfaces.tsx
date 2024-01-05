@@ -56,3 +56,30 @@ export interface FeatArticlesProps {
     additional_info?: any;
   };
 }
+
+// WITHOUT BLOK
+
+export interface LinkProps {
+  _uid: string;
+  link: {
+    id: string;
+    url: string;
+    linktype: string;
+    fieldtype: string;
+    cached_url: string;
+  };
+  color: string;
+  style: string;
+  symbol: string;
+  component: string;
+  display_name: string;
+  _editable: string;
+}
+
+export interface LinkCollectionProps {
+  _uid: string;
+  links: LinkProps[];
+  headline: string;
+  component: string;
+  _editable: string;
+}

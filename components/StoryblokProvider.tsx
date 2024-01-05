@@ -44,11 +44,13 @@ import DesignableTableValue from "@/components/Custom/DesignableTableValue";
 import Timetable from "@/components/Custom/Timetable";
 import TimetableColumn from "@/components/Custom/TimetableColums";
 import TimetableSubject from "@/components/Custom/TimetableSubject";
+import LinkCollection from "./Basic/LinkCollection";
 
 const components = {
   page: Page,
   branch: Branch,
   custom_link: Link,
+  link_collection: LinkCollection,
   custom_image: Image,
   hero: Hero,
   navbar: Navbar,

@@ -2,8 +2,9 @@ import { storyblokEditable } from "@storyblok/react/rsc";
 import Link from "next/link";
 
 import MediaIcon from "@/components/Custom/MediaIcon";
+import { LinkProps } from "@/types/interfaces";
 
-const LinkComponent = ({ blok }) => {
+const LinkComponent: React.FC<{ blok: LinkProps }> = ({ blok }) => {
   let url = "";
   if (blok.link.linktype == "url") {
     url = blok.link.url;

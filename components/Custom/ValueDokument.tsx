@@ -13,7 +13,7 @@ const ValueDokument = ({ blok }) => {
       className="mx-auto max-w-screen-2xl py-4"
     >
       {/* <div className=" float-right w-full bg-white"></div> */}
-      <h2 className="p-4 pb-3 text-2xl font-semibold uppercase md:text-3xl">
+      <h2 className="px-4 pb-3 text-2xl font-semibold uppercase md:text-3xl">
         {blok.headline}
       </h2>
       <h3 className="pl-4 text-lg font-medium ">{blok.subline}</h3>
