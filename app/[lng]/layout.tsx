@@ -49,7 +49,11 @@ export default function RootLayout({
             }}
           ></Navbar>
           {children}
-          <Footer></Footer>
+          <Footer
+            params={{
+              lng: lng,
+            }}
+          ></Footer>
         </body>
         {/* <StoryblokBridgeLoader options={{}} /> */}
         {/* </LayoutGroup> */}
