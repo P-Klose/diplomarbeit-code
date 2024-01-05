@@ -1,14 +1,20 @@
+import { PageProps } from "@/types/interfaces";
 import { getStoryblokApi } from "@storyblok/react/rsc";
 import StoryblokStory from "@storyblok/react/story";
+import { FC } from "react";
 
-export default async function Home() {
-  const { data } = await fetchData();
+const Home: FC<PageProps> = async ({ params }) => {
+  const { data } = await fetchData(params.lng);
   return <StoryblokStory story={data.story} />;
-}
+};
 
-async function fetchData() {
+export default Home;
+
+async function fetchData(lng: string) {
   let sbParams = {
+    // cache: "no-store",
     version: process.env.storyblokApiVersion,
+    language: lng,
   };
 
   const stroyblokApi = getStoryblokApi();

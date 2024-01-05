@@ -5,13 +5,13 @@ import StoryblokStory from "@storyblok/react/story";
 import { FC } from "react";
 
 const Home: FC<PageProps> = async ({ params }) => {
-  const { data } = await fetchData();
+  const { data } = await fetchData(params.lng);
   return <StoryblokStory story={data.story} />;
 };
 
 export default Home;
 
-async function fetchData() {
+async function fetchData(lng: string) {
   let sbParams = {
     // cache: "no-store",
     version: process.env.storyblokApiVersion,
@@ -19,6 +19,7 @@ async function fetchData() {
       "featured_articles.articles",
       "scroll_slider_select.slider",
     ],
+    language: lng,
   };
 
   const stroyblokApi = getStoryblokApi();
