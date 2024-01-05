@@ -4,7 +4,10 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { ArticleProps } from "../../types/interfaces";
 
-const ArticleTeaser: React.FC<ArticleProps> = ({ blok }) => {
+const ArticleTeaser: React.FC<{ blok: ArticleProps; full_slug: string }> = ({
+  blok,
+  full_slug,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   function transformDateFormat(inputDate: string) {
@@ -112,7 +115,7 @@ const ArticleTeaser: React.FC<ArticleProps> = ({ blok }) => {
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
           onClick={() => setIsOpen(!isOpen)}
-          className={`prose  lg:prose-p:text-base prose-p:text-sm prose-p:text-zinc-900 col-span-2 my-2  hover:cursor-pointer`}
+          className={`prose  col-span-2 my-2 hover:cursor-pointer prose-p:text-sm prose-p:text-zinc-900  lg:prose-p:text-base`}
         >
           {render(blok.content)}
         </motion.div>

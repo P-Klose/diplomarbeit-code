@@ -1,4 +1,4 @@
-import { Asset } from "@/types/interfaces";
+import { Asset, LinkProps } from "@/types/interfaces";
 import Link from "next/link";
 import { storyblokEditable } from "@storyblok/react/rsc";
 import { render } from "storyblok-rich-text-react-renderer";
@@ -122,7 +122,9 @@ const SliderContent: React.FC<SliderContentProps> = ({ slider }) => {
               <div className="prose max-w-none p-2 md:col-span-1">
                 {render(box.content, {
                   blokResolvers: {
-                    ["custom_link"]: (props) => <LinkComponent blok={props} />,
+                    ["custom_link"]: (props: any) => (
+                      <LinkComponent blok={props} />
+                    ),
                   },
                 })}
               </div>

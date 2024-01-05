@@ -1,6 +1,7 @@
+import { GridProps } from "@/types/interfaces";
 import { storyblokEditable, StoryblokComponent } from "@storyblok/react/rsc";
 
-const Grid = ({ blok }) => {
+const Grid: React.FC<{ blok: GridProps }> = ({ blok }) => {
   const grid_width = ["col-span-1", "col-span-2", "col-span-3", "col-span-4"];
 
   return (

@@ -4,24 +4,10 @@ import { storyblokEditable } from "@storyblok/react/rsc";
 import { render } from "storyblok-rich-text-react-renderer";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import Carousel from "./Carousel";
 import SliderContent from "./SliderContent";
+import { HorizontalScrollSliderProps } from "@/types/interfaces";
 
-interface SliderProps {
-  blok: {
-    slider: any[];
-    scroll_start_right: boolean;
-    scroll_speed: number;
-    alternating: boolean;
-    title?: string;
-    slider_table: {
-      thead: any[];
-      tbody: any[];
-    };
-  };
-}
-
-const Slider: React.FC<SliderProps> = ({ blok }) => {
+const Slider: React.FC<{ blok: HorizontalScrollSliderProps }> = ({ blok }) => {
   const targetRef = useRef<any>();
   const carousel = useRef<any>();
   let count = 0;

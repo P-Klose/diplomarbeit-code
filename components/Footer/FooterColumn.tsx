@@ -1,7 +1,8 @@
 import { storyblokEditable, StoryblokComponent } from "@storyblok/react/rsc";
 import LinkComponent from "../Basic/Link";
+import { FooterColumnProps } from "@/types/interfaces";
 
-const FooterColumn = ({ blok }) => {
+const FooterColumn: React.FC<{ blok: FooterColumnProps }> = ({ blok }) => {
   return (
     <div
       {...storyblokEditable(blok)}

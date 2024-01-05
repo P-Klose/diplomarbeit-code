@@ -1,7 +1,8 @@
+import { ImageComponentProps } from "@/types/interfaces";
 import { storyblokEditable } from "@storyblok/react/rsc";
 import Link from "next/link";
 
-const ImageComponent = ({ blok }) => {
+const ImageComponent: React.FC<{ blok: ImageComponentProps }> = ({ blok }) => {
   if (blok.type == "logo-small") {
     return (
       <img

@@ -26,7 +26,7 @@ const borderColors = [
   "border-green-700",
 ];
 
-const Article: React.FC<ArticleProps> = ({ blok }) => {
+const Article: React.FC<{ blok: ArticleProps }> = ({ blok }) => {
   function transformDateFormat(inputDate: string) {
     const dateParts = inputDate.split(" ");
     if (dateParts.length === 2) {
@@ -82,7 +82,7 @@ const Article: React.FC<ArticleProps> = ({ blok }) => {
         </div>
       </div>
       <div
-        className={`prose prose-p:text-zinc-900 col-span-full p-2 lg:p-4
+        className={`prose col-span-full p-2 prose-p:text-zinc-900 lg:p-4
         ${blok.assets ? "mb-0" : "mb-8"} max-w-none text-left`}
       >
         {render(blok.content)}

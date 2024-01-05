@@ -1,6 +1,9 @@
+import { DesignableTableProps } from "@/types/interfaces";
 import { storyblokEditable, StoryblokComponent } from "@storyblok/react/rsc";
 
-const DesignableTable = ({ blok }) => {
+const DesignableTable: React.FC<{ blok: DesignableTableProps }> = ({
+  blok,
+}) => {
   const grid_width = [
     "[&>div]:grid-cols-1",
     "[&>div]:grid-cols-2",
@@ -21,7 +24,7 @@ const DesignableTable = ({ blok }) => {
       )}
       <div
         className={`xs:px-4 ${
-          grid_width[blok.columns - 1]
+          grid_width[Number.parseFloat(blok.columns) - 1]
         } divide-y-2 overflow-x-scroll [&>div]:grid`}
       >
         {blok.header?.map((nestedBlok: any) => (

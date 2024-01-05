@@ -1,7 +1,8 @@
+import { SponsorProps } from "@/types/interfaces";
 import { storyblokEditable } from "@storyblok/react/rsc";
 import Link from "next/link";
 
-const Sponsor = ({ blok }) => {
+const Sponsor: React.FC<{ blok: SponsorProps }> = ({ blok }) => {
   let url = "";
   if (blok.link.linktype == "url") {
     url = blok.link.url;

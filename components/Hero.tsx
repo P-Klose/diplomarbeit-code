@@ -1,6 +1,7 @@
+import { HeroProps } from "@/types/interfaces";
 import { storyblokEditable, StoryblokComponent } from "@storyblok/react/rsc";
 
-const Hero = ({ blok }) => {
+const Hero: React.FC<{ blok: HeroProps }> = ({ blok }) => {
   function renderAdditionalContent() {
     if (blok.additional_content != undefined) {
       {
@@ -14,9 +15,7 @@ const Hero = ({ blok }) => {
   return (
     <section
       {...storyblokEditable(blok)}
-      className={`relative mx-auto grid h-auto max-w-screen-2xl grid-cols-1 sm:grid-cols-7 ${
-        blok.themeisdark ? "bg-zinc-900" : "bg-white"
-      }
+      className={`relative mx-auto grid h-auto max-w-screen-2xl grid-cols-1 sm:grid-cols-7 
       ${blok.type == "school" ? "sm:mb-10 md:mb-14 lg:mb-20 xl:mb-40" : ""}`}
     >
       <div

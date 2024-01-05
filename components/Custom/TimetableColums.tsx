@@ -1,7 +1,10 @@
 import { storyblokEditable, StoryblokComponent } from "@storyblok/react/rsc";
 import TimetableSubject from "./TimetableSubject";
+import { TimetableColumsProps } from "@/types/interfaces";
 
-const TimetableColums = ({ blok }) => {
+const TimetableColums: React.FC<{ blok: TimetableColumsProps }> = ({
+  blok,
+}) => {
   const firstTwo = blok.day.slice(0, 2);
   return (
     <div className="" {...storyblokEditable(blok)}>

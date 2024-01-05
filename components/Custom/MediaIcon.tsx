@@ -8,8 +8,9 @@ import {
   FaNewspaper,
   FaYoutube,
 } from "react-icons/fa6";
+import { MediaIconProps } from "@/types/interfaces";
 
-const MediaIcon = ({ iconName }) => {
+const MediaIcon: React.FC<MediaIconProps> = ({ iconName }) => {
   switch (iconName) {
     case "facebook":
       return <FaFacebook />;

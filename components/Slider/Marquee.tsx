@@ -1,8 +1,9 @@
 import { storyblokEditable, StoryblokComponent } from "@storyblok/react/rsc";
 import Marquee from "react-fast-marquee";
 import Link from "next/link";
+import { MarqueeProps } from "@/types/interfaces";
 
-const InfiniteMarquee = ({ blok }) => {
+const InfiniteMarquee: React.FC<{ blok: MarqueeProps }> = ({ blok }) => {
   return (
     <>
       <section

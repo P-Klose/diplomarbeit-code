@@ -5,9 +5,9 @@ import { useSearchParams } from "next/navigation";
 import { render } from "storyblok-rich-text-react-renderer";
 import TimetableColums from "./TimetableColums";
 import TimetableSubject from "./TimetableSubject";
-// import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
+import { TimetableProps } from "@/types/interfaces";
 
-const Timetable = ({ blok }) => {
+const Timetable: React.FC<{ blok: TimetableProps }> = ({ blok }) => {
   const searchParams = useSearchParams();
   const selectedSubjectStr = searchParams.get("subject");
   const classes = ["1.", "2.", "3.", "4.", "5."];

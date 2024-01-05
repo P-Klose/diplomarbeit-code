@@ -2,8 +2,12 @@
 import { render } from "storyblok-rich-text-react-renderer";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { ValueDocumentEntryProps } from "@/types/interfaces";
 
-const ValueDokumentEntry = ({ blok, count }) => {
+const ValueDokumentEntry: React.FC<{
+  blok: ValueDocumentEntryProps;
+  count: number;
+}> = ({ blok, count }) => {
   const [isOpen, setIsOpen] = useState(false);
   var padding_p = 10 + 7 * count;
   var padding_h2 = 5 + 7 * count;

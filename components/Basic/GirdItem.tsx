@@ -1,8 +1,9 @@
+import { GridItemProps } from "@/types/interfaces";
 import { storyblokEditable } from "@storyblok/react/rsc";
 import Link from "next/link";
 import { render } from "storyblok-rich-text-react-renderer";
 
-const GridItem = ({ blok }) => {
+const GridItem: React.FC<{ blok: GridItemProps }> = ({ blok }) => {
   if (blok.type == "ausbildung") {
     let url = "";
     if (blok.link.linktype == "url") {
@@ -77,7 +78,7 @@ const GridItem = ({ blok }) => {
         }`}
       >
         <div
-          className={`xxl:min-w-[66%] xxl:-translate-x-1/3 float-right min-w-[33%] ${
+          className={`float-right min-w-[33%] xxl:min-w-[66%] xxl:-translate-x-1/3 ${
             blok.image_right ? "xxl:translate-x-1/3" : "xxl:-translate-x-1/3"
           }`}
         >

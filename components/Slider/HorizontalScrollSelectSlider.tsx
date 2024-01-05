@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import Carousel from "./Carousel";
 import SliderContent from "./SliderContent";
 import Link from "next/link";
+import { HorizontalScrollSelectSliderProps } from "@/types/interfaces";
 
 const mapBlokSliderToSliderContent = (blokSlider) => {
   return blokSlider.map((boxInfo) => {
@@ -25,7 +26,9 @@ const mapBlokSliderToSliderContent = (blokSlider) => {
   });
 };
 
-const SelectSlider = ({ blok }) => {
+const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
+  blok,
+}) => {
   const targetRef = useRef<any>();
   const carousel = useRef<any>();
   const { scrollYProgress } = useScroll({
@@ -85,11 +88,7 @@ const SelectSlider = ({ blok }) => {
               drag="x"
               dragConstraints={{ right: 0, left: -width }}
               style={{ x }}
-              className={`flex ${
-                blok.alternating
-                  ? "[&>*:nth-child(even)]:mt-20 [&>*:nth-child(odd)]:mb-20"
-                  : ""
-              }  gap-4 `}
+              className={`flex gap-4`}
             >
               {SliderContent({
                 slider: mapBlokSliderToSliderContent(blok.slider),

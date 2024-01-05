@@ -1,7 +1,8 @@
+import { TextProps } from "@/types/interfaces";
 import { storyblokEditable } from "@storyblok/react/rsc";
 import { render } from "storyblok-rich-text-react-renderer";
 
-const Text = ({ blok }) => {
+const Text: React.FC<{ blok: TextProps }> = ({ blok }) => {
   const maxWidth = ["max-w-full", "max-w-screen-xl", "max-w-screen-2xl"];
 
   return (
@@ -15,7 +16,7 @@ const Text = ({ blok }) => {
       >
         {blok.headline}
       </h1>
-      <div className="prose lg:prose-lg prose-p:m-2 max-w-none pb-4 ">
+      <div className="prose max-w-none pb-4 lg:prose-lg prose-p:m-2 ">
         {render(blok.content)}
       </div>
     </div>

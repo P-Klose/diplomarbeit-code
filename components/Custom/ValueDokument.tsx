@@ -5,7 +5,9 @@ import { storyblokEditable, StoryblokComponent } from "@storyblok/react/rsc";
 // import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 
 import ValueDokumentEntry from "./ValueDokumentEntry";
-const ValueDokument = ({ blok }) => {
+import { ValueDocumentProps } from "@/types/interfaces";
+
+const ValueDokument: React.FC<{ blok: ValueDocumentProps }> = ({ blok }) => {
   var content_count = 0;
   return (
     <motion.div

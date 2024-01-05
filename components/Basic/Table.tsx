@@ -1,6 +1,7 @@
+import { TablePorps } from "@/types/interfaces";
 import { storyblokEditable } from "@storyblok/react/rsc";
 
-const Table = ({ blok }) => {
+const Table: React.FC<{ blok: TablePorps }> = ({ blok }) => {
   return (
     <section className="mx-auto max-w-screen-2xl p-4">
       {blok.headline == "" ? null : (

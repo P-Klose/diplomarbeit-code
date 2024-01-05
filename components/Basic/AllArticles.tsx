@@ -12,14 +12,14 @@ import { LayoutGroup } from "framer-motion";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 
-import { AllArticlesProps } from "../../types/interfaces"; //
+import { AllArticlesProps, ArticleProps } from "../../types/interfaces"; //
 
 storyblokInit({
   accessToken: process.env.storyblokApiToken,
   use: [apiPlugin],
 });
 
-const AllArticles: React.FC<AllArticlesProps> = ({ blok }) => {
+const AllArticles: React.FC<{ blok: AllArticlesProps }> = ({ blok }) => {
   const searchParams = useSearchParams();
   const urlFilterStr = searchParams.get("filter");
   const selectedFilterStr = urlFilterStr ? urlFilterStr : "Alles";

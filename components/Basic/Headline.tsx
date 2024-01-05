@@ -1,13 +1,8 @@
 import React from "react";
 import { storyblokEditable } from "@storyblok/react/rsc";
+import { HeadlineProps } from "@/types/interfaces";
 
-interface HeadlineProps {
-  blok: {
-    headline: string;
-  };
-}
-
-const Headline: React.FC<HeadlineProps> = ({ blok }) => {
+const Headline: React.FC<{ blok: HeadlineProps }> = ({ blok }) => {
   return (
     <div
       {...storyblokEditable(blok)}

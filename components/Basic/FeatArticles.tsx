@@ -52,7 +52,10 @@ const FeatArticles: React.FC<FeatArticlesProps> = ({ blok }) => {
   );
 };
 
-const FeatArticle: React.FC<ArticleProps> = ({ blok, full_slug }) => {
+const FeatArticle: React.FC<{ blok: ArticleProps; full_slug: string }> = ({
+  blok,
+  full_slug,
+}) => {
   function transformDateFormat(inputDate: string) {
     const dateParts = inputDate.split(" ");
     if (dateParts.length === 2) {

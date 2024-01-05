@@ -1,7 +1,10 @@
+import { DesignableTableValueProps } from "@/types/interfaces";
 import { storyblokEditable } from "@storyblok/react/rsc";
 import { render } from "storyblok-rich-text-react-renderer";
 
-const DesignableTableValue = ({ blok }) => {
+const DesignableTableValue: React.FC<{ blok: DesignableTableValueProps }> = ({
+  blok,
+}) => {
   const grid_width = ["col-span-1", "col-span-2", "col-span-3", "col-span-4"];
   return (
     <div

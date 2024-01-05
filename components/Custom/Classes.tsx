@@ -4,10 +4,11 @@ import { motion } from "framer-motion";
 import { storyblokEditable, StoryblokComponent } from "@storyblok/react/rsc";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+import { ClassesProps } from "@/types/interfaces";
 
 // import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 
-const ClassesOverview = ({ blok }) => {
+const ClassesOverview: React.FC<{ blok: ClassesProps }> = ({ blok }) => {
   const searchParams = useSearchParams();
   const selectedClassStr = searchParams.get("class");
   var selectedClass = blok.classes.find(
