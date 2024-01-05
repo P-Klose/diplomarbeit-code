@@ -43,7 +43,11 @@ export default function RootLayout({
     <StoryblokProvider>
       <html lang={lng} dir={dir(lng)}>
         <body className={manrope.className}>
-          <Navbar></Navbar>
+          <Navbar
+            params={{
+              lng: lng,
+            }}
+          ></Navbar>
           {children}
           <Footer></Footer>
         </body>

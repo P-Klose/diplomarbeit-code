@@ -1,12 +1,13 @@
 "use client";
 import { getStoryblokApi, storyblokEditable } from "@storyblok/react/rsc";
 
-import { useRef, useState, useEffect } from "react"; // Beachte die hinzugefügte useEffect-Importierung
+import { useRef, useState, useEffect, FC } from "react"; // Beachte die hinzugefügte useEffect-Importierung
 
 import Link from "next/link";
 import { FaXmark, FaBars } from "react-icons/fa6";
+import { PageProps } from "@/types/interfaces";
 
-const Navbar = () => {
+const Navbar: FC<PageProps> = ({ params }) => {
   const [navbar, setNavbar] = useState<any>();
 
   const navRef = useRef<any>();
@@ -16,7 +17,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const getNavbar = async () => {
-      const { data } = await fetchData();
+      const { data } = await fetchData(params.lng);
       setNavbar(data.story.content);
     };
 
@@ -124,10 +125,11 @@ const Navbar = () => {
   }
 };
 
-export async function fetchData() {
+export async function fetchData(lng: string) {
   let sbParams = {
     // cache: "no-store",
     version: process.env.storyblokApiVersion,
+    language: lng,
   };
 
   const stroyblokApi = getStoryblokApi();

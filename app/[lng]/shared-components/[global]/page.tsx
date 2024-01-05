@@ -9,7 +9,13 @@ interface pageProps {
 const Home: FC<pageProps> = async ({ params }) => {
   const { data } = await fetchData(params.global, params.lng);
 
-  return <StoryblokStory story={data.story} key={data.story.content._uid} />;
+  return (
+    <StoryblokStory
+      story={data.story}
+      key={data.story.content._uid}
+      params={params}
+    />
+  );
 };
 
 export default Home;
