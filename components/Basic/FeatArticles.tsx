@@ -6,6 +6,7 @@ import {
   storyblokInit,
   storyblokEditable,
 } from "@storyblok/react/rsc";
+import { render } from "storyblok-rich-text-react-renderer";
 
 import { FeatArticlesProps, ArticleProps } from "../../types/interfaces";
 
@@ -29,6 +30,9 @@ const FeatArticles: React.FC<FeatArticlesProps> = ({ blok }) => {
         <h2 className="p-4 pb-3 text-2xl font-semibold uppercase md:text-3xl">
           {blok.headline}
         </h2>
+        {blok.additional_info ? (
+          <div className="prose max-w-none">{render(blok.additional_info)}</div>
+        ) : null}
         <div className="box-border grid w-full grid-cols-1 gap-12 px-8 pb-12 pt-10 lg:grid-cols-3 [&>*:nth-child(even)]:justify-self-end [&>*:nth-child(odd)]:justify-self-start">
           {/* odd:justify-self-end even:justify-self-start */}
           {blok.articles?.map((subblok: any) => {

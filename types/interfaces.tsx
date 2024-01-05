@@ -53,5 +53,6 @@ export interface FeatArticlesProps {
   blok: {
     headline: string;
     articles?: ArticleProps[];
+    additional_info?: any;
   };
 }

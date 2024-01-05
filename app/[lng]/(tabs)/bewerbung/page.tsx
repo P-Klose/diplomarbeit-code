@@ -14,6 +14,7 @@ async function fetchData(lng: string) {
   let sbParams = {
     // cache: "no-store",
     version: process.env.storyblokApiVersion,
+    resolve_relations: ["featured_articles.articles"],
     language: lng,
   };
 

@@ -6,6 +6,7 @@ const DesignableTable = ({ blok }) => {
     "[&>div]:grid-cols-2",
     "[&>div]:grid-cols-3",
     "[&>div]:grid-cols-4",
+    "[&>div]:grid-cols-5",
   ];
 
   return (
@@ -19,7 +20,9 @@ const DesignableTable = ({ blok }) => {
         </h3>
       )}
       <div
-        className={`xs:px-4 [&>div]:grid-cols-${blok.columns} divide-y-2 [&>div]:grid`}
+        className={`xs:px-4 ${
+          grid_width[blok.columns - 1]
+        } divide-y-2 overflow-x-scroll [&>div]:grid`}
       >
         {blok.header?.map((nestedBlok: any) => (
           <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
