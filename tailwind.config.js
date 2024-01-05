@@ -63,6 +63,8 @@ module.exports = {
         elektronik: "#A2122A",
         medizintechnik: "#DC931A",
         allgemein: "#846b6d",
+        sport: "#ba181b",
+        reisen: "#8ac926",
       },
       textColor: {
         nav: {

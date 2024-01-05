@@ -3,8 +3,6 @@ import { storyblokEditable, StoryblokComponent } from "@storyblok/react/rsc";
 import HeroFeature from "./HeroFeature";
 
 const Hero: React.FC<{ blok: HeroProps }> = ({ blok }) => {
-  console.log(blok);
-
   function renderAdditionalContent() {
     if (blok.additional_content != undefined) {
       {
