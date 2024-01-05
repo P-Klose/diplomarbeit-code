@@ -1,4 +1,15 @@
 // interfaces.ts
+export interface PageProps {
+  params: { lng: string };
+}
+
+export interface ArticlePageProps {
+  params: {
+    lng: string;
+    article: string;
+  };
+}
+
 export interface Asset {
   id: number;
   alt: string;
