@@ -331,3 +331,28 @@ export interface TextProps {
   max_w: string;
   divider: boolean;
 }
+
+export interface FaqCollectionProps {
+  _uid: string;
+  _editable: string;
+  component: string;
+  headline: string;
+  description?: any;
+  faqs: any[];
+}
+
+export interface FaqProps {
+  _uid: string;
+  _editable: string;
+  component: string;
+  question: string;
+  answer: any;
+  video?: any;
+  show_video: boolean;
+}
+
+export interface DefaultProps {
+  _uid: string;
+  _editable: string;
+  component: string;
+}
