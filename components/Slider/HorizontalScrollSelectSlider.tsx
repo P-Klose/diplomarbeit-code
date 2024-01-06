@@ -58,6 +58,9 @@ const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
   //scroll_width_summe = startpoint (distance from right)
   //width = endpoint (distance from right)
   scroll_width_summe = (scroll_width_summe - width) * -1;
+  if (blok.show_title_animation) {
+    scroll_width_summe -= 125;
+  }
   let scroll_width_summe_str = scroll_width_summe + "px";
   let width_str = width + "px";
   if (scroll_width_summe > 0) {
