@@ -3,16 +3,24 @@ import { getStoryblokApi, storyblokEditable } from "@storyblok/react/rsc";
 
 import { useRef, useState, useEffect, FC } from "react"; // Beachte die hinzugefügte useEffect-Importierung
 
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { FaXmark, FaBars } from "react-icons/fa6";
 import { PageProps } from "@/types/interfaces";
 
+const navVariants = {
+  open: { opacity: 1, y: 0 },
+  closed: { opacity: 1, y: "-180px" },
+};
+
 const Navbar: FC<PageProps> = ({ params }) => {
   const [navbar, setNavbar] = useState<any>();
-
+  const [smallNavIsOpen, setIsOpen] = useState(false);
   const navRef = useRef<any>();
   const showNavbar = () => {
-    navRef.current.classList.toggle("hidden");
+    console.log(smallNavIsOpen);
+    setIsOpen(!smallNavIsOpen);
+    console.log(smallNavIsOpen);
   };
 
   useEffect(() => {
@@ -30,7 +38,7 @@ const Navbar: FC<PageProps> = ({ params }) => {
     return (
       <header {...storyblokEditable(navbar)} className="">
         <nav className="bg-gray-50">
-          <div className="mx-auto max-w-screen-2xl">
+          <div className="relative z-50 mx-auto max-w-screen-2xl bg-gray-50">
             <div className="flex h-14 items-center justify-between p-4">
               <div className="">
                 <Link className=" text-nav-base" href="/">
@@ -89,7 +97,14 @@ const Navbar: FC<PageProps> = ({ params }) => {
               </div>
             </div>
           </div>
-          <div ref={navRef} className="hidden md:hidden">
+          <motion.div
+            animate={smallNavIsOpen ? "open" : "closed"}
+            variants={navVariants}
+            transition={{ ease: "easeInOut", duration: 0.5 }}
+            className={`absolute top-14 z-40 block w-full bg-gray-50 md:hidden ${
+              smallNavIsOpen ? "" : ""
+            }`}
+          >
             {navbar.middle_nav.map((nestedBlok: any) => {
               let url = "";
               if (nestedBlok.link.linktype == "url") {
@@ -107,7 +122,7 @@ const Navbar: FC<PageProps> = ({ params }) => {
                 </Link>
               );
             })}
-          </div>
+          </motion.div>
         </nav>
       </header>
     );

@@ -127,7 +127,7 @@ const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
             if (box.type == "event") {
               return (
                 <Link
-                  className="z-50 w-full flex-shrink-0"
+                  className="z-10 w-full flex-shrink-0"
                   href={boxinfo.full_slug}
                   key={box._uid}
                 >
