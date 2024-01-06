@@ -289,9 +289,10 @@ export interface GridItemProps {
 
 export interface HeadlineProps {
   _uid: string;
-  headline: string;
   _editable: string;
   component: string;
+  headline: string;
+  no_spacing_y: boolean;
 }
 
 export interface ImageComponentProps {

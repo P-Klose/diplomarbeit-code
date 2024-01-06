@@ -122,9 +122,9 @@ const SliderContent: React.FC<SliderContentProps> = ({ slider }) => {
               <div className="prose max-w-none p-2 md:col-span-1">
                 {render(box.content, {
                   blokResolvers: {
-                    ["custom_link"]: (props: any) => (
-                      <LinkComponent blok={props} />
-                    ),
+                    ["custom_link"]: (props: any) => {
+                      return <LinkComponent blok={props} key={props._uid} />;
+                    },
                   },
                 })}
               </div>

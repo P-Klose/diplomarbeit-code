@@ -47,6 +47,7 @@ import TimetableSubject from "@/components/Custom/TimetableSubject";
 import LinkCollection from "./Basic/LinkCollection";
 import FaqCollection from "./Custom/FaqCollection";
 import FaqElement from "./Custom/FaqCollectionElement";
+import Spacer from "./Basic/Spacer";
 
 const components = {
   page: Page,
@@ -81,6 +82,7 @@ const components = {
   timetable_cols: TimetableColumn,
   faq_collection: FaqCollection,
   faq_element: FaqElement,
+  spacer: Spacer,
 };
 
 storyblokInit({
