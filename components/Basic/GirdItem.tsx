@@ -40,7 +40,11 @@ const GridItem: React.FC<{ blok: GridItemProps }> = ({ blok }) => {
     if (blok.link.linktype == "url") {
       url = blok.link.url;
     } else if (blok.link.linktype == "story") {
-      url = "/" + blok.link.cached_url;
+      if (url.startsWith("/")) {
+        return;
+      } else {
+        url = "/" + blok.link.cached_url;
+      }
     }
 
     return (

@@ -51,7 +51,11 @@ const Navbar: FC<PageProps> = ({ params }) => {
                   if (nestedBlok.link.linktype == "url") {
                     url = nestedBlok.link.url;
                   } else if (nestedBlok.link.linktype == "story") {
-                    url = "/" + nestedBlok.link.cached_url;
+                    if (url.startsWith("/")) {
+                      return;
+                    } else {
+                      url = "/" + nestedBlok.link.cached_url;
+                    }
                   }
                   return (
                     <Link
@@ -77,7 +81,11 @@ const Navbar: FC<PageProps> = ({ params }) => {
                   if (nestedBlok.link.linktype == "url") {
                     url = nestedBlok.link.url;
                   } else if (nestedBlok.link.linktype == "story") {
-                    url = "/" + nestedBlok.link.cached_url;
+                    if (url.startsWith("/")) {
+                      return;
+                    } else {
+                      url = "/" + nestedBlok.link.cached_url;
+                    }
                   }
                   return (
                     <Link
@@ -110,7 +118,11 @@ const Navbar: FC<PageProps> = ({ params }) => {
               if (nestedBlok.link.linktype == "url") {
                 url = nestedBlok.link.url;
               } else if (nestedBlok.link.linktype == "story") {
-                url = "/" + nestedBlok.link.cached_url;
+                if (url.startsWith("/")) {
+                  return;
+                } else {
+                  url = "/" + nestedBlok.link.cached_url;
+                }
               }
               return (
                 <Link

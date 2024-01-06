@@ -90,7 +90,7 @@ const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
     >
       <div className="sticky top-0 hidden h-screen md:block">
         <div
-          className={`absolute right-0 top-0 hidden h-full w-screen justify-end md:flex`}
+          className={`absolute right-0 top-0 z-10 hidden h-full w-screen justify-end md:flex`}
         >
           <Lottie options={defaultOptions} />
         </div>
