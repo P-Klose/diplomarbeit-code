@@ -1,16 +1,18 @@
 "use client";
 
+import Lottie from "react-lottie";
 import { storyblokEditable } from "@storyblok/react/rsc";
 import { render } from "storyblok-rich-text-react-renderer";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import * as startanimation from "../../startanimation.json";
 import Carousel from "./Carousel";
 import SliderContent from "./SliderContent";
 import Link from "next/link";
 import { HorizontalScrollSelectSliderProps } from "@/types/interfaces";
 
-const mapBlokSliderToSliderContent = (blokSlider) => {
-  return blokSlider.map((boxInfo) => {
+const mapBlokSliderToSliderContent = (blokSlider: any) => {
+  return blokSlider.map((boxInfo: any) => {
     let box = boxInfo.content;
     return {
       type: box.type,
@@ -69,6 +71,14 @@ const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
       ultrawide ? "0%" : scroll_width_summe_str,
     ],
   );
+  const defaultOptions = {
+    loop: false,
+    autoplay: true,
+    animationData: startanimation,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
 
   return (
     <section
@@ -79,7 +89,12 @@ const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
       }`}
     >
       <div className="sticky top-0 hidden h-screen md:block">
-        <h1 className="px-8 pt-8 text-center text-5xl font-semibold uppercase sm:text-end sm:text-7xl">
+        <div
+          className={`absolute right-0 top-0 hidden h-full w-screen justify-end md:flex`}
+        >
+          <Lottie options={defaultOptions} />
+        </div>
+        <h1 className="z-40 px-8 pt-8 text-center text-5xl font-semibold uppercase sm:text-start sm:text-7xl">
           {blok.title}
         </h1>
         <div className="flex h-[80vh] items-center overflow-hidden p-4">

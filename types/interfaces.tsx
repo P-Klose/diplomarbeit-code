@@ -170,6 +170,7 @@ export interface HorizontalScrollSelectSliderProps {
   slider: any[];
   scroll_speed: number;
   scroll_start_right: boolean;
+  show_title_animation: boolean;
 }
 
 export interface HorizontalScrollSliderProps {
