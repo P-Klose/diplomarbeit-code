@@ -5,6 +5,7 @@ import Lottie from "react-lottie";
 import Link from "next/link";
 import { render } from "storyblok-rich-text-react-renderer";
 import * as sseanimation from "../../sse.json";
+import * as ddpanimation from "../../informatik-ddp.json";
 
 const GridItem: React.FC<{ blok: GridItemProps }> = ({ blok }) => {
   var animationFilePath = null;
@@ -14,6 +15,9 @@ const GridItem: React.FC<{ blok: GridItemProps }> = ({ blok }) => {
       break;
     case "informatikcsi":
       animationFilePath = sseanimation;
+      break;
+    case "informatikddp":
+      animationFilePath = ddpanimation;
       break;
     default:
       null;
