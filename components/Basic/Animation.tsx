@@ -30,9 +30,7 @@ const Animation: React.FC<{ blok: any }> = ({ blok }) => {
 
   return (
     <div
-      className={`flex ${blok.height} col-span-full ${
-        blok.fixed ? "md:sticky md:top-0" : "mb-4"
-      }`}
+      className={`w-screen md:flex justify-end hidden h-full absolute top-14 right-0`}
     >
       <Lottie options={defaultOptions} />
     </div>
