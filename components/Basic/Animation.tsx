@@ -1,6 +1,6 @@
 import React, { startTransition } from 'react';
 import Lottie from 'react-lottie';
-import * as startanimation from '../../startpage_animation.json';
+import * as startanimation from '../../startanimation.json';
 import * as erroranimation from '../../error.json';
 import * as sseanimation from '../../sse.json';
 
@@ -33,9 +33,7 @@ console.log(blok.type);
 
   return (
     <div
-      className={`flex ${blok.height} col-span-full ${
-        blok.fixed ? "md:sticky md:top-0" : "mb-4"
-      }`}
+      className={`w-screen md:flex justify-end hidden h-full absolute top-14 right-0`}
     >
       <Lottie options={defaultOptions} />
     </div>
