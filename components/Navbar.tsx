@@ -126,7 +126,6 @@ const Navbar: FC<PageProps> = ({ params }) => {
                   url = "/" + nestedBlok.link.cached_url;
                 }
               }
-              console.log(url);
 
               return (
                 <Link
