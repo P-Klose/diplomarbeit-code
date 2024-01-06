@@ -122,12 +122,22 @@ export interface HeroProps {
   _uid: string;
   _editable: string;
   additional_content: any[];
+  hero_features: HeroFeatureProps[];
   background_image: Asset;
   component: string;
   fixed: boolean;
   headline: string;
   height: string;
   type: string;
+}
+
+export interface HeroFeatureProps {
+  _uid: string;
+  _editable: string;
+  symbol: string;
+  type: string;
+  link: any;
+  text: string;
 }
 
 export interface GridProps {
@@ -279,9 +289,10 @@ export interface GridItemProps {
 
 export interface HeadlineProps {
   _uid: string;
-  headline: string;
   _editable: string;
   component: string;
+  headline: string;
+  no_spacing_y: boolean;
 }
 
 export interface ImageComponentProps {
@@ -320,4 +331,40 @@ export interface TextProps {
   content: any;
   max_w: string;
   divider: boolean;
+}
+
+export interface FaqCollectionProps {
+  _uid: string;
+  _editable: string;
+  component: string;
+  headline: string;
+  description?: any;
+  faqs: any[];
+}
+
+export interface FaqProps {
+  _uid: string;
+  _editable: string;
+  component: string;
+  question: string;
+  answer: any;
+  video?: any;
+  show_video: boolean;
+}
+
+export interface IFrameProps {
+  _uid: string;
+  _editable: string;
+  component: string;
+  headline: string;
+  iframe_content: {
+    url: string;
+  };
+  links: any[];
+}
+
+export interface DefaultProps {
+  _uid: string;
+  _editable: string;
+  component: string;
 }

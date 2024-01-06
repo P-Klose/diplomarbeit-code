@@ -25,15 +25,17 @@ const FeatArticles: React.FC<FeatArticlesProps> = ({ blok }) => {
     <LayoutGroup>
       <section
         {...storyblokEditable(blok)}
-        className="mx-auto w-full max-w-screen-2xl p-4"
+        className="mx-auto w-full max-w-screen-2xl p-4 sm:p-6"
       >
-        <h2 className="p-4 pb-3 text-2xl font-semibold uppercase md:text-3xl">
+        <h2 className="pb-3 text-2xl font-semibold uppercase md:text-3xl">
           {blok.headline}
         </h2>
         {blok.additional_info ? (
-          <div className="prose max-w-none">{render(blok.additional_info)}</div>
+          <div className="prose max-w-none sm:px-2">
+            {render(blok.additional_info)}
+          </div>
         ) : null}
-        <div className="box-border grid w-full grid-cols-1 gap-12 px-8 pb-12 pt-10 lg:grid-cols-3 [&>*:nth-child(even)]:justify-self-end [&>*:nth-child(odd)]:justify-self-start">
+        <div className="box-border grid w-full grid-cols-1 gap-12 pb-12 pt-10 sm:px-4 lg:grid-cols-3 [&>*:nth-child(even)]:justify-self-end [&>*:nth-child(odd)]:justify-self-start">
           {/* odd:justify-self-end even:justify-self-start */}
           {blok.articles?.map((subblok: any) => {
             //console.log(article);

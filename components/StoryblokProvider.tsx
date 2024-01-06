@@ -46,6 +46,10 @@ import Timetable from "@/components/Custom/Timetable";
 import TimetableColumn from "@/components/Custom/TimetableColums";
 import TimetableSubject from "@/components/Custom/TimetableSubject";
 import LinkCollection from "./Basic/LinkCollection";
+import FaqCollection from "./Custom/FaqCollection";
+import FaqElement from "./Custom/FaqCollectionElement";
+import Spacer from "./Basic/Spacer";
+import IFrameContainer from "./Custom/IFrameContainer";
 
 const components = {
   page: Page,
@@ -79,6 +83,10 @@ const components = {
   timetable: Timetable,
   timetable_subject: TimetableSubject,
   timetable_cols: TimetableColumn,
+  faq_collection: FaqCollection,
+  faq_element: FaqElement,
+  spacer: Spacer,
+  iframe_container: IFrameContainer,
 };
 
 storyblokInit({

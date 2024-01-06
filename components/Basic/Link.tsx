@@ -126,7 +126,7 @@ const LinkComponent: React.FC<{ blok: LinkProps }> = ({ blok }) => {
       ) : null}
       {blok.style == "h-video" ? (
         <div
-          className="col-span-3 row-start-2 aspect-video p-4 sm:p-0 sm:pr-4 md:col-span-2 md:pb-4 md:pr-6 lg:col-span-3"
+          className="col-span-3 row-start-2 box-border aspect-video p-4 sm:p-0 sm:pr-4 md:col-span-2 md:pb-4 md:pr-6 lg:col-span-3"
           {...storyblokEditable(blok)}
         >
           <p className="hidden pb-1 sm:block">{blok.display_name}</p>
