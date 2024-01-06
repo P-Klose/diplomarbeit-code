@@ -1,12 +1,13 @@
 "use client";
 
-import Lottie from "react-lottie";
+import { Player } from "@lottiefiles/react-lottie-player";
 import { storyblokEditable } from "@storyblok/react/rsc";
 import { render } from "storyblok-rich-text-react-renderer";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import * as startanimation from "../../startanimation.json";
 import Carousel from "./Carousel";
+import React from "react";
 import SliderContent from "./SliderContent";
 import Link from "next/link";
 import { HorizontalScrollSelectSliderProps } from "@/types/interfaces";
@@ -31,6 +32,7 @@ const mapBlokSliderToSliderContent = (blokSlider: any) => {
 const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
   blok,
 }) => {
+  const player = React.createRef();
   const targetRef = useRef<any>();
   const carousel = useRef<any>();
   const { scrollYProgress } = useScroll({
@@ -74,14 +76,6 @@ const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
       ultrawide ? "0%" : scroll_width_summe_str,
     ],
   );
-  const defaultOptions = {
-    loop: false,
-    autoplay: true,
-    animationData: startanimation,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
 
   return (
     <section
@@ -95,7 +89,13 @@ const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
         <div
           className={`absolute right-0 top-0 z-10 hidden h-full w-screen justify-end md:flex`}
         >
-          <Lottie options={defaultOptions} />
+          <Player
+            loop={false}
+            autoplay={true}
+            src={startanimation}
+            keepLastFrame={true}
+            speed={1}
+          ></Player>
         </div>
         <h1 className="z-40 px-8 pt-8 text-center text-5xl font-semibold uppercase sm:text-start sm:text-7xl">
           {blok.title}
