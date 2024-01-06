@@ -1,6 +1,6 @@
 import React, { startTransition } from 'react';
 import Lottie from 'react-lottie';
-import * as startanimation from '../../startanimation.json';
+import * as startanimation from '../../startpage_animation.json';
 import * as erroranimation from '../../error.json';
 import * as sseanimation from '../../sse.json';
 
