@@ -5,7 +5,7 @@ import { render } from "storyblok-rich-text-react-renderer";
 const FaqCollection: React.FC<{ blok: FaqCollectionProps }> = ({ blok }) => {
   return (
     <div
-      className="mx-auto grid max-w-screen-2xl gap-4 p-4 xs:p-6"
+      className="mx-auto grid max-w-screen-2xl gap-4 p-4 sm:p-6"
       {...storyblokEditable(blok)}
     >
       <h2 className="break-words text-2xl font-semibold uppercase md:text-3xl">

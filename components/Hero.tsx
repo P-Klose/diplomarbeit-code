@@ -33,13 +33,15 @@ const Hero: React.FC<{ blok: HeroProps }> = ({ blok }) => {
           {blok.headline}
         </h1>
       </div>
-      <div className="sm:absolute sm:bottom-0 sm:right-0 sm:block">
-        <div className="mb-4 grid grid-cols-1 gap-2 px-4 sm:flex sm:flex-col sm:justify-end sm:px-0">
-          {blok.hero_features?.map((feat: HeroFeatureProps) => {
-            return <HeroFeature blok={feat} key={feat._uid}></HeroFeature>;
-          })}
+      {blok.hero_features ? (
+        <div className="sm:absolute sm:bottom-0 sm:right-0 sm:block">
+          <div className="mb-4 grid grid-cols-1 gap-2 px-4 sm:flex sm:flex-col sm:justify-end sm:px-0">
+            {blok.hero_features?.map((feat: HeroFeatureProps) => {
+              return <HeroFeature blok={feat} key={feat._uid}></HeroFeature>;
+            })}
+          </div>
         </div>
-      </div>
+      ) : null}
       {blok.additional_content?.map((nestedBlok: any) => (
         <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
       ))}

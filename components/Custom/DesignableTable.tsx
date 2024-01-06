@@ -15,7 +15,7 @@ const DesignableTable: React.FC<{ blok: DesignableTableProps }> = ({
   return (
     <section
       {...storyblokEditable(blok)}
-      className={`mx-auto grid max-w-screen-2xl p-4 xs:p-6`}
+      className={`mx-auto grid max-w-screen-2xl p-4 sm:p-6`}
     >
       {blok.headline == "" ? null : (
         <h3 className="text-xl font-semibold md:text-2xl">{blok.headline}</h3>

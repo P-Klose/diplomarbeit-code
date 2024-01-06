@@ -34,7 +34,7 @@ const ClassesOverview: React.FC<{ blok: ClassesProps }> = ({ blok }) => {
   return (
     <motion.section
       {...storyblokEditable(blok)}
-      className="mx-auto max-w-screen-2xl p-4 xs:p-6"
+      className="mx-auto max-w-screen-2xl p-4 sm:p-6"
     >
       <h2 className="p-4 pb-3 text-2xl font-semibold uppercase md:text-3xl">
         {blok.headline}

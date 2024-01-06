@@ -8,7 +8,7 @@ const Text: React.FC<{ blok: TextProps }> = ({ blok }) => {
   return (
     <div
       {...storyblokEditable(blok)}
-      className={`mx-auto w-full ${blok.max_w} bg-white p-4 xs:p-6`}
+      className={`mx-auto w-full ${blok.max_w} bg-white p-4 sm:p-6`}
     >
       <h1
         className={`py-3 text-2xl font-semibold uppercase  md:text-3xl

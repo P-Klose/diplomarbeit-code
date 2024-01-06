@@ -6,7 +6,7 @@ const Headline: React.FC<{ blok: HeadlineProps }> = ({ blok }) => {
   return (
     <div
       {...storyblokEditable(blok)}
-      className={`col-span-full mx-auto w-full max-w-screen-2xl bg-white p-4 xs:p-6 ${
+      className={`col-span-full mx-auto w-full max-w-screen-2xl bg-white p-4 sm:p-6 ${
         blok.no_spacing_y ? "py-0 xs:py-0" : ""
       }`}
     >

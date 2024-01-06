@@ -25,13 +25,13 @@ const FeatArticles: React.FC<FeatArticlesProps> = ({ blok }) => {
     <LayoutGroup>
       <section
         {...storyblokEditable(blok)}
-        className="mx-auto w-full max-w-screen-2xl p-4 xs:p-6"
+        className="mx-auto w-full max-w-screen-2xl p-4 sm:p-6"
       >
         <h2 className="pb-3 text-2xl font-semibold uppercase md:text-3xl">
           {blok.headline}
         </h2>
         {blok.additional_info ? (
-          <div className="prose max-w-none xs:px-2">
+          <div className="prose max-w-none sm:px-2">
             {render(blok.additional_info)}
           </div>
         ) : null}

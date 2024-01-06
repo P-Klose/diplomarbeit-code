@@ -352,6 +352,17 @@ export interface FaqProps {
   show_video: boolean;
 }
 
+export interface IFrameProps {
+  _uid: string;
+  _editable: string;
+  component: string;
+  headline: string;
+  iframe_content: {
+    url: string;
+  };
+  links: any[];
+}
+
 export interface DefaultProps {
   _uid: string;
   _editable: string;

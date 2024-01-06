@@ -48,6 +48,7 @@ import LinkCollection from "./Basic/LinkCollection";
 import FaqCollection from "./Custom/FaqCollection";
 import FaqElement from "./Custom/FaqCollectionElement";
 import Spacer from "./Basic/Spacer";
+import IFrameContainer from "./Custom/IFrameContainer";
 
 const components = {
   page: Page,
@@ -83,6 +84,7 @@ const components = {
   faq_collection: FaqCollection,
   faq_element: FaqElement,
   spacer: Spacer,
+  iframe_container: IFrameContainer,
 };
 
 storyblokInit({

@@ -50,7 +50,7 @@ const Timetable: React.FC<{ blok: TimetableProps }> = ({ blok }) => {
 
   return (
     <section
-      className="mx-auto grid max-w-screen-2xl grid-cols-2 gap-6 p-4 xs:p-6 md:grid-cols-3"
+      className="mx-auto grid max-w-screen-2xl grid-cols-2 gap-6 p-4 sm:p-6 md:grid-cols-3"
       id="timetable"
       {...storyblokEditable(blok)}
     >
