@@ -9,12 +9,13 @@ const LinkComponent: React.FC<{ blok: LinkProps }> = ({ blok }) => {
   if (blok.link.linktype == "url") {
     url = blok.link.url;
   } else if (blok.link.linktype == "story") {
+    url = blok.link.cached_url;
     if (url.startsWith("/")) {
-      return;
     } else {
       url = "/" + blok.link.cached_url;
     }
   }
+
   const borderColors = [
     "hover:border-allgemein",
     "hover:border-it-medientechnik",

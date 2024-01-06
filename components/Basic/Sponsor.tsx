@@ -8,7 +8,6 @@ const Sponsor: React.FC<{ blok: SponsorProps }> = ({ blok }) => {
     url = blok.link.url;
   } else if (blok.link.linktype == "story") {
     if (url.startsWith("/")) {
-      return;
     } else {
       url = "/" + blok.link.cached_url;
     }

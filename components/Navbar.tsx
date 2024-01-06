@@ -51,12 +51,13 @@ const Navbar: FC<PageProps> = ({ params }) => {
                   if (nestedBlok.link.linktype == "url") {
                     url = nestedBlok.link.url;
                   } else if (nestedBlok.link.linktype == "story") {
+                    url = nestedBlok.link.cached_url;
                     if (url.startsWith("/")) {
-                      return;
                     } else {
                       url = "/" + nestedBlok.link.cached_url;
                     }
                   }
+                  console.log(url);
                   return (
                     <Link
                       // className={`${nestedBlok.style} border-b-2 border-transparent transition ease-in-out hover:border-neutral-600`}
@@ -81,12 +82,13 @@ const Navbar: FC<PageProps> = ({ params }) => {
                   if (nestedBlok.link.linktype == "url") {
                     url = nestedBlok.link.url;
                   } else if (nestedBlok.link.linktype == "story") {
+                    url = nestedBlok.link.cached_url;
                     if (url.startsWith("/")) {
-                      return;
                     } else {
                       url = "/" + nestedBlok.link.cached_url;
                     }
                   }
+                  console.log(url);
                   return (
                     <Link
                       className={nestedBlok.style}
@@ -118,12 +120,14 @@ const Navbar: FC<PageProps> = ({ params }) => {
               if (nestedBlok.link.linktype == "url") {
                 url = nestedBlok.link.url;
               } else if (nestedBlok.link.linktype == "story") {
+                url = nestedBlok.link.cached_url;
                 if (url.startsWith("/")) {
-                  return;
                 } else {
                   url = "/" + nestedBlok.link.cached_url;
                 }
               }
+              console.log(url);
+
               return (
                 <Link
                   className="block px-4 py-2 text-sm hover:bg-gray-200"
