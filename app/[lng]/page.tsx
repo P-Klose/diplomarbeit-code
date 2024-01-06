@@ -1,4 +1,4 @@
-import Navbar from "@/components/Navbar";
+
 import { PageProps } from "@/types/interfaces";
 import { getStoryblokApi } from "@storyblok/react/rsc";
 import StoryblokStory from "@storyblok/react/story";

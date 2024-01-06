@@ -34,6 +34,7 @@ import Classes from "@/components/Custom/Classes";
 import Table from "@/components/Basic/Table";
 import Article from "@/components/Basic/Article";
 import AllArticles from "@/components/Basic/AllArticles";
+import Animation from "@/components/Basic/Animation";
 import FeatArticles from "@/components/Basic/FeatArticles";
 import Marquee from "@/components/Slider/Marquee";
 import ValueDokument from "@/components/Custom/ValueDokument";
@@ -66,6 +67,7 @@ const components = {
   scroll_slider: DynamicScrollSlider,
   scroll_slider_select: DynamicScrollSelectSlider,
   article: Article,
+  animation: Animation,
   all_articles: AllArticles,
   featured_articles: FeatArticles,
   marquee: Marquee,
