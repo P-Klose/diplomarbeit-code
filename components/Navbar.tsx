@@ -18,9 +18,7 @@ const Navbar: FC<PageProps> = ({ params }) => {
   const [smallNavIsOpen, setIsOpen] = useState(false);
   const navRef = useRef<any>();
   const showNavbar = () => {
-    console.log(smallNavIsOpen);
     setIsOpen(!smallNavIsOpen);
-    console.log(smallNavIsOpen);
   };
 
   useEffect(() => {
@@ -57,7 +55,6 @@ const Navbar: FC<PageProps> = ({ params }) => {
                       url = "/" + nestedBlok.link.cached_url;
                     }
                   }
-                  console.log(url);
                   return (
                     <Link
                       // className={`${nestedBlok.style} border-b-2 border-transparent transition ease-in-out hover:border-neutral-600`}
@@ -88,7 +85,6 @@ const Navbar: FC<PageProps> = ({ params }) => {
                       url = "/" + nestedBlok.link.cached_url;
                     }
                   }
-                  console.log(url);
                   return (
                     <Link
                       className={nestedBlok.style}

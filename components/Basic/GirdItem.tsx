@@ -22,9 +22,6 @@ const GridItem: React.FC<{ blok: GridItemProps }> = ({ blok }) => {
     default:
       null;
   }
-  console.log(animationFilePath);
-
-  console.log(sseanimation);
 
   const defaultOptions = {
     loop: false,
