@@ -85,7 +85,7 @@ const GridItem: React.FC<{ blok: GridItemProps }> = ({ blok }) => {
           <img className="inline-block" src={blok.main_image.filename}></img>
         </div>
         <div
-          className={`w-full p-4 sm:min-w-[50%] md:min-w-[66%] md:max-w-[66%] ${
+          className={`w-full p-4 xs:px-6 sm:min-w-[50%] md:min-w-[66%] md:max-w-[66%] ${
             blok.image_right ? "xxl:translate-x-1/3" : "xxl:-translate-x-1/3"
           }`}
         >

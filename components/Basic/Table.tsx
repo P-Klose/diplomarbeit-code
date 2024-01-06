@@ -3,14 +3,12 @@ import { storyblokEditable } from "@storyblok/react/rsc";
 
 const Table: React.FC<{ blok: TablePorps }> = ({ blok }) => {
   return (
-    <section className="mx-auto max-w-screen-2xl p-4">
+    <section className="mx-auto max-w-screen-2xl p-4 xs:p-6">
       {blok.headline == "" ? null : (
-        <h3 className="text-xl font-semibold xs:p-4 md:text-2xl">
-          {blok.headline}
-        </h3>
+        <h3 className="text-xl font-semibold md:text-2xl">{blok.headline}</h3>
       )}
       <table
-        className="mb-4 w-full table-fixed xs:mx-4"
+        className="mb-4 w-full table-fixed xs:px-4"
         key={blok._uid}
         {...storyblokEditable(blok)}
       >

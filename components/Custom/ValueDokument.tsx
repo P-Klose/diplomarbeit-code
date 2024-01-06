@@ -15,10 +15,10 @@ const ValueDokument: React.FC<{ blok: ValueDocumentProps }> = ({ blok }) => {
       className="mx-auto max-w-screen-2xl py-4"
     >
       {/* <div className=" float-right w-full bg-white"></div> */}
-      <h2 className="px-4 pb-3 text-2xl font-semibold uppercase md:text-3xl">
+      <h2 className="px-4 pb-3 text-2xl font-semibold uppercase sm:px-6 md:text-3xl">
         {blok.headline}
       </h2>
-      <h3 className="pl-4 text-lg font-medium ">{blok.subline}</h3>
+      <h3 className="pl-4 text-lg font-medium sm:pl-6 ">{blok.subline}</h3>
       <div className="relative h-full">
         <div className="shaped-value-document">
           {blok.content?.map((nestedBlok: any) => {
