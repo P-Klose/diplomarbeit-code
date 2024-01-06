@@ -274,6 +274,8 @@ export interface GridItemProps {
     fieldtype: string;
     cached_url: string;
   };
+  content_type: string;
+  animation: string;
   type: string;
   width: string;
   content: string;

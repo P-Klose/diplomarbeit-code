@@ -1,9 +1,36 @@
 import { GridItemProps } from "@/types/interfaces";
 import { storyblokEditable } from "@storyblok/react/rsc";
+import React from "react";
+import Lottie from "react-lottie";
 import Link from "next/link";
 import { render } from "storyblok-rich-text-react-renderer";
+import * as sseanimation from "../../sse.json";
 
 const GridItem: React.FC<{ blok: GridItemProps }> = ({ blok }) => {
+  var animationFilePath = null;
+  switch (blok.animation) {
+    case "informatiksse":
+      animationFilePath = sseanimation;
+      break;
+    case "informatikcsi":
+      animationFilePath = sseanimation;
+      break;
+    default:
+      null;
+  }
+  console.log(animationFilePath);
+
+  console.log(sseanimation);
+
+  const defaultOptions = {
+    loop: false,
+    autoplay: true,
+    animationData: animationFilePath,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+
   if (blok.type == "ausbildung") {
     let url = "";
     if (blok.link.linktype == "url") {
@@ -11,6 +38,7 @@ const GridItem: React.FC<{ blok: GridItemProps }> = ({ blok }) => {
     } else if (blok.link.linktype == "story") {
       url = "/" + blok.link.cached_url;
     }
+
     return (
       <Link
         {...storyblokEditable(blok)}
@@ -28,13 +56,11 @@ const GridItem: React.FC<{ blok: GridItemProps }> = ({ blok }) => {
               : "xs:border-r-[3px] md:border-r-8"
           }`}
         >
-          <video
-            className="w-full"
-            src={blok.main_image.filename}
-            type="video/mp4"
-            autoPlay
-            loop
-          ></video>
+          {blok.content_type === "animation" ? (
+            <Lottie options={defaultOptions} />
+          ) : (
+            <div>No Animation</div>
+          )}
         </div>
         <div
           className={`col-span-1 grid place-items-center p-6 ${
@@ -65,36 +91,6 @@ const GridItem: React.FC<{ blok: GridItemProps }> = ({ blok }) => {
           </div>
         </div>
       </Link>
-    );
-  }
-  if (blok.type == "ausbildung-content-x") {
-    return (
-      <div
-        {...storyblokEditable(blok)}
-        className={`col-start-1 flex flex-col md:col-span-3 ${
-          blok.image_right
-            ? "sm:flex-row-reverse lg:col-start-2"
-            : "sm:flex-row"
-        }`}
-      >
-        <div
-          className={`float-right min-w-[33%] xxl:min-w-[66%] xxl:-translate-x-1/3 ${
-            blok.image_right ? "xxl:translate-x-1/3" : "xxl:-translate-x-1/3"
-          }`}
-        >
-          <img className="inline-block" src={blok.main_image.filename}></img>
-        </div>
-        <div
-          className={`w-full p-4 xs:px-6 sm:min-w-[50%] md:min-w-[66%] md:max-w-[66%] ${
-            blok.image_right ? "xxl:translate-x-1/3" : "xxl:-translate-x-1/3"
-          }`}
-        >
-          <h3 className="pb-3 text-xl font-semibold md:text-2xl">
-            {blok.headline}
-          </h3>
-          {render(blok.content)}
-        </div>
-      </div>
     );
   }
   // if (blok.type == "ausbildung-content-y") {
