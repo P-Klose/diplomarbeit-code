@@ -5,7 +5,7 @@ import Lottie from "react-lottie";
 import Link from "next/link";
 import { render } from "storyblok-rich-text-react-renderer";
 import * as sseanimation from "../../sse.json";
-import * as ddpanimation from "../../informatik-ddp.json";
+import * as ddpanimation from "../../ddp.json";
 
 const GridItem: React.FC<{ blok: GridItemProps }> = ({ blok }) => {
   var animationFilePath = null;
@@ -31,7 +31,8 @@ const GridItem: React.FC<{ blok: GridItemProps }> = ({ blok }) => {
     autoplay: true,
     animationData: animationFilePath,
     rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
+      preserveAspectRatio: 'xMidYMid slice',
+      animationSpeed: 0.2, 
     },
   };
 
