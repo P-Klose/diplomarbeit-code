@@ -44,8 +44,8 @@ const GridItem: React.FC<{ blok: GridItemProps }> = ({ blok }) => {
       if (url.startsWith("/")) {
         return;
       } else {
-        url = "/" + blok.link.cached_url;
-      }
+      url = "/" + blok.link.cached_url;
+    }
     }
 
     return (
