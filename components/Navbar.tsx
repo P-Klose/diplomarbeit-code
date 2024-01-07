@@ -3,10 +3,13 @@ import { getStoryblokApi, storyblokEditable } from "@storyblok/react/rsc";
 
 import { useRef, useState, useEffect, FC } from "react"; // Beachte die hinzugefügte useEffect-Importierung
 
+import { GrLanguage } from "react-icons/gr";
+
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { FaXmark, FaBars } from "react-icons/fa6";
 import { PageProps } from "@/types/interfaces";
+import { languages } from "@/app/i18n/settings";
 
 const navVariants = {
   open: { opacity: 1, y: 0 },
@@ -42,10 +45,26 @@ const Navbar: FC<PageProps> = ({ params }) => {
             className="relative z-50 mx-auto max-w-screen-2xl bg-gray-50"
           >
             <div className="flex h-14 items-center justify-between p-4">
-              <div className="">
+              <div className="flex flex-row">
                 <Link className=" text-nav-base" href="/">
                   <img className="w-40" src={navbar.logo.filename}></img>
                 </Link>
+                {languages
+                  .filter((l) => params.lng !== l)
+                  .map((l, index) => {
+                    return (
+                      <Link
+                        key={l}
+                        className="ml-6 flex items-center justify-center"
+                        href={`/${l}`}
+                      >
+                        <GrLanguage></GrLanguage>
+                        <p className="relative -bottom-2 -left-1 text-xs font-medium">
+                          {l.toLocaleUpperCase()}
+                        </p>
+                      </Link>
+                    );
+                  })}
               </div>
               <div className="hidden items-center space-x-4 md:flex">
                 {navbar.middle_nav.map((nestedBlok: any) => {
@@ -61,7 +80,8 @@ const Navbar: FC<PageProps> = ({ params }) => {
                   }
                   return (
                     <Link
-                      className={nestedBlok.style}
+                      // className={nestedBlok.style}
+                      className="text-base font-medium"
                       href={url}
                       key={nestedBlok._uid}
                     >
@@ -84,7 +104,8 @@ const Navbar: FC<PageProps> = ({ params }) => {
                   }
                   return (
                     <Link
-                      className={nestedBlok.style}
+                      // className={nestedBlok.style}
+                      className="text-base font-medium"
                       href={url}
                       key={nestedBlok._uid}
                     >
