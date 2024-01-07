@@ -4,16 +4,6 @@ import HeroFeature from "./HeroFeature";
 import { motion } from "framer-motion";
 
 const Hero: React.FC<{ blok: HeroProps }> = ({ blok }) => {
-  function renderAdditionalContent() {
-    if (blok.additional_content != undefined) {
-      {
-        blok.additional_content.map((nestedBlok: any) => (
-          <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
-        ));
-      }
-    }
-  }
-
   return (
     <motion.section
       layoutId="herosection"
