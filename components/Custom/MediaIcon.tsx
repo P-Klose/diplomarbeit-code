@@ -11,6 +11,9 @@ import {
   FaPhone,
   FaBoxArchive,
   FaMapLocation,
+  FaAward,
+  FaBell,
+  FaHashtag,
 } from "react-icons/fa6";
 import { MediaIconProps } from "@/types/interfaces";
 
@@ -38,6 +41,13 @@ const MediaIcon: React.FC<MediaIconProps> = ({ iconName }) => {
       return <FaBoxArchive />;
     case "map":
       return <FaMapLocation />;
+    case "award":
+      return <FaAward />;
+    case "bell":
+      return <FaBell />;
+    case "hashtag":
+      return <FaHashtag />;
+
     default:
       return null;
   }
