@@ -1,4 +1,5 @@
 import { GridItemProps } from "@/types/interfaces";
+import { Player } from "@lottiefiles/react-lottie-player";
 import { storyblokEditable } from "@storyblok/react/rsc";
 import React from "react";
 import Lottie from "react-lottie";
@@ -6,6 +7,10 @@ import Link from "next/link";
 import { render } from "storyblok-rich-text-react-renderer";
 import * as sseanimation from "../../sse.json";
 import * as ddpanimation from "../../ddp.json";
+import * as csianimation from "../../informatik-csi.json";
+import * as medientechnikanimation from "../../medientechnik.json"
+import * as medizinanimation from "../../medizintechnik.json";
+import * as elektronikanimation from "../../elektronik.json";
 
 const GridItem: React.FC<{ blok: GridItemProps }> = ({ blok }) => {
   var animationFilePath = null;
@@ -14,23 +19,22 @@ const GridItem: React.FC<{ blok: GridItemProps }> = ({ blok }) => {
       animationFilePath = sseanimation;
       break;
     case "informatikcsi":
-      animationFilePath = sseanimation;
+      animationFilePath = csianimation;
       break;
     case "informatikddp":
       animationFilePath = ddpanimation;
       break;
+    case "medientechnik":
+      animationFilePath = medientechnikanimation;
+      break;
+    case "medizin":
+      animationFilePath = medizinanimation;
+      break;
+    case "elektronik":
+      animationFilePath = elektronikanimation;
+      break;
     default:
       null;
-  }
-
-  const defaultOptions = {
-    loop: false,
-    autoplay: true,
-    animationData: animationFilePath,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-      animationSpeed: 0.2,
-    },
   };
 
   if (blok.type == "ausbildung") {
@@ -54,7 +58,7 @@ const GridItem: React.FC<{ blok: GridItemProps }> = ({ blok }) => {
         }`}
       >
         <div
-          className={`col-span-1 place-items-center border-${
+          className={`p-12 col-span-1 place-items-center border-${
             blok.allocate
           } border-b-8 xs:border-b-0 ${
             blok.image_right
@@ -63,7 +67,20 @@ const GridItem: React.FC<{ blok: GridItemProps }> = ({ blok }) => {
           }`}
         >
           {blok.content_type === "animation" ? (
-            <Lottie options={defaultOptions} />
+            
+          <Player
+          loop={false}
+          autoplay={true}
+          hover={true}
+          src={animationFilePath}
+          keepLastFrame={true}
+          style={{
+            height: "100vh",
+            width: "100vw",
+            
+          }}
+          speed={1}
+        ></Player>
           ) : (
             <div>No Animation</div>
           )}
