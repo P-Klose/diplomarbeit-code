@@ -35,6 +35,7 @@ const ClassesOverview: React.FC<{ blok: ClassesProps }> = ({ blok }) => {
     <motion.section
       {...storyblokEditable(blok)}
       className="mx-auto max-w-screen-2xl p-4 sm:p-6"
+      id="classes"
     >
       <h2 className="p-4 pb-3 text-2xl font-semibold uppercase md:text-3xl">
         {blok.headline}
@@ -43,7 +44,7 @@ const ClassesOverview: React.FC<{ blok: ClassesProps }> = ({ blok }) => {
         {blok.classes?.map((nestedBlok: any) => {
           return (
             <Link
-              href={`?class=${nestedBlok.classname.toLowerCase()}`}
+              href={`?class=${nestedBlok.classname.toLowerCase()}&#classes`}
               className="m-4 uppercase"
               key={nestedBlok._uid}
             >
@@ -62,7 +63,7 @@ const ClassesOverview: React.FC<{ blok: ClassesProps }> = ({ blok }) => {
           return (
             <Link
               className="col-span-1 self-stretch bg-neutral-100"
-              href={`?class=${nestedClass.classname.toLowerCase()}`}
+              href={`?class=${nestedClass.classname.toLowerCase()}&#classes`}
               key={nestedClass._uid}
             >
               <div className="flex h-full items-center justify-center p-6 text-xl font-medium uppercase">
