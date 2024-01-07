@@ -82,7 +82,7 @@ const FeatArticle: React.FC<{ blok: ArticleProps; full_slug: string }> = ({
       <motion.div
         layout="position"
         whileHover={{
-          scale: 1.1,
+          scale: 1.05,
           transition: { duration: 0.5, type: "spring" },
         }}
         className={`border-${blok.allocate} relative box-border flex w-full max-w-lg flex-col items-start border-l-4`}
