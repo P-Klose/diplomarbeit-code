@@ -33,7 +33,7 @@ const BasicSlider = ({ blok }) => {
             return (
               <motion.div
                 key={box._uid}
-                className="grid w-full min-w-80 flex-shrink-0 grid-cols-1 items-center justify-center md:max-w-screen-sm"
+                className="grid w-full min-w-80 flex-shrink-0 grid-cols-1 items-center justify-center border-l-4 border-black transition-all hover:bg-neutral-100 md:max-w-screen-sm"
               >
                 <iframe
                   className="aspect-video w-full"
@@ -42,7 +42,7 @@ const BasicSlider = ({ blok }) => {
                 <h3 className="py-2 pl-2 text-lg font-medium">
                   {box.headline}
                 </h3>
-                <div className="prose pl-2 pt-1 prose-p:m-0 prose-p:my-1 prose-p:text-base">
+                <div className="prose py-2 pl-2 prose-p:m-0 prose-p:my-1 prose-p:text-base">
                   {render(box.additional_info)}
                 </div>
               </motion.div>
