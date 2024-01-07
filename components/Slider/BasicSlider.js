@@ -1,10 +1,12 @@
 "use client";
 
+import { IFrameProps } from "@/types/interfaces";
 import { storyblokEditable } from "@storyblok/react/rsc";
 import { motion } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
+import { render } from "storyblok-rich-text-react-renderer";
 
-const Slider = ({ blok }) => {
+const BasicSlider = ({ blok }) => {
   const [width, setWidth] = useState(0);
   const carousel = useRef();
 
@@ -12,27 +14,44 @@ const Slider = ({ blok }) => {
     setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
   }, []);
   return (
-    <motion.div
-      ref={carousel}
-      className="mx-auto max-w-screen-xl cursor-grab overflow-hidden"
-      whileTap={{ cursor: "grabbing" }}
-      {...storyblokEditable(blok)}
-    >
+    <div className="mx-auto max-w-screen-2xl p-4 sm:p-6">
+      <h2 className="break-words pb-3 text-2xl font-semibold uppercase md:text-3xl">
+        {blok.headline}
+      </h2>
       <motion.div
-        drag="x"
-        dragConstraints={{ right: 0, left: -width }}
-        className="flex gap-4"
+        ref={carousel}
+        className="cursor-grab overflow-hidden sm:p-2"
+        whileTap={{ cursor: "grabbing" }}
+        {...storyblokEditable(blok)}
       >
-        {blok.content?.map((box) => {
-          return (
-            <motion.div className="flex h-20 min-w-[30rem] items-center justify-center bg-gray-100 p-10">
-              <h3>BOX</h3>
-            </motion.div>
-          );
-        })}
+        <motion.div
+          drag="x"
+          dragConstraints={{ right: 0, left: -width }}
+          className="flex gap-4 sm:gap-8 md:gap-12"
+        >
+          {blok.content?.map((box) => {
+            return (
+              <motion.div
+                key={box._uid}
+                className="grid w-full min-w-80 flex-shrink-0 grid-cols-1 items-center justify-center md:max-w-screen-sm"
+              >
+                <iframe
+                  className="aspect-video w-full"
+                  src={box.iframe_content.url}
+                ></iframe>
+                <h3 className="py-2 pl-2 text-lg font-medium">
+                  {box.headline}
+                </h3>
+                <div className="prose pl-2 pt-1 prose-p:m-0 prose-p:my-1 prose-p:text-base">
+                  {render(box.additional_info)}
+                </div>
+              </motion.div>
+            );
+          })}
+        </motion.div>
       </motion.div>
-    </motion.div>
+    </div>
   );
 };
 
-export default Slider;
+export default BasicSlider;

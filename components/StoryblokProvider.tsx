@@ -50,6 +50,7 @@ import FaqCollection from "./Custom/FaqCollection";
 import FaqElement from "./Custom/FaqCollectionElement";
 import Spacer from "./Basic/Spacer";
 import IFrameContainer from "./Custom/IFrameContainer";
+import BasicSlider from "./Slider/BasicSlider";
 
 const components = {
   page: Page,
@@ -87,6 +88,7 @@ const components = {
   faq_element: FaqElement,
   spacer: Spacer,
   iframe_container: IFrameContainer,
+  basic_slider: BasicSlider,
 };
 
 storyblokInit({
