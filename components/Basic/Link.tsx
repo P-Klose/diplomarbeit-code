@@ -1,5 +1,6 @@
 import { storyblokEditable } from "@storyblok/react/rsc";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 import MediaIcon from "@/components/Custom/MediaIcon";
 import { LinkProps } from "@/types/interfaces";
@@ -130,7 +131,11 @@ const LinkComponent: React.FC<{ blok: LinkProps }> = ({ blok }) => {
         </Link>
       ) : null}
       {blok.style == "h-video" ? (
-        <div
+        <motion.div
+          layout
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
           className="col-span-3 row-start-2 box-border aspect-video p-4 sm:p-0 sm:pr-4 md:col-span-2 md:pb-4 md:pr-6 lg:col-span-3"
           {...storyblokEditable(blok)}
         >
@@ -143,10 +148,14 @@ const LinkComponent: React.FC<{ blok: LinkProps }> = ({ blok }) => {
             src={url}
             title="YouTube video player"
           ></iframe>
-        </div>
+        </motion.div>
       ) : null}
       {blok.style == "h-link" ? (
-        <div
+        <motion.div
+          layout
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
           className="col-span-2 mx-auto my-auto min-h-max py-2 md:col-span-3 md:py-8 lg:col-span-2 lg:mx-0 lg:pl-6"
           {...storyblokEditable(blok)}
         >
@@ -159,7 +168,7 @@ const LinkComponent: React.FC<{ blok: LinkProps }> = ({ blok }) => {
               {blok.display_name}
             </Link>
           </div>
-        </div>
+        </motion.div>
       ) : null}
       {blok.style == "default" ? (
         <Link

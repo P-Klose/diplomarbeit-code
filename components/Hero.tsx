@@ -2,17 +2,20 @@ import { HeroFeatureProps, HeroProps } from "@/types/interfaces";
 import { storyblokEditable, StoryblokComponent } from "@storyblok/react/rsc";
 import HeroFeature from "./HeroFeature";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import schoolblackandwhite from "../public/schule_weiss.png";
 
 const Hero: React.FC<{ blok: HeroProps }> = ({ blok }) => {
   return (
     <motion.section
-      layoutId="herosection"
       {...storyblokEditable(blok)}
       className={`relative mx-auto grid h-auto max-w-screen-2xl grid-cols-1 sm:grid-cols-7 
       ${blok.type == "school" ? "sm:mb-10 md:mb-14 lg:mb-20 xl:mb-40" : ""}`}
     >
       <motion.div
         layout
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
         // layoutId="herosectionimg"
         className={`flex h-32 sm:${blok.height} col-span-full ${
           blok.fixed ? "md:sticky md:top-0" : "mb-4"
@@ -25,6 +28,9 @@ const Hero: React.FC<{ blok: HeroProps }> = ({ blok }) => {
       >
         <motion.h1
           layout
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
           className="w-full text-center text-5xl font-extrabold uppercase text-white sm:ml-8 sm:w-1/2 sm:text-left md:ml-16 md:text-7xl xl:text-8xl"
         >
           {blok.headline}
@@ -49,12 +55,18 @@ const Hero: React.FC<{ blok: HeroProps }> = ({ blok }) => {
         <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
       ))}
       {blok.type == "school" ? (
-        <img
-          // src={process.env.PUBLIC_URL + "/schule_weiss.png"}
-          src="./schule_weiss.png"
-          alt="schule in schwarz weiß"
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           className="absolute left-0 hidden w-2/3 p-4 sm:-bottom-10 sm:block md:-bottom-14 lg:-bottom-24 xl:-bottom-40"
-        />
+        >
+          <Image
+            // src={process.env.PUBLIC_URL + "/schule_weiss.png"}
+            src={schoolblackandwhite}
+            alt="schule in schwarz weiß"
+            style={{ maxWidth: "100%", height: "auto" }}
+          />
+        </motion.div>
       ) : null}
     </motion.section>
   );
