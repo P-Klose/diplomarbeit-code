@@ -15,7 +15,7 @@ const ValueDokument: React.FC<{ blok: ValueDocumentProps }> = ({ blok }) => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6, delay: 0.3 }}
       {...storyblokEditable(blok)}
-      className="mx-auto max-w-screen-2xl py-4"
+      className="mx-auto max-w-screen-2xl pt-4"
     >
       {/* <div className=" float-right w-full bg-white"></div> */}
       <h2 className="px-4 pb-3 text-2xl font-semibold uppercase sm:px-6 md:text-3xl">

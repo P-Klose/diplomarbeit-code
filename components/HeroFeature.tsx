@@ -7,8 +7,6 @@ const HeroFeature: React.FC<{ blok: HeroFeatureProps; index: number }> = ({
   blok,
   index,
 }) => {
-  console.log(index);
-
   if (blok.type == "small") {
     return (
       <motion.div
