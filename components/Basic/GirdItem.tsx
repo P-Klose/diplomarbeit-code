@@ -2,18 +2,16 @@ import { GridItemProps } from "@/types/interfaces";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { storyblokEditable } from "@storyblok/react/rsc";
 import React from "react";
-import Lottie from "react-lottie";
 import Link from "next/link";
-import { render } from "storyblok-rich-text-react-renderer";
-import * as sseanimation from "../../sse.json";
-import * as ddpanimation from "../../ddp.json";
+import * as sseanimation from "../../informatik-sse.json";
+import * as ddpanimation from "../../informatik-ddp.json";
 import * as csianimation from "../../informatik-csi.json";
-import * as medientechnikanimation from "../../medientechnik.json"
+import * as medientechnikanimation from "../../medientechnik.json";
 import * as medizinanimation from "../../medizintechnik.json";
 import * as elektronikanimation from "../../elektronik.json";
 
 const GridItem: React.FC<{ blok: GridItemProps }> = ({ blok }) => {
-  var animationFilePath = null;
+  var animationFilePath;
   switch (blok.animation) {
     case "informatiksse":
       animationFilePath = sseanimation;
@@ -34,8 +32,9 @@ const GridItem: React.FC<{ blok: GridItemProps }> = ({ blok }) => {
       animationFilePath = elektronikanimation;
       break;
     default:
+      animationFilePath = sseanimation;
       null;
-  };
+  }
 
   if (blok.type == "ausbildung") {
     let url = "";
@@ -58,7 +57,7 @@ const GridItem: React.FC<{ blok: GridItemProps }> = ({ blok }) => {
         }`}
       >
         <div
-          className={`p-12 col-span-1 place-items-center border-${
+          className={`col-span-1 place-items-center p-12 border-${
             blok.allocate
           } border-b-8 xs:border-b-0 ${
             blok.image_right
@@ -67,20 +66,18 @@ const GridItem: React.FC<{ blok: GridItemProps }> = ({ blok }) => {
           }`}
         >
           {blok.content_type === "animation" ? (
-            
-          <Player
-          loop={false}
-          autoplay={true}
-          hover={true}
-          src={animationFilePath}
-          keepLastFrame={true}
-          style={{
-            height: "100vh",
-            width: "100vw",
-            
-          }}
-          speed={1}
-        ></Player>
+            <Player
+              loop={false}
+              autoplay={true}
+              hover={true}
+              src={animationFilePath}
+              keepLastFrame={true}
+              style={{
+                height: "100%",
+                width: "100%",
+              }}
+              speed={1}
+            ></Player>
           ) : (
             <div>No Animation</div>
           )}

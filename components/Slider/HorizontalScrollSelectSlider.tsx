@@ -6,6 +6,7 @@ import { render } from "storyblok-rich-text-react-renderer";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import * as startanimation from "../../startanimation.json";
+import * as biggerstartanimation from "../../startanimation-3zu4.json";
 import Carousel from "./Carousel";
 import React from "react";
 import SliderContent from "./SliderContent";
@@ -136,32 +137,28 @@ const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
     >
       <div className="sticky top-0 hidden h-screen md:block">
         <div
-          className={`absolute right-0 top-0 z-10 hidden h-full w-screen justify-end md:flex`}
+          className={`absolute right-0 top-0 z-10 hidden h-full w-screen items-center justify-end md:my-4 md:flex`}
         >
           <Player
             loop={false}
             autoplay={true}
-            src={startanimation}
+            src={biggerstartanimation}
             keepLastFrame={true}
-            style={{
-              height: "100vh",
-              width: "100vw",
-              // position: "relative",
-              // right: "0px",
-            }}
+            // style={{
+            //   maxHeight: "100vh",
+            // }}
             speed={1}
           ></Player>
-          ?
         </div>
         <motion.h1
           initial="hidden"
           animate="visible"
           variants={headlineVarients}
-          className="z-40 px-8 pt-8 text-center text-5xl font-semibold uppercase sm:text-start sm:text-7xl"
+          className="absolute top-0 z-40 px-8 pt-8 text-center text-5xl font-semibold uppercase sm:text-start sm:text-7xl"
         >
           {blok.title}
         </motion.h1>
-        <div className="flex h-[80vh] items-center overflow-hidden p-4">
+        <div className="flex h-full items-center overflow-hidden p-4">
           <div ref={carousel} className="w-screen overflow-visible">
             <motion.div
               drag="x"
