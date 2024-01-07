@@ -1,5 +1,6 @@
 import { SponsorProps } from "@/types/interfaces";
 import { storyblokEditable } from "@storyblok/react/rsc";
+import { motion } from "framer-motion";
 import Link from "next/link";
 
 const Sponsor: React.FC<{ blok: SponsorProps }> = ({ blok }) => {
@@ -15,15 +16,21 @@ const Sponsor: React.FC<{ blok: SponsorProps }> = ({ blok }) => {
   let shortUrl = url.replace(/^https?:\/\//, "");
   if (blok.only_image == true) {
     return (
-      <img
+      <motion.img
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.3 }}
         {...storyblokEditable(blok)}
         className="mx-5 h-auto w-full max-w-[160px] self-center sm:mx-10 sm:h-full sm:max-h-10 sm:w-auto sm:max-w-none"
         src={blok.image.filename}
-      ></img>
+      ></motion.img>
     );
   } else {
     return (
-      <div
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.3 }}
         {...storyblokEditable(blok)}
         className="col-span-1 box-border grid gap-4 px-4 sm:mx-12 sm:max-w-sm"
       >
@@ -38,7 +45,7 @@ const Sponsor: React.FC<{ blok: SponsorProps }> = ({ blok }) => {
           <h3 className="text-lg font-normal">{blok.subline}</h3>
           <Link href={url}>{shortUrl}</Link>
         </div>
-      </div>
+      </motion.div>
     );
   }
 };

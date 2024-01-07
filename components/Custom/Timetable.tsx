@@ -6,6 +6,7 @@ import { render } from "storyblok-rich-text-react-renderer";
 import TimetableColums from "./TimetableColums";
 import TimetableSubject from "./TimetableSubject";
 import { TimetableProps } from "@/types/interfaces";
+import { motion } from "framer-motion";
 
 const Timetable: React.FC<{ blok: TimetableProps }> = ({ blok }) => {
   const searchParams = useSearchParams();
@@ -49,7 +50,10 @@ const Timetable: React.FC<{ blok: TimetableProps }> = ({ blok }) => {
   );
 
   return (
-    <section
+    <motion.section
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6, delay: 0.3 }}
       className="mx-auto grid max-w-screen-2xl grid-cols-2 gap-6 p-4 sm:p-6 md:grid-cols-3"
       id="timetable"
       {...storyblokEditable(blok)}
@@ -113,7 +117,7 @@ const Timetable: React.FC<{ blok: TimetableProps }> = ({ blok }) => {
           </section>
         </div>
       ) : null}
-    </section>
+    </motion.section>
   );
 };
 export default Timetable;

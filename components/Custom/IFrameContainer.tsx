@@ -1,10 +1,14 @@
 import React from "react";
 import { storyblokEditable, StoryblokComponent } from "@storyblok/react/rsc";
 import { IFrameProps } from "@/types/interfaces";
+import { motion } from "framer-motion";
 
 const IFrameContainer: React.FC<{ blok: IFrameProps }> = ({ blok }) => {
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6, delay: 0.3 }}
       {...storyblokEditable(blok)}
       className={`mx-auto grid max-w-screen-2xl grid-cols-1 gap-4 p-4 sm:p-6`}
     >
@@ -22,7 +26,7 @@ const IFrameContainer: React.FC<{ blok: IFrameProps }> = ({ blok }) => {
           <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

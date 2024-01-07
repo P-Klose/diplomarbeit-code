@@ -23,7 +23,10 @@ storyblokInit({
 const FeatArticles: React.FC<FeatArticlesProps> = ({ blok }) => {
   return (
     <LayoutGroup>
-      <section
+      <motion.section
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.3 }}
         {...storyblokEditable(blok)}
         className="mx-auto w-full max-w-screen-2xl p-4 sm:p-6"
       >
@@ -49,7 +52,7 @@ const FeatArticles: React.FC<FeatArticlesProps> = ({ blok }) => {
             // ;
           })}
         </div>
-      </section>
+      </motion.section>
     </LayoutGroup>
   );
 };

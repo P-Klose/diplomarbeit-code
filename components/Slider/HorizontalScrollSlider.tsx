@@ -76,8 +76,8 @@ const Slider: React.FC<{ blok: HorizontalScrollSliderProps }> = ({ blok }) => {
         ease: "easeInOut",
         duration,
         opacity: {
-          delay: 0.5,
-          duration: 0.7,
+          delay: 0.9,
+          duration: 0.5,
         },
       },
     },
@@ -93,7 +93,8 @@ const Slider: React.FC<{ blok: HorizontalScrollSliderProps }> = ({ blok }) => {
         ease: "easeInOut",
         duration,
         x: {
-          duration: 0.7,
+          delay: 0.3,
+          duration: 0.9,
         },
       },
     },

@@ -1,9 +1,15 @@
-import { TablePorps } from "@/types/interfaces";
+import { TableProps } from "@/types/interfaces";
 import { storyblokEditable } from "@storyblok/react/rsc";
+import { motion } from "framer-motion";
 
-const Table: React.FC<{ blok: TablePorps }> = ({ blok }) => {
+const Table: React.FC<{ blok: TableProps }> = ({ blok }) => {
   return (
-    <section className="mx-auto max-w-screen-2xl p-4 sm:p-6">
+    <motion.section
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6, delay: 0.3 }}
+      className="mx-auto max-w-screen-2xl p-4 sm:p-6"
+    >
       {blok.headline == "" ? null : (
         <h3 className="text-xl font-semibold md:text-2xl">{blok.headline}</h3>
       )}
@@ -50,7 +56,7 @@ const Table: React.FC<{ blok: TablePorps }> = ({ blok }) => {
           })}
         </tbody>
       </table>
-    </section>
+    </motion.section>
   );
 };
 

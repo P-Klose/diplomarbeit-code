@@ -11,6 +11,9 @@ const ValueDokument: React.FC<{ blok: ValueDocumentProps }> = ({ blok }) => {
   var content_count = 0;
   return (
     <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6, delay: 0.3 }}
       {...storyblokEditable(blok)}
       className="mx-auto max-w-screen-2xl py-4"
     >

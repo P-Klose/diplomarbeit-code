@@ -36,7 +36,11 @@ const Navbar: FC<PageProps> = ({ params }) => {
     return (
       <header {...storyblokEditable(navbar)} className="">
         <nav className="bg-gray-50">
-          <div className="relative z-50 mx-auto max-w-screen-2xl bg-gray-50">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="relative z-50 mx-auto max-w-screen-2xl bg-gray-50"
+          >
             <div className="flex h-14 items-center justify-between p-4">
               <div className="">
                 <Link className=" text-nav-base" href="/">
@@ -102,8 +106,9 @@ const Navbar: FC<PageProps> = ({ params }) => {
                 </button>
               </div>
             </div>
-          </div>
+          </motion.div>
           <motion.div
+            initial={{ opacity: 0, y: "-180px" }}
             animate={smallNavIsOpen ? "open" : "closed"}
             variants={navVariants}
             transition={{ ease: "easeInOut", duration: 0.5 }}

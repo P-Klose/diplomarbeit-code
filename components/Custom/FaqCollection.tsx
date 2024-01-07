@@ -1,10 +1,14 @@
 import { storyblokEditable, StoryblokComponent } from "@storyblok/react/rsc";
 import { FaqCollectionProps, FaqProps } from "@/types/interfaces";
 import { render } from "storyblok-rich-text-react-renderer";
+import { motion } from "framer-motion";
 
 const FaqCollection: React.FC<{ blok: FaqCollectionProps }> = ({ blok }) => {
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6, delay: 0.3 }}
       className="mx-auto grid max-w-screen-2xl gap-4 p-4 sm:p-6"
       {...storyblokEditable(blok)}
     >
@@ -19,7 +23,7 @@ const FaqCollection: React.FC<{ blok: FaqCollectionProps }> = ({ blok }) => {
           <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 export default FaqCollection;

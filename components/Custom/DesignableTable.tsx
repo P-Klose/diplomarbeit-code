@@ -1,5 +1,6 @@
 import { DesignableTableProps } from "@/types/interfaces";
 import { storyblokEditable, StoryblokComponent } from "@storyblok/react/rsc";
+import { motion } from "framer-motion";
 
 const DesignableTable: React.FC<{ blok: DesignableTableProps }> = ({
   blok,
@@ -13,7 +14,10 @@ const DesignableTable: React.FC<{ blok: DesignableTableProps }> = ({
   ];
 
   return (
-    <section
+    <motion.section
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6, delay: 0.3 }}
       {...storyblokEditable(blok)}
       className={`mx-auto grid max-w-screen-2xl p-4 sm:p-6`}
     >
@@ -32,7 +36,7 @@ const DesignableTable: React.FC<{ blok: DesignableTableProps }> = ({
           <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 };
 
