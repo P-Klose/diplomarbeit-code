@@ -1,7 +1,13 @@
 import { PageProps } from "@/types/interfaces";
 import { getStoryblokApi, StoryblokComponent } from "@storyblok/react/rsc";
 import StoryblokStory from "@storyblok/react/story";
-import { cache, FC } from "react";
+import { Metadata } from "next";
+import { FC } from "react";
+
+export const metadata: Metadata = {
+  title: "Ausbildung - HTL Leonding",
+  description: "",
+};
 
 const Home: FC<PageProps> = async ({ params }) => {
   const { data } = await fetchData(params.lng);

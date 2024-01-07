@@ -9,6 +9,7 @@ import { dir } from "i18next";
 import { languages } from "../i18n/settings";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer/Footer";
+import { Metadata } from "next";
 
 export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }));
@@ -25,9 +26,9 @@ storyblokInit({
 
 const manrope = Manrope({ subsets: ["latin"] });
 
-export const metadata = {
-  title: "Storyblok and Next.js 13",
-  description: "A Next.js and Storyblok app using app router ",
+export const metadata: Metadata = {
+  title: "HTL Leonding",
+  description: "",
 };
 
 export default function RootLayout({
