@@ -143,8 +143,15 @@ const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
             autoplay={true}
             src={startanimation}
             keepLastFrame={true}
+            style={{
+              height: "100vh",
+              width: "100vw",
+              // position: "relative",
+              // right: "0px",
+            }}
             speed={1}
           ></Player>
+          ?
         </div>
         <motion.h1
           initial="hidden"
