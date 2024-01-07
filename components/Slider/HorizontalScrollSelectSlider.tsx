@@ -39,6 +39,7 @@ const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
     target: targetRef,
   });
 
+  // Berechung der x Position (start und endpunkt der Animation)
   let scroll_width_summe = 0;
   let width = window.innerWidth;
   let ultrawide = false;
@@ -57,8 +58,6 @@ const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
     "md:h-[300vh]",
     "md:h-[350vh]",
   ];
-  //scroll_width_summe = startpoint (distance from right)
-  //width = endpoint (distance from right)
   scroll_width_summe = (scroll_width_summe - width) * -1;
   if (blok.show_title_animation) {
     scroll_width_summe -= 125;
@@ -68,6 +67,7 @@ const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
   if (scroll_width_summe > 0) {
     ultrawide = true;
   }
+  // Scroll Animation
   const x = useTransform(
     scrollYProgress,
     [0, 1],
@@ -76,6 +76,55 @@ const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
       ultrawide ? "0%" : scroll_width_summe_str,
     ],
   );
+  // Content-Animation mit framer-motion
+  const duration = 0.5;
+  const startAnimationDuration = 1.6;
+  const variantsNormal = {
+    visible: { opacity: 1 },
+    hidden: { opacity: 0 },
+  };
+  const variantsStartAnimation = {
+    visible: {
+      opacity: 1,
+      transition: {
+        ease: "easeInOut",
+        duration,
+        opacity: {
+          delay: startAnimationDuration,
+        },
+      },
+    },
+    hidden: {
+      opacity: 0,
+    },
+  };
+  const variantsStartAnimationHeadline = {
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        ease: "easeInOut",
+        duration,
+        opacity: {
+          delay: startAnimationDuration,
+        },
+        x: {
+          delay: startAnimationDuration,
+          duration: 0.7,
+        },
+      },
+    },
+    hidden: {
+      opacity: 0,
+      x: "-100%",
+    },
+  };
+  let variants = variantsNormal;
+  let headlineVarients = variantsNormal;
+  if (blok.show_title_animation) {
+    variants = variantsStartAnimation;
+    headlineVarients = variantsStartAnimationHeadline;
+  }
 
   return (
     <section
@@ -97,13 +146,21 @@ const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
             speed={1}
           ></Player>
         </div>
-        <h1 className="z-40 px-8 pt-8 text-center text-5xl font-semibold uppercase sm:text-start sm:text-7xl">
+        <motion.h1
+          initial="hidden"
+          animate="visible"
+          variants={headlineVarients}
+          className="z-40 px-8 pt-8 text-center text-5xl font-semibold uppercase sm:text-start sm:text-7xl"
+        >
           {blok.title}
-        </h1>
+        </motion.h1>
         <div className="flex h-[80vh] items-center overflow-hidden p-4">
           <div ref={carousel} className="w-screen overflow-visible">
             <motion.div
               drag="x"
+              initial="hidden"
+              animate="visible"
+              variants={variants}
               dragConstraints={{ right: 0, left: -width }}
               style={{ x }}
               className={`flex gap-4`}

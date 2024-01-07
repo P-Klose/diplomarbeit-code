@@ -52,8 +52,6 @@ const Slider: React.FC<{ blok: HorizontalScrollSliderProps }> = ({ blok }) => {
     "md:h-[300vh]",
     "md:h-[350vh]",
   ];
-  //scroll_width_summe = startpoint (distance from right)
-  //width = endpoint (distance from right)
   scroll_width_summe = (scroll_width_summe - width) * -1;
   let scroll_width_summe_str = scroll_width_summe + "px";
   let width_str = width + "px";
@@ -68,6 +66,42 @@ const Slider: React.FC<{ blok: HorizontalScrollSliderProps }> = ({ blok }) => {
       ultrawide ? "0%" : scroll_width_summe_str,
     ],
   );
+  // Content-Animation mit framer-motion
+  const duration = 0.5;
+  const startAnimationDuration = 1.6;
+  const variants = {
+    visible: {
+      opacity: 1,
+      transition: {
+        ease: "easeInOut",
+        duration,
+        opacity: {
+          delay: 0.5,
+          duration: 0.7,
+        },
+      },
+    },
+    hidden: {
+      opacity: 0,
+    },
+  };
+  const variantsHeadline = {
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        ease: "easeInOut",
+        duration,
+        x: {
+          duration: 0.7,
+        },
+      },
+    },
+    hidden: {
+      opacity: 0,
+      x: "-100%",
+    },
+  };
 
   return (
     <section
@@ -78,11 +112,21 @@ const Slider: React.FC<{ blok: HorizontalScrollSliderProps }> = ({ blok }) => {
       }`}
     >
       <div className="sticky top-0 hidden h-screen md:block">
-        <h1 className="px-8 pt-8 text-left text-5xl font-semibold uppercase sm:text-7xl">
+        <motion.h1
+          initial="hidden"
+          animate="visible"
+          variants={variantsHeadline}
+          className="px-8 pt-8 text-left text-5xl font-semibold uppercase sm:text-7xl"
+        >
           {blok.title}
-        </h1>
+        </motion.h1>
         {blok.slider_table.thead.length > 0 ? (
-          <table className="my-4 ml-auto w-full sm:w-1/2 md:w-1/3">
+          <motion.table
+            initial="hidden"
+            animate="visible"
+            variants={variants}
+            className="my-4 ml-auto w-full sm:w-1/2 md:w-1/3"
+          >
             <thead className="mb-4">
               <tr>
                 {blok.slider_table?.thead?.map((th: any, index: number) => {
@@ -115,11 +159,14 @@ const Slider: React.FC<{ blok: HorizontalScrollSliderProps }> = ({ blok }) => {
                 );
               })}
             </tbody>
-          </table>
+          </motion.table>
         ) : null}
         <div className="flex h-[80vh] items-center overflow-hidden p-8">
           <div ref={carousel} className="w-screen overflow-visible">
             <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={variants}
               drag="x"
               dragConstraints={{ right: 0, left: -width }}
               style={{ x }}
