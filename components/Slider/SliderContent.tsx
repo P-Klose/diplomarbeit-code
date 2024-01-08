@@ -48,7 +48,7 @@ const SliderContent: React.FC<SliderContentProps> = ({ slider }) => {
                   {box.headline}
                 </h2>
                 <p
-                  className={`bg-${box.allocate} p-2 text-right text-xs font-normal`}
+                  className={`bg-${box.allocate} p-2 text-right text-xs font-semibold text-white`}
                 >
                   {box.subline}
                 </p>
