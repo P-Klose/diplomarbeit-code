@@ -24,6 +24,21 @@ interface SliderContentProps {
 
 const SliderContent: React.FC<SliderContentProps> = ({ slider }) => {
   let count = 0;
+  function transformDateFormat(inputDate: string) {
+    const dateParts = inputDate.split(" ");
+    if (dateParts.length === 2) {
+      const [datePart, timePart] = dateParts;
+      const [year, month, day] = datePart.split("-");
+
+      // Create the transformed date string
+      const transformedDate = `${day}.${month}.${year}`;
+
+      return transformedDate;
+    } else {
+      // Handle invalid input format
+      return "Invalid Date Format";
+    }
+  }
 
   return (
     <>
@@ -31,6 +46,8 @@ const SliderContent: React.FC<SliderContentProps> = ({ slider }) => {
         count++;
 
         if (box.type === "event") {
+          console.log(box);
+
           return (
             <Link
               {...storyblokEditable(box)}
@@ -47,11 +64,13 @@ const SliderContent: React.FC<SliderContentProps> = ({ slider }) => {
                 <h2 className="col-span-3 row-start-3 m-4 text-lg font-medium">
                   {box.headline}
                 </h2>
-                <p
-                  className={`bg-${box.allocate} p-2 text-right text-xs font-normal`}
-                >
-                  {box.subline}
-                </p>
+                {box.date ? (
+                  <p
+                    className={`bg-${box.allocate} p-2 text-right text-xs font-normal text-neutral-200`}
+                  >
+                    {transformDateFormat(box.date)}
+                  </p>
+                ) : null}
               </div>
             </Link>
           );

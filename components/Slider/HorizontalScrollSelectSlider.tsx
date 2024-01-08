@@ -26,6 +26,7 @@ const mapBlokSliderToSliderContent = (blokSlider: any) => {
       content: box.content,
       main_image: box.main_image,
       full_slug: boxInfo.full_slug,
+      date: box.date,
     };
   });
 };
@@ -137,7 +138,7 @@ const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
     >
       <div className="sticky top-0 hidden h-screen md:block">
         <div
-          className={`absolute right-0 top-0 z-10 hidden h-full w-screen items-center justify-end md:my-4 md:flex`}
+          className={`pointer-events-none absolute right-0 top-0 z-10 hidden h-full w-screen items-center justify-end md:my-4 md:flex`}
         >
           <Player
             loop={false}
