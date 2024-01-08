@@ -25,7 +25,7 @@ const GridItem: React.FC<{ blok: GridItemProps }> = ({ blok }) => {
     case "medientechnik":
       animationFilePath = medientechnikanimation;
       break;
-    case "medizin":
+    case "medizintechnik":
       animationFilePath = medizinanimation;
       break;
     case "elektronik":
