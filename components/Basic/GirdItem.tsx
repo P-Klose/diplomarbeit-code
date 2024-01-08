@@ -1,6 +1,7 @@
 import { GridItemProps } from "@/types/interfaces";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { storyblokEditable } from "@storyblok/react/rsc";
+import { render } from "storyblok-rich-text-react-renderer";
 import React from "react";
 import Link from "next/link";
 import * as sseanimation from "../../informatik-sse.json";
@@ -35,6 +36,7 @@ const GridItem: React.FC<{ blok: GridItemProps }> = ({ blok }) => {
       animationFilePath = sseanimation;
       null;
   }
+  console.log(blok);
 
   if (blok.type == "ausbildung") {
     let url = "";
@@ -111,6 +113,36 @@ const GridItem: React.FC<{ blok: GridItemProps }> = ({ blok }) => {
           </div>
         </div>
       </Link>
+    );
+  }
+  if (blok.type == "ausbildung-content-x") {
+    return (
+      <div
+        {...storyblokEditable(blok)}
+        className={`col-start-1 flex flex-col md:col-span-3 ${
+          blok.image_right
+            ? "sm:flex-row-reverse lg:col-start-2"
+            : "sm:flex-row"
+        }`}
+      >
+        <div
+          className={`float-right min-w-[33%] xxl:min-w-[66%] xxl:-translate-x-1/3 ${
+            blok.image_right ? "xxl:translate-x-1/3" : "xxl:-translate-x-1/3"
+          }`}
+        >
+          <img className="inline-block" src={blok.main_image.filename}></img>
+        </div>
+        <div
+          className={`w-full p-4 sm:min-w-[50%] md:min-w-[66%] md:max-w-[66%] ${
+            blok.image_right ? "xxl:translate-x-1/3" : "xxl:-translate-x-1/3"
+          }`}
+        >
+          <h3 className="pb-3 text-xl font-semibold md:text-2xl">
+            {blok.headline}
+          </h3>
+          {render(blok.content)}
+        </div>
+      </div>
     );
   }
   // if (blok.type == "ausbildung-content-y") {
