@@ -76,7 +76,7 @@ const Article: React.FC<{ blok: ArticleProps }> = ({ blok }) => {
           ) : null} */}
           {blok.date ? (
             <p
-              className={`bg-${blok.allocate} col-span-1 p-2 text-center text-xs font-semibold text-neutral-200 hover:cursor-pointer`}
+              className={`bg-${blok.allocate} col-span-1 p-2 text-center text-xs font-semibold text-white hover:cursor-pointer`}
             >
               {transformDateFormat(blok.date)}
             </p>

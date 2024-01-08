@@ -52,12 +52,16 @@ const AllArticles: React.FC<{ blok: AllArticlesProps }> = ({ blok }) => {
         version: "draft",
         is_startpage: false,
         starts_with: blok.type,
+        // page: 1,
+        // per_page: 5,
         filter_query: {
           allocate: {
             like: corespondingApiFilters.at(indexOfFilter),
           },
         },
       });
+      // console.log(data);
+      // console.log(header);
 
       setArticles((prev) =>
         data.stories.map((article: any) => {

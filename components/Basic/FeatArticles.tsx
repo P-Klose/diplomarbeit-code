@@ -101,7 +101,7 @@ const FeatArticle: React.FC<{ blok: ArticleProps; full_slug: string }> = ({
         {blok.date ? (
           <motion.p
             layout="position"
-            className={`bg-${blok.allocate} p-2 text-right text-xs font-normal text-neutral-200`}
+            className={`bg-${blok.allocate} p-2 text-right text-xs font-normal font-semibold text-white`}
           >
             {transformDateFormat(blok.date)}
           </motion.p>

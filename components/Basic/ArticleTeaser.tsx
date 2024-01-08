@@ -88,15 +88,15 @@ const ArticleTeaser: React.FC<{ blok: ArticleProps; full_slug: string }> = ({
               </Link>
             </motion.div>
           ) : null} */}
-          {blok.date ? (
+          {blok.date && (
             <motion.p
               layout="position"
               onClick={() => setIsOpen(!isOpen)}
-              className={`bg-${blok.allocate} col-span-1 col-start-2 row-start-1 p-2 text-center text-xs font-semibold text-neutral-200 hover:cursor-pointer`}
+              className={`bg-${blok.allocate} col-span-1 col-start-2 row-start-1 p-2 text-center text-xs font-semibold text-white hover:cursor-pointer`}
             >
               {transformDateFormat(blok.date)}
             </motion.p>
-          ) : null}
+          )}
         </motion.div>
       </motion.div>
       {blok.image.filename ? (

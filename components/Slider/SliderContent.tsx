@@ -66,7 +66,7 @@ const SliderContent: React.FC<SliderContentProps> = ({ slider }) => {
                 </h2>
                 {box.date ? (
                   <p
-                    className={`bg-${box.allocate} p-2 text-right text-xs font-normal text-neutral-200`}
+                    className={`bg-${box.allocate} p-2 text-right text-xs font-semibold text-white`}
                   >
                     {transformDateFormat(box.date)}
                   </p>
