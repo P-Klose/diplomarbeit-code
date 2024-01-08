@@ -3,7 +3,7 @@
 import { Player } from "@lottiefiles/react-lottie-player";
 import { storyblokEditable } from "@storyblok/react/rsc";
 import { render } from "storyblok-rich-text-react-renderer";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { color, motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import * as startanimation from "../../startanimation.json";
 import * as biggerstartanimation from "../../startanimation-3zu4.json";
@@ -137,7 +137,7 @@ const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
         ultrawide ? "md:100vh" : pre_defined_width.at(blok.scroll_speed)
       }`}
     >
-      <div className="sticky top-0 hidden h-screen md:block">
+      <div className="sticky top-0 hidden h-screen overflow-hidden md:block">
         <div
           className={`pointer-events-none absolute right-0 top-0 z-10 hidden h-full w-screen items-center justify-end md:my-4 md:flex`}
         >
@@ -146,25 +146,21 @@ const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
             autoplay={true}
             src={biggerstartanimation}
             keepLastFrame={true}
-            // style={{
-            //   maxHeight: "100vh",
-            // }}
             speed={1}
           ></Player>
         </div>
-        <div className={`w-full absolute bottom-0 flex justify-center md:block`}>
-
-        <Player
-        loop={true}
-        autoplay={true}
-        src={scrollanimation}
-        keepLastFrame={true}
-         style={{
-           maxHeight: "40px",
-         }}
-        speed={1}></Player>
-
+        <div
+          className={`absolute top-0 hidden h-full w-full items-end justify-center pb-10 md:flex`}
+        >
+          <Player
+            loop={true}
+            autoplay={true}
+            src={scrollanimation}
+            style={{ height: "50px", width: "50px" }}
+            speed={1}
+          ></Player>
         </div>
+
         <motion.h1
           initial="hidden"
           animate="visible"
