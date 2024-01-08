@@ -7,6 +7,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import * as startanimation from "../../startanimation.json";
 import * as biggerstartanimation from "../../startanimation-3zu4.json";
+import * as scrollanimation from "../../maus.json";
 import Carousel from "./Carousel";
 import React from "react";
 import SliderContent from "./SliderContent";
@@ -150,6 +151,19 @@ const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
             // }}
             speed={1}
           ></Player>
+        </div>
+        <div className={`w-full absolute bottom-0 flex justify-center md:block`}>
+
+        <Player
+        loop={true}
+        autoplay={true}
+        src={scrollanimation}
+        keepLastFrame={true}
+         style={{
+           maxHeight: "40px",
+         }}
+        speed={1}></Player>
+
         </div>
         <motion.h1
           initial="hidden"

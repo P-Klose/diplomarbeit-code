@@ -68,7 +68,7 @@ const GridItem: React.FC<{ blok: GridItemProps }> = ({ blok }) => {
           {blok.content_type === "animation" ? (
             <Player
               loop={false}
-              autoplay={true}
+              autoplay={false}
               hover={true}
               src={animationFilePath}
               keepLastFrame={true}
