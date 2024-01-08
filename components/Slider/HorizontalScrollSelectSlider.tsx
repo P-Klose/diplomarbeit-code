@@ -26,6 +26,7 @@ const mapBlokSliderToSliderContent = (blokSlider: any) => {
       content: box.content,
       main_image: box.main_image,
       full_slug: boxInfo.full_slug,
+      date: box.date,
     };
   });
 };
