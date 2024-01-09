@@ -40,15 +40,15 @@ const ClassesOverview: React.FC<{ blok: ClassesProps }> = ({ blok }) => {
       className="mx-auto max-w-screen-2xl p-4 sm:p-6"
       id="classes"
     >
-      <h2 className="p-4 pb-3 text-2xl font-semibold uppercase md:text-3xl">
+      <h2 className="pb-3 text-2xl font-semibold uppercase md:text-3xl">
         {blok.headline}
       </h2>
-      <div className="flex flex-row">
+      <div className="flex flex-row flex-wrap pb-2">
         {blok.classes?.map((nestedBlok: any) => {
           return (
             <Link
               href={`?class=${nestedBlok.classname.toLowerCase()}&#classes`}
-              className="m-4 uppercase"
+              className="px-4 py-2 text-sm uppercase md:text-base"
               key={nestedBlok._uid}
             >
               {nestedBlok.classname}
