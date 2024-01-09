@@ -7,7 +7,7 @@ import { color, motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import * as startanimation from "../../startanimation.json";
 import * as biggerstartanimation from "../../startanimation-3zu4.json";
-import * as scrollanimation from "../../maus.json";
+import * as scrollanimation from "../../pfeil.json";
 import Carousel from "./Carousel";
 import React from "react";
 import SliderContent from "./SliderContent";
