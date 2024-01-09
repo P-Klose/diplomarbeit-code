@@ -149,7 +149,10 @@ const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
             speed={1}
           ></Player>
         </div>
-        <div
+        <motion.div
+        initial={{ opacity: 0 , translateY: 50}}
+        animate={{ opacity: 1 , translateY: 0}}
+        transition={{ duration: 1, delay: 1.5 }}
           className={`absolute top-0 hidden h-full w-full items-end justify-center pb-10 md:flex`}
         >
           <Player
@@ -159,7 +162,7 @@ const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
             style={{ height: "50px", width: "50px" }}
             speed={1}
           ></Player>
-        </div>
+        </motion.div>
 
         <motion.h1
           initial="hidden"
