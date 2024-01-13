@@ -88,17 +88,19 @@ const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
   };
   const variantsStartAnimation = {
     visible: {
+      x: "0",
       opacity: 1,
       transition: {
         ease: "easeInOut",
-        duration,
-        opacity: {
-          delay: startAnimationDuration,
+        x: {
+          duration: 1.3,
+          delay: 2.3,
         },
       },
     },
     hidden: {
-      opacity: 0,
+      x: "100%",
+      opacity: 1,
     },
   };
   const variantsStartAnimationHeadline = {
@@ -150,9 +152,9 @@ const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
           ></Player>
         </div>
         <motion.div
-        initial={{ opacity: 0 , translateY: 50}}
-        animate={{ opacity: 1 , translateY: 0}}
-        transition={{ duration: 1, delay: 1.5 }}
+          initial={{ opacity: 0, translateY: 50 }}
+          animate={{ opacity: 1, translateY: 0 }}
+          transition={{ duration: 1, delay: 1.5 }}
           className={`absolute top-0 hidden h-full w-full items-end justify-center pb-10 md:flex`}
         >
           <Player
@@ -172,13 +174,15 @@ const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
         >
           {blok.title}
         </motion.h1>
-        <div className="flex h-full items-center overflow-hidden p-4">
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={variants}
+          className="flex h-full items-center overflow-hidden p-4"
+        >
           <div ref={carousel} className="w-screen overflow-visible">
             <motion.div
               drag="x"
-              initial="hidden"
-              animate="visible"
-              variants={variants}
               dragConstraints={{ right: 0, left: -width }}
               style={{ x }}
               className={`flex gap-4`}
@@ -188,7 +192,7 @@ const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
               })}
             </motion.div>
           </div>
-        </div>
+        </motion.div>
       </div>
 
       <h1 className="p-4 pl-8 text-2xl font-semibold uppercase md:hidden">
