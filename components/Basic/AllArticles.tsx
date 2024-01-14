@@ -32,6 +32,15 @@ const AllArticles: React.FC<{ blok: AllArticlesProps }> = ({ blok }) => {
     "Sport",
     "Alles",
   ];
+  const shortFilterValues = [
+    "IT",
+    "IT-M",
+    "EL",
+    "MEDZ",
+    "Reisen",
+    "Sport",
+    "Alles",
+  ];
   const indexOfFilter = filterValues.indexOf(selectedFilterStr);
   const corespondingApiFilters = [
     "*Informatik*",
@@ -60,8 +69,6 @@ const AllArticles: React.FC<{ blok: AllArticlesProps }> = ({ blok }) => {
           },
         },
       });
-      // console.log(data);
-      // console.log(header);
 
       setArticles((prev) =>
         data.stories.map((article: any) => {
@@ -78,18 +85,42 @@ const AllArticles: React.FC<{ blok: AllArticlesProps }> = ({ blok }) => {
     <section {...storyblokEditable(blok)} className="w-full p-4 sm:col-span-4">
       {blok.filter ? (
         <div>
-          <h2 className="break-words text-2xl font-semibold uppercase xs:pl-4 md:text-3xl">
-            Filter
-          </h2>
-          <div className="flex w-full flex-wrap items-center justify-evenly p-4">
+          <div className="flex flex-row items-end">
+            <h2 className="break-words text-2xl font-semibold xs:pl-2 md:text-3xl">
+              Filter:
+            </h2>
+            <Link
+              key={"selectedFilter"}
+              href={`?filter=${selectedFilterStr}`}
+              className={`px-3 text-xl font-medium  text-neutral-800`}
+            >
+              {selectedFilterStr}
+            </Link>
+          </div>
+          <div className="hidden w-full flex-wrap items-start justify-between py-4 xs:pl-2 lg:flex">
             {filterValues.map((item, index) => (
               <Link
                 key={index}
                 href={`?filter=${item}`}
-                className={`px-4 ${
+                className={`px-2 ${
                   selectedFilterStr === item
-                    ? "font-medium text-neutral-800"
-                    : "font-normal text-neutral-600"
+                    ? "hidden font-medium text-neutral-800"
+                    : "text-sm font-normal  text-neutral-600"
+                } `}
+              >
+                {item}
+              </Link>
+            ))}
+          </div>
+          <div className="flex w-full flex-wrap items-start justify-between py-4 xs:pl-2 lg:hidden">
+            {shortFilterValues.map((item, index) => (
+              <Link
+                key={index}
+                href={`?filter=${item}`}
+                className={`px-2 ${
+                  selectedFilterStr === item
+                    ? "hidden font-medium text-neutral-800"
+                    : "text-sm font-normal  text-neutral-600"
                 } `}
               >
                 {item}
