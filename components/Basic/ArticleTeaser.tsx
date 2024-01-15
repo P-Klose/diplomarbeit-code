@@ -55,7 +55,9 @@ const ArticleTeaser: React.FC<{ blok: ArticleProps; full_slug: string }> = ({
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, x: 0.9 }}
-      transition={{ layout: { duration: 1, type: "spring" } }}
+      // transition={{ layout: { duration: 0.5, type: "tween" } }}
+      transition={{ layout: { duration: 0.7, type: "just" } }}
+      // transition={{ layout: { duration: 1, type: "spring" } }}
       layout
       className="col-span-1 mb-2 grid min-h-max grid-cols-2 justify-items-stretch gap-2 md:pl-6 lg:col-span-3"
     >

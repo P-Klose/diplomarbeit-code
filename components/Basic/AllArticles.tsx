@@ -116,9 +116,9 @@ const AllArticles: React.FC<{ blok: AllArticlesProps }> = ({ blok }) => {
             {shortFilterValues.map((item, index) => (
               <Link
                 key={index}
-                href={`?filter=${item}`}
+                href={`?filter=${filterValues[index]}`}
                 className={`px-2 ${
-                  selectedFilterStr === item
+                  selectedFilterStr === filterValues[index]
                     ? "hidden font-medium text-neutral-800"
                     : "text-sm font-normal  text-neutral-600"
                 } `}
