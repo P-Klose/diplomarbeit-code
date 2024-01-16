@@ -36,7 +36,6 @@ const GridItem: React.FC<{ blok: GridItemProps }> = ({ blok }) => {
       animationFilePath = sseanimation;
       null;
   }
-  console.log(blok);
 
   if (blok.type == "ausbildung") {
     let url = "";

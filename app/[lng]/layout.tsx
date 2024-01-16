@@ -38,6 +38,7 @@ export default function RootLayout({
   children: React.ReactNode;
   params: {
     lng: string;
+    children: React.ReactNode;
   };
 }) {
   return (

@@ -8,7 +8,7 @@ import { GrLanguage } from "react-icons/gr";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { FaXmark, FaBars } from "react-icons/fa6";
-import { PageProps } from "@/types/interfaces";
+import { NavPageProps, PageProps } from "@/types/interfaces";
 import { languages } from "@/app/i18n/settings";
 
 const navVariants = {
@@ -20,6 +20,7 @@ const Navbar: FC<PageProps> = ({ params }) => {
   const [navbar, setNavbar] = useState<any>();
   const [smallNavIsOpen, setIsOpen] = useState(false);
   const navRef = useRef<any>();
+
   const showNavbar = () => {
     setIsOpen(!smallNavIsOpen);
   };
@@ -29,6 +30,7 @@ const Navbar: FC<PageProps> = ({ params }) => {
       const { data } = await fetchData(params.lng);
       setNavbar(data.story.content);
     };
+    setIsOpen(false);
 
     getNavbar(); // Hier rufst du die Funktion einmalig beim ersten Rendern auf
 
