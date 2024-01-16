@@ -46,8 +46,6 @@ const SliderContent: React.FC<SliderContentProps> = ({ slider }) => {
         count++;
 
         if (box.type === "event") {
-          console.log(box);
-
           return (
             <Link
               {...storyblokEditable(box)}
