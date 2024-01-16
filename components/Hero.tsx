@@ -8,7 +8,7 @@ import schoolblackandwhite from "../public/schule_weiss.png";
 const Hero: React.FC<{ blok: HeroProps }> = ({ blok }) => {
   return (
     <motion.section
-      {...storyblokEditable(blok)}
+      {...storyblokEditable(blok._editable)}
       className={`relative mx-auto grid h-auto max-w-screen-2xl grid-cols-1 sm:grid-cols-7 
       ${blok.type == "school" ? "sm:mb-10 md:mb-14 lg:mb-20 xl:mb-40" : ""}`}
     >

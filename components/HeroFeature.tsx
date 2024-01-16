@@ -10,7 +10,7 @@ const HeroFeature: React.FC<{ blok: HeroFeatureProps; index: number }> = ({
   if (blok.type == "small") {
     return (
       <motion.div
-        {...storyblokEditable(blok)}
+        {...storyblokEditable(blok._editable)}
         initial={{ opacity: 0, translateX: "100" }}
         animate={{ opacity: 1, translateX: "0" }}
         transition={{ duration: 0.5, delay: 0.2 * index }}

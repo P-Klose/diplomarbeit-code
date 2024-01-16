@@ -10,7 +10,7 @@ const FaqCollection: React.FC<{ blok: FaqCollectionProps }> = ({ blok }) => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6, delay: 0.3 }}
       className="mx-auto grid max-w-screen-2xl gap-4 p-4 sm:p-6"
-      {...storyblokEditable(blok)}
+      {...storyblokEditable(blok._editable)}
     >
       <h2 className="break-words text-2xl font-semibold uppercase md:text-3xl">
         {blok.headline}

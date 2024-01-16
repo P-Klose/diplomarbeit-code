@@ -11,7 +11,7 @@ const FaqElement: React.FC<{ blok: FaqProps }> = ({ blok }) => {
     <motion.div
       layout="position"
       className="grid cursor-pointer grid-cols-1"
-      {...storyblokEditable(blok)}
+      {...storyblokEditable(blok._editable)}
       onClick={() => setIsOpen(!isOpen)}
     >
       <motion.p

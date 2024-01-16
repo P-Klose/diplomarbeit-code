@@ -36,7 +36,7 @@ const ClassesOverview: React.FC<{ blok: ClassesProps }> = ({ blok }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6, delay: 0.3 }}
-      {...storyblokEditable(blok)}
+      {...storyblokEditable(blok._editable)}
       className="mx-auto max-w-screen-2xl p-4 sm:p-6"
       id="classes"
     >

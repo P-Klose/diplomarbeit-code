@@ -7,7 +7,7 @@ const InfiniteMarquee: React.FC<{ blok: MarqueeProps }> = ({ blok }) => {
   return (
     <>
       <section
-        {...storyblokEditable(blok)}
+        {...storyblokEditable(blok._editable)}
         className={`mx-auto max-w-screen-2xl ${
           blok.spacing_top ? "pt-5 sm:pt-8" : "pt-2 sm:pt-3"
         } ${blok.spacing_bottom ? "pb-5 sm:pb-8" : "pb-2 sm:pb-3"}
@@ -15,7 +15,7 @@ const InfiniteMarquee: React.FC<{ blok: MarqueeProps }> = ({ blok }) => {
       `}
       >
         <Marquee
-          {...storyblokEditable(blok)}
+          {...storyblokEditable(blok._editable)}
           direction={`${blok.reverse_direction ? "left" : "right"}`}
         >
           {blok.content?.map((nestedBlok: any) => (
@@ -24,7 +24,7 @@ const InfiniteMarquee: React.FC<{ blok: MarqueeProps }> = ({ blok }) => {
         </Marquee>
       </section>
       <section
-        {...storyblokEditable(blok)}
+        {...storyblokEditable(blok._editable)}
         className={`${
           blok.display_all_mobile
             ? "grid grid-cols-1 place-items-center gap-12 px-8 sm:hidden"

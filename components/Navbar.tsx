@@ -1,5 +1,9 @@
 "use client";
-import { getStoryblokApi, storyblokEditable } from "@storyblok/react/rsc";
+import {
+  ISbStoriesParams,
+  getStoryblokApi,
+  storyblokEditable,
+} from "@storyblok/react/rsc";
 
 import { useRef, useState, useEffect, FC } from "react"; // Beachte die hinzugefügte useEffect-Importierung
 
@@ -8,7 +12,7 @@ import { GrLanguage } from "react-icons/gr";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { FaXmark, FaBars } from "react-icons/fa6";
-import { NavPageProps, PageProps } from "@/types/interfaces";
+import { PageProps } from "@/types/interfaces";
 import { languages } from "@/app/i18n/settings";
 
 const navVariants = {
@@ -197,9 +201,9 @@ const Navbar: FC<PageProps> = ({ params }) => {
 };
 
 export async function fetchData(lng: string) {
-  let sbParams = {
-    // cache: "no-store",
-    version: process.env.storyblokApiVersion,
+  let sbParams: ISbStoriesParams = {
+    version:
+      process.env.storyblokApiVersion == "published" ? "published" : "draft",
     language: lng,
   };
 

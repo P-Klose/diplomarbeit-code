@@ -12,7 +12,7 @@ import { LayoutGroup } from "framer-motion";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 
-import { AllArticlesProps, ArticleProps } from "../../types/interfaces"; //
+import { AllArticlesProps } from "../../types/interfaces"; //
 
 storyblokInit({
   accessToken: process.env.storyblokApiToken,
@@ -82,7 +82,10 @@ const AllArticles: React.FC<{ blok: AllArticlesProps }> = ({ blok }) => {
   }, [indexOfFilter]);
 
   return (
-    <section {...storyblokEditable(blok)} className="w-full p-4 sm:col-span-4">
+    <section
+      {...storyblokEditable(blok._editable)}
+      className="w-full p-4 sm:col-span-4"
+    >
       {blok.filter ? (
         <div>
           <div className="flex flex-row items-end">

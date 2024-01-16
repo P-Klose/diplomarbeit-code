@@ -10,7 +10,7 @@ const Branch: React.FC<{ blok: BranchProps }> = ({ blok }) => {
   return (
     <>
       <section
-        {...storyblokEditable(blok)}
+        {...storyblokEditable(blok._editable)}
         className="mx-auto grid max-w-screen-2xl grid-cols-6 gap-10 p-6 md:gap-20"
       >
         <div className="col-span-full md:mt-16">

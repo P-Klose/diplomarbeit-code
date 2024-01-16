@@ -1,3 +1,5 @@
+import { SbBlokData } from "@storyblok/react/rsc";
+
 // interfaces.ts
 export interface PageProps {
   params: { lng: string };
@@ -36,7 +38,7 @@ export interface ArticleProps {
   subpage_enabled?: boolean;
   slug: string;
   type: string;
-  _editable: string;
+  _editable: SbBlokData;
 }
 
 export interface AllArticlesProps {
@@ -44,7 +46,8 @@ export interface AllArticlesProps {
   type: string;
   filter: boolean;
   headline: string;
-  _editable: string;
+  component: string;
+  _editable: SbBlokData;
 }
 
 export interface FeatArticlesProps {
@@ -52,6 +55,7 @@ export interface FeatArticlesProps {
     headline: string;
     articles?: ArticleProps[];
     additional_info?: any;
+    _editable: SbBlokData;
   };
 }
 
@@ -71,7 +75,7 @@ export interface LinkProps {
   symbol: string;
   component: string;
   display_name: string;
-  _editable: string;
+  _editable: SbBlokData;
 }
 
 export interface LinkCollectionProps {
@@ -79,7 +83,7 @@ export interface LinkCollectionProps {
   links: LinkProps[];
   headline: string;
   component: string;
-  _editable: string;
+  _editable: SbBlokData;
 }
 
 export interface ValueDocumentEntryProps {
@@ -87,11 +91,12 @@ export interface ValueDocumentEntryProps {
   headline: string;
   component: string;
   description: any;
-  _editable: string;
+  _editable: SbBlokData;
 }
 
 export interface ValueDocumentProps {
   _uid: string;
+  _editable: SbBlokData;
   content: ValueDocumentEntryProps[];
   subline: string;
   headline: string;
@@ -113,14 +118,14 @@ export interface ValueDocumentProps {
 
 export interface PageComponentProps {
   _uid: string;
-  _editable: string;
+  _editable: SbBlokData;
   body: any[];
   component: string;
 }
 
 export interface HeroProps {
   _uid: string;
-  _editable: string;
+  _editable: SbBlokData;
   additional_content: any[];
   hero_features: HeroFeatureProps[];
   background_image: Asset;
@@ -133,7 +138,7 @@ export interface HeroProps {
 
 export interface HeroFeatureProps {
   _uid: string;
-  _editable: string;
+  _editable: SbBlokData;
   symbol: string;
   type: string;
   link: any;
@@ -142,7 +147,7 @@ export interface HeroFeatureProps {
 
 export interface GridProps {
   _uid: string;
-  _editable: string;
+  _editable: SbBlokData;
   content: any[];
   columns: string;
   mediumcolumns: boolean;
@@ -153,7 +158,7 @@ export interface GridProps {
 
 export interface BranchProps {
   _uid: string;
-  _editable: string;
+  _editable: SbBlokData;
   headline: string;
   subline: string;
   body: any[];
@@ -165,7 +170,7 @@ export interface BranchProps {
 
 export interface HorizontalScrollSelectSliderProps {
   _uid: string;
-  _editable: string;
+  _editable: SbBlokData;
   title: string;
   slider: any[];
   scroll_speed: number;
@@ -175,7 +180,7 @@ export interface HorizontalScrollSelectSliderProps {
 
 export interface HorizontalScrollSliderProps {
   _uid: string;
-  _editable: string;
+  _editable: SbBlokData;
   title: string;
   alternating: boolean;
   slider: any[];
@@ -186,7 +191,7 @@ export interface HorizontalScrollSliderProps {
 
 export interface MarqueeProps {
   _uid: string;
-  _editable: string;
+  _editable: SbBlokData;
   content: any[];
   spacing_top: boolean;
   spacing_bottom: boolean;
@@ -196,33 +201,33 @@ export interface MarqueeProps {
 
 export interface FooterColumnProps {
   _uid: string;
-  _editable: string;
+  _editable: SbBlokData;
   links: LinkProps[];
   headline: string;
 }
 
 export interface ClassesProps {
   _uid: string;
-  _editable: string;
+  _editable: SbBlokData;
   classes: any[];
   headline: string;
 }
 
 export interface DesignableTableValueProps {
   _uid: string;
-  _editable: string;
+  _editable: SbBlokData;
   text: any;
 }
 
 export interface DesignableTableRowProps {
   _uid: string;
-  _editable: string;
+  _editable: SbBlokData;
   values: any[];
 }
 
 export interface DesignableTableProps {
   _uid: string;
-  _editable: string;
+  _editable: SbBlokData;
   header: DesignableTableRowProps[];
   body: DesignableTableRowProps[];
   headline: string;
@@ -247,12 +252,12 @@ export interface TimetableSubjectProps {
   short_name: string;
   description: any;
   is_specialized_subject?: boolean;
-  _editable: string;
+  _editable: SbBlokData;
 }
 
 export interface TimetableColumsProps {
   _uid: string;
-  _editable: string;
+  _editable: SbBlokData;
   component: string;
   day: string;
   subjects: TimetableSubjectProps[];
@@ -260,7 +265,7 @@ export interface TimetableColumsProps {
 
 export interface TimetableProps {
   _uid: string;
-  _editable: string;
+  _editable: SbBlokData;
   component: string;
   headline: string;
   columns: TimetableColumsProps[];
@@ -287,12 +292,12 @@ export interface GridItemProps {
   main_image: Asset;
   sub_images: any[];
   image_right: boolean;
-  _editable: string;
+  _editable: SbBlokData;
 }
 
 export interface HeadlineProps {
   _uid: string;
-  _editable: string;
+  _editable: SbBlokData;
   component: string;
   headline: string;
   no_spacing_y: boolean;
@@ -300,7 +305,7 @@ export interface HeadlineProps {
 
 export interface ImageComponentProps {
   _uid: string;
-  _editable: string;
+  _editable: SbBlokData;
   component: string;
   image: Asset;
   animation: string;
@@ -309,7 +314,7 @@ export interface ImageComponentProps {
 
 export interface SponsorProps {
   _uid: string;
-  _editable: string;
+  _editable: SbBlokData;
   component: string;
   subline: string;
   headline: string;
@@ -320,7 +325,7 @@ export interface SponsorProps {
 
 export interface TableProps {
   _uid: string;
-  _editable: string;
+  _editable: SbBlokData;
   component: string;
   headline: string;
   table: any;
@@ -328,7 +333,7 @@ export interface TableProps {
 
 export interface TextProps {
   _uid: string;
-  _editable: string;
+  _editable: SbBlokData;
   component: string;
   headline: string;
   content: any;
@@ -338,7 +343,7 @@ export interface TextProps {
 
 export interface FaqCollectionProps {
   _uid: string;
-  _editable: string;
+  _editable: SbBlokData;
   component: string;
   headline: string;
   description?: any;
@@ -347,7 +352,7 @@ export interface FaqCollectionProps {
 
 export interface FaqProps {
   _uid: string;
-  _editable: string;
+  _editable: SbBlokData;
   component: string;
   question: string;
   answer: any;
@@ -357,7 +362,7 @@ export interface FaqProps {
 
 export interface IFrameProps {
   _uid: string;
-  _editable: string;
+  _editable: SbBlokData;
   component: string;
   headline: string;
   iframe_content: {
@@ -368,6 +373,6 @@ export interface IFrameProps {
 
 export interface DefaultProps {
   _uid: string;
-  _editable: string;
+  _editable: SbBlokData;
   component: string;
 }

@@ -7,7 +7,7 @@ const TimetableColums: React.FC<{ blok: TimetableColumsProps }> = ({
 }) => {
   const firstTwo = blok.day.slice(0, 2);
   return (
-    <div className="" {...storyblokEditable(blok)}>
+    <div className="" {...storyblokEditable(blok._editable)}>
       <h2 className=" bg-neutral-100 p-3 text-lg">{firstTwo}</h2>
       <div className="mt-2 grid gap-4 px-2">
         {blok.subjects?.map((nestedBlok: any) => {

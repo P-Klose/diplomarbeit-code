@@ -1,6 +1,6 @@
 import { Asset, LinkProps } from "@/types/interfaces";
 import Link from "next/link";
-import { storyblokEditable } from "@storyblok/react/rsc";
+import { SbBlokData, storyblokEditable } from "@storyblok/react/rsc";
 import { render } from "storyblok-rich-text-react-renderer";
 import LinkComponent from "../Basic/Link";
 
@@ -16,6 +16,7 @@ interface Box {
   subpage_enabled?: boolean;
   full_slug: string;
   type: string;
+  _editable: SbBlokData;
 }
 
 interface SliderContentProps {
@@ -48,7 +49,7 @@ const SliderContent: React.FC<SliderContentProps> = ({ slider }) => {
         if (box.type === "event") {
           return (
             <Link
-              {...storyblokEditable(box)}
+              {...storyblokEditable(box._editable)}
               href={box.full_slug}
               key={box._uid}
             >
@@ -76,7 +77,7 @@ const SliderContent: React.FC<SliderContentProps> = ({ slider }) => {
         if (box.type == "k-big") {
           return (
             <div
-              {...storyblokEditable(box)}
+              {...storyblokEditable(box._editable)}
               className="mb-4 flex flex-col md:mb-0 md:mr-12 md:min-w-[32rem] md:max-w-[32rem]"
               key={box._uid}
             >
@@ -108,7 +109,7 @@ const SliderContent: React.FC<SliderContentProps> = ({ slider }) => {
         if (box.type == "k-small") {
           return (
             <div
-              {...storyblokEditable(box)}
+              {...storyblokEditable(box._editable)}
               className="flex flex-row md:grid md:min-w-[28rem] md:max-w-[28rem] md:grid-cols-3 md:gap-6"
               key={box._uid}
             >
@@ -128,7 +129,7 @@ const SliderContent: React.FC<SliderContentProps> = ({ slider }) => {
         if (box.type == "bewerbung") {
           return (
             <div
-              {...storyblokEditable(box)}
+              {...storyblokEditable(box._editable)}
               className="grid h-full grid-cols-1 md:mr-8 md:min-w-[28rem] md:max-w-[28rem] md:gap-6"
               key={box._uid}
             >

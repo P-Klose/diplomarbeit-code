@@ -10,7 +10,7 @@ const LinkCollection: React.FC<{ blok: LinkCollectionProps }> = ({ blok }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6, delay: 0.3 }}
-      {...storyblokEditable(blok)}
+      {...storyblokEditable(blok._editable)}
       className="mx-auto grid max-w-screen-2xl p-4 sm:p-6"
     >
       <h2 className="break-words text-2xl font-semibold uppercase md:text-3xl">

@@ -5,6 +5,7 @@ import {
   storyblokInit,
   storyblokEditable,
   StoryblokComponent,
+  ISbStoriesParams,
 } from "@storyblok/react/rsc";
 import { useState, useEffect, FC } from "react";
 import FooterColumn from "./FooterColumn";
@@ -45,12 +46,11 @@ const Footer: FC<PageProps> = ({ params }) => {
 };
 
 export async function fetchData(lng: string) {
-  let sbParams = {
-    // cache: "no-store",
-    version: process.env.storyblokApiVersion,
+  let sbParams: ISbStoriesParams = {
+    version:
+      process.env.storyblokApiVersion == "published" ? "published" : "draft",
     language: lng,
   };
-
   const stroyblokApi = getStoryblokApi();
   return stroyblokApi.get(`cdn/stories/shared-components/footer`, sbParams);
 }

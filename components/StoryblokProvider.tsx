@@ -4,14 +4,14 @@ import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 import dynamic from "next/dynamic";
 
 const DynamicScrollSlider = dynamic(
-  () => import("../components/Slider/HorizontalScrollSlider"),
+  () => import("@/components/Slider/HorizontalScrollSlider"),
   {
     ssr: false,
   },
 );
 
 const DynamicScrollSelectSlider = dynamic(
-  () => import("../components/Slider/HorizontalScrollSelectSlider"),
+  () => import("@/components/Slider/HorizontalScrollSelectSlider"),
   {
     ssr: false,
   },

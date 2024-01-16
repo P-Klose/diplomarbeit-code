@@ -116,7 +116,7 @@ const LinkComponent: React.FC<{ blok: LinkProps }> = ({ blok }) => {
       blok.style == "" ||
       blok.style == undefined ? (
         <Link
-          {...storyblokEditable(blok)}
+          {...storyblokEditable(blok._editable)}
           className={`${
             blok.style == "marquee"
               ? `mx-4 border-x-2 border-white px-2 text-base font-medium text-neutral-400 transition-all duration-500 sm:text-lg lg:text-xl hover:border-${blok.color} hover:text-neutral-700`
@@ -137,7 +137,7 @@ const LinkComponent: React.FC<{ blok: LinkProps }> = ({ blok }) => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.4 }}
           className="col-span-3 row-start-2 box-border aspect-video p-4 sm:p-0 sm:pr-4 md:col-span-2 md:pb-4 md:pr-6 lg:col-span-3"
-          {...storyblokEditable(blok)}
+          {...storyblokEditable(blok._editable)}
         >
           <p className="hidden pb-1 sm:block">{blok.display_name}</p>
           <h2 className="pb-3 text-2xl font-semibold uppercase sm:hidden">
@@ -157,7 +157,7 @@ const LinkComponent: React.FC<{ blok: LinkProps }> = ({ blok }) => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
           className="col-span-2 mx-auto my-auto min-h-max py-2 md:col-span-3 md:py-8 lg:col-span-2 lg:mx-0 lg:pl-6"
-          {...storyblokEditable(blok)}
+          {...storyblokEditable(blok._editable)}
         >
           <div className="w-max bg-gradient-to-r from-elektronik via-medizintechnik to-informatik-sse p-1">
             <Link
@@ -172,7 +172,7 @@ const LinkComponent: React.FC<{ blok: LinkProps }> = ({ blok }) => {
       ) : null}
       {blok.style == "default" ? (
         <Link
-          {...storyblokEditable(blok)}
+          {...storyblokEditable(blok._editable)}
           className={`mb-2 block border-l-4 border-l-${blok.color} bg-${blok.color} bg-opacity-0 p-2 no-underline transition-all hover:bg-opacity-25`}
           href={url}
         >

@@ -24,7 +24,7 @@ const TimetableSubject: React.FC<{ blok: TimetableSubjectProps }> = ({
   ];
   return (
     <Link
-      {...storyblokEditable(blok)}
+      {...storyblokEditable(blok._editable)}
       className={`flex flex-col items-center justify-center border-x-4 border-${blok.color} border-opacity-50 py-2 text-center transition ease-in-out hover:border-opacity-100`}
       href={`?subject=${subject}&#timetable`}
       scroll={true}

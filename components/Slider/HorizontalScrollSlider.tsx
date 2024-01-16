@@ -106,7 +106,7 @@ const Slider: React.FC<{ blok: HorizontalScrollSliderProps }> = ({ blok }) => {
 
   return (
     <section
-      {...storyblokEditable(blok)}
+      {...storyblokEditable(blok._editable)}
       ref={targetRef}
       className={`relative ${
         ultrawide ? "md:100vh" : pre_defined_width.at(blok.scroll_speed)

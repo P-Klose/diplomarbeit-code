@@ -1,5 +1,9 @@
 import Article from "@/components/Basic/Article";
-import { getStoryblokApi, StoryblokComponent } from "@storyblok/react/rsc";
+import {
+  getStoryblokApi,
+  ISbStoriesParams,
+  StoryblokComponent,
+} from "@storyblok/react/rsc";
 import StoryblokStory from "@storyblok/react/story";
 import { Metadata } from "next";
 import { useParams } from "next/navigation";
@@ -23,9 +27,10 @@ const Home: FC<pageProps> = async ({ params }) => {
 export default Home;
 
 async function fetchData(articlename: string, lng: string) {
-  let sbParams = {
+  let sbParams: ISbStoriesParams = {
     // cache: "no-store",
-    version: process.env.storyblokApiVersion,
+    version:
+      process.env.storyblokApiVersion == "published" ? "published" : "draft",
     language: lng,
   };
 

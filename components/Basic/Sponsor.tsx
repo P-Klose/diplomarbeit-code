@@ -20,7 +20,7 @@ const Sponsor: React.FC<{ blok: SponsorProps }> = ({ blok }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.3 }}
-        {...storyblokEditable(blok)}
+        {...storyblokEditable(blok._editable)}
         className="mx-5 h-auto w-full max-w-[160px] self-center sm:mx-10 sm:h-full sm:max-h-10 sm:w-auto sm:max-w-none"
         src={blok.image.filename}
       ></motion.img>
@@ -31,7 +31,7 @@ const Sponsor: React.FC<{ blok: SponsorProps }> = ({ blok }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.3 }}
-        {...storyblokEditable(blok)}
+        {...storyblokEditable(blok._editable)}
         className="col-span-1 box-border grid gap-4 px-4 sm:mx-12 sm:max-w-sm"
       >
         <div className="flex items-start">

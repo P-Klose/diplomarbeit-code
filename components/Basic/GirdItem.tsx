@@ -51,7 +51,7 @@ const GridItem: React.FC<{ blok: GridItemProps }> = ({ blok }) => {
 
     return (
       <Link
-        {...storyblokEditable(blok)}
+        {...storyblokEditable(blok._editable)}
         href={url}
         className={`grid grid-cols-1 xs:grid-cols-2 ${blok.width} ${
           blok.image_right ? "md:col-start-1" : "md:col-start-2"
@@ -117,7 +117,7 @@ const GridItem: React.FC<{ blok: GridItemProps }> = ({ blok }) => {
   if (blok.type == "ausbildung-content-x") {
     return (
       <div
-        {...storyblokEditable(blok)}
+        {...storyblokEditable(blok._editable)}
         className={`col-start-1 flex flex-col md:col-span-3 ${
           blok.image_right
             ? "sm:flex-row-reverse lg:col-start-2"
@@ -147,7 +147,7 @@ const GridItem: React.FC<{ blok: GridItemProps }> = ({ blok }) => {
   // if (blok.type == "ausbildung-content-y") {
   //   return (
   //     <div
-  //       {...storyblokEditable(blok)}
+  //       {...storyblokEditable(blok._editable)}
   //       className={`flex flex-row md:col-span-3`}
   //     >
   //       <img

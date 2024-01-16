@@ -5,7 +5,7 @@ import { FooterColumnProps } from "@/types/interfaces";
 const FooterColumn: React.FC<{ blok: FooterColumnProps }> = ({ blok }) => {
   return (
     <div
-      {...storyblokEditable(blok)}
+      {...storyblokEditable(blok._editable)}
       className="col-span-1 flex flex-col gap-4 p-4 text-sm text-zinc-700"
     >
       <h3 className="text-lg font-semibold text-black">{blok.headline}</h3>

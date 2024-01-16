@@ -6,7 +6,7 @@ const Grid: React.FC<{ blok: GridProps }> = ({ blok }) => {
 
   return (
     <section
-      {...storyblokEditable(blok)}
+      {...storyblokEditable(blok._editable)}
       className={`grid overflow-hidden ${
         blok.width ? "" : "mx-auto p-4"
       } gap-4 ${blok.columns} ${blok.mediumcolumns} ${blok.largecolumns} ${

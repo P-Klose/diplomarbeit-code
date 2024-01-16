@@ -1,6 +1,5 @@
-
 import { PageProps } from "@/types/interfaces";
-import { getStoryblokApi } from "@storyblok/react/rsc";
+import { ISbStoriesParams, getStoryblokApi } from "@storyblok/react/rsc";
 import StoryblokStory from "@storyblok/react/story";
 import { FC } from "react";
 
@@ -12,9 +11,10 @@ const Home: FC<PageProps> = async ({ params }) => {
 export default Home;
 
 async function fetchData(lng: string) {
-  let sbParams = {
+  let sbParams: ISbStoriesParams = {
     // cache: "no-store",
-    version: process.env.storyblokApiVersion,
+    version:
+      process.env.storyblokApiVersion == "published" ? "published" : "draft",
     resolve_relations: [
       "featured_articles.articles",
       "scroll_slider_select.slider",

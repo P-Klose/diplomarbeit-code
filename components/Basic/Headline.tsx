@@ -9,7 +9,7 @@ const Headline: React.FC<{ blok: HeadlineProps }> = ({ blok }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6, delay: 0.3 }}
-      {...storyblokEditable(blok)}
+      {...storyblokEditable(blok._editable)}
       className={`col-span-full mx-auto w-full max-w-screen-2xl bg-white p-4 sm:p-6 ${
         blok.no_spacing_y ? "py-0 xs:py-0" : ""
       }`}

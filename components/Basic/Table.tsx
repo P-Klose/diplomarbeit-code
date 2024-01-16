@@ -16,7 +16,7 @@ const Table: React.FC<{ blok: TableProps }> = ({ blok }) => {
       <table
         className="mb-4 w-full table-fixed xs:px-4"
         key={blok._uid}
-        {...storyblokEditable(blok)}
+        {...storyblokEditable(blok._editable)}
       >
         <thead className="mb-4  ">
           <tr>

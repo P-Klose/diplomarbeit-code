@@ -56,7 +56,7 @@ const Timetable: React.FC<{ blok: TimetableProps }> = ({ blok }) => {
       transition={{ duration: 0.6, delay: 0.3 }}
       className="mx-auto grid max-w-screen-2xl grid-cols-2 gap-6 p-4 sm:p-6 md:grid-cols-3"
       id="timetable"
-      {...storyblokEditable(blok)}
+      {...storyblokEditable(blok._editable)}
     >
       <h2 className="col-span-full text-2xl font-semibold uppercase md:text-3xl">
         {blok.headline}

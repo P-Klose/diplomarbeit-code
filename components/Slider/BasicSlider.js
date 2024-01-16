@@ -22,7 +22,7 @@ const BasicSlider = ({ blok }) => {
         ref={carousel}
         className="cursor-grab overflow-hidden sm:p-2"
         whileTap={{ cursor: "grabbing" }}
-        {...storyblokEditable(blok)}
+        {...storyblokEditable(blok._editable)}
       >
         <motion.div
           drag="x"

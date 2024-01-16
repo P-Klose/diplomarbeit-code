@@ -1,5 +1,9 @@
 import { PageProps } from "@/types/interfaces";
-import { getStoryblokApi, StoryblokComponent } from "@storyblok/react/rsc";
+import {
+  getStoryblokApi,
+  ISbStoriesParams,
+  StoryblokComponent,
+} from "@storyblok/react/rsc";
 import StoryblokStory from "@storyblok/react/story";
 import { Metadata } from "next";
 import { FC } from "react";
@@ -17,9 +21,10 @@ const Home: FC<PageProps> = async ({ params }) => {
 export default Home;
 
 async function fetchData(lng: string) {
-  let sbParams = {
+  let sbParams: ISbStoriesParams = {
     // cache: "no-store",
-    version: process.env.storyblokApiVersion,
+    version:
+      process.env.storyblokApiVersion == "published" ? "published" : "draft",
     language: lng,
   };
 
