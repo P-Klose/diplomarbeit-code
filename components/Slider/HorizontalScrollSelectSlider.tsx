@@ -42,18 +42,6 @@ const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
     target: targetRef,
   });
 
-  // Berechung der x Position (start und endpunkt der Animation)
-  let scroll_width_summe = 0;
-  let width = window.innerWidth;
-  let ultrawide = false;
-
-  blok.slider.forEach((subblok: any) => {
-    if (width >= 768) {
-      scroll_width_summe += 512 + 16 + 32 + 4;
-    } else {
-      scroll_width_summe += 416 + 16 + 32 + 4;
-    }
-  });
   const pre_defined_width = [
     "md:h-[150vh]",
     "md:h-[200vh]",
@@ -61,24 +49,43 @@ const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
     "md:h-[300vh]",
     "md:h-[350vh]",
   ];
-  scroll_width_summe = (scroll_width_summe - width) * -1;
-  if (blok.show_title_animation) {
-    scroll_width_summe -= 125;
+
+  // Berechung der x Position (start und endpunkt der Animation)
+  let scroll_width_summe = 0;
+  let x;
+  let ultrawide = false;
+  let width = 1080;
+
+  if (typeof window !== "undefined") {
+    width = window.innerWidth;
+
+    blok.slider.forEach((subblok: any) => {
+      if (width >= 768) {
+        scroll_width_summe += 512 + 16 + 32 + 4;
+      } else {
+        scroll_width_summe += 416 + 16 + 32 + 4;
+      }
+    });
+    scroll_width_summe = (scroll_width_summe - width) * -1;
+    if (blok.show_title_animation) {
+      scroll_width_summe -= 125;
+    }
+    let scroll_width_summe_str = scroll_width_summe + "px";
+    let width_str = width + "px";
+    if (scroll_width_summe > 0) {
+      ultrawide = true;
+    }
+    // Scroll Animation
+    x = useTransform(
+      scrollYProgress,
+      [0, 1],
+      [
+        ultrawide ? "0%" : blok.scroll_start_right ? "0%" : width_str,
+        ultrawide ? "0%" : scroll_width_summe_str,
+      ],
+    );
   }
-  let scroll_width_summe_str = scroll_width_summe + "px";
-  let width_str = width + "px";
-  if (scroll_width_summe > 0) {
-    ultrawide = true;
-  }
-  // Scroll Animation
-  const x = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [
-      ultrawide ? "0%" : blok.scroll_start_right ? "0%" : width_str,
-      ultrawide ? "0%" : scroll_width_summe_str,
-    ],
-  );
+
   // Content-Animation mit framer-motion
   const duration = 0.5;
   const startAnimationDuration = 1.6;

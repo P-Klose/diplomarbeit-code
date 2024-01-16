@@ -1,21 +1,8 @@
 "use client";
 import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 
-import dynamic from "next/dynamic";
-
-const DynamicScrollSlider = dynamic(
-  () => import("@/components/Slider/HorizontalScrollSlider"),
-  {
-    ssr: false,
-  },
-);
-
-const DynamicScrollSelectSlider = dynamic(
-  () => import("@/components/Slider/HorizontalScrollSelectSlider"),
-  {
-    ssr: false,
-  },
-);
+import DynamicScrollSelectSlider from "@/components/Slider/HorizontalScrollSelectSlider";
+import DynamicScrollSlider from "@/components/Slider/HorizontalScrollSlider";
 
 import Page from "@/components/Page";
 import Branch from "@/components/Branch";
@@ -97,6 +84,10 @@ storyblokInit({
   components,
 });
 
-export default function StoryblokProvider({ children }) {
+export default function StoryblokProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return children;
 }

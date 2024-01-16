@@ -15,36 +15,6 @@ const Slider: React.FC<{ blok: HorizontalScrollSliderProps }> = ({ blok }) => {
     target: targetRef,
   });
 
-  let scroll_width_summe = 0;
-  let width = window.innerWidth;
-  let ultrawide = false;
-
-  blok.slider.forEach((subblok: any) => {
-    if (width >= 768) {
-      if (subblok.type === "event") {
-        scroll_width_summe += 512 + 16 + 32 + 4;
-      } else if (subblok.type === "k-big") {
-        scroll_width_summe += 512 + 16 + 48;
-      } else if (subblok.type === "k-small") {
-        scroll_width_summe += 448 + 16;
-      } else {
-        // Wenn es etwas anderes ist oder 'k-big' nicht existiert
-        scroll_width_summe += 448 + 32;
-      }
-    } else {
-      if (subblok.type === "event") {
-        scroll_width_summe += 416 + 16 + 32 + 4;
-      } else if (subblok.type === "k-big") {
-        scroll_width_summe += 416 + 16 + 48;
-      } else {
-        // Wenn es etwas anderes ist oder 'k-big' nicht existiert
-        scroll_width_summe += 480;
-      }
-    }
-  });
-  if (blok.slider[0].type == "bewerbung") {
-    scroll_width_summe += 64;
-  }
   const pre_defined_width = [
     "md:h-[150vh]",
     "md:h-[200vh]",
@@ -52,20 +22,56 @@ const Slider: React.FC<{ blok: HorizontalScrollSliderProps }> = ({ blok }) => {
     "md:h-[300vh]",
     "md:h-[350vh]",
   ];
-  scroll_width_summe = (scroll_width_summe - width) * -1;
-  let scroll_width_summe_str = scroll_width_summe + "px";
-  let width_str = width + "px";
-  if (scroll_width_summe > 0) {
-    ultrawide = true;
+
+  let scroll_width_summe = 0;
+  let width = 1080;
+  let ultrawide = false;
+  let x;
+
+  if (typeof window !== "undefined") {
+    width = window.innerWidth;
+    blok.slider.forEach((subblok: any) => {
+      if (width >= 768) {
+        if (subblok.type === "event") {
+          scroll_width_summe += 512 + 16 + 32 + 4;
+        } else if (subblok.type === "k-big") {
+          scroll_width_summe += 512 + 16 + 48;
+        } else if (subblok.type === "k-small") {
+          scroll_width_summe += 448 + 16;
+        } else {
+          // Wenn es etwas anderes ist oder 'k-big' nicht existiert
+          scroll_width_summe += 448 + 32;
+        }
+      } else {
+        if (subblok.type === "event") {
+          scroll_width_summe += 416 + 16 + 32 + 4;
+        } else if (subblok.type === "k-big") {
+          scroll_width_summe += 416 + 16 + 48;
+        } else {
+          // Wenn es etwas anderes ist oder 'k-big' nicht existiert
+          scroll_width_summe += 480;
+        }
+      }
+    });
+    if (blok.slider[0].type == "bewerbung") {
+      scroll_width_summe += 64;
+    }
+
+    scroll_width_summe = (scroll_width_summe - width) * -1;
+    let scroll_width_summe_str = scroll_width_summe + "px";
+    let width_str = width + "px";
+    if (scroll_width_summe > 0) {
+      ultrawide = true;
+    }
+    x = useTransform(
+      scrollYProgress,
+      [0, 1],
+      [
+        ultrawide ? "0%" : blok.scroll_start_right ? "0%" : width_str,
+        ultrawide ? "0%" : scroll_width_summe_str,
+      ],
+    );
   }
-  const x = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [
-      ultrawide ? "0%" : blok.scroll_start_right ? "0%" : width_str,
-      ultrawide ? "0%" : scroll_width_summe_str,
-    ],
-  );
   // Content-Animation mit framer-motion
   const duration = 0.5;
   const startAnimationDuration = 1.6;
