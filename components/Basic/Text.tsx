@@ -2,6 +2,7 @@ import { TextProps } from "@/types/interfaces";
 import { storyblokEditable } from "@storyblok/react/rsc";
 import { motion } from "framer-motion";
 import { render } from "storyblok-rich-text-react-renderer";
+import LinkComponent from "./Link";
 
 const Text: React.FC<{ blok: TextProps }> = ({ blok }) => {
   const maxWidth = ["max-w-full", "max-w-screen-xl", "max-w-screen-2xl"];
@@ -20,8 +21,14 @@ const Text: React.FC<{ blok: TextProps }> = ({ blok }) => {
       >
         {blok.headline}
       </h1>
-      <div className="prose max-w-none pb-4 lg:prose-lg prose-p:m-2 ">
-        {render(blok.content)}
+      <div className="prose max-w-none p-2 pb-4">
+        {render(blok.content, {
+          blokResolvers: {
+            ["custom_link"]: (props: any) => {
+              return <LinkComponent blok={props} key={props._uid} />;
+            },
+          },
+        })}
       </div>
     </motion.div>
   );

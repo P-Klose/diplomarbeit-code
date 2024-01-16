@@ -14,6 +14,7 @@ import { useState, useEffect } from "react";
 import { LayoutGroup } from "framer-motion";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import LinkComponent from "./Link";
 
 storyblokInit({
   accessToken: process.env.storyblokApiToken,
@@ -35,7 +36,13 @@ const FeatArticles: React.FC<FeatArticlesProps> = ({ blok }) => {
         </h2>
         {blok.additional_info ? (
           <div className="prose max-w-none sm:px-2">
-            {render(blok.additional_info)}
+            {render(blok.additional_info, {
+              blokResolvers: {
+                ["custom_link"]: (props: any) => {
+                  return <LinkComponent blok={props} key={props._uid} />;
+                },
+              },
+            })}
           </div>
         ) : null}
         <div className="box-border grid w-full grid-cols-1 gap-12 pb-12 pt-10 sm:px-4 lg:grid-cols-3 [&>*:nth-child(even)]:justify-self-end [&>*:nth-child(odd)]:justify-self-start">
