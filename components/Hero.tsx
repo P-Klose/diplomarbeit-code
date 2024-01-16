@@ -31,7 +31,7 @@ const Hero: React.FC<{ blok: HeroProps }> = ({ blok }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="w-full text-center text-5xl font-extrabold uppercase text-white sm:ml-8 sm:w-1/2 sm:text-left md:ml-16 md:text-7xl xl:text-8xl"
+          className="w-full text-center text-5xl font-extrabold uppercase text-white sm:ml-8 sm:w-1/2 sm:text-left md:text-7xl xl:ml-16 xl:text-8xl"
         >
           {blok.headline}
         </motion.h1>

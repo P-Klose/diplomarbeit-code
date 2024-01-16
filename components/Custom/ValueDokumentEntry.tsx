@@ -18,7 +18,7 @@ const ValueDokumentEntry: React.FC<{
         transition={{ layout: { duration: 1, type: "spring" } }}
         layout
         onClick={() => setIsOpen(!isOpen)}
-        className="block w-full text-white sm:hidden"
+        className="block w-full cursor-pointer text-white sm:hidden sm:cursor-default"
       >
         <motion.h2
           layout="position"
