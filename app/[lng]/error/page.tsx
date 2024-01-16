@@ -1,30 +1,25 @@
-import Navbar from "@/components/Navbar";
 import { PageProps } from "@/types/interfaces";
-import { getStoryblokApi } from "@storyblok/react/rsc";
-import StoryblokStory from "@storyblok/react/story";
+import erroranimation from "../../../error.json";
 import { FC } from "react";
-import lottie from 'lottie-web';
-import erroranimation from '../../../error.json';
 
-const Error: React.FC<{ blok: any }> = ({ blok }) => {
-   
-    
-      const defaultOptions = {
-        loop: false,
-        autoplay: true,
-        animationData: erroranimation, 
-        rendererSettings: {
-          preserveAspectRatio: 'xMidYMid slice'
-        }
-      };
-    
-      return (
-        <div>
-         
-        </div>
-      );
-    };
+const Error: FC<PageProps> = async ({ params }) => {
+  const defaultOptions = {
+    loop: false,
+    autoplay: true,
+    animationData: erroranimation,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+  const error_de = "Diese Seite existiert nicht";
+  const error_en = "This Page doesn't exist";
+  const message = params.lng == "de" ? error_de : error_en;
+  return (
+    <div className="h-screen w-screen bg-black">
+      <h1 className="text-3xl uppercase text-white">Error</h1>
+      <p className="text-white">{message}</p>
+    </div>
+  );
+};
 
-    
-    
-    export default Error;
+export default Error;
