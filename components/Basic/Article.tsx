@@ -134,6 +134,14 @@ const Article: React.FC<{ blok: ArticleProps }> = ({ blok }) => {
             Mehr Projekte
           </Link>
         ) : null}
+        {blok.type == "club" ? (
+          <Link
+            className={`px-4 py-2 bg-${blok.allocate} w-full border-l-2 bg-opacity-0 text-base transition-all hover:bg-opacity-25 md:w-auto md:border-l-0 md:border-r-2 border-${blok.allocate}`}
+            href={`/schueler-innen/clubs`}
+          >
+            Mehr Clubs
+          </Link>
+        ) : null}
       </div>
     </section>
   );
