@@ -96,7 +96,6 @@ const Article: React.FC<{ blok: ArticleProps }> = ({ blok }) => {
           </h2>
           <div className="col-span-full grid grid-cols-2 gap-2 p-2 md:col-span-2 lg:grid-cols-3 lg:p-4">
             {blok.assets.map((asset: Asset) => {
-              // console.log(asset);
               return (
                 <img
                   className="z-0 transition-transform hover:z-10 hover:scale-105"

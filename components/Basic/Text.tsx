@@ -6,7 +6,6 @@ import LinkComponent from "./Link";
 
 const Text: React.FC<{ blok: TextProps }> = ({ blok }) => {
   const maxWidth = ["max-w-full", "max-w-screen-xl", "max-w-screen-2xl"];
-  console.log(blok);
   return (
     <motion.div
       initial={{ opacity: 0 }}

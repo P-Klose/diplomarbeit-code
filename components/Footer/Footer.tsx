@@ -21,8 +21,6 @@ const Footer: FC<PageProps> = ({ params }) => {
     };
 
     getFooter();
-
-    // console.log(footer);
   }, []);
   if (footer != undefined) {
     return (

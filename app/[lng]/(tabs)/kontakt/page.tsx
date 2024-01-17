@@ -15,6 +15,7 @@ export const metadata: Metadata = {
 
 const Home: FC<PageProps> = async ({ params }) => {
   const { data } = await fetchData(params.lng);
+  console.log(data.cv);
   return <StoryblokStory story={data.story} />;
 };
 

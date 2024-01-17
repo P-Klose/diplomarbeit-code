@@ -37,8 +37,6 @@ const Table: React.FC<{ blok: TableProps }> = ({ blok }) => {
           //className="[&>*:nth-child(even)]:bg-neutral-50 [&>*:nth-child(odd)]:bg-neutral-100"
         >
           {blok.table?.tbody?.map((tr: any, tr_index: number) => {
-            // console.log(tr);
-
             return (
               <tr key={tr_index}>
                 {tr.body?.map((td: any, te_index: number) => {

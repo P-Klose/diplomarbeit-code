@@ -22,7 +22,6 @@ storyblokInit({
 });
 
 const FeatArticles: React.FC<FeatArticlesProps> = ({ blok }) => {
-  console.log(blok);
   return (
     <LayoutGroup>
       <motion.section
@@ -49,7 +48,6 @@ const FeatArticles: React.FC<FeatArticlesProps> = ({ blok }) => {
         <div className="box-border grid w-full grid-cols-1 gap-12 pb-12 pt-10 sm:px-4 lg:grid-cols-3 [&>*:nth-child(even)]:justify-self-end [&>*:nth-child(odd)]:justify-self-start">
           {/* odd:justify-self-end even:justify-self-start */}
           {blok.articles?.map((subblok: any) => {
-            //console.log(article);
             return (
               <FeatArticle
                 blok={subblok.content}
