@@ -14,11 +14,6 @@ import Link from "next/link";
 
 import { AllArticlesProps } from "../../types/interfaces"; //
 
-storyblokInit({
-  accessToken: process.env.storyblokApiToken,
-  use: [apiPlugin],
-});
-
 const AllArticles: React.FC<{ blok: AllArticlesProps }> = ({ blok }) => {
   const searchParams = useSearchParams();
   const urlFilterStr = searchParams.get("filter");

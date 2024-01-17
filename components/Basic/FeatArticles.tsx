@@ -16,11 +16,6 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import LinkComponent from "./Link";
 
-storyblokInit({
-  accessToken: process.env.storyblokApiToken,
-  use: [apiPlugin],
-});
-
 const FeatArticles: React.FC<FeatArticlesProps> = ({ blok }) => {
   return (
     <LayoutGroup>
