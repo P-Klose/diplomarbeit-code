@@ -22,6 +22,7 @@ storyblokInit({
 });
 
 const FeatArticles: React.FC<FeatArticlesProps> = ({ blok }) => {
+  console.log(blok);
   return (
     <LayoutGroup>
       <motion.section
