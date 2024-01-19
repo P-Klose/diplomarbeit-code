@@ -1,11 +1,6 @@
 "use client";
 // import ArticleTeaser from "./ArticleTeaser";
-import {
-  apiPlugin,
-  getStoryblokApi,
-  storyblokInit,
-  storyblokEditable,
-} from "@storyblok/react/rsc";
+import { storyblokEditable } from "@storyblok/react/rsc";
 import { render } from "storyblok-rich-text-react-renderer";
 
 import { FeatArticlesProps, ArticleProps } from "../../types/interfaces";

@@ -19,6 +19,7 @@ async function fetchData(lng: string) {
       "featured_articles.articles",
       "scroll_slider_select.slider",
     ],
+    cv: Date.now(),
     language: lng,
   };
 

@@ -204,6 +204,7 @@ export async function fetchData(lng: string) {
   let sbParams: ISbStoriesParams = {
     version:
       process.env.storyblokApiVersion == "published" ? "published" : "draft",
+    cv: Date.now(),
     language: lng,
   };
 

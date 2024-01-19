@@ -1,6 +1,5 @@
 import { TimetableSubjectProps } from "@/types/interfaces";
 import { storyblokEditable } from "@storyblok/react/rsc";
-// import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 import Link from "next/link";
 
 const TimetableSubject: React.FC<{ blok: TimetableSubjectProps }> = ({

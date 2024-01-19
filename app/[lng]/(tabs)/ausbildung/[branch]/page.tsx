@@ -20,7 +20,6 @@ export const metadata: Metadata = {
 
 const Home: FC<pageProps> = async ({ params }) => {
   const { data } = await fetchData(params.branch, params.lng);
-
   return <StoryblokStory story={data.story} key={data.story.content._uid} />;
 };
 
@@ -31,6 +30,7 @@ async function fetchData(articlename: string, lng: string) {
     // cache: "no-store",
     version:
       process.env.storyblokApiVersion == "published" ? "published" : "draft",
+    cv: Date.now(),
     language: lng,
   };
 

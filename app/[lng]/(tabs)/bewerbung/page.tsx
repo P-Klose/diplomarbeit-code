@@ -26,6 +26,7 @@ async function fetchData(lng: string) {
     version:
       process.env.storyblokApiVersion == "published" ? "published" : "draft",
     resolve_relations: ["featured_articles.articles"],
+    cv: Date.now(),
     language: lng,
   };
 

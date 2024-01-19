@@ -1,10 +1,7 @@
 "use client";
 import {
-  apiPlugin,
   getStoryblokApi,
-  storyblokInit,
   storyblokEditable,
-  StoryblokComponent,
   ISbStoriesParams,
 } from "@storyblok/react/rsc";
 import { useState, useEffect, FC } from "react";
@@ -47,6 +44,7 @@ export async function fetchData(lng: string) {
   let sbParams: ISbStoriesParams = {
     version:
       process.env.storyblokApiVersion == "published" ? "published" : "draft",
+    cv: Date.now(),
     language: lng,
   };
   const stroyblokApi = getStoryblokApi();

@@ -2,7 +2,6 @@
 import { render } from "storyblok-rich-text-react-renderer";
 import { motion } from "framer-motion";
 import { storyblokEditable, StoryblokComponent } from "@storyblok/react/rsc";
-// import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 
 import ValueDokumentEntry from "./ValueDokumentEntry";
 import { ValueDocumentProps } from "@/types/interfaces";

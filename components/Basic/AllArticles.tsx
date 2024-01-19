@@ -1,11 +1,6 @@
 "use client";
 import ArticleTeaser from "./ArticleTeaser";
-import {
-  apiPlugin,
-  getStoryblokApi,
-  storyblokInit,
-  storyblokEditable,
-} from "@storyblok/react/rsc";
+import { getStoryblokApi, storyblokEditable } from "@storyblok/react/rsc";
 
 import { useState, useEffect } from "react";
 import { LayoutGroup } from "framer-motion";

@@ -15,7 +15,6 @@ export const metadata: Metadata = {
 
 const Home: FC<PageProps> = async ({ params }) => {
   const { data } = await fetchData(params.lng);
-  // console.log(data.cv);
   return <StoryblokStory story={data.story} />;
 };
 
@@ -26,6 +25,7 @@ async function fetchData(lng: string) {
     // cache: "no-store",
     version:
       process.env.storyblokApiVersion == "published" ? "published" : "draft",
+    cv: Date.now(),
     language: lng,
   };
 
