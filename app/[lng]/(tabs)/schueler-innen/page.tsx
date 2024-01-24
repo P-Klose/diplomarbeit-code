@@ -1,6 +1,5 @@
 import { PageProps } from "@/types/interfaces";
 import { fetchData } from "@/util/storyblok";
-import { ISbStoriesParams, getStoryblokApi } from "@storyblok/react/rsc";
 import StoryblokStory from "@storyblok/react/story";
 import { Metadata } from "next";
 import { FC } from "react";
