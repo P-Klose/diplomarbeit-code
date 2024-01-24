@@ -2,27 +2,16 @@ import Article from "@/components/Basic/Article";
 import Footer from "@/components/Footer/Footer";
 import Navbar from "@/components/Navbar";
 import { ArticlePageProps } from "@/types/interfaces";
+import { fetchData } from "@/util/storyblok";
 import { ISbStoriesParams, getStoryblokApi } from "@storyblok/react/rsc";
 import StoryblokStory from "@storyblok/react/story";
 import { FC } from "react";
 
 const Home: FC<ArticlePageProps> = async ({ params }) => {
-  const { data } = await fetchData(params.article, params.lng);
+  const slug = `news/${params.article}`;
+  const data = await fetchData(params.lng, slug);
 
   return <StoryblokStory story={data.story} key={data.story.content._uid} />;
 };
 
 export default Home;
-
-async function fetchData(articlename: string, lng: string) {
-  let sbParams: ISbStoriesParams = {
-    // cache: "no-store",
-    version:
-      process.env.storyblokApiVersion == "published" ? "published" : "draft",
-    cv: Date.now(),
-    language: lng,
-  };
-
-  const stroyblokApi = getStoryblokApi();
-  return stroyblokApi.get(`cdn/stories/news/${articlename}`, sbParams);
-}

@@ -12,7 +12,6 @@ export async function fetchData(lng: string, slug: string) {
       "featured_articles.articles",
       "scroll_slider_select.slider",
     ],
-    cv: Date.now(),
     language: lng,
   };
   const { data } = await stroyblokApi.get(`cdn/stories/${slug}`, sbParams);

@@ -1,4 +1,5 @@
 import Article from "@/components/Basic/Article";
+import { fetchData } from "@/util/storyblok";
 import {
   getStoryblokApi,
   ISbStoriesParams,
@@ -19,21 +20,9 @@ export const metadata: Metadata = {
 };
 
 const Home: FC<pageProps> = async ({ params }) => {
-  const { data } = await fetchData(params.branch, params.lng);
+  const slug = `ausbildung/${params.branch}`;
+  const data = await fetchData(params.lng, slug);
   return <StoryblokStory story={data.story} key={data.story.content._uid} />;
 };
 
 export default Home;
-
-async function fetchData(articlename: string, lng: string) {
-  let sbParams: ISbStoriesParams = {
-    // cache: "no-store",
-    version:
-      process.env.storyblokApiVersion == "published" ? "published" : "draft",
-    cv: Date.now(),
-    language: lng,
-  };
-
-  const stroyblokApi = getStoryblokApi();
-  return stroyblokApi.get(`cdn/stories/ausbildung/${articlename}`, sbParams);
-}

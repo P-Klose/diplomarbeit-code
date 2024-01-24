@@ -29,7 +29,6 @@ async function fetchData(c_name: string, lng: string) {
     // cache: "no-store",
     version:
       process.env.storyblokApiVersion == "published" ? "published" : "draft",
-    cv: Date.now(),
     language: lng,
   };
 
