@@ -202,7 +202,7 @@ const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
         </motion.div>
       </div>
 
-      <h1 className="p-4 pl-8 text-2xl font-semibold uppercase md:hidden">
+      <h1 className="p-4 text-2xl font-semibold uppercase md:hidden">
         {blok.title}
       </h1>
       <div

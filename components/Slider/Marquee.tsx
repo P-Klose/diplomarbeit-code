@@ -16,6 +16,7 @@ const InfiniteMarquee: React.FC<{ blok: MarqueeProps }> = ({ blok }) => {
       >
         <Marquee
           {...storyblokEditable(blok._editable)}
+          speed={blok.speed}
           direction={`${blok.reverse_direction ? "left" : "right"}`}
         >
           {blok.content?.map((nestedBlok: any) => (

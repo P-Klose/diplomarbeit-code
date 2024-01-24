@@ -197,6 +197,7 @@ export interface MarqueeProps {
   spacing_bottom: boolean;
   display_all_mobile: boolean;
   reverse_direction: boolean;
+  speed: number;
 }
 
 export interface FooterColumnProps {
