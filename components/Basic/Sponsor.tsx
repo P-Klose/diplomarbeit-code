@@ -40,10 +40,12 @@ const Sponsor: React.FC<{ blok: SponsorProps }> = ({ blok }) => {
             src={blok.image.filename}
           />
         </div>
-        <div className="flex flex-col justify-start">
+        <div className="flex flex-col justify-start sm:min-h-40">
           <h3 className="text-2xl font-medium">{blok.headline}</h3>
           <h3 className="text-lg font-normal">{blok.subline}</h3>
-          <Link href={url}>{shortUrl}</Link>
+          <Link className="pt-2" href={url}>
+            {shortUrl}
+          </Link>
         </div>
       </motion.div>
     );
