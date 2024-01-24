@@ -1,29 +1,11 @@
-"server only";
-
 import { ISbStoriesParams, getStoryblokApi } from "@storyblok/react/rsc";
 import { revalidateTag } from "next/cache";
-
-export async function fetchDataOld(lng: string, slug: string) {
-  const stroyblokApi = getStoryblokApi();
-  let sbParams: ISbStoriesParams = {
-    // cache: "no-store",
-    version:
-      process.env.storyblokApiVersion == "published" ? "published" : "draft",
-    resolve_relations: [
-      "featured_articles.articles",
-      "scroll_slider_select.slider",
-    ],
-    language: lng,
-  };
-  const { data } = await stroyblokApi.get(`cdn/stories/${slug}`, sbParams);
-
-  return data;
-}
 
 export async function fetchData(lng: string, slug: string) {
   const stroyblokApi = getStoryblokApi();
   let sbParams: ISbStoriesParams = {
     // cache: "no-store",
+    cv: Date.now(),
     version:
       process.env.storyblokApiVersion == "published" ? "published" : "draft",
     resolve_relations: [
@@ -33,6 +15,40 @@ export async function fetchData(lng: string, slug: string) {
     language: lng,
   };
   const { data } = await stroyblokApi.get(`cdn/stories/${slug}`, sbParams);
-  revalidateTag(slug);
+
   return data;
 }
+
+// export async function fetchData(lng: string, slug: string) {
+//   const storyblokApiBaseUrl = "https://api.storyblok.com/v2/cdn/stories/";
+//   const storyblokToken = process.env.storyblokApiToken; // replace with your actual Storyblok token
+//   const version =
+//     process.env.storyblokApiVersion === "published" ? "published" : "draft";
+
+//   // working but logic for resolveRelations missing bc relations are now on the top level of the json als rels and not where they are located normaly
+
+//   const resolveRelations = [
+//     "featured_articles.articles",
+//     "scroll_slider_select.slider",
+//   ];
+
+//   const queryString = new URLSearchParams({
+//     resolve_relations: resolveRelations.join(","),
+//     version: version,
+//     language: lng,
+//   });
+
+//   const apiUrl = `${storyblokApiBaseUrl}${slug}?${queryString.toString()}&token=${storyblokToken}`;
+
+//   console.log(apiUrl);
+
+//   const response = await fetch(apiUrl, {
+//     method: "GET",
+//     headers: {
+//       Accept: "application/json",
+//       "Content-Type": "application/json",
+//     },
+//   });
+
+//   return await response.json();
+// }
