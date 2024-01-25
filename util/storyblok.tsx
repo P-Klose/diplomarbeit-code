@@ -40,7 +40,7 @@ export async function fetchData(lng: string, slug: string) {
 
 //   const apiUrl = `${storyblokApiBaseUrl}${slug}?${queryString.toString()}&token=${storyblokToken}`;
 
-//   console.log(apiUrl);
+//   // console.log(apiUrl);
 
 //   const response = await fetch(apiUrl, {
 //     method: "GET",
@@ -49,6 +49,34 @@ export async function fetchData(lng: string, slug: string) {
 //       "Content-Type": "application/json",
 //     },
 //   });
+//   const data = await response.json();
 
-//   return await response.json();
+//   return updateArticlesWithContent(data);
+// }
+
+// function updateArticlesWithContent(data: any): any {
+//   const relsMap: Record<string, any> = {};
+
+//   // Build a mapping of rel UUIDs to their content
+//   data.rels.forEach((rel: any) => {
+//     relsMap[rel.uuid] = rel.content;
+//   });
+
+//   // Update the articles array with correct content
+//   data.story.content.body.forEach((section: any) => {
+//     if (section.articles) {
+//       section.articles = section.articles.map(
+//         (articleUUID: string) => relsMap[articleUUID],
+//       );
+//     }
+//     if (section.articles) {
+//       section.articles = section.articles.map(
+//         (articleUUID: string) => relsMap[articleUUID],
+//       );
+//     }
+//   });
+
+//   console.log(data.story.content.body);
+
+//   return data;
 // }
