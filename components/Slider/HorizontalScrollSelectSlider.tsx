@@ -35,6 +35,7 @@ const mapBlokSliderToSliderContent = (blokSlider: any) => {
 const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
   blok,
 }) => {
+  // console.log(blok);
   const player = React.createRef();
   const targetRef = useRef<any>();
   const carousel = useRef<any>();

@@ -36,6 +36,8 @@ export async function fetchData(lng: string, slug: string) {
   });
   const apiUrl = `${storyblokApiBaseUrl}${slug}?${queryString.toString()}&token=${storyblokToken}`;
 
+  //console.log(apiUrl);
+
   const response = await fetch(apiUrl, {
     method: "GET",
     next: { revalidate: 10 },
@@ -50,6 +52,7 @@ export async function fetchData(lng: string, slug: string) {
 
 function updateArticlesWithContent(data: any): any {
   const relsMap: Record<string, any> = {};
+  // console.log(data.story.name + ":");
 
   data.rels.forEach((rel: any) => {
     relsMap[rel.uuid] = rel;
@@ -61,10 +64,13 @@ function updateArticlesWithContent(data: any): any {
         (articleUUID: string) => relsMap[articleUUID],
       );
     }
-    if (section.slider && section.slider.component == "scroll_slider_select") {
+    if (section.slider && typeof section.slider[0] == "string") {
+      // console.log("Before:" + section.slider);
+      // console.log(typeof section.slider[0]);
       section.slider = section.slider.map(
         (sliderUUID: string) => relsMap[sliderUUID],
       );
+      // console.log("After:" + section.slider);
     }
   });
 
