@@ -1,19 +1,28 @@
 "use client";
 
 import { storyblokEditable } from "@storyblok/react/rsc";
-import { render } from "storyblok-rich-text-react-renderer";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import SliderContent from "./SliderContent";
 import { HorizontalScrollSliderProps } from "@/types/interfaces";
+import { Player } from "@lottiefiles/react-lottie-player";
+
+import * as scrollanimation from "../../pfeil.json";
 
 const Slider: React.FC<{ blok: HorizontalScrollSliderProps }> = ({ blok }) => {
   const targetRef = useRef<any>();
   const carousel = useRef<any>();
   let count = 0;
+
   const { scrollYProgress } = useScroll({
     target: targetRef,
   });
+
+  const handleScroll = () =>
+    window.scrollTo({
+      top: height,
+      behavior: "smooth",
+    });
 
   const pre_defined_width = [
     "md:h-[150vh]",
@@ -22,14 +31,24 @@ const Slider: React.FC<{ blok: HorizontalScrollSliderProps }> = ({ blok }) => {
     "md:h-[300vh]",
     "md:h-[350vh]",
   ];
+  const pre_defined_width_factor = [1.5, 2, 2.5, 3, 3.5];
 
   let scroll_width_summe = 0;
-  let width = 1080;
+  let width = 1920;
+  let height = 1080;
   let ultrawide = false;
   let x;
 
   if (typeof window !== "undefined") {
     width = window.innerWidth;
+    height = window.innerHeight;
+    height = height * (pre_defined_width_factor.at(blok.scroll_speed) ?? 1);
+    height = height + 56;
+
+    if (width > 1536) {
+      scroll_width_summe += (width - 1536) / 2;
+    }
+
     blok.slider.forEach((subblok: any) => {
       if (width >= 768) {
         if (subblok.type === "event") {
@@ -74,7 +93,6 @@ const Slider: React.FC<{ blok: HorizontalScrollSliderProps }> = ({ blok }) => {
   }
   // Content-Animation mit framer-motion
   const duration = 0.5;
-  const startAnimationDuration = 1.6;
   const variants = {
     visible: {
       opacity: 1,
@@ -94,7 +112,7 @@ const Slider: React.FC<{ blok: HorizontalScrollSliderProps }> = ({ blok }) => {
   const variantsHeadline = {
     visible: {
       opacity: 1,
-      x: 0,
+      x: "-50%",
       transition: {
         ease: "easeInOut",
         duration,
@@ -119,11 +137,28 @@ const Slider: React.FC<{ blok: HorizontalScrollSliderProps }> = ({ blok }) => {
       }`}
     >
       <div className="sticky top-0 hidden h-screen md:block">
+        {/* <motion.div
+          initial={{ opacity: 0, translateY: 50 }}
+          animate={{ opacity: 1, translateY: 0 }}
+          transition={{ duration: 1, delay: 1.5 }}
+          className={`absolute top-0 hidden h-full w-full items-end justify-center pb-10 md:flex`}
+        >
+          <button onClick={handleScroll} className="pointer-events-auto z-50">
+            <Player
+              loop={true}
+              autoplay={true}
+              src={scrollanimation}
+              style={{ height: "50px", width: "50px" }}
+              speed={1}
+            ></Player>
+          </button>
+        </motion.div> */}
         <motion.h1
           initial="hidden"
           animate="visible"
           variants={variantsHeadline}
-          className="px-8 pt-8 text-left text-5xl font-semibold uppercase sm:text-7xl"
+          className="absolute left-1/2 top-0 z-40 w-full max-w-screen-2xl translate-x-1/2 transform px-8 pt-8
+          text-center text-5xl font-semibold uppercase sm:text-start sm:text-7xl 2xl:px-0"
         >
           {blok.title}
         </motion.h1>
@@ -169,7 +204,10 @@ const Slider: React.FC<{ blok: HorizontalScrollSliderProps }> = ({ blok }) => {
           </motion.table>
         ) : null}
         <div className="flex h-[80vh] items-center overflow-hidden p-8">
-          <div ref={carousel} className="w-screen overflow-visible">
+          <div
+            ref={carousel}
+            className="mx-auto w-full max-w-screen-2xl overflow-visible"
+          >
             <motion.div
               initial="hidden"
               animate="visible"

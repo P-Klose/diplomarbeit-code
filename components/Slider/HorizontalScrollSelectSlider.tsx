@@ -2,10 +2,8 @@
 
 import { Player } from "@lottiefiles/react-lottie-player";
 import { storyblokEditable } from "@storyblok/react/rsc";
-import { render } from "storyblok-rich-text-react-renderer";
-import { color, motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import * as startanimation from "../../startanimation.json";
 import * as biggerstartanimation from "../../startanimation-3zu4.json";
 import * as scrollanimation from "../../pfeil.json";
 import Carousel from "./Carousel";
@@ -37,7 +35,6 @@ const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
 }) => {
   const targetRef = useRef<any>();
   const carousel = useRef<any>();
-  const scrollRef = useRef<any>();
 
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -70,6 +67,10 @@ const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
     height = window.innerHeight;
     height = height * (pre_defined_width_factor.at(blok.scroll_speed) ?? 1);
     height = height + 56;
+
+    if (width > 1536) {
+      scroll_width_summe += (width - 1536) / 2;
+    }
 
     blok.slider.forEach((subblok: any) => {
       if (width >= 768) {
@@ -125,7 +126,7 @@ const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
   const variantsStartAnimationHeadline = {
     visible: {
       opacity: 1,
-      x: 0,
+      x: "-50%",
       transition: {
         ease: "easeInOut",
         duration,
@@ -191,7 +192,8 @@ const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
           initial="hidden"
           animate="visible"
           variants={headlineVarients}
-          className="absolute top-0 z-40 px-8 pt-8 text-center text-5xl font-semibold uppercase sm:text-start sm:text-7xl"
+          className="absolute left-1/2 top-0 z-40 w-full max-w-screen-2xl translate-x-1/2 transform px-8 pt-8
+          text-center text-5xl font-semibold uppercase sm:text-start sm:text-7xl 2xl:px-0"
         >
           {blok.title}
         </motion.h1>
@@ -201,7 +203,10 @@ const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
           variants={variants}
           className="flex h-full items-center overflow-hidden p-4"
         >
-          <div ref={carousel} className="w-screen overflow-visible">
+          <div
+            ref={carousel}
+            className="mx-auto w-full max-w-screen-2xl overflow-visible"
+          >
             <motion.div
               drag="x"
               dragConstraints={{ right: 0, left: -width }}
@@ -256,7 +261,6 @@ const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
           })}
         </Carousel>
       </div>
-      <span ref={scrollRef}></span>
     </section>
   );
 };
