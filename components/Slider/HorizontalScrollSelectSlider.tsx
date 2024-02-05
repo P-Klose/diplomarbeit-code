@@ -35,13 +35,19 @@ const mapBlokSliderToSliderContent = (blokSlider: any) => {
 const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
   blok,
 }) => {
-  // console.log(blok);
-  const player = React.createRef();
   const targetRef = useRef<any>();
   const carousel = useRef<any>();
+  const scrollRef = useRef<any>();
+
   const { scrollYProgress } = useScroll({
     target: targetRef,
   });
+
+  const handleScroll = () =>
+    window.scrollTo({
+      top: height,
+      behavior: "smooth",
+    });
 
   const pre_defined_width = [
     "md:h-[150vh]",
@@ -50,15 +56,20 @@ const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
     "md:h-[300vh]",
     "md:h-[350vh]",
   ];
+  const pre_defined_width_factor = [1.5, 2, 2.5, 3, 3.5];
 
   // Berechung der x Position (start und endpunkt der Animation)
   let scroll_width_summe = 0;
   let x;
   let ultrawide = false;
-  let width = 1080;
+  let width = 1920;
+  let height = 1080;
 
   if (typeof window !== "undefined") {
     width = window.innerWidth;
+    height = window.innerHeight;
+    height = height * (pre_defined_width_factor.at(blok.scroll_speed) ?? 1);
+    height = height + 56;
 
     blok.slider.forEach((subblok: any) => {
       if (width >= 768) {
@@ -165,13 +176,15 @@ const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
           transition={{ duration: 1, delay: 1.5 }}
           className={`absolute top-0 hidden h-full w-full items-end justify-center pb-10 md:flex`}
         >
-          <Player
-            loop={true}
-            autoplay={true}
-            src={scrollanimation}
-            style={{ height: "50px", width: "50px" }}
-            speed={1}
-          ></Player>
+          <button onClick={handleScroll} className="pointer-events-auto z-50">
+            <Player
+              loop={true}
+              autoplay={true}
+              src={scrollanimation}
+              style={{ height: "50px", width: "50px" }}
+              speed={1}
+            ></Player>
+          </button>
         </motion.div>
 
         <motion.h1
@@ -242,30 +255,8 @@ const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
             return null; // Skip rendering for other elements
           })}
         </Carousel>
-
-        {/* {blok.slider?.map((boxinfo: any) => {
-          let box = boxinfo.content;
-          if (box.type == "event") {
-            return (
-              <div
-                className={`border-${box.allocate} relative col-span-full box-border flex flex-col items-start justify-start border-l-4`}
-                key={box._uid}
-              >
-                <img
-                  className="border-box ml-2 w-full max-w-full"
-                  src={box.image.filename}
-                ></img>
-                <h2 className="m-4 text-lg font-medium">{box.headline}</h2>
-                <p
-                  className={`bg-${box.allocate} p-2 text-right text-xs font-normal`}
-                >
-                  {box.subline}
-                </p>
-              </div>
-            );
-          }
-        })} */}
       </div>
+      <span ref={scrollRef}></span>
     </section>
   );
 };
