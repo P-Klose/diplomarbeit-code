@@ -166,6 +166,7 @@ export interface BranchProps {
   description: any;
   folder: Asset;
   imagevideo: any;
+  allocate: string;
 }
 
 export interface HorizontalScrollSelectSliderProps {

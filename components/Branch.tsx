@@ -7,6 +7,17 @@ import { FaFileArrowDown } from "react-icons/fa6";
 import { BranchProps } from "@/types/interfaces";
 
 const Branch: React.FC<{ blok: BranchProps }> = ({ blok }) => {
+  const bgColors = [
+    "bg-allgemein",
+    "bg-it-medientechnik",
+    "bg-informatik-sse",
+    "bg-elektronik",
+    "bg-medizintechnik",
+    "bg-informatik-sse",
+    "bg-informatik-ddp",
+    "bg-informatik-csi",
+  ];
+
   return (
     <>
       <section
@@ -24,7 +35,9 @@ const Branch: React.FC<{ blok: BranchProps }> = ({ blok }) => {
         <div className="col-span-full md:col-span-3 md:row-start-2 lg:col-span-4">
           {render(blok.description)}
           <a href={blok.folder.filename} target="_blank">
-            <button className="mt-8 flex items-center justify-center bg-it-medientechnik bg-opacity-20 px-6 py-4 transition ease-in-out hover:bg-opacity-50 hover:text-neutral-800">
+            <button
+              className={`mt-8 flex items-center justify-center bg-${blok.allocate} bg-opacity-20 px-6 py-4 transition ease-in-out hover:bg-opacity-50 hover:text-neutral-800`}
+            >
               <FaFileArrowDown className="mr-2"></FaFileArrowDown>
               Download Flyer {blok.headline}
             </button>
