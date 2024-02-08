@@ -244,7 +244,7 @@ const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
                   >
                     <img
                       className="box-border w-full max-w-full border-l-8 border-transparent "
-                      src={`${box.image.filename}/m/0x200`}
+                      src={`${box.image.filename}/m/0x400`}
                       alt={box.headline}
                     />
                     <h2 className="m-4 text-lg font-medium">{box.headline}</h2>

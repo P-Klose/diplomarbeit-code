@@ -86,7 +86,7 @@ const FeatArticle: React.FC<{ blok: ArticleProps; full_slug: string }> = ({
       >
         <img
           className="ml-2 box-border max-w-full pr-2"
-          src={`${blok.image.filename}/m/0x200`}
+          src={`${blok.image.filename}/m/0x400`}
         ></img>
         <h2 className="col-span-3 row-start-3 m-4  text-xl font-medium">
           {blok.headline}
