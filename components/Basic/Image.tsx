@@ -9,7 +9,7 @@ const ImageComponent: React.FC<{ blok: ImageComponentProps }> = ({ blok }) => {
       <img
         {...storyblokEditable(blok._editable)}
         className="mx-10 h-full max-h-10"
-        src={blok.image.filename}
+        src={`${blok.image.filename}/m/0x200`}
       ></img>
     );
   } else if (blok.type == "h-broschuere") {
@@ -28,7 +28,7 @@ const ImageComponent: React.FC<{ blok: ImageComponentProps }> = ({ blok }) => {
           <p className="pb-1">Unsere Broschüre:</p>
           <img
             className="w-full object-contain"
-            src={blok.image.filename}
+            src={`${blok.image.filename}/m/0x200`}
           ></img>
         </Link>
       </motion.div>
@@ -38,7 +38,7 @@ const ImageComponent: React.FC<{ blok: ImageComponentProps }> = ({ blok }) => {
       <img
         {...storyblokEditable(blok._editable)}
         className="h-full max-h-60"
-        src={blok.image.filename}
+        src={`${blok.image.filename}/m/0x200`}
       ></img>
     );
   }

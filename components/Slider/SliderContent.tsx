@@ -58,7 +58,7 @@ const SliderContent: React.FC<SliderContentProps> = ({ slider }) => {
               >
                 <img
                   className="border-box ml-2 max-w-full "
-                  src={box.image.filename}
+                  src={`${box.image.filename}/m/0x200`}
                 ></img>
                 <h2 className="col-span-3 row-start-3 m-4 text-lg font-medium">
                   {box.headline}
@@ -99,7 +99,7 @@ const SliderContent: React.FC<SliderContentProps> = ({ slider }) => {
                 <div className="col-span-1 xs:col-span-2">
                   <img
                     className="h-full max-w-full object-contain object-right-top"
-                    src={box.image.filename}
+                    src={`${box.image.filename}/m/0x200`}
                   ></img>
                 </div>
               </div>
@@ -116,7 +116,7 @@ const SliderContent: React.FC<SliderContentProps> = ({ slider }) => {
               <div className="mr-6 w-1/3 md:col-span-1 md:mr-0 md:w-full">
                 <img
                   className="w-full object-contain object-bottom"
-                  src={box.image.filename}
+                  src={`${box.image.filename}/m/0x500`}
                 ></img>
               </div>
               <div className="flex flex-col items-start justify-end md:col-span-2">
