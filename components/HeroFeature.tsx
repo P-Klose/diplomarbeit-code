@@ -18,7 +18,7 @@ const HeroFeature: React.FC<{ blok: HeroFeatureProps; index: number }> = ({
       >
         <p className="flex w-full max-w-full flex-row items-center bg-neutral-200 p-3 text-left text-sm sm:max-w-max">
           <MediaIcon iconName={blok.symbol} />
-          {blok.symbol ? <span className="px-1"></span> : null}
+          {blok.symbol && <span className="px-1"></span>}
           {blok.text}
         </p>
       </motion.div>

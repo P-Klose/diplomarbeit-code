@@ -80,7 +80,7 @@ const ArticleTeaser: React.FC<{ blok: ArticleProps; full_slug: string }> = ({
           {blok.subline}
         </motion.h2>
         <motion.div layout="position" className="grid grid-cols-2 gap-2 ">
-          {/* { blok.subpage_enabled ? (
+          {/* { blok.subpage_enabled && (
             <motion.div layout="position" className={`col-span-1 row-start-1 `}>
               <Link
                 className={`bg-${ blok.allocate} z-10 block p-2 text-xs font-medium transition-colors text-neutral-200`}
@@ -89,7 +89,7 @@ const ArticleTeaser: React.FC<{ blok: ArticleProps; full_slug: string }> = ({
                 Mehr Lesen
               </Link>
             </motion.div>
-          ) : null} */}
+          )} */}
           {blok.date && (
             <motion.p
               layout="position"
@@ -101,7 +101,7 @@ const ArticleTeaser: React.FC<{ blok: ArticleProps; full_slug: string }> = ({
           )}
         </motion.div>
       </motion.div>
-      {blok.image.filename ? (
+      {blok.image.filename && (
         <motion.img
           onClick={() => setIsOpen(!isOpen)}
           layout="position"
@@ -109,8 +109,8 @@ const ArticleTeaser: React.FC<{ blok: ArticleProps; full_slug: string }> = ({
           src={blok.image.filename}
           alt=""
         />
-      ) : null}
-      {isOpen ? (
+      )}
+      {isOpen && (
         <motion.div
           layout="position"
           initial={{ opacity: 0 }}
@@ -121,15 +121,15 @@ const ArticleTeaser: React.FC<{ blok: ArticleProps; full_slug: string }> = ({
         >
           {render(blok.content)}
         </motion.div>
-      ) : null}
-      {blok.subpage_enabled && isOpen ? (
+      )}
+      {blok.subpage_enabled && isOpen && (
         <Link
           className={`border-l-2 bg-${blok.allocate} border-${blok.allocate} col-span-full block bg-opacity-0 p-2 text-sm font-medium transition-all hover:bg-opacity-25 hover:font-semibold lg:text-base`}
           href={`news/${blok.slug}`}
         >
           Mehr Erfahren
         </Link>
-      ) : null}
+      )}
     </motion.div>
   );
 };

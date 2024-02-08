@@ -163,7 +163,7 @@ const Slider: React.FC<{ blok: HorizontalScrollSliderProps }> = ({ blok }) => {
         >
           {blok.title}
         </motion.h1>
-        {blok.slider_table.thead.length > 0 ? (
+        {blok.slider_table.thead.length > 0 && (
           <motion.table
             initial="hidden"
             animate="visible"
@@ -203,7 +203,7 @@ const Slider: React.FC<{ blok: HorizontalScrollSliderProps }> = ({ blok }) => {
               })}
             </tbody>
           </motion.table>
-        ) : null}
+        )}
         <div className="flex h-[80vh] items-center overflow-hidden p-8">
           <div
             ref={carousel}
@@ -230,7 +230,7 @@ const Slider: React.FC<{ blok: HorizontalScrollSliderProps }> = ({ blok }) => {
       </div>
       <div className="flex flex-col pt-4 xs:px-4 md:hidden">
         <h1 className="pl-4 text-2xl font-semibold uppercase ">{blok.title}</h1>
-        {blok.slider_table.thead.length > 0 ? (
+        {blok.slider_table.thead.length > 0 && (
           <table className="m-4  w-[calc(100%-16px)] ">
             <thead className="mb-4">
               <tr>
@@ -265,7 +265,7 @@ const Slider: React.FC<{ blok: HorizontalScrollSliderProps }> = ({ blok }) => {
               })}
             </tbody>
           </table>
-        ) : null}
+        )}
 
         <div className="mx-4 my-8 grid grid-cols-1 gap-8 xs:mx-8 md:gap-4 ">
           <SliderContent slider={blok.slider}></SliderContent>

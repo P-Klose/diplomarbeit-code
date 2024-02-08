@@ -116,7 +116,7 @@ const AllArticles: React.FC<{ blok: AllArticlesProps }> = ({ blok }) => {
       {...storyblokEditable(blok._editable)}
       className="w-full p-4 sm:col-span-4"
     >
-      {blok.filter ? (
+      {blok.filter && (
         <div>
           <div className="flex flex-row items-end">
             <h2 className="break-words text-2xl font-semibold xs:pl-2 md:text-3xl">
@@ -161,7 +161,7 @@ const AllArticles: React.FC<{ blok: AllArticlesProps }> = ({ blok }) => {
             ))}
           </div>
         </div>
-      ) : null}
+      )}
       <div>
         <p className="text-2xl md:text-3xl">{blok.headline}</p>
         <div className="grid w-full grid-cols-1 gap-8 lg:grid-cols-3 xl:grid-cols-4 [&>*:nth-child(odd)]:xl:col-start-2">

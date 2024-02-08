@@ -23,7 +23,7 @@ const FaqElement: React.FC<{ blok: FaqProps }> = ({ blok }) => {
         {blok.question}
       </motion.p>
       <LayoutGroup>
-        {isOpen ? (
+        {isOpen && (
           <motion.div
             layout="position"
             initial={{ opacity: 0 }}
@@ -34,7 +34,7 @@ const FaqElement: React.FC<{ blok: FaqProps }> = ({ blok }) => {
           >
             {render(blok.answer)}
           </motion.div>
-        ) : null}
+        )}
       </LayoutGroup>
     </motion.div>
   );

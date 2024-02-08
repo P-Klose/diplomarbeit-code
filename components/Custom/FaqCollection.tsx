@@ -15,9 +15,9 @@ const FaqCollection: React.FC<{ blok: FaqCollectionProps }> = ({ blok }) => {
       <h2 className="break-words text-2xl font-semibold uppercase md:text-3xl">
         {blok.headline}
       </h2>
-      {blok.description ? (
+      {blok.description && (
         <div className="prose">{render(blok.description)}</div>
-      ) : null}
+      )}
       <div className="grid sm:px-2">
         {blok.faqs.map((nestedBlok: FaqProps) => (
           <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />

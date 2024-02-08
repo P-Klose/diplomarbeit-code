@@ -64,7 +64,7 @@ const Article: React.FC<{ blok: ArticleProps }> = ({ blok }) => {
           {blok.subline}
         </h2>
         <div className="grid grid-cols-2 gap-2 ">
-          {/* { blok.subpage_enabled ? (
+          {/* { blok.subpage_enabled && (
             <motion.div layout="position" className={`col-span-1 row-start-1 `}>
               <Link
                 className={`bg-${ blok.allocate} z-10 block p-2 text-xs font-medium transition-colors text-neutral-200`}
@@ -73,14 +73,14 @@ const Article: React.FC<{ blok: ArticleProps }> = ({ blok }) => {
                 Mehr Lesen
               </Link>
             </motion.div>
-          ) : null} */}
-          {blok.date ? (
+          )} */}
+          {blok.date && (
             <p
               className={`bg-${blok.allocate} col-span-1 p-2 text-center text-xs font-semibold text-white hover:cursor-pointer`}
             >
               {transformDateFormat(blok.date)}
             </p>
-          ) : null}
+          )}
         </div>
       </div>
       <div
@@ -89,7 +89,7 @@ const Article: React.FC<{ blok: ArticleProps }> = ({ blok }) => {
       >
         {render(blok.content)}
       </div>
-      {blok.assets.length > 0 ? (
+      {blok.assets.length > 0 && (
         <>
           <h2 className="col-span-full text-xl font-medium hover:cursor-pointer">
             Weitere Medien
@@ -107,40 +107,40 @@ const Article: React.FC<{ blok: ArticleProps }> = ({ blok }) => {
             })}
           </div>
         </>
-      ) : null}
+      )}
       <div className="col-span-full flex items-center justify-start md:justify-end">
-        {blok.type == "event" ? (
+        {blok.type == "event" && (
           <Link
             className={`px-4 py-2 bg-${blok.allocate} w-full border-l-2 bg-opacity-0 text-base transition-all hover:bg-opacity-25 md:w-auto md:border-l-0 md:border-r-2 border-${blok.allocate}`}
             href={`/schueler-innen/events`}
           >
             Mehr Events
           </Link>
-        ) : null}
-        {blok.type == "news" ? (
+        )}
+        {blok.type == "news" && (
           <Link
             className={`px-4 py-2 bg-${blok.allocate} w-full border-l-2 bg-opacity-0 text-base transition-all hover:bg-opacity-25 md:w-auto md:border-l-0 md:border-r-2 border-${blok.allocate}`}
             href={`/news`}
           >
             Mehr News
           </Link>
-        ) : null}
-        {blok.type == "project" ? (
+        )}
+        {blok.type == "project" && (
           <Link
             className={`px-4 py-2 bg-${blok.allocate} w-full border-l-2 bg-opacity-0 text-base transition-all hover:bg-opacity-25 md:w-auto md:border-l-0 md:border-r-2 border-${blok.allocate}`}
             href={`/schueler-innen/projekte`}
           >
             Mehr Projekte
           </Link>
-        ) : null}
-        {blok.type == "club" ? (
+        )}
+        {blok.type == "club" && (
           <Link
             className={`px-4 py-2 bg-${blok.allocate} w-full border-l-2 bg-opacity-0 text-base transition-all hover:bg-opacity-25 md:w-auto md:border-l-0 md:border-r-2 border-${blok.allocate}`}
             href={`/schueler-innen/clubs`}
           >
             Mehr Clubs
           </Link>
-        ) : null}
+        )}
       </div>
     </section>
   );

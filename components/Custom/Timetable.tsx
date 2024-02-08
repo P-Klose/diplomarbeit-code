@@ -80,7 +80,7 @@ const Timetable: React.FC<{ blok: TimetableProps }> = ({ blok }) => {
           return <TimetableSubject blok={subject} key={subject._uid} />;
         })}
       </div>
-      {selectedSubject ? (
+      {selectedSubject && (
         <div className="col-span-2 md:col-span-1">
           <h3
             className={`p-2 border-${selectedSubject.color} border-b-2 text-2xl`}
@@ -116,7 +116,7 @@ const Timetable: React.FC<{ blok: TimetableProps }> = ({ blok }) => {
             </p>
           </section>
         </div>
-      ) : null}
+      )}
     </motion.section>
   );
 };

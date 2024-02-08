@@ -112,25 +112,25 @@ const LinkComponent: React.FC<{ blok: LinkProps }> = ({ blok }) => {
   return (
     <>
       {blok.style == "text-nav-base" ||
-      blok.style == "marquee" ||
-      blok.style == "" ||
-      blok.style == undefined ? (
-        <Link
-          {...storyblokEditable(blok._editable)}
-          className={`${
-            blok.style == "marquee"
-              ? `mx-4 border-x-2 border-white px-2 text-base font-medium text-neutral-400 transition-all duration-500 sm:text-lg lg:text-xl hover:border-${blok.color} hover:text-neutral-700`
-              : `text-${blok.color}`
-          } flex items-center 
+        blok.style == "marquee" ||
+        blok.style == "" ||
+        (blok.style == undefined && (
+          <Link
+            {...storyblokEditable(blok._editable)}
+            className={`${
+              blok.style == "marquee"
+                ? `mx-4 border-x-2 border-white px-2 text-base font-medium text-neutral-400 transition-all duration-500 sm:text-lg lg:text-xl hover:border-${blok.color} hover:text-neutral-700`
+                : `text-${blok.color}`
+            } flex items-center 
       `}
-          href={url}
-        >
-          <MediaIcon iconName={blok.symbol} />
-          {blok.symbol ? <span className="px-1"></span> : null}
-          {blok.display_name}
-        </Link>
-      ) : null}
-      {blok.style == "h-video" ? (
+            href={url}
+          >
+            <MediaIcon iconName={blok.symbol} />
+            {blok.symbol && <span className="px-1"></span>}
+            {blok.display_name}
+          </Link>
+        ))}
+      {blok.style == "h-video" && (
         <motion.div
           layout
           initial={{ opacity: 0, scale: 0.9 }}
@@ -149,8 +149,8 @@ const LinkComponent: React.FC<{ blok: LinkProps }> = ({ blok }) => {
             title="YouTube video player"
           ></iframe>
         </motion.div>
-      ) : null}
-      {blok.style == "h-link" ? (
+      )}
+      {blok.style == "h-link" && (
         <motion.div
           layout
           initial={{ opacity: 0, scale: 0.9 }}
@@ -169,8 +169,8 @@ const LinkComponent: React.FC<{ blok: LinkProps }> = ({ blok }) => {
             </Link>
           </div>
         </motion.div>
-      ) : null}
-      {blok.style == "default" ? (
+      )}
+      {blok.style == "default" && (
         <Link
           {...storyblokEditable(blok._editable)}
           className={`mb-2 block border-l-4 border-l-${blok.color} bg-${blok.color} bg-opacity-0 p-2 no-underline transition-all hover:bg-opacity-25`}
@@ -178,7 +178,7 @@ const LinkComponent: React.FC<{ blok: LinkProps }> = ({ blok }) => {
         >
           {blok.display_name}
         </Link>
-      ) : null}
+      )}
     </>
   );
 };

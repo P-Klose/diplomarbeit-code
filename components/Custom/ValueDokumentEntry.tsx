@@ -27,7 +27,7 @@ const ValueDokumentEntry: React.FC<{
           {blok.headline}
         </motion.h2>
 
-        {isOpen ? (
+        {isOpen && (
           <motion.div
             layout="position"
             initial={{ opacity: 0 }}
@@ -37,7 +37,7 @@ const ValueDokumentEntry: React.FC<{
           >
             {render(blok.description)}
           </motion.div>
-        ) : null}
+        )}
       </motion.div>
       <motion.div
         transition={{ layout: { duration: 1, type: "spring" } }}

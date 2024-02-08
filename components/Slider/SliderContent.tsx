@@ -63,13 +63,13 @@ const SliderContent: React.FC<SliderContentProps> = ({ slider }) => {
                 <h2 className="col-span-3 row-start-3 m-4 text-lg font-medium">
                   {box.headline}
                 </h2>
-                {box.date ? (
+                {box.date && (
                   <p
                     className={`bg-${box.allocate} p-2 text-right text-xs font-semibold text-white`}
                   >
                     {transformDateFormat(box.date)}
                   </p>
-                ) : null}
+                )}
               </div>
             </Link>
           );

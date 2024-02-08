@@ -36,7 +36,7 @@ const Hero: React.FC<{ blok: HeroProps }> = ({ blok }) => {
           {blok.headline}
         </motion.h1>
       </motion.div>
-      {blok.hero_features ? (
+      {blok.hero_features && (
         <div className="sm:absolute sm:bottom-0 sm:right-0 sm:block">
           <div className="mb-4 grid grid-cols-1 gap-2 px-4 sm:flex sm:flex-col sm:justify-end sm:px-0">
             {blok.hero_features?.map((feat: HeroFeatureProps, i) => {
@@ -50,11 +50,11 @@ const Hero: React.FC<{ blok: HeroProps }> = ({ blok }) => {
             })}
           </div>
         </div>
-      ) : null}
+      )}
       {blok.additional_content?.map((nestedBlok: any) => (
         <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
       ))}
-      {blok.type == "school" ? (
+      {blok.type == "school" && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -67,7 +67,7 @@ const Hero: React.FC<{ blok: HeroProps }> = ({ blok }) => {
             style={{ maxWidth: "100%", height: "auto" }}
           />
         </motion.div>
-      ) : null}
+      )}
     </motion.section>
   );
 };

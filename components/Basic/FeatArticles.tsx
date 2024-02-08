@@ -24,7 +24,7 @@ const FeatArticles: React.FC<FeatArticlesProps> = ({ blok }) => {
         <h2 className="pb-3 text-2xl font-semibold uppercase md:text-3xl">
           {blok.headline}
         </h2>
-        {blok.additional_info ? (
+        {blok.additional_info && (
           <div className="prose max-w-none sm:px-2">
             {render(blok.additional_info, {
               blokResolvers: {
@@ -34,7 +34,7 @@ const FeatArticles: React.FC<FeatArticlesProps> = ({ blok }) => {
               },
             })}
           </div>
-        ) : null}
+        )}
         <div className="box-border grid w-full grid-cols-1 gap-12 pb-12 pt-10 sm:px-4 lg:grid-cols-3 [&>*:nth-child(even)]:justify-self-end [&>*:nth-child(odd)]:justify-self-start">
           {/* odd:justify-self-end even:justify-self-start */}
           {blok.articles?.map((subblok: any) => {
@@ -94,14 +94,14 @@ const FeatArticle: React.FC<{ blok: ArticleProps; full_slug: string }> = ({
         <h3 className="col-span-3 row-start-3 mx-4 mb-4 line-clamp-2 h-14 text-lg font-medium">
           {blok.subline}
         </h3>
-        {blok.date ? (
+        {blok.date && (
           <motion.p
             layout="position"
             className={`bg-${blok.allocate} p-2 text-right text-xs font-normal font-semibold text-white`}
           >
             {transformDateFormat(blok.date)}
           </motion.p>
-        ) : null}
+        )}
       </motion.div>
     </Link>
   );
