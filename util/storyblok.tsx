@@ -57,7 +57,7 @@ function updateArticlesWithContent(data: any): any {
     relsMap[rel.uuid] = rel;
   });
 
-  data.story.content.body.forEach((section: any) => {
+  data.story.content.body?.forEach((section: any) => {
     if (section.articles) {
       section.articles = section.articles.map(
         (articleUUID: string) => relsMap[articleUUID],
