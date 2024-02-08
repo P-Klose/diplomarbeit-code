@@ -15,7 +15,7 @@ const AllArticles: React.FC<{ blok: AllArticlesProps }> = ({ blok }) => {
   const searchParams = useSearchParams();
   const urlFilterStr = searchParams.get("filter");
   const urlPageNr = parseInt(searchParams.get("page") || "1");
-  const [maxPages, setMaxPages] = useState(1);
+  const [maxPages, setMaxPages] = useState(0);
   const perPage = 10;
 
   const selectedFilterStr = urlFilterStr ? urlFilterStr : "Alles";
@@ -109,6 +109,7 @@ const AllArticles: React.FC<{ blok: AllArticlesProps }> = ({ blok }) => {
       perPage,
       urlPageNr,
     );
+    // console.log(maxPages);
   }, [indexOfFilter, urlPageNr]);
 
   return (
@@ -191,7 +192,7 @@ const AllArticles: React.FC<{ blok: AllArticlesProps }> = ({ blok }) => {
           </Link>
           <Link
             className={`${
-              urlPageNr == maxPages
+              urlPageNr == maxPages || maxPages == 0
                 ? "hidden" //"pointer-events-none cursor-wait border-l-neutral-500 bg-neutral-500 text-neutral-500"
                 : "pointer-events-auto border-l-allgemein bg-allgemein text-neutral-700 transition-all hover:bg-opacity-25 hover:text-black"
             } flex items-center border-l-4 bg-opacity-15 p-2 no-underline`}
