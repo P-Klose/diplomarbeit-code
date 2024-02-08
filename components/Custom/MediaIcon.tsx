@@ -8,6 +8,7 @@ import {
   FaNewspaper,
   FaYoutube,
   FaAngleRight,
+  FaAngleLeft,
   FaPhone,
   FaBoxArchive,
   FaMapLocation,
@@ -35,6 +36,8 @@ const MediaIcon: React.FC<MediaIconProps> = ({ iconName }) => {
       return <FaYoutube />;
     case "arrow-right":
       return <FaAngleRight />;
+    case "arrow-left":
+      return <FaAngleLeft />;
     case "phone":
       return <FaPhone />;
     case "box":

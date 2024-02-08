@@ -4,7 +4,6 @@ import { revalidateTag } from "next/cache";
 // export async function fetchData(lng: string, slug: string) {
 //   const stroyblokApi = getStoryblokApi();
 //   let sbParams: ISbStoriesParams = {
-//     // cache: "no-store",
 //     cv: Date.now(),
 //     version:
 //       process.env.storyblokApiVersion == "published" ? "published" : "draft",
@@ -58,7 +57,7 @@ function updateArticlesWithContent(data: any): any {
     relsMap[rel.uuid] = rel;
   });
 
-  data.story.content.body?.forEach((section: any) => {
+  data.story.content.body.forEach((section: any) => {
     if (section.articles) {
       section.articles = section.articles.map(
         (articleUUID: string) => relsMap[articleUUID],

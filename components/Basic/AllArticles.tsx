@@ -8,10 +8,16 @@ import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 
 import { AllArticlesProps } from "../../types/interfaces"; //
+import LinkComponent from "./Link";
+import MediaIcon from "../Custom/MediaIcon";
 
 const AllArticles: React.FC<{ blok: AllArticlesProps }> = ({ blok }) => {
   const searchParams = useSearchParams();
   const urlFilterStr = searchParams.get("filter");
+  const urlPageNr = parseInt(searchParams.get("page") || "1");
+  const [maxPages, setMaxPages] = useState(1);
+  const perPage = 10;
+
   const selectedFilterStr = urlFilterStr ? urlFilterStr : "Alles";
   const filterValues = [
     "Informatik",
@@ -43,20 +49,47 @@ const AllArticles: React.FC<{ blok: AllArticlesProps }> = ({ blok }) => {
   ];
 
   const [articles, setArticles] = useState([]);
+  const getArticles = async (
+    version: string,
+    startsWith: string,
+    filterQuery: string,
+    perPage: number,
+    page: number,
+  ) => {
+    const storyblokApiBaseUrl = "https://api.storyblok.com/v2/cdn/stories";
+    const storyblokToken = process.env.storyblokApiToken; // replace with your actual Storyblok token
 
-  useEffect(() => {
-    const getArticles = async () => {
-      const storyblokApi = getStoryblokApi();
-      const { data } = await storyblokApi.get(`cdn/stories`, {
-        version: "draft",
-        is_startpage: false,
-        starts_with: blok.type,
-        filter_query: {
-          allocate: {
-            like: corespondingApiFilters.at(indexOfFilter),
-          },
+    const queryString = new URLSearchParams({
+      version: version,
+      is_startpage: "false",
+      starts_with: startsWith,
+      sort_by: "content.date:desc",
+      per_page: perPage.toString(),
+      page: page.toString(),
+      "filter_query[allocate][like]": filterQuery,
+    });
+
+    const apiUrl = `${storyblokApiBaseUrl}?${queryString.toString()}&token=${storyblokToken}`;
+
+    try {
+      const response = await fetch(apiUrl, {
+        method: "GET",
+        next: { revalidate: 10 },
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
         },
       });
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      const totalHeader = response.headers.get("total");
+      if (totalHeader) {
+        // Parse total value as integer
+        const total = parseInt(totalHeader, 10);
+        setMaxPages(Math.ceil(total / perPage));
+      }
+      const data = await response.json();
 
       setArticles((prev) =>
         data.stories.map((article: any) => {
@@ -64,10 +97,19 @@ const AllArticles: React.FC<{ blok: AllArticlesProps }> = ({ blok }) => {
           return article;
         }),
       );
-    };
-
-    getArticles();
-  }, [indexOfFilter]);
+    } catch (error) {
+      console.error("Error fetching articles:", error);
+    }
+  };
+  useEffect(() => {
+    getArticles(
+      process.env.storyblokApiVersion === "published" ? "published" : "draft",
+      blok.type,
+      corespondingApiFilters.at(indexOfFilter)!,
+      perPage,
+      urlPageNr,
+    );
+  }, [indexOfFilter, urlPageNr]);
 
   return (
     <section
@@ -131,8 +173,34 @@ const AllArticles: React.FC<{ blok: AllArticlesProps }> = ({ blok }) => {
                 full_slug={article.full_slug}
               />
             ))}
-            <div className="disc col-span-full"></div>
+            {/* <div className="disc col-span-full"></div> */}
           </LayoutGroup>
+        </div>
+        <div className="flex items-center justify-end gap-2 pt-6">
+          <Link
+            className={`${
+              urlPageNr == 1
+                ? "hidden" //"pointer-events-none cursor-wait border-r-neutral-500 bg-neutral-500 text-neutral-500"
+                : "pointer-events-auto border-r-allgemein bg-allgemein text-neutral-700 transition-all hover:bg-opacity-25 hover:text-black"
+            } flex items-center border-r-4 bg-opacity-15 p-2 no-underline`}
+            href={`?page=${urlPageNr - 1}`}
+          >
+            <MediaIcon iconName={"arrow-left"} />
+            <span className="px-1"></span>
+            jüngere Beiträge
+          </Link>
+          <Link
+            className={`${
+              urlPageNr == maxPages
+                ? "hidden" //"pointer-events-none cursor-wait border-l-neutral-500 bg-neutral-500 text-neutral-500"
+                : "pointer-events-auto border-l-allgemein bg-allgemein text-neutral-700 transition-all hover:bg-opacity-25 hover:text-black"
+            } flex items-center border-l-4 bg-opacity-15 p-2 no-underline`}
+            href={`?page=${urlPageNr + 1}`}
+          >
+            ältere Beiträge
+            <MediaIcon iconName={"arrow-right"} />
+            <span className="px-1"></span>
+          </Link>
         </div>
       </div>
     </section>
