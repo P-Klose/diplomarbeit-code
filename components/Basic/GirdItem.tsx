@@ -58,7 +58,7 @@ const GridItem: React.FC<{ blok: GridItemProps }> = ({ blok }) => {
         }`}
       >
         <div
-          className={`col-span-1 place-items-center p-12 border-${
+          className={`col-span-1 place-items-center p-4 md:px-8 lg:px-12 border-${
             blok.allocate
           } border-b-8 xs:border-b-0 ${
             blok.image_right

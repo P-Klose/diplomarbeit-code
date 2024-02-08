@@ -51,8 +51,6 @@ const AllArticles: React.FC<{ blok: AllArticlesProps }> = ({ blok }) => {
         version: "draft",
         is_startpage: false,
         starts_with: blok.type,
-        // page: 1,
-        // per_page: 5,
         filter_query: {
           allocate: {
             like: corespondingApiFilters.at(indexOfFilter),
@@ -133,6 +131,7 @@ const AllArticles: React.FC<{ blok: AllArticlesProps }> = ({ blok }) => {
                 full_slug={article.full_slug}
               />
             ))}
+            <div className="disc col-span-full"></div>
           </LayoutGroup>
         </div>
       </div>
