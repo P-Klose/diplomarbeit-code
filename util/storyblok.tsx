@@ -34,7 +34,6 @@ export async function fetchData(lng: string, slug: string) {
     language: lng,
   });
   const apiUrl = `${storyblokApiBaseUrl}${slug}?${queryString.toString()}&token=${storyblokToken}`;
-  console.log(apiUrl);
 
   const response = await fetch(apiUrl, {
     method: "GET",

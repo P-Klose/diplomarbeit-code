@@ -87,6 +87,7 @@ const FeatArticle: React.FC<{ blok: ArticleProps; full_slug: string }> = ({
         <img
           className="ml-2 box-border max-w-full pr-2"
           src={`${blok.image.filename}/m/0x400`}
+          alt={blok.image.alt}
         ></img>
         <h2 className="col-span-3 row-start-3 m-4  text-xl font-medium">
           {blok.headline}
@@ -97,7 +98,7 @@ const FeatArticle: React.FC<{ blok: ArticleProps; full_slug: string }> = ({
         {blok.date && (
           <motion.p
             layout="position"
-            className={`bg-${blok.allocate} p-2 text-right text-xs font-normal font-semibold text-white`}
+            className={`bg-${blok.allocate} p-2 text-right text-xs font-semibold text-white`}
           >
             {transformDateFormat(blok.date)}
           </motion.p>

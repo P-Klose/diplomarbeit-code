@@ -53,7 +53,11 @@ const Navbar: FC<PageProps> = ({ params }) => {
             <div className="flex h-14 items-center justify-between p-4">
               <div className="flex flex-row">
                 <Link className=" text-nav-base" href="/">
-                  <img className="w-40" src={navbar.logo.filename}></img>
+                  <img
+                    className="w-40"
+                    src={`${navbar.logo.filename}/w/160x0`}
+                    alt="Logo"
+                  ></img>
                 </Link>
                 {languages
                   .filter((l) => params.lng !== l)

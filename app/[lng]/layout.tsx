@@ -48,12 +48,14 @@ export default function RootLayout({
           <Navbar
             params={{
               lng: lng,
+              slug: [""],
             }}
           ></Navbar>
           {children}
           <Footer
             params={{
               lng: lng,
+              slug: [""],
             }}
           ></Footer>
         </body>

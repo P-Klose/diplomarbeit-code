@@ -29,6 +29,7 @@ const ImageComponent: React.FC<{ blok: ImageComponentProps }> = ({ blok }) => {
           <img
             className="w-full object-contain"
             src={`${blok.image.filename}/m/0x200`}
+            alt={blok.image.alt}
           ></img>
         </Link>
       </motion.div>
@@ -39,6 +40,7 @@ const ImageComponent: React.FC<{ blok: ImageComponentProps }> = ({ blok }) => {
         {...storyblokEditable(blok._editable)}
         className="h-full max-h-60"
         src={`${blok.image.filename}/m/0x200`}
+        alt={blok.image.alt}
       ></img>
     );
   }

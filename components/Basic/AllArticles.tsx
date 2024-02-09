@@ -109,7 +109,6 @@ const AllArticles: React.FC<{ blok: AllArticlesProps }> = ({ blok }) => {
       perPage,
       urlPageNr,
     );
-    // console.log(maxPages);
   }, [indexOfFilter, urlPageNr]);
 
   return (
