@@ -2,7 +2,7 @@ import { SbBlokData } from "@storyblok/react/rsc";
 
 // interfaces.ts
 export interface PageProps {
-  params: { lng: string };
+  params: { lng: string; slug: string[] };
 }
 
 export interface ArticlePageProps {
