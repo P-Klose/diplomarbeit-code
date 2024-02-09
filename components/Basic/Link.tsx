@@ -111,25 +111,25 @@ const LinkComponent: React.FC<{ blok: LinkProps }> = ({ blok }) => {
   ];
   return (
     <>
-      {blok.style == "text-nav-base" ||
+      {(blok.style == "text-nav-base" ||
         blok.style == "marquee" ||
         blok.style == "" ||
-        (blok.style == undefined && (
-          <Link
-            {...storyblokEditable(blok._editable)}
-            className={`${
-              blok.style == "marquee"
-                ? `mx-4 border-x-2 border-white px-2 text-base font-medium text-neutral-400 transition-all duration-500 sm:text-lg lg:text-xl hover:border-${blok.color} hover:text-neutral-700`
-                : `text-${blok.color}`
-            } flex items-center 
+        blok.style == undefined) && (
+        <Link
+          {...storyblokEditable(blok._editable)}
+          className={`${
+            blok.style == "marquee"
+              ? `mx-4 border-x-2 border-white px-2 text-base font-medium text-neutral-400 transition-all duration-500 sm:text-lg lg:text-xl hover:border-${blok.color} hover:text-neutral-700`
+              : `text-${blok.color}`
+          } flex items-center 
       `}
-            href={url}
-          >
-            <MediaIcon iconName={blok.symbol} />
-            {blok.symbol && <span className="px-1"></span>}
-            {blok.display_name}
-          </Link>
-        ))}
+          href={url}
+        >
+          <MediaIcon iconName={blok.symbol} />
+          {blok.symbol ? <span className="px-1"></span> : null}
+          {blok.display_name}
+        </Link>
+      )}
       {blok.style == "h-video" && (
         <motion.div
           layout

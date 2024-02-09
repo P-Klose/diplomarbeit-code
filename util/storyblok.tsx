@@ -34,6 +34,7 @@ export async function fetchData(lng: string, slug: string) {
     language: lng,
   });
   const apiUrl = `${storyblokApiBaseUrl}${slug}?${queryString.toString()}&token=${storyblokToken}`;
+  console.log(apiUrl);
 
   const response = await fetch(apiUrl, {
     method: "GET",
@@ -44,17 +45,20 @@ export async function fetchData(lng: string, slug: string) {
     },
   });
   const data = await response.json();
+  if (data == "This record could not be found") {
+    return null;
+  }
   return updateArticlesWithContent(data);
 }
 
 function updateArticlesWithContent(data: any): any {
   const relsMap: Record<string, any> = {};
 
-  data.rels.forEach((rel: any) => {
+  data.rels?.forEach((rel: any) => {
     relsMap[rel.uuid] = rel;
   });
 
-  data.story.content.body?.forEach((section: any) => {
+  data.story?.content.body?.forEach((section: any) => {
     if (section.articles) {
       section.articles = section.articles.map(
         (articleUUID: string) => relsMap[articleUUID],
