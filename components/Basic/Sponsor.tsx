@@ -23,6 +23,7 @@ const Sponsor: React.FC<{ blok: SponsorProps }> = ({ blok }) => {
         {...storyblokEditable(blok._editable)}
         className="mx-5 h-auto w-full max-w-[160px] self-center sm:mx-10 sm:h-full sm:max-h-10 sm:w-auto sm:max-w-none"
         src={`${blok.image.filename}`}
+        alt={blok.image.alt}
       ></motion.img>
     );
   } else {

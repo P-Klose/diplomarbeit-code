@@ -55,7 +55,7 @@ const Navbar: FC<PageProps> = ({ params }) => {
                 <Link className=" text-nav-base" href="/">
                   <img
                     className="w-40"
-                    src={`${navbar.logo.filename}/w/160x0`}
+                    src={`${navbar.logo.filename}/m/0x100`}
                     alt="Logo"
                   ></img>
                 </Link>

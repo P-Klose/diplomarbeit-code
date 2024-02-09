@@ -98,7 +98,7 @@ const AllArticles: React.FC<{ blok: AllArticlesProps }> = ({ blok }) => {
         }),
       );
     } catch (error) {
-      console.error("Error fetching articles:", error);
+      //console.error("Error fetching articles:", error);
     }
   };
   useEffect(() => {

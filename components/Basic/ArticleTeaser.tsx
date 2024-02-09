@@ -107,7 +107,7 @@ const ArticleTeaser: React.FC<{ blok: ArticleProps; full_slug: string }> = ({
           layout="position"
           className="col-span-2 ml-0 w-full justify-self-end hover:cursor-pointer md:col-span-1"
           src={`${blok.image.filename}/m/0x200`}
-          alt=""
+          alt={blok.image.alt}
         />
       )}
       {isOpen && (
