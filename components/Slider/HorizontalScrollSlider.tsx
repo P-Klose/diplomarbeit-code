@@ -7,7 +7,7 @@ import SliderContent from "./SliderContent";
 import { HorizontalScrollSliderProps } from "@/types/interfaces";
 import { Player } from "@lottiefiles/react-lottie-player";
 
-import * as scrollanimation from "../../pfeil.json";
+import * as scrollanimation from "../../animations/pfeil.json";
 
 const Slider: React.FC<{ blok: HorizontalScrollSliderProps }> = ({ blok }) => {
   const targetRef = useRef<any>();
@@ -138,22 +138,6 @@ const Slider: React.FC<{ blok: HorizontalScrollSliderProps }> = ({ blok }) => {
       id={blok.title}
     >
       <div className="sticky top-0 hidden h-screen md:block">
-        {/* <motion.div
-          initial={{ opacity: 0, translateY: 50 }}
-          animate={{ opacity: 1, translateY: 0 }}
-          transition={{ duration: 1, delay: 1.5 }}
-          className={`absolute top-0 hidden h-full w-full items-end justify-center pb-10 md:flex`}
-        >
-          <button onClick={handleScroll} className="pointer-events-auto z-50">
-            <Player
-              loop={true}
-              autoplay={true}
-              src={scrollanimation}
-              style={{ height: "50px", width: "50px" }}
-              speed={1}
-            ></Player>
-          </button>
-        </motion.div> */}
         <motion.h1
           initial="hidden"
           animate="visible"

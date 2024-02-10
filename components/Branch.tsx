@@ -36,6 +36,7 @@ const Branch: React.FC<{ blok: BranchProps }> = ({ blok }) => {
           {render(blok.description)}
           <a href={blok.folder.filename} target="_blank">
             <button
+              role="button"
               className={`mt-8 flex items-center justify-center bg-${blok.allocate} bg-opacity-20 px-6 py-4 transition ease-in-out hover:bg-opacity-50 hover:text-neutral-800`}
             >
               <FaFileArrowDown className="mr-2"></FaFileArrowDown>

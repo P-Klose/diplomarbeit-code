@@ -4,8 +4,8 @@ import { Player } from "@lottiefiles/react-lottie-player";
 import { storyblokEditable } from "@storyblok/react/rsc";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import * as biggerstartanimation from "../../startanimation-3zu4.json";
-import * as scrollanimation from "../../pfeil.json";
+import * as biggerstartanimation from "../../animations/startanimation-3zu4.json";
+import * as scrollanimation from "../../animations/pfeil.json";
 import Carousel from "./Carousel";
 import React from "react";
 import SliderContent from "./SliderContent";
@@ -178,7 +178,11 @@ const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
           transition={{ duration: 1, delay: 1.5 }}
           className={`absolute top-0 hidden h-full w-full items-end justify-center pb-10 md:flex`}
         >
-          <button onClick={handleScroll} className="pointer-events-auto z-50">
+          <button
+            onClick={handleScroll}
+            className="pointer-events-auto z-50"
+            role="button"
+          >
             <Player
               loop={true}
               autoplay={true}

@@ -1,6 +1,6 @@
 import React, { startTransition } from "react";
 import Lottie from "react-lottie";
-import * as erroranimation from "../../error.json";
+import * as erroranimation from "../../animations/error.json";
 
 const Animation: React.FC<{ blok: any }> = ({ blok }) => {
   const defaultOptions = {

@@ -125,7 +125,7 @@ const Navbar: FC<PageProps> = ({ params }) => {
                 })}
               </div>
               <div className="flex items-center md:hidden">
-                <button onClick={showNavbar}>
+                <button onClick={showNavbar} role="navigation">
                   <FaBars className="h-6 w-6" />
                 </button>
               </div>

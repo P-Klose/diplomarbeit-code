@@ -44,6 +44,7 @@ export default function Carousel({
       </div>
       <div className="absolute inset-0 flex items-center justify-between">
         <button
+          role="navigation"
           onClick={prev}
           className="m-2 p-1 text-gray-800 hover:scale-105"
         >
@@ -51,6 +52,7 @@ export default function Carousel({
         </button>
         <button
           onClick={next}
+          role="navigation"
           className="m-2 p-1 text-gray-800 hover:scale-105"
         >
           <FaAngleRight size={35} />

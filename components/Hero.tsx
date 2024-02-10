@@ -6,6 +6,12 @@ import Image from "next/image";
 import schoolblackandwhite from "../public/schule_weiss.png";
 
 const Hero: React.FC<{ blok: HeroProps }> = ({ blok }) => {
+  const heights = [
+    "sm:h-[calc(100vh-3.5rem)]",
+    "sm:h-80",
+    "sm:h-screen",
+    "sm:h-auto",
+  ];
   return (
     <motion.section
       {...storyblokEditable(blok._editable)}

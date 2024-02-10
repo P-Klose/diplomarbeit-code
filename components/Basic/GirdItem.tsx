@@ -4,12 +4,12 @@ import { storyblokEditable } from "@storyblok/react/rsc";
 import { render } from "storyblok-rich-text-react-renderer";
 import React from "react";
 import Link from "next/link";
-import * as sseanimation from "../../informatik-sse.json";
-import * as ddpanimation from "../../informatik-ddp.json";
-import * as csianimation from "../../informatik-csi.json";
-import * as medientechnikanimation from "../../medientechnik.json";
-import * as medizinanimation from "../../medizintechnik.json";
-import * as elektronikanimation from "../../elektronik.json";
+import * as sseanimation from "../../animations/informatik-sse.json";
+import * as ddpanimation from "../../animations/informatik-ddp.json";
+import * as csianimation from "../../animations/informatik-csi.json";
+import * as medientechnikanimation from "../../animations/medientechnik.json";
+import * as medizinanimation from "../../animations/medizintechnik.json";
+import * as elektronikanimation from "../../animations/elektronik.json";
 
 const GridItem: React.FC<{ blok: GridItemProps }> = ({ blok }) => {
   var animationFilePath;

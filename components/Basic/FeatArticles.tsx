@@ -10,6 +10,7 @@ import { LayoutGroup } from "framer-motion";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import LinkComponent from "./Link";
+import { transformDateFormat } from "@/util/date";
 
 const FeatArticles: React.FC<FeatArticlesProps> = ({ blok }) => {
   return (
@@ -57,22 +58,6 @@ const FeatArticle: React.FC<{ blok: ArticleProps; full_slug: string }> = ({
   blok,
   full_slug,
 }) => {
-  function transformDateFormat(inputDate: string) {
-    const dateParts = inputDate.split(" ");
-    if (dateParts.length === 2) {
-      const [datePart, timePart] = dateParts;
-      const [year, month, day] = datePart.split("-");
-
-      // Create the transformed date string
-      const transformedDate = `${day}.${month}.${year}`;
-
-      return transformedDate;
-    } else {
-      // Handle invalid input format
-      return "Invalid Date Format";
-    }
-  }
-
   return (
     <Link href={full_slug}>
       <motion.div
