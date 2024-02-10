@@ -1,6 +1,7 @@
 import { render } from "storyblok-rich-text-react-renderer";
 import { Asset, ArticleProps } from "../../types/interfaces";
 import Link from "next/link";
+import { transformDateFormat } from "@/util/date";
 
 const borderColors = [
   "border-allgemein",
@@ -29,22 +30,6 @@ const borderColors = [
 ];
 
 const Article: React.FC<{ blok: ArticleProps }> = ({ blok }) => {
-  function transformDateFormat(inputDate: string) {
-    const dateParts = inputDate.split(" ");
-    if (dateParts.length === 2) {
-      const [datePart, timePart] = dateParts;
-      const [year, month, day] = datePart.split("-");
-
-      // Create the transformed date string
-      const transformedDate = `${day}.${month}.${year}`;
-
-      return transformedDate;
-    } else {
-      // Handle invalid input format
-      return "Invalid Date Format";
-    }
-  }
-
   return (
     <section className="mx-auto grid max-w-screen-xl grid-cols-2 gap-4 p-4 sm:p-6 md:grid-cols-4">
       <div className="col-span-2 row-start-2 md:row-start-1 md:mb-2 lg:col-span-2">

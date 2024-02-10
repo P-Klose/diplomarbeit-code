@@ -28,7 +28,11 @@ const manrope = Manrope({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "HTL Leonding",
-  description: "",
+  authors: [{ name: "HTL Leonding", url: "https://htl-leonding.at" }],
+  keywords:
+    "Schule, Bildungseinrichtung, HTL, HTBLA, Matura, Informatik, Informationstechnologie, IT, Medientechnik, Elektronik, Technische Informatik, Medizintechnik, Softwareentwicklung, Medienproduktion",
+  description:
+    "Wir sind DIE Ausbildungsstätte für Informatik, IT-Medientechnik, Elektronik und Medizintechnik.",
 };
 
 export default function RootLayout({

@@ -3,28 +3,13 @@ import { render } from "storyblok-rich-text-react-renderer";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { ArticleProps } from "../../types/interfaces";
+import { transformDateFormat } from "@/util/date";
 
 const ArticleTeaser: React.FC<{ blok: ArticleProps; full_slug: string }> = ({
   blok,
   full_slug,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-
-  function transformDateFormat(inputDate: string) {
-    const dateParts = inputDate.split(" ");
-    if (dateParts.length === 2) {
-      const [datePart, timePart] = dateParts;
-      const [year, month, day] = datePart.split("-");
-
-      // Create the transformed date string
-      const transformedDate = `${day}.${month}.${year}`;
-
-      return transformedDate;
-    } else {
-      // Handle invalid input format
-      return "Invalid Date Format";
-    }
-  }
 
   const borderColors = [
     "border-allgemein",

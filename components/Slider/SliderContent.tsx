@@ -3,6 +3,7 @@ import Link from "next/link";
 import { SbBlokData, storyblokEditable } from "@storyblok/react/rsc";
 import { render } from "storyblok-rich-text-react-renderer";
 import LinkComponent from "../Basic/Link";
+import { transformDateFormat } from "@/util/date";
 
 interface Box {
   _uid: string;
@@ -25,21 +26,6 @@ interface SliderContentProps {
 
 const SliderContent: React.FC<SliderContentProps> = ({ slider }) => {
   let count = 0;
-  function transformDateFormat(inputDate: string) {
-    const dateParts = inputDate.split(" ");
-    if (dateParts.length === 2) {
-      const [datePart, timePart] = dateParts;
-      const [year, month, day] = datePart.split("-");
-
-      // Create the transformed date string
-      const transformedDate = `${day}.${month}.${year}`;
-
-      return transformedDate;
-    } else {
-      // Handle invalid input format
-      return "Invalid Date Format";
-    }
-  }
 
   return (
     <>
