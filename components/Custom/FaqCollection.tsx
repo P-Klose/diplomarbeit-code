@@ -1,9 +1,14 @@
+"use Client";
+
 import { storyblokEditable, StoryblokComponent } from "@storyblok/react/rsc";
 import { FaqCollectionProps, FaqProps } from "@/types/interfaces";
 import { render } from "storyblok-rich-text-react-renderer";
-import { motion } from "framer-motion";
+import { LayoutGroup, motion } from "framer-motion";
+import { useState } from "react";
 
 const FaqCollection: React.FC<{ blok: FaqCollectionProps }> = ({ blok }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -20,11 +25,26 @@ const FaqCollection: React.FC<{ blok: FaqCollectionProps }> = ({ blok }) => {
           {render(blok.description)}
         </div>
       )}
-      <div className="grid sm:px-2">
-        {blok.faqs.map((nestedBlok: FaqProps) => (
-          <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
-        ))}
-      </div>
+      <LayoutGroup>
+        <div className="grid sm:px-2">
+          {isOpen
+            ? blok.faqs.map((nestedBlok: FaqProps) => (
+                <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
+              ))
+            : blok.faqs
+                .slice(0, 10)
+                .map((nestedBlok: FaqProps) => (
+                  <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
+                ))}
+        </div>
+        <motion.button
+          layout="position"
+          className="max-w-max place-self-start border-l-4 border-neutral-700 bg-neutral-200 bg-opacity-0 p-2 text-base font-normal hover:bg-opacity-25 sm:ml-2 md:text-lg"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? "weniger Anzeigen" : "mehr Anzeigen"}
+        </motion.button>
+      </LayoutGroup>
     </motion.div>
   );
 };

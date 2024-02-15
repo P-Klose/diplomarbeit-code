@@ -10,17 +10,17 @@ const FaqElement: React.FC<{ blok: FaqProps }> = ({ blok }) => {
   return (
     <motion.div
       layout="position"
-      className="grid cursor-pointer grid-cols-1"
+      className="grid cursor-pointer grid-cols-1 border-b-2 border-neutral-400 dark:border-neutral-600"
       {...storyblokEditable(blok._editable)}
       onClick={() => setIsOpen(!isOpen)}
     >
       <motion.p
         layout="position"
-        className={`border-b-2  ${
+        className={` ${
           isOpen
             ? "bg-neutral-100 text-black dark:bg-neutral-800 dark:text-neutral-200"
             : "bg-white text-neutral-600 dark:bg-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-200"
-        } border-neutral-400 py-2 text-lg font-medium transition-colors hover:bg-neutral-100 md:px-2 md:text-xl dark:border-neutral-600  dark:hover:bg-neutral-800`}
+        } py-2 text-lg font-medium transition-colors hover:bg-neutral-100 md:px-2 md:text-xl  dark:hover:bg-neutral-800`}
       >
         {blok.question}
       </motion.p>
