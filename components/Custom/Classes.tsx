@@ -35,7 +35,7 @@ const ClassesOverview: React.FC<{ blok: ClassesProps }> = ({ blok }) => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6, delay: 0.3 }}
       {...storyblokEditable(blok._editable)}
-      className="mx-auto max-w-screen-2xl p-4 sm:p-6"
+      className="mx-auto max-w-screen-2xl p-4 sm:p-6 dark:text-neutral-200"
       id="classes"
     >
       <h2 className="pb-3 text-2xl font-semibold uppercase md:text-3xl">
@@ -63,7 +63,7 @@ const ClassesOverview: React.FC<{ blok: ClassesProps }> = ({ blok }) => {
         {otherClasses.map((nestedClass) => {
           return (
             <Link
-              className="col-span-1 self-stretch bg-neutral-100"
+              className="col-span-1 self-stretch bg-neutral-100 dark:bg-neutral-800"
               href={`?class=${nestedClass.classname.toLowerCase()}&#classes`}
               key={nestedClass._uid}
             >

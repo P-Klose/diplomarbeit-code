@@ -33,13 +33,13 @@ const BasicSlider = ({ blok }) => {
             return (
               <motion.div
                 key={box._uid}
-                className="grid w-full min-w-80 flex-shrink-0 grid-cols-1 items-center justify-center border-l-4 border-black transition-all hover:bg-neutral-100 md:max-w-screen-sm"
+                className="grid w-full min-w-80 flex-shrink-0 grid-cols-1 items-center justify-center border-l-4 border-neutral-400 transition-all hover:bg-neutral-100 md:max-w-screen-sm dark:border-neutral-600 dark:hover:bg-neutral-800"
               >
                 <iframe
                   className="aspect-video w-full"
                   src={box.iframe_content.url}
                 ></iframe>
-                <h3 className="py-2 pl-2 text-lg font-medium">
+                <h3 className="py-2 pl-2 text-lg font-medium dark:text-neutral-200">
                   {box.headline}
                 </h3>
                 <div className="dark:prose-dark prose py-2 pl-2 prose-p:m-0 prose-p:my-1 prose-p:text-base dark:prose-p:text-neutral-200">

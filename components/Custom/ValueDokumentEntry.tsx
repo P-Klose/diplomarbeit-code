@@ -11,7 +11,14 @@ const ValueDokumentEntry: React.FC<{
   const [isOpen, setIsOpen] = useState(false);
   var padding_p = 10 + 7 * count;
   var padding_h2 = 5 + 7 * count;
-
+  const paddings = [
+    "pr-[10%]",
+    "pr-[17%]",
+    "pr-[24%]",
+    "pr-[31%]",
+    "pr-[38%]",
+    "pr-[45%]",
+  ];
   return (
     <section>
       <motion.div
@@ -33,7 +40,7 @@ const ValueDokumentEntry: React.FC<{
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
-            className={`block p-6 text-sm text-zinc-900 sm:hidden`}
+            className={`block p-6 text-sm text-zinc-900 sm:hidden dark:text-neutral-200`}
           >
             {render(blok.description)}
           </motion.div>
@@ -56,7 +63,7 @@ const ValueDokumentEntry: React.FC<{
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className={`p-6 pr-[${padding_p}%]  text-sm text-zinc-900`}
+          className={`p-6 pr-[${padding_p}%] dark:prose-dark text-sm text-zinc-900 dark:text-neutral-200`}
         >
           {render(blok.description)}
         </motion.div>

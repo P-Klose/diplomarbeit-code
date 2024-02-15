@@ -56,12 +56,12 @@ const Navbar: FC<PageProps> = ({ params }) => {
                   <img
                     className="block w-40 dark:hidden"
                     src={`${navbar.logo.filename}/m/0x200`}
-                    alt="Logo"
+                    alt={navbar.logo.description}
                   ></img>
                   <img
                     className="hidden w-40 dark:block"
-                    src={`${navbar.logo.filename}/m/0x200`}
-                    alt="Logo"
+                    src={`${navbar.logo_dark.filename}/m/0x200`}
+                    alt={navbar.logo_dark.description}
                   ></img>
                 </Link>
                 {languages
