@@ -112,7 +112,7 @@ const Slider: React.FC<{ blok: HorizontalScrollSliderProps }> = ({ blok }) => {
   const variantsHeadline = {
     visible: {
       opacity: 1,
-      x: "-50%",
+      x: "0",
       transition: {
         ease: "easeInOut",
         duration,
@@ -142,8 +142,8 @@ const Slider: React.FC<{ blok: HorizontalScrollSliderProps }> = ({ blok }) => {
           initial="hidden"
           animate="visible"
           variants={variantsHeadline}
-          className="absolute left-1/2 top-0 z-40 w-full max-w-screen-2xl translate-x-1/2 transform px-8 pt-8
-          text-center text-5xl font-semibold uppercase sm:text-start sm:text-7xl 2xl:px-0"
+          className="z-40 mx-auto w-full max-w-screen-2xl px-8 pt-8
+          text-start text-5xl font-semibold uppercase sm:text-7xl 2xl:px-0"
         >
           {blok.title}
         </motion.h1>
@@ -152,7 +152,7 @@ const Slider: React.FC<{ blok: HorizontalScrollSliderProps }> = ({ blok }) => {
             initial="hidden"
             animate="visible"
             variants={variants}
-            className="my-4 ml-auto w-full sm:w-1/2 md:w-1/3"
+            className="absolute right-0 top-0 my-4 sm:w-1/2 md:w-1/3"
           >
             <thead className="mb-4">
               <tr>
@@ -188,7 +188,7 @@ const Slider: React.FC<{ blok: HorizontalScrollSliderProps }> = ({ blok }) => {
             </tbody>
           </motion.table>
         )}
-        <div className="flex h-[80vh] items-center overflow-hidden p-8">
+        <div className="flex h-[calc(100%-104px)] items-center overflow-hidden p-8">
           <div
             ref={carousel}
             className="mx-auto w-full max-w-screen-2xl overflow-visible"

@@ -127,7 +127,7 @@ const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
   const variantsStartAnimationHeadline = {
     visible: {
       opacity: 1,
-      x: "-50%",
+      x: "0",
       transition: {
         ease: "easeInOut",
         duration,
@@ -197,8 +197,8 @@ const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
           initial="hidden"
           animate="visible"
           variants={headlineVarients}
-          className="absolute left-1/2 top-0 z-40 w-full max-w-screen-2xl translate-x-1/2 transform px-8 pt-8
-          text-center text-5xl font-semibold uppercase sm:text-start sm:text-7xl 2xl:px-0"
+          className="z-40 mx-auto w-full max-w-screen-2xl px-8 pt-8
+          text-start text-5xl font-semibold uppercase sm:text-7xl 2xl:px-0"
         >
           {blok.title}
         </motion.h1>
@@ -206,7 +206,7 @@ const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
           initial="hidden"
           animate="visible"
           variants={variants}
-          className="flex h-full items-center overflow-hidden p-4"
+          className="flex h-[calc(100%-104px)] items-center overflow-hidden p-4"
         >
           <div
             ref={carousel}
