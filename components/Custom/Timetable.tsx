@@ -58,7 +58,7 @@ const Timetable: React.FC<{ blok: TimetableProps }> = ({ blok }) => {
       id="timetable"
       {...storyblokEditable(blok._editable)}
     >
-      <h2 className="col-span-full text-2xl font-semibold uppercase md:text-3xl">
+      <h2 className="col-span-full text-2xl font-semibold uppercase md:text-3xl dark:text-neutral-200">
         {blok.headline}
       </h2>
       <div className="col-span-2 hidden grid-cols-5 text-center md:grid">
@@ -67,13 +67,13 @@ const Timetable: React.FC<{ blok: TimetableProps }> = ({ blok }) => {
         })}
       </div>
       <div className="col-span-2 grid grid-cols-2 gap-4 text-left md:hidden">
-        <h3 className="col-span-full p-2 text-2xl font-medium">
+        <h3 className="col-span-full p-2 text-2xl font-medium dark:text-neutral-200">
           Allgemeine Fächer:
         </h3>
         {nonSpecializedSubjects.map((subject) => {
           return <TimetableSubject blok={subject} key={subject._uid} />;
         })}
-        <h3 className="col-span-full p-2 text-2xl font-medium">
+        <h3 className="col-span-full p-2 text-2xl font-medium dark:text-neutral-200">
           Fachspezifische Fächer:
         </h3>
         {specializedSubjects.map((subject) => {
@@ -94,24 +94,27 @@ const Timetable: React.FC<{ blok: TimetableProps }> = ({ blok }) => {
           <section className="grid grid-cols-5">
             {classes.map((bz) => {
               return (
-                <p className="w-full bg-neutral-100 p-4 text-center" key={bz}>
+                <p
+                  className="w-full bg-neutral-100 p-4 text-center dark:bg-neutral-700 dark:text-neutral-200"
+                  key={bz}
+                >
                   {bz}
                 </p>
               );
             })}
-            <p className="w-full p-3 text-center">
+            <p className="w-full p-3 text-center dark:text-neutral-200">
               {selectedSubject.jahrgang1} EH
             </p>
-            <p className="w-full p-3  text-center">
+            <p className="w-full p-3  text-center dark:text-neutral-200">
               {selectedSubject.jahrgang2} EH
             </p>
-            <p className="w-full p-3  text-center">
+            <p className="w-full p-3  text-center dark:text-neutral-200 ">
               {selectedSubject.jahrgang3} EH
             </p>
-            <p className="w-full p-3  text-center">
+            <p className="w-full p-3  text-center dark:text-neutral-200">
               {selectedSubject.jahrgang4} EH
             </p>
-            <p className="w-full p-3  text-center">
+            <p className="w-full p-3  text-center dark:text-neutral-200">
               {selectedSubject.jahrgang5} EH
             </p>
           </section>

@@ -25,7 +25,7 @@ const ImageComponent: React.FC<{ blok: ImageComponentProps }> = ({ blok }) => {
           className="z-50 w-full"
           {...storyblokEditable(blok._editable)}
         >
-          <p className="pb-1">Unsere Broschüre:</p>
+          <p className="pb-1 dark:text-neutral-200">Unsere Broschüre:</p>
           <img
             className="w-full object-contain"
             src={`${blok.image.filename}/m/0x200`}

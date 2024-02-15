@@ -44,7 +44,7 @@ const ArticleTeaser: React.FC<{ blok: ArticleProps; full_slug: string }> = ({
       transition={{ layout: { duration: 0.7, type: "just" } }}
       // transition={{ layout: { duration: 1, type: "spring" } }}
       layout
-      className="col-span-1 mb-2 grid min-h-max grid-cols-2 justify-items-stretch gap-2 md:pl-6 lg:col-span-3"
+      className="col-span-1 mb-2 grid min-h-max grid-cols-2 justify-items-stretch gap-2 md:pl-6 lg:col-span-3 dark:text-neutral-200"
     >
       <motion.div
         layout="position"
@@ -102,7 +102,7 @@ const ArticleTeaser: React.FC<{ blok: ArticleProps; full_slug: string }> = ({
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
           onClick={() => setIsOpen(!isOpen)}
-          className={`prose col-span-2 my-2 hover:cursor-pointer prose-p:text-sm prose-p:text-zinc-900 lg:prose-p:text-base`}
+          className={`dark:prose-dark prose col-span-2 my-2 hover:cursor-pointer prose-p:text-sm prose-p:text-zinc-900 lg:prose-p:text-base dark:prose-p:text-neutral-200`}
         >
           {render(blok.content)}
         </motion.div>

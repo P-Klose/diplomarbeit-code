@@ -8,7 +8,7 @@ const Table: React.FC<{ blok: TableProps }> = ({ blok }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6, delay: 0.3 }}
-      className="mx-auto max-w-screen-2xl p-4 sm:p-6"
+      className="mx-auto max-w-screen-2xl p-4 sm:p-6 dark:text-neutral-200"
     >
       {blok.headline == "" ? null : (
         <h3 className="text-xl font-semibold md:text-2xl">{blok.headline}</h3>
@@ -33,7 +33,7 @@ const Table: React.FC<{ blok: TableProps }> = ({ blok }) => {
           </tr>
         </thead>
         <tbody
-          className="divide-y-2"
+          className="divide-y-2 divide-neutral-300 dark:divide-neutral-600"
           //className="[&>*:nth-child(even)]:bg-neutral-50 [&>*:nth-child(odd)]:bg-neutral-100"
         >
           {blok.table?.tbody?.map((tr: any, tr_index: number) => {

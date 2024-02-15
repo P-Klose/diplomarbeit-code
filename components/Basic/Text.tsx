@@ -12,7 +12,7 @@ const Text: React.FC<{ blok: TextProps }> = ({ blok }) => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6, delay: 0.3 }}
       {...storyblokEditable(blok._editable)}
-      className={`mx-auto w-full ${blok.max_w} bg-white p-4 sm:p-6`}
+      className={`mx-auto w-full ${blok.max_w} bg-white p-4 sm:p-6 dark:bg-neutral-900 dark:text-neutral-200`}
     >
       <h1
         className={`py-3 text-2xl font-semibold uppercase  md:text-3xl
@@ -20,7 +20,7 @@ const Text: React.FC<{ blok: TextProps }> = ({ blok }) => {
       >
         {blok.headline}
       </h1>
-      <div className="prose max-w-none p-2 pb-4">
+      <div className="dark:prose-dark prose max-w-none p-2 pb-4 dark:prose-p:text-neutral-200">
         {render(blok.content, {
           blokResolvers: {
             ["custom_link"]: (props: any) => {

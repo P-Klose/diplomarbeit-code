@@ -19,7 +19,7 @@ const DesignableTable: React.FC<{ blok: DesignableTableProps }> = ({
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6, delay: 0.3 }}
       {...storyblokEditable(blok._editable)}
-      className={`mx-auto grid max-w-screen-2xl p-4 sm:p-6`}
+      className={`mx-auto grid max-w-screen-2xl p-4 sm:p-6 dark:text-neutral-200`}
     >
       {blok.headline == "" ? null : (
         <h3 className="text-xl font-semibold md:text-2xl">{blok.headline}</h3>
@@ -27,7 +27,7 @@ const DesignableTable: React.FC<{ blok: DesignableTableProps }> = ({
       <div
         className={` ${
           grid_width[Number.parseFloat(blok.columns) - 1]
-        } divide-y-2 overflow-x-scroll [&>div]:grid`}
+        } divide-y-2 divide-neutral-300 overflow-x-scroll dark:divide-neutral-600 [&>div]:grid`}
       >
         {blok.header?.map((nestedBlok: any) => (
           <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />

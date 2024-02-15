@@ -16,7 +16,7 @@ const HeroFeature: React.FC<{ blok: HeroFeatureProps; index: number }> = ({
         transition={{ duration: 0.5, delay: 0.2 * index }}
         className="flex w-full items-center justify-center sm:items-end sm:justify-end"
       >
-        <p className="flex w-full max-w-full flex-row items-center bg-neutral-200 p-3 text-left text-sm sm:max-w-max">
+        <p className="flex w-full max-w-full flex-row items-center bg-neutral-200 p-3 text-left text-sm sm:max-w-max dark:bg-neutral-600 dark:text-neutral-200">
           <MediaIcon iconName={blok.symbol} />
           {blok.symbol && <span className="px-1"></span>}
           {blok.text}

@@ -125,7 +125,7 @@ const AllArticles: React.FC<{ blok: AllArticlesProps }> = ({ blok }) => {
             <Link
               key={"selectedFilter"}
               href={`?filter=${selectedFilterStr}`}
-              className={`px-3 text-xl font-medium  text-neutral-800`}
+              className={`px-3 text-xl font-medium  text-neutral-800 dark:text-neutral-200`}
             >
               {selectedFilterStr}
             </Link>
@@ -163,7 +163,9 @@ const AllArticles: React.FC<{ blok: AllArticlesProps }> = ({ blok }) => {
         </div>
       )}
       <div>
-        <p className="text-2xl md:text-3xl">{blok.headline}</p>
+        <p className="text-2xl md:text-3xl dark:text-neutral-200">
+          {blok.headline}
+        </p>
         <div className="grid w-full grid-cols-1 gap-8 lg:grid-cols-3 xl:grid-cols-4 [&>*:nth-child(odd)]:xl:col-start-2">
           <LayoutGroup>
             {articles?.map((article: any) => (

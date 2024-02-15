@@ -156,7 +156,7 @@ const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
     <section
       {...storyblokEditable(blok._editable)}
       ref={targetRef}
-      className={`relative ${
+      className={`relative dark:text-neutral-200 ${
         ultrawide ? "md:100vh" : pre_defined_width.at(blok.scroll_speed)
       }`}
     >
@@ -243,10 +243,10 @@ const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
                   {...storyblokEditable(box._editable)}
                   href={boxinfo.full_slug}
                   key={box._uid}
-                  className="z-10 w-full flex-shrink-0"
+                  className="z-10 w-full flex-shrink-0 "
                 >
                   <div
-                    className={`border-${box.allocate} box-border flex w-full flex-shrink-0 flex-col items-start justify-start border-l-4 bg-white`}
+                    className={`border-${box.allocate} box-border flex w-full flex-shrink-0 flex-col items-start justify-start border-l-4 bg-white dark:bg-neutral-900 dark:text-neutral-200`}
                   >
                     <img
                       className="box-border w-full max-w-full border-l-8 border-transparent "

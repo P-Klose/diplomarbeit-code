@@ -9,7 +9,7 @@ const DesignableTableValue: React.FC<{ blok: DesignableTableValueProps }> = ({
   return (
     <div
       {...storyblokEditable(blok._editable)}
-      className="prose col-span-1 px-2 py-1 prose-h1:py-1 prose-h1:text-lg prose-h1:font-semibold prose-p:m-1 prose-h1:md:text-xl"
+      className="dark:prose-dark prose col-span-1 px-2 py-1 prose-h1:py-1 prose-h1:text-lg prose-h1:font-semibold prose-p:m-1 prose-h1:md:text-xl dark:prose-p:text-neutral-200"
     >
       {render(blok.text)}
     </div>

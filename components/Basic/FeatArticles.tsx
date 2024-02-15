@@ -20,13 +20,13 @@ const FeatArticles: React.FC<FeatArticlesProps> = ({ blok }) => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.3 }}
         {...storyblokEditable(blok._editable)}
-        className="mx-auto w-full max-w-screen-2xl p-4 sm:p-6"
+        className="mx-auto w-full max-w-screen-2xl p-4 sm:p-6 dark:text-neutral-200"
       >
         <h2 className="pb-3 text-2xl font-semibold uppercase md:text-3xl">
           {blok.headline}
         </h2>
         {blok.additional_info && (
-          <div className="prose max-w-none sm:px-2">
+          <div className="dark:prose-dark prose max-w-none sm:px-2 dark:prose-p:text-neutral-200">
             {render(blok.additional_info, {
               blokResolvers: {
                 ["custom_link"]: (props: any) => {
@@ -66,7 +66,7 @@ const FeatArticle: React.FC<{ blok: ArticleProps; full_slug: string }> = ({
           scale: 1.05,
           transition: { duration: 0.5, type: "spring" },
         }}
-        className={`border-${blok.allocate} relative box-border flex w-full max-w-lg flex-col items-start border-l-4`}
+        className={`border-${blok.allocate} relative box-border flex w-full max-w-lg flex-col items-start border-l-4 dark:text-neutral-200`}
         key={blok._uid}
       >
         <img

@@ -40,7 +40,7 @@ const SliderContent: React.FC<SliderContentProps> = ({ slider }) => {
               key={box._uid}
             >
               <div
-                className={`border-${box.allocate} relative flex w-full flex-shrink-0 flex-col items-start justify-start border-l-4 bg-white md:mr-8 md:min-w-[32rem] md:max-w-[32rem] md:flex-shrink`}
+                className={`border-${box.allocate} relative flex w-full flex-shrink-0 flex-col items-start justify-start border-l-4 bg-white md:mr-8 md:min-w-[32rem] md:max-w-[32rem] md:flex-shrink dark:bg-neutral-900`}
               >
                 <img
                   className="border-box ml-2 max-w-full "
@@ -119,14 +119,14 @@ const SliderContent: React.FC<SliderContentProps> = ({ slider }) => {
           return (
             <div
               {...storyblokEditable(box._editable)}
-              className="grid h-full grid-cols-1 md:mr-8 md:min-w-[28rem] md:max-w-[28rem] md:gap-6"
+              className="grid h-full grid-cols-1 md:mr-8 md:min-w-[28rem] md:max-w-[28rem] md:gap-6 dark:text-neutral-200"
               key={box._uid}
             >
               <div className="flex flex-col items-start justify-end md:col-span-1">
                 <h1 className="text-4xl font-semibold">{box.headline}</h1>
                 <h3 className="text-2xl font-medium">{box.subline}</h3>
               </div>
-              <div className="prose max-w-none p-2 md:col-span-1">
+              <div className="dark:prose-dark prose max-w-none p-2 md:col-span-1 dark:prose-p:text-neutral-200">
                 {render(box.content, {
                   blokResolvers: {
                     ["custom_link"]: (props: any) => {
@@ -141,10 +141,10 @@ const SliderContent: React.FC<SliderContentProps> = ({ slider }) => {
         // Fallback for unknown box types
         return (
           <div
-            className="relative flex h-32 min-w-[30rem] items-center justify-center bg-neutral-800 p-10"
+            className="relative flex h-32 min-w-[30rem] items-center justify-center p-10 dark:bg-neutral-800"
             key={box._uid}
           >
-            <h3 className="text-white">
+            <h3 className="text-white dark:text-neutral-200">
               Bitte setzen sie den richten Typen des Sliders
             </h3>
           </div>

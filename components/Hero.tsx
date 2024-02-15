@@ -15,7 +15,7 @@ const Hero: React.FC<{ blok: HeroProps }> = ({ blok }) => {
   return (
     <motion.section
       {...storyblokEditable(blok._editable)}
-      className={`relative mx-auto grid h-auto max-w-screen-2xl grid-cols-1 sm:grid-cols-7 
+      className={`relative mx-auto grid h-auto max-w-screen-2xl grid-cols-1 sm:grid-cols-7 dark:bg-neutral-900
       ${blok.type == "school" ? "sm:mb-10 md:mb-14 lg:mb-20 xl:mb-40" : ""}`}
     >
       <motion.div
@@ -67,7 +67,6 @@ const Hero: React.FC<{ blok: HeroProps }> = ({ blok }) => {
           className="absolute left-0 hidden w-2/3 p-4 sm:-bottom-10 sm:block md:-bottom-14 lg:-bottom-24 xl:-bottom-40"
         >
           <Image
-            // src={process.env.PUBLIC_URL + "/schule_weiss.png"}
             src={schoolblackandwhite}
             alt="schule in schwarz weiß"
             style={{ maxWidth: "100%", height: "auto" }}

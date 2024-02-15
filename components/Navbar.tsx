@@ -44,18 +44,23 @@ const Navbar: FC<PageProps> = ({ params }) => {
   if (navbar != undefined) {
     return (
       <header {...storyblokEditable(navbar)} className="">
-        <nav className="bg-gray-50">
+        <nav className="bg-gray-50 dark:bg-neutral-800">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="relative z-50 mx-auto max-w-screen-2xl bg-gray-50"
+            className="relative z-50 mx-auto max-w-screen-2xl bg-gray-50 dark:bg-neutral-800"
           >
             <div className="flex h-14 items-center justify-between p-4">
               <div className="flex flex-row">
                 <Link className=" text-nav-base" href="/">
                   <img
-                    className="w-40"
-                    src={`${navbar.logo.filename}/m/0x100`}
+                    className="block w-40 dark:hidden"
+                    src={`${navbar.logo.filename}/m/0x200`}
+                    alt="Logo"
+                  ></img>
+                  <img
+                    className="hidden w-40 dark:block"
+                    src={`${navbar.logo.filename}/m/0x200`}
                     alt="Logo"
                   ></img>
                 </Link>
@@ -65,11 +70,11 @@ const Navbar: FC<PageProps> = ({ params }) => {
                     return (
                       <Link
                         key={l}
-                        className="ml-6 flex items-center justify-center"
+                        className="ml-6 flex items-center justify-center dark:text-neutral-200"
                         href={`/${l}`}
                       >
                         <GrLanguage></GrLanguage>
-                        <p className="relative -bottom-2 -left-1 text-xs font-medium">
+                        <p className="relative -bottom-2 -left-1 text-xs font-medium dark:text-neutral-200">
                           {l.toLocaleUpperCase()}
                         </p>
                       </Link>
@@ -91,7 +96,7 @@ const Navbar: FC<PageProps> = ({ params }) => {
                   return (
                     <Link
                       // className={nestedBlok.style}
-                      className="text-base font-medium"
+                      className="text-base font-medium dark:text-neutral-200"
                       href={url}
                       key={nestedBlok._uid}
                     >
@@ -115,7 +120,7 @@ const Navbar: FC<PageProps> = ({ params }) => {
                   return (
                     <Link
                       // className={nestedBlok.style}
-                      className="text-base font-medium"
+                      className="text-base font-medium dark:text-neutral-200"
                       href={url}
                       key={nestedBlok._uid}
                     >
@@ -126,7 +131,7 @@ const Navbar: FC<PageProps> = ({ params }) => {
               </div>
               <div className="flex items-center md:hidden">
                 <button onClick={showNavbar} role="navigation">
-                  <FaBars className="h-6 w-6" />
+                  <FaBars className="h-6 w-6 dark:text-neutral-200" />
                 </button>
               </div>
             </div>
@@ -154,7 +159,7 @@ const Navbar: FC<PageProps> = ({ params }) => {
 
               return (
                 <Link
-                  className="block px-4 py-2 text-sm hover:bg-gray-200"
+                  className="block px-4 py-2 text-sm hover:bg-gray-200 dark:text-neutral-200 hover:dark:bg-neutral-600"
                   href={url}
                   key={nestedBlok._uid}
                 >
@@ -178,7 +183,7 @@ const Navbar: FC<PageProps> = ({ params }) => {
                 <Link
                   className={`block ${
                     i == 0 ? "border-t-2 border-neutral-500" : ""
-                  } px-4 py-2 text-sm hover:bg-gray-200`}
+                  } px-4 py-2 text-sm hover:bg-gray-200 dark:hover:bg-neutral-600`}
                   href={url}
                   key={nestedBlok._uid}
                 >

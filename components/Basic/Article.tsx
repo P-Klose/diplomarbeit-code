@@ -31,7 +31,7 @@ const borderColors = [
 
 const Article: React.FC<{ blok: ArticleProps }> = ({ blok }) => {
   return (
-    <section className="mx-auto grid max-w-screen-xl grid-cols-2 gap-4 p-4 sm:p-6 md:grid-cols-4">
+    <section className="mx-auto grid max-w-screen-xl grid-cols-2 gap-4 p-4 sm:p-6 md:grid-cols-4 dark:bg-neutral-800">
       <div className="col-span-2 row-start-2 md:row-start-1 md:mb-2 lg:col-span-2">
         <img
           className="w-full object-contain object-center"
@@ -42,10 +42,10 @@ const Article: React.FC<{ blok: ArticleProps }> = ({ blok }) => {
       <div
         className={`border-${blok.allocate} col-span-2 row-start-1 flex h-full flex-col items-start justify-end border-b-4 md:border-b-0 md:border-l-4`}
       >
-        <h1 className="ml-3 text-left text-2xl font-semibold hover:cursor-pointer">
+        <h1 className="ml-3 text-left text-2xl font-semibold hover:cursor-pointer dark:text-neutral-200">
           {blok.headline}
         </h1>
-        <h2 className="mb-3 ml-3 text-left text-xl font-medium hover:cursor-pointer">
+        <h2 className="mb-3 ml-3 text-left text-xl font-medium hover:cursor-pointer dark:text-neutral-200">
           {blok.subline}
         </h2>
         <div className="grid grid-cols-2 gap-2 ">
@@ -61,7 +61,7 @@ const Article: React.FC<{ blok: ArticleProps }> = ({ blok }) => {
           )} */}
           {blok.date && (
             <p
-              className={`bg-${blok.allocate} col-span-1 p-2 text-center text-xs font-semibold text-white hover:cursor-pointer`}
+              className={`bg-${blok.allocate} col-span-1 p-2 text-center text-xs font-semibold text-white hover:cursor-pointer dark:text-neutral-200`}
             >
               {transformDateFormat(blok.date)}
             </p>
@@ -69,14 +69,14 @@ const Article: React.FC<{ blok: ArticleProps }> = ({ blok }) => {
         </div>
       </div>
       <div
-        className={`prose col-span-full p-2 prose-p:text-zinc-900 lg:p-4
+        className={`dark:prose-dark prose col-span-full p-2 prose-p:text-zinc-900 lg:p-4
         ${blok.assets ? "mb-0" : "mb-8"} max-w-none text-left`}
       >
         {render(blok.content)}
       </div>
       {blok.assets.length > 0 && (
         <>
-          <h2 className="col-span-full text-xl font-medium hover:cursor-pointer">
+          <h2 className="col-span-full text-xl font-medium hover:cursor-pointer dark:text-neutral-200">
             Weitere Medien
           </h2>
           <div className="col-span-full grid grid-cols-2 gap-2 p-2 md:col-span-2 lg:grid-cols-3 lg:p-4">
@@ -96,7 +96,7 @@ const Article: React.FC<{ blok: ArticleProps }> = ({ blok }) => {
       <div className="col-span-full flex items-center justify-start md:justify-end">
         {blok.type == "event" && (
           <Link
-            className={`px-4 py-2 bg-${blok.allocate} w-full border-l-2 bg-opacity-0 text-base transition-all hover:bg-opacity-25 md:w-auto md:border-l-0 md:border-r-2 border-${blok.allocate}`}
+            className={`px-4 py-2 bg-${blok.allocate} w-full border-l-2 bg-opacity-0 text-base transition-all hover:bg-opacity-25 md:w-auto md:border-l-0 md:border-r-2 dark:text-neutral-200 border-${blok.allocate}`}
             href={`/schueler-innen/events`}
           >
             Mehr Events
@@ -104,7 +104,7 @@ const Article: React.FC<{ blok: ArticleProps }> = ({ blok }) => {
         )}
         {blok.type == "news" && (
           <Link
-            className={`px-4 py-2 bg-${blok.allocate} w-full border-l-2 bg-opacity-0 text-base transition-all hover:bg-opacity-25 md:w-auto md:border-l-0 md:border-r-2 border-${blok.allocate}`}
+            className={`px-4 py-2 bg-${blok.allocate} w-full border-l-2 bg-opacity-0 text-base transition-all hover:bg-opacity-25 md:w-auto md:border-l-0 md:border-r-2 dark:text-neutral-200 border-${blok.allocate}`}
             href={`/news`}
           >
             Mehr News
@@ -112,7 +112,7 @@ const Article: React.FC<{ blok: ArticleProps }> = ({ blok }) => {
         )}
         {blok.type == "project" && (
           <Link
-            className={`px-4 py-2 bg-${blok.allocate} w-full border-l-2 bg-opacity-0 text-base transition-all hover:bg-opacity-25 md:w-auto md:border-l-0 md:border-r-2 border-${blok.allocate}`}
+            className={`px-4 py-2 bg-${blok.allocate} w-full border-l-2 bg-opacity-0 text-base transition-all hover:bg-opacity-25 md:w-auto md:border-l-0 md:border-r-2 dark:text-neutral-200 border-${blok.allocate}`}
             href={`/schueler-innen/projekte`}
           >
             Mehr Projekte
@@ -120,7 +120,7 @@ const Article: React.FC<{ blok: ArticleProps }> = ({ blok }) => {
         )}
         {blok.type == "club" && (
           <Link
-            className={`px-4 py-2 bg-${blok.allocate} w-full border-l-2 bg-opacity-0 text-base transition-all hover:bg-opacity-25 md:w-auto md:border-l-0 md:border-r-2 border-${blok.allocate}`}
+            className={`px-4 py-2 bg-${blok.allocate} w-full border-l-2 bg-opacity-0 text-base transition-all hover:bg-opacity-25 md:w-auto md:border-l-0 md:border-r-2 dark:text-neutral-200 border-${blok.allocate}`}
             href={`/schueler-innen/clubs`}
           >
             Mehr Clubs

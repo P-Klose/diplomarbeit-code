@@ -119,7 +119,7 @@ const LinkComponent: React.FC<{ blok: LinkProps }> = ({ blok }) => {
           {...storyblokEditable(blok._editable)}
           className={`${
             blok.style == "marquee"
-              ? `mx-4 border-x-2 border-white px-2 text-base font-medium text-neutral-400 transition-all duration-500 sm:text-lg lg:text-xl hover:border-${blok.color} hover:text-neutral-700`
+              ? `mx-4 border-x-2 border-white px-2 text-base font-medium text-neutral-400 transition-all duration-500 sm:text-lg lg:text-xl dark:text-neutral-200 hover:border-${blok.color} hover:text-neutral-700`
               : `text-${blok.color}`
           } flex items-center 
       `}
@@ -139,8 +139,10 @@ const LinkComponent: React.FC<{ blok: LinkProps }> = ({ blok }) => {
           className="col-span-3 row-start-2 box-border aspect-video p-4 sm:p-0 sm:pr-4 md:col-span-2 md:pb-4 md:pr-6 lg:col-span-3"
           {...storyblokEditable(blok._editable)}
         >
-          <p className="hidden pb-1 sm:block">{blok.display_name}</p>
-          <h2 className="pb-3 text-2xl font-semibold uppercase sm:hidden">
+          <p className="hidden pb-1 sm:block dark:text-neutral-200">
+            {blok.display_name}
+          </p>
+          <h2 className="pb-3 text-2xl font-semibold uppercase sm:hidden dark:text-neutral-200">
             {blok.display_name}
           </h2>
           <iframe
@@ -161,8 +163,8 @@ const LinkComponent: React.FC<{ blok: LinkProps }> = ({ blok }) => {
         >
           <div className="w-max bg-gradient-to-r from-elektronik via-medizintechnik to-informatik-sse p-1">
             <Link
-              className={`block
-          justify-center bg-white p-3 text-xl uppercase transition-all hover:bg-opacity-70 md:text-2xl lg:text-3xl`}
+              className={`block justify-center
+          bg-white p-3 text-xl uppercase transition-all hover:bg-opacity-70 md:text-2xl lg:text-3xl dark:bg-neutral-800 dark:text-neutral-200`}
               href={url}
             >
               {blok.display_name}
@@ -173,7 +175,7 @@ const LinkComponent: React.FC<{ blok: LinkProps }> = ({ blok }) => {
       {blok.style == "default" && (
         <Link
           {...storyblokEditable(blok._editable)}
-          className={`mb-2 block border-l-4 border-l-${blok.color} bg-${blok.color} bg-opacity-0 p-2 no-underline transition-all hover:bg-opacity-25`}
+          className={`mb-2 block border-l-4 border-l-${blok.color} bg-${blok.color} bg-opacity-0 p-2 no-underline transition-all hover:bg-opacity-25 dark:text-neutral-200`}
           href={url}
         >
           {blok.display_name}

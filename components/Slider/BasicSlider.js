@@ -42,7 +42,7 @@ const BasicSlider = ({ blok }) => {
                 <h3 className="py-2 pl-2 text-lg font-medium">
                   {box.headline}
                 </h3>
-                <div className="prose py-2 pl-2 prose-p:m-0 prose-p:my-1 prose-p:text-base">
+                <div className="dark:prose-dark prose py-2 pl-2 prose-p:m-0 prose-p:my-1 prose-p:text-base dark:prose-p:text-neutral-200">
                   {render(box.additional_info)}
                 </div>
               </motion.div>

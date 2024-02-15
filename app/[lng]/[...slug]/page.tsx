@@ -14,11 +14,11 @@ const Home: FC<PageProps> = async ({ params }) => {
     return <StoryblokStory story={data.story} />;
   } else {
     return (
-      <div className="flex h-screen max-h-[60vh] w-screen flex-col items-center justify-center bg-white">
-        <h1 className="text-3xl font-semibold uppercase text-neutral-800">
+      <div className="flex h-screen max-h-[60vh] w-screen flex-col items-center justify-center bg-white dark:bg-neutral-900">
+        <h1 className="text-3xl font-semibold uppercase text-neutral-800 dark:text-neutral-200">
           Error
         </h1>
-        <p className="text-neutral-800">{message}</p>
+        <p className="text-neutral-800 dark:text-neutral-300">{message}</p>
       </div>
     );
   }

@@ -19,13 +19,13 @@ const Branch: React.FC<{ blok: BranchProps }> = ({ blok }) => {
   ];
 
   return (
-    <>
+    <main className="dark:bg-neutral-900 dark:text-neutral-200">
       <section
         {...storyblokEditable(blok._editable)}
         className="mx-auto grid max-w-screen-2xl grid-cols-6 gap-10 p-6 md:gap-20"
       >
         <div className="col-span-full md:mt-16">
-          <h1 className="mb-4 text-4xl font-medium uppercase md:text-6xl">
+          <h1 className="mb-4 text-4xl font-medium uppercase md:text-6xl ">
             {blok.headline}
           </h1>
           <h2 className="text-2xl font-medium uppercase md:text-3xl">
@@ -37,7 +37,7 @@ const Branch: React.FC<{ blok: BranchProps }> = ({ blok }) => {
           <a href={blok.folder.filename} target="_blank">
             <button
               role="button"
-              className={`mt-8 flex items-center justify-center bg-${blok.allocate} bg-opacity-20 px-6 py-4 transition ease-in-out hover:bg-opacity-50 hover:text-neutral-800`}
+              className={`mt-8 flex items-center justify-center bg-${blok.allocate} bg-opacity-20 px-6 py-4 transition ease-in-out hover:bg-opacity-50 hover:text-neutral-800 hover:dark:text-neutral-300`}
             >
               <FaFileArrowDown className="mr-2"></FaFileArrowDown>
               Download Flyer {blok.headline}
@@ -55,7 +55,7 @@ const Branch: React.FC<{ blok: BranchProps }> = ({ blok }) => {
       {blok.body.map((nestedBlok: any) => (
         <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
       ))}
-    </>
+    </main>
   );
 };
 

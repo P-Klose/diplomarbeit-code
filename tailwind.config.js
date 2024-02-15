@@ -52,6 +52,14 @@ module.exports = {
       ...defaultTheme.screens,
     },
     extend: {
+      typography: ({ theme }) => ({
+        dark: {
+          css: {
+            "--tw-prose-body": theme("colors.neutral[900]"),
+            "--tw-prose-headings": theme("colors.neutral[200]"),
+          },
+        },
+      }),
       screens: {
         tall: { raw: "(min-height: 768px)" },
       },

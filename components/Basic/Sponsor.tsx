@@ -33,7 +33,7 @@ const Sponsor: React.FC<{ blok: SponsorProps }> = ({ blok }) => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.3 }}
         {...storyblokEditable(blok._editable)}
-        className="col-span-1 box-border grid gap-4 px-4 sm:mx-12 sm:max-w-sm"
+        className="col-span-1 box-border grid gap-4 px-4 sm:mx-12 sm:max-w-sm dark:text-neutral-200"
       >
         <div className="flex items-start">
           <img

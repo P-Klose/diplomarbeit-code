@@ -23,9 +23,9 @@ const Footer: FC<PageProps> = ({ params }) => {
     return (
       <footer
         {...storyblokEditable(footer)}
-        className="place-items-cente bg-zinc-100"
+        className="place-items-cente bg-zinc-100 dark:bg-neutral-800"
       >
-        <div className="mx-auto grid max-w-screen-xl gap-4 py-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mx-auto grid max-w-screen-2xl gap-4 py-8 sm:grid-cols-2 lg:grid-cols-4">
           {footer.columns.map((nestedBlok: any) => {
             return (
               <FooterColumn
