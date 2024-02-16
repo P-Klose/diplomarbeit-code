@@ -5,6 +5,8 @@ import { storyblokEditable, StoryblokComponent } from "@storyblok/react/rsc";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { ClassesProps } from "@/types/interfaces";
+import { Select } from "./Select";
+import { useEffect, useState } from "react";
 
 const ClassesOverview: React.FC<{ blok: ClassesProps }> = ({ blok }) => {
   const searchParams = useSearchParams();
@@ -42,7 +44,11 @@ const ClassesOverview: React.FC<{ blok: ClassesProps }> = ({ blok }) => {
         {blok.headline}
       </h2>
       <div className="flex flex-row flex-wrap pb-2">
-        {blok.classes?.map((nestedBlok: any) => {
+        <Select
+          options={blok.classes.map((e) => e.classname)}
+          selected={selectedClass.classname}
+        ></Select>
+        {/* {blok.classes?.map((nestedBlok: any) => {
           return (
             <Link
               href={`?class=${nestedBlok.classname.toLowerCase()}&#classes`}
@@ -52,7 +58,7 @@ const ClassesOverview: React.FC<{ blok: ClassesProps }> = ({ blok }) => {
               {nestedBlok.classname}
             </Link>
           );
-        })}
+        })} */}
       </div>
       <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
         <img

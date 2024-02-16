@@ -381,6 +381,5 @@ export interface DefaultProps {
 
 export interface SelectProps {
   options: any;
-  value: any;
-  onChange: any;
+  selected: string;
 }

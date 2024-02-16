@@ -1,11 +1,18 @@
+"use client";
 import { SelectProps } from "@/types/interfaces";
-import PropTypes from "prop-types";
+import { useRouter } from "next/navigation";
 import { useState, useMemo, useEffect } from "react";
 
-export const Select: React.FC<SelectProps> = ({ options, value, onChange }) => {
+export const Select: React.FC<SelectProps> = ({ options, selected }) => {
   const [search, setSearch] = useState("");
-  const [open, setOpen] = useState(false);
+  const { replace } = useRouter();
 
+  const handleSearch = (value: string) => {
+    console.log(value);
+
+    replace(`?class=${value.toLowerCase()}#classes`);
+  };
+  const [open, setOpen] = useState(false);
   const [id] = useState(-1);
 
   useEffect(() => {
@@ -31,7 +38,7 @@ export const Select: React.FC<SelectProps> = ({ options, value, onChange }) => {
             key={i}
             className="cursor-pointer bg-white px-3 py-1 text-neutral-600 hover:bg-neutral-300"
             onClick={() => {
-              onChange(o.toString());
+              handleSearch(o.toString());
               setOpen(false);
             }}
           >
@@ -43,7 +50,6 @@ export const Select: React.FC<SelectProps> = ({ options, value, onChange }) => {
             key={"not-found"}
             className="cursor-pointer bg-white px-3 py-1 text-neutral-600 hover:bg-neutral-300"
             onClick={() => {
-              onChange("");
               setOpen(false);
             }}
           >
@@ -57,13 +63,13 @@ export const Select: React.FC<SelectProps> = ({ options, value, onChange }) => {
       id={`Select-${id}`}
       className="relative flex flex-col items-center justify-center"
     >
-      <div className="flex w-full items-center justify-between gap-1 divide-x divide-neutral-200 overflow-hidden rounded-md border border-neutral-400 bg-white text-black">
+      <div className="flex w-full items-center justify-between gap-1 divide-x divide-neutral-200 overflow-hidden bg-white text-black">
         <input
           className="px-2 outline-none"
-          placeholder="Search..."
+          placeholder={selected}
           type="text"
           value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={(e) => handleSearch(e.target.value)}
           onFocus={() => setOpen(true)}
         />
         <span
@@ -81,7 +87,7 @@ export const Select: React.FC<SelectProps> = ({ options, value, onChange }) => {
       <div
         id="options"
         className={`
-          absolute top-10 w-full overflow-auto rounded-md border-neutral-400 text-black transition-all
+          absolute top-10 w-full overflow-auto text-black transition-all
           ${open ? "max-h-40 border" : "max-h-0 border-0"}
         `}
       >
@@ -91,14 +97,14 @@ export const Select: React.FC<SelectProps> = ({ options, value, onChange }) => {
   );
 };
 
-Select.propTypes = {
-  options: PropTypes.array.isRequired,
-  value: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-};
+// Select.propTypes = {
+//   options: PropTypes.array.isRequired,
+//   value: PropTypes.string.isRequired,
+//   onChange: PropTypes.func.isRequired,
+// };
 
-Select.defaultProps = {
-  options: [],
-  value: "",
-  onChange: () => {},
-};
+// Select.defaultProps = {
+//   options: [],
+//   value: "",
+//   onChange: () => {},
+// };
