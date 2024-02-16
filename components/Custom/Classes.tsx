@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 
 const ClassesOverview: React.FC<{ blok: ClassesProps }> = ({ blok }) => {
   const searchParams = useSearchParams();
+
   const selectedClassStr = searchParams.get("class");
   var selectedClass = blok.classes.find(
     (subject: any) => subject.classname.toLowerCase() === selectedClassStr,
@@ -38,7 +39,7 @@ const ClassesOverview: React.FC<{ blok: ClassesProps }> = ({ blok }) => {
       transition={{ duration: 0.6, delay: 0.3 }}
       {...storyblokEditable(blok._editable)}
       className="mx-auto max-w-screen-2xl p-4 sm:p-6 dark:text-neutral-200"
-      id="classes"
+      id={blok.headline.toLowerCase().replaceAll(" ", "")}
     >
       <h2 className="pb-3 text-2xl font-semibold uppercase md:text-3xl">
         {blok.headline}
@@ -47,6 +48,7 @@ const ClassesOverview: React.FC<{ blok: ClassesProps }> = ({ blok }) => {
         <Select
           options={blok.classes.map((e) => e.classname)}
           selected={selectedClass.classname}
+          elementId={blok.headline.toLowerCase().replaceAll(" ", "")}
         ></Select>
         {/* {blok.classes?.map((nestedBlok: any) => {
           return (

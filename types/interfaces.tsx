@@ -382,4 +382,5 @@ export interface DefaultProps {
 export interface SelectProps {
   options: any;
   selected: string;
+  elementId: string;
 }
