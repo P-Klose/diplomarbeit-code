@@ -378,3 +378,9 @@ export interface DefaultProps {
   _editable: SbBlokData;
   component: string;
 }
+
+export interface SelectProps {
+  options: any;
+  value: any;
+  onChange: any;
+}

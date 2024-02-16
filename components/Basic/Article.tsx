@@ -42,10 +42,10 @@ const Article: React.FC<{ blok: ArticleProps }> = ({ blok }) => {
       <div
         className={`border-${blok.allocate} col-span-2 row-start-1 flex h-full flex-col items-start justify-end border-b-4 md:border-b-0 md:border-l-4`}
       >
-        <h1 className="ml-3 text-left text-2xl font-semibold hover:cursor-pointer dark:text-neutral-200">
+        <h1 className="text-left text-2xl font-semibold md:ml-3 dark:text-neutral-200">
           {blok.headline}
         </h1>
-        <h2 className="mb-3 ml-3 text-left text-xl font-medium hover:cursor-pointer dark:text-neutral-200">
+        <h2 className="mb-3 text-left text-xl font-medium md:ml-3 dark:text-neutral-200">
           {blok.subline}
         </h2>
         <div className="grid grid-cols-2 gap-2 ">
@@ -61,7 +61,7 @@ const Article: React.FC<{ blok: ArticleProps }> = ({ blok }) => {
           )} */}
           {blok.date && (
             <p
-              className={`bg-${blok.allocate} col-span-1 p-2 text-center text-xs font-semibold text-white hover:cursor-pointer dark:text-neutral-200`}
+              className={`bg-${blok.allocate} col-span-1 py-2 text-center text-xs font-semibold text-white md:p-2 dark:text-neutral-200`}
             >
               {transformDateFormat(blok.date)}
             </p>
@@ -69,7 +69,7 @@ const Article: React.FC<{ blok: ArticleProps }> = ({ blok }) => {
         </div>
       </div>
       <div
-        className={`prose col-span-full p-2 dark:prose-dark prose-p:text-zinc-900 lg:p-4 dark:prose-p:text-neutral-200
+        className={`prose col-span-full py-2 dark:prose-dark prose-p:text-zinc-900 lg:py-4 dark:prose-p:text-neutral-200
         ${blok.assets ? "mb-0" : "mb-8"} max-w-none text-left`}
       >
         {render(blok.content)}
