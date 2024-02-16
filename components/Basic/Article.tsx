@@ -31,7 +31,7 @@ const borderColors = [
 
 const Article: React.FC<{ blok: ArticleProps }> = ({ blok }) => {
   return (
-    <section className="mx-auto grid max-w-screen-xl grid-cols-2 gap-4 p-4 sm:p-6 md:grid-cols-4 dark:bg-neutral-800">
+    <section className="mx-auto grid max-w-screen-xl grid-cols-2 gap-4 p-4 sm:p-6 md:grid-cols-4 dark:bg-neutral-900">
       <div className="col-span-2 row-start-2 md:row-start-1 md:mb-2 lg:col-span-2">
         <img
           className="w-full object-contain object-center"
@@ -69,7 +69,7 @@ const Article: React.FC<{ blok: ArticleProps }> = ({ blok }) => {
         </div>
       </div>
       <div
-        className={`dark:prose-dark prose col-span-full p-2 prose-p:text-zinc-900 lg:p-4
+        className={`prose col-span-full p-2 dark:prose-dark prose-p:text-zinc-900 lg:p-4 dark:prose-p:text-neutral-200
         ${blok.assets ? "mb-0" : "mb-8"} max-w-none text-left`}
       >
         {render(blok.content)}

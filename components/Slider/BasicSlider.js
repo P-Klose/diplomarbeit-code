@@ -14,7 +14,7 @@ const BasicSlider = ({ blok }) => {
     setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
   }, []);
   return (
-    <div className="mx-auto max-w-screen-2xl p-4 sm:p-6">
+    <div className="mx-auto max-w-screen-2xl p-4 sm:p-6 dark:text-neutral-200">
       <h2 className="break-words pb-3 text-2xl font-semibold uppercase md:text-3xl">
         {blok.headline}
       </h2>
@@ -42,7 +42,7 @@ const BasicSlider = ({ blok }) => {
                 <h3 className="py-2 pl-2 text-lg font-medium dark:text-neutral-200">
                   {box.headline}
                 </h3>
-                <div className="dark:prose-dark prose py-2 pl-2 prose-p:m-0 prose-p:my-1 prose-p:text-base dark:prose-p:text-neutral-200">
+                <div className="prose py-2 pl-2 dark:prose-dark prose-p:m-0 prose-p:my-1 prose-p:text-base dark:prose-p:text-neutral-200">
                   {render(box.additional_info)}
                 </div>
               </motion.div>

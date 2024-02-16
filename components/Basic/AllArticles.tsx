@@ -119,7 +119,7 @@ const AllArticles: React.FC<{ blok: AllArticlesProps }> = ({ blok }) => {
       {blok.filter && (
         <div>
           <div className="flex flex-row items-end">
-            <h2 className="break-words text-2xl font-semibold xs:pl-2 md:text-3xl">
+            <h2 className="break-words text-2xl font-semibold xs:pl-2 md:text-3xl dark:text-neutral-200">
               Filter:
             </h2>
             <Link
@@ -137,8 +137,8 @@ const AllArticles: React.FC<{ blok: AllArticlesProps }> = ({ blok }) => {
                 href={`?filter=${item}`}
                 className={`px-2 ${
                   selectedFilterStr === item
-                    ? "hidden font-medium text-neutral-800"
-                    : "text-sm font-normal  text-neutral-600"
+                    ? "hidden"
+                    : "text-sm font-normal  text-neutral-600 dark:text-neutral-400"
                 } `}
               >
                 {item}
@@ -183,7 +183,7 @@ const AllArticles: React.FC<{ blok: AllArticlesProps }> = ({ blok }) => {
             className={`${
               urlPageNr == 1
                 ? "hidden" //"pointer-events-none cursor-wait border-r-neutral-500 bg-neutral-500 text-neutral-500"
-                : "pointer-events-auto border-r-allgemein bg-allgemein text-neutral-700 transition-all hover:bg-opacity-25 hover:text-black"
+                : "pointer-events-auto border-r-allgemein bg-allgemein text-neutral-700 transition-all hover:bg-opacity-25 hover:text-black dark:text-neutral-300 dark:hover:text-neutral-200"
             } flex items-center border-r-4 bg-opacity-15 p-2 no-underline`}
             href={`?page=${urlPageNr - 1}`}
           >
@@ -195,7 +195,7 @@ const AllArticles: React.FC<{ blok: AllArticlesProps }> = ({ blok }) => {
             className={`${
               urlPageNr == maxPages || maxPages == 0
                 ? "hidden" //"pointer-events-none cursor-wait border-l-neutral-500 bg-neutral-500 text-neutral-500"
-                : "pointer-events-auto border-l-allgemein bg-allgemein text-neutral-700 transition-all hover:bg-opacity-25 hover:text-black"
+                : "pointer-events-auto border-l-allgemein bg-allgemein text-neutral-700 transition-all hover:bg-opacity-25 hover:text-black dark:text-neutral-300 dark:hover:text-neutral-200"
             } flex items-center border-l-4 bg-opacity-15 p-2 no-underline`}
             href={`?page=${urlPageNr + 1}`}
           >

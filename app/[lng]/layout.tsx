@@ -48,7 +48,7 @@ export default function RootLayout({
   return (
     <StoryblokProvider>
       <html lang={lng} dir={dir(lng)}>
-        <body className={manrope.className}>
+        <body className={`${manrope.className} dark:bg-neutral-900`}>
           <Navbar
             params={{
               lng: lng,
