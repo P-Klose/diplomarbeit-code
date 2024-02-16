@@ -13,10 +13,15 @@ const ValueDokumentEntry: React.FC<{
   var padding_h2 = 5 + 7 * count;
   const paddings = [
     "pr-[10%]",
+    "pr-[12%]",
     "pr-[17%]",
+    "pr-[19%]",
     "pr-[24%]",
+    "pr-[26%]",
     "pr-[31%]",
+    "pr-[33%]",
     "pr-[38%]",
+    "pr-[40%]",
     "pr-[45%]",
   ];
   return (
@@ -53,7 +58,7 @@ const ValueDokumentEntry: React.FC<{
       >
         <motion.h2
           layout="position"
-          className={` mt-3 pr-[${padding_h2}%] bg-allgemein p-4 text-left text-lg font-medium`}
+          className={`ml-0 mt-3 2xl:ml-6 pr-[${padding_h2}%] bg-allgemein py-4 pl-6 text-left text-lg font-medium 2xl:pl-2`}
         >
           {blok.headline}
         </motion.h2>

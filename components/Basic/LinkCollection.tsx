@@ -16,7 +16,7 @@ const LinkCollection: React.FC<{ blok: LinkCollectionProps }> = ({ blok }) => {
       <h2 className="break-words text-2xl font-semibold uppercase md:text-3xl">
         {blok.headline}
       </h2>
-      <div className="grid grid-cols-1 gap-4 py-4 sm:grid-cols-2 sm:px-2 md:grid-cols-3 xl:grid-cols-6">
+      <div className="grid grid-cols-1 gap-4 py-4 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6">
         {blok.links?.map((link) => (
           <StoryblokComponent blok={link} key={link._uid} />
         ))}
