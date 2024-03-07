@@ -159,6 +159,7 @@ const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
       className={`relative dark:text-neutral-200 ${
         ultrawide ? "md:100vh" : pre_defined_width.at(blok.scroll_speed)
       }`}
+      id={blok.title.toLowerCase().replaceAll(" ", "")}
     >
       <div className="sticky top-0 hidden h-screen overflow-hidden md:block">
         <div

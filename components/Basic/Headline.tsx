@@ -13,6 +13,7 @@ const Headline: React.FC<{ blok: HeadlineProps }> = ({ blok }) => {
       className={`col-span-full mx-auto w-full max-w-screen-2xl bg-white p-4 sm:p-6 dark:bg-neutral-900 ${
         blok.no_spacing_y ? "py-0 xs:py-0" : ""
       }`}
+      id={blok.headline.toLowerCase().replaceAll(" ", "")}
     >
       <h2 className="break-words text-2xl font-semibold uppercase md:text-3xl dark:text-neutral-200">
         {blok.headline}

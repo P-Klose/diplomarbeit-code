@@ -9,6 +9,7 @@ const Table: React.FC<{ blok: TableProps }> = ({ blok }) => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6, delay: 0.3 }}
       className="mx-auto max-w-screen-2xl p-4 sm:p-6 dark:text-neutral-200"
+      id={blok.headline.toLowerCase().replaceAll(" ", "")}
     >
       {blok.headline == "" ? null : (
         <h3 className="text-xl font-semibold md:text-2xl">{blok.headline}</h3>

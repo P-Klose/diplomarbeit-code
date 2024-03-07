@@ -6,6 +6,10 @@
   --color-nav-primary: #000000;
   --color-nav-hover: #b5b5b5;
 }
+
+* {
+  scroll-behavior: smooth;
+}
 /* .hero-l-small {
   clip-path: none;
   right: 0;

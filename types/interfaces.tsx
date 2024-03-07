@@ -384,3 +384,10 @@ export interface SelectProps {
   selected: string;
   elementId: string;
 }
+
+export interface SiteJumpPorps {
+  _uid: string;
+  _editable: SbBlokData;
+  component: string;
+  headlines: any;
+}

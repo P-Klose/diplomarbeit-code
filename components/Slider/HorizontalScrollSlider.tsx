@@ -135,7 +135,7 @@ const Slider: React.FC<{ blok: HorizontalScrollSliderProps }> = ({ blok }) => {
       className={`relative dark:text-neutral-200 ${
         ultrawide ? "md:100vh" : pre_defined_width.at(blok.scroll_speed)
       }`}
-      id={blok.title}
+      id={blok.title.toLowerCase().replaceAll(" ", "")}
     >
       <div className="sticky top-0 hidden h-screen md:block">
         <motion.h1
