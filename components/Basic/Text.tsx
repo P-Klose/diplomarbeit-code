@@ -17,10 +17,11 @@ const Text: React.FC<{ blok: TextProps }> = ({ blok }) => {
       <h1
         className={`py-3 text-2xl font-semibold uppercase  md:text-3xl
         ${blok.divider ? "border-b-2 border-neutral-500" : ""} `}
+        id={blok.headline.toLowerCase().replaceAll(" ", "")}
       >
         {blok.headline}
       </h1>
-      <div className="dark:prose-dark prose max-w-none p-2 pb-4 dark:prose-p:text-neutral-200">
+      <div className="prose max-w-none p-2 pb-4 dark:prose-dark dark:prose-p:text-neutral-200">
         {render(blok.content, {
           blokResolvers: {
             ["custom_link"]: (props: any) => {
