@@ -37,7 +37,7 @@ export async function fetchData(lng: string, slug: string) {
 
   const response = await fetch(apiUrl, {
     method: "GET",
-    next: { revalidate: 1 },
+    next: { revalidate: 0 },
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
