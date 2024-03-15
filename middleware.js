@@ -26,6 +26,15 @@ export function middleware(req) {
     );
   }
 
+  // Redirect if path starts with "/draft" but doesn't start with "/[lng]/draft"
+  if (
+    req.nextUrl.pathname.startsWith("/draft") &&
+    !languages.some((loc) => req.nextUrl.pathname.startsWith(`/${loc}/draft`))
+  ) {
+    const redirectUrl = `/${lng}${req.nextUrl.pathname}`;
+    return NextResponse.redirect(new URL(redirectUrl, req.url));
+  }
+
   if (req.headers.has("referer")) {
     const refererUrl = new URL(req.headers.get("referer"));
     const lngInReferer = languages.find((l) =>

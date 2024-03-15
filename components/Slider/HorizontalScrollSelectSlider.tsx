@@ -50,9 +50,9 @@ const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
     }
   }, []);
 
-  useEffect(() => {
-    console.log(sliderContent);
-  }, [sliderContent]);
+  // useEffect(() => {
+  //   console.log(sliderContent);
+  // }, [sliderContent]);
 
   const getNews = async (startsWith: string) => {
     const storyblokApiBaseUrl = "https://api.storyblok.com/v2/cdn/stories";
@@ -244,7 +244,7 @@ const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
           animate="visible"
           variants={headlineVarients}
           className="z-40 mx-auto w-full max-w-screen-2xl px-8 pt-14
-          text-start text-5xl font-semibold uppercase sm:text-7xl 2xl:px-0"
+          text-start text-5xl font-semibold uppercase sm:text-7xl 2xl:px-4"
         >
           {blok.title}
         </motion.h1>
@@ -280,10 +280,10 @@ const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
         //className="mx-12 grid grid-cols-1 gap-4 md:hidden" // use this and the commented code below to just display the elements in a column
       >
         <Carousel>
-          {blok.slider?.map((boxinfo: any) => {
+          {sliderContent?.map((boxinfo: any) => {
             let box = boxinfo.content;
 
-            if (box.type == "event") {
+            if (box.type == "event" || box.type == "news") {
               return (
                 <Link
                   {...storyblokEditable(box._editable)}

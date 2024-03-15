@@ -19,10 +19,21 @@ import { revalidateTag } from "next/cache";
 // }
 
 export async function fetchData(lng: string, slug: string) {
+  console.log(slug);
+  let version =
+    process.env.storyblokApiVersion === "published" ? "published" : "draft";
+  if (slug.startsWith("draft")) {
+    version = "draft";
+  }
+  slug = slug.replace("draft", "");
+  if (slug == "") {
+    slug = "landing-page";
+  }
+
+  console.log(version);
+
   const storyblokApiBaseUrl = "https://api.storyblok.com/v2/cdn/stories/";
   const storyblokToken = process.env.storyblokApiToken; // replace with your actual Storyblok token
-  const version =
-    process.env.storyblokApiVersion === "published" ? "published" : "draft";
 
   const resolveRelations = [
     "featured_articles.articles",

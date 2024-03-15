@@ -28,8 +28,6 @@ const Navbar: FC<PageProps> = ({ params }) => {
   const { scrollY } = useScroll();
 
   const showNavbar = () => {
-    console.log("click NAV");
-
     setIsOpen(!smallNavIsOpen);
   };
 

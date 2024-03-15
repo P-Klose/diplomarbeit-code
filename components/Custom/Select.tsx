@@ -12,8 +12,6 @@ export const Select: React.FC<SelectProps> = ({
   const { replace } = useRouter();
 
   const handleSearch = (value: string) => {
-    console.log(value);
-
     replace(`?class=${value.toLowerCase()}#${elementId}`);
   };
   const [open, setOpen] = useState(false);

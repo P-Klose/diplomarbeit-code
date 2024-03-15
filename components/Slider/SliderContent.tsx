@@ -26,7 +26,6 @@ interface SliderContentProps {
 
 const SliderContent: React.FC<SliderContentProps> = ({ slider }) => {
   let count = 0;
-  console.log(slider);
 
   return (
     <>

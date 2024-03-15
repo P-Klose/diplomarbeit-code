@@ -34,7 +34,7 @@ export default function Carousel({
               <div
                 key={i}
                 className={`
-              h-1 w-3 bg-neutral-800 transition-all
+              h-1 w-3 bg-neutral-800 transition-all dark:bg-neutral-300
               ${curr === i ? "h-2" : "bg-opacity-50"}
             `}
               />
@@ -46,14 +46,14 @@ export default function Carousel({
         <button
           role="navigation"
           onClick={prev}
-          className="m-2 p-1 text-gray-800 hover:scale-105"
+          className="m-2 p-1 text-gray-800 hover:scale-105 dark:text-neutral-300"
         >
           <FaAngleLeft size={35} />
         </button>
         <button
           onClick={next}
           role="navigation"
-          className="m-2 p-1 text-gray-800 hover:scale-105"
+          className="m-2 p-1 text-gray-800 hover:scale-105 dark:text-neutral-300"
         >
           <FaAngleRight size={35} />
         </button>

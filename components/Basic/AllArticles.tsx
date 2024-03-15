@@ -71,9 +71,6 @@ const AllArticles: React.FC<{ blok: AllArticlesProps }> = ({ blok }) => {
 
     const apiUrl = `${storyblokApiBaseUrl}?${queryString.toString()}&token=${storyblokToken}`;
 
-    console.log(blok.type);
-    console.log(apiUrl);
-
     try {
       const response = await fetch(apiUrl, {
         method: "GET",
