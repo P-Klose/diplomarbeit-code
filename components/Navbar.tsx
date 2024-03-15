@@ -9,7 +9,7 @@ import { useRef, useState, useEffect, FC } from "react"; // Beachte die hinzugef
 
 import { GrLanguage } from "react-icons/gr";
 
-import { motion } from "framer-motion";
+import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import Link from "next/link";
 import { FaXmark, FaBars } from "react-icons/fa6";
 import { PageProps } from "@/types/interfaces";
@@ -24,10 +24,23 @@ const Navbar: FC<PageProps> = ({ params }) => {
   const [navbar, setNavbar] = useState<any>();
   const [smallNavIsOpen, setIsOpen] = useState(false);
   const navRef = useRef<any>();
+  const [hidden, setHidden] = useState(false);
+  const { scrollY } = useScroll();
 
   const showNavbar = () => {
+    console.log("click NAV");
+
     setIsOpen(!smallNavIsOpen);
   };
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious();
+    if (latest > previous && latest > 0) {
+      setHidden(true);
+    } else {
+      setHidden(false);
+    }
+  });
 
   useEffect(() => {
     const getNavbar = async () => {
@@ -36,19 +49,36 @@ const Navbar: FC<PageProps> = ({ params }) => {
     };
     setIsOpen(false);
 
-    getNavbar(); // Hier rufst du die Funktion einmalig beim ersten Rendern auf
+    getNavbar();
 
-    // Entferne die Endlosschleife
-  }, []); // Das leere Array als zweites Argument sorgt dafür, dass useEffect nur beim ersten Rendern aufgerufen wird
+    function handleOutsideClick(e: any) {
+      setIsOpen(false);
+    }
+
+    document.addEventListener("mousedown", handleOutsideClick);
+
+    return () => document.removeEventListener("mousedown", handleOutsideClick);
+  }, []);
 
   if (navbar != undefined) {
     return (
-      <header {...storyblokEditable(navbar)} className="">
-        <nav className="bg-gray-50 dark:bg-neutral-800">
+      <header
+        {...storyblokEditable(navbar)}
+        className="md:sticky md:top-0 md:z-[100]"
+      >
+        <motion.nav
+          variants={{
+            visible: { y: 0 },
+            hidden: { y: "-100%" },
+          }}
+          animate={hidden ? "hidden" : "visible"}
+          transition={{ duration: 0.35, ease: "easeInOut" }}
+          className="sticky top-0 z-[100] bg-gray-50 dark:bg-neutral-800"
+        >
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="relative z-50 mx-auto max-w-screen-2xl bg-gray-50 dark:bg-neutral-800"
+            className="mx-auto max-w-screen-2xl bg-gray-50 dark:bg-neutral-800"
           >
             <div className="flex h-14 items-center justify-between p-4">
               <div className="flex flex-row">
@@ -136,14 +166,14 @@ const Navbar: FC<PageProps> = ({ params }) => {
               </div>
             </div>
           </motion.div>
+        </motion.nav>
+        <motion.nav className="block md:hidden">
           <motion.div
             initial={{ opacity: 0, y: "-180px" }}
             animate={smallNavIsOpen ? "open" : "closed"}
             variants={navVariants}
             transition={{ ease: "easeInOut", duration: 0.5 }}
-            className={`absolute top-14 z-40 block w-full bg-gray-50 md:hidden ${
-              smallNavIsOpen ? "" : ""
-            }`}
+            className={`absolute top-14 z-40 w-full bg-gray-50`}
           >
             {navbar.middle_nav.map((nestedBlok: any) => {
               let url = "";
@@ -192,7 +222,7 @@ const Navbar: FC<PageProps> = ({ params }) => {
               );
             })}
           </motion.div>
-        </nav>
+        </motion.nav>
       </header>
     );
   } else {

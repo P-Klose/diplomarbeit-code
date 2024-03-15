@@ -142,7 +142,7 @@ const Slider: React.FC<{ blok: HorizontalScrollSliderProps }> = ({ blok }) => {
           initial="hidden"
           animate="visible"
           variants={variantsHeadline}
-          className="z-40 mx-auto w-full max-w-screen-2xl px-8 pt-8
+          className="z-40 mx-auto w-full max-w-screen-2xl px-8 pt-14
           text-start text-5xl font-semibold uppercase sm:text-7xl 2xl:px-0"
         >
           {blok.title}
