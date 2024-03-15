@@ -47,12 +47,11 @@ const Navbar: FC<PageProps> = ({ params }) => {
       const { data } = await fetchData(params.lng);
       setNavbar(data.story.content);
     };
-    setIsOpen(false);
 
     getNavbar();
 
     function handleOutsideClick(e: any) {
-      setIsOpen(false);
+      if (!e.target.closest(`#Toggle`)) setIsOpen(false);
     }
 
     document.addEventListener("mousedown", handleOutsideClick);
@@ -160,7 +159,7 @@ const Navbar: FC<PageProps> = ({ params }) => {
                 })}
               </div>
               <div className="flex items-center md:hidden">
-                <button onClick={showNavbar} role="navigation">
+                <button id="Toggle" onClick={showNavbar} role="navigation">
                   <FaBars className="h-6 w-6 dark:text-neutral-200" />
                 </button>
               </div>
@@ -173,7 +172,7 @@ const Navbar: FC<PageProps> = ({ params }) => {
             animate={smallNavIsOpen ? "open" : "closed"}
             variants={navVariants}
             transition={{ ease: "easeInOut", duration: 0.5 }}
-            className={`absolute top-14 z-40 w-full bg-gray-50`}
+            className={`absolute top-14 z-40 w-full bg-gray-50 dark:bg-neutral-700`}
           >
             {navbar.middle_nav.map((nestedBlok: any) => {
               let url = "";
@@ -189,7 +188,7 @@ const Navbar: FC<PageProps> = ({ params }) => {
 
               return (
                 <Link
-                  className="block px-4 py-2 text-sm hover:bg-gray-200 dark:text-neutral-200 hover:dark:bg-neutral-600"
+                  className="block px-4 py-2 text-sm hover:bg-gray-200 dark:text-neutral-100 hover:dark:bg-neutral-600"
                   href={url}
                   key={nestedBlok._uid}
                 >
