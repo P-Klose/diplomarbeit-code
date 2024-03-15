@@ -36,11 +36,55 @@ const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
 }) => {
   const targetRef = useRef<any>();
   const carousel = useRef<any>();
+  const [sliderContent, setSliderContent] = useState<any[]>([]);
+  const sliderCount = blok.loadNews ? 5 : blok.slider.length;
 
   const { scrollYProgress } = useScroll({
     target: targetRef,
   });
+  useEffect(() => {
+    if (blok.loadNews) {
+      getNews("news");
+    } else {
+      setSliderContent(blok.slider);
+    }
+  }, []);
 
+  useEffect(() => {
+    console.log(sliderContent);
+  }, [sliderContent]);
+
+  const getNews = async (startsWith: string) => {
+    const storyblokApiBaseUrl = "https://api.storyblok.com/v2/cdn/stories";
+    const storyblokToken = process.env.storyblokApiToken; // replace with your actual Storyblok token
+
+    const queryString = new URLSearchParams({
+      is_startpage: "false",
+      starts_with: startsWith,
+      sort_by: "content.date:desc",
+      per_page: "5",
+    });
+
+    const apiUrl = `${storyblokApiBaseUrl}?${queryString.toString()}&token=${storyblokToken}`;
+
+    try {
+      const response = await fetch(apiUrl, {
+        method: "GET",
+        next: { revalidate: 0 },
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      });
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      const data = await response.json();
+      setSliderContent(data.stories);
+    } catch (error) {
+      console.error("Error fetching articles:", error);
+    }
+  };
   const handleScroll = () =>
     window.scrollTo({
       top: height,
@@ -69,17 +113,19 @@ const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
     height = height * (pre_defined_width_factor.at(blok.scroll_speed) ?? 1);
     height = height + 56;
 
+    // Set x Spacing for content to match the rest of the site
     if (width > 1536) {
       scroll_width_summe += (width - 1536) / 2;
     }
 
-    blok.slider.forEach((subblok: any) => {
+    // Calc with of Content Blocks
+    for (let i = 0; i < sliderCount; i++) {
       if (width >= 768) {
         scroll_width_summe += 512 + 16 + 32 + 4;
       } else {
         scroll_width_summe += 416 + 16 + 32 + 4;
       }
-    });
+    }
     scroll_width_summe = (scroll_width_summe - width) * -1;
     if (blok.show_title_animation) {
       scroll_width_summe -= 125;
@@ -99,7 +145,6 @@ const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
       ],
     );
   }
-
   // Content-Animation mit framer-motion
   const duration = 0.5;
   const startAnimationDuration = 1.6;
@@ -220,7 +265,7 @@ const SelectSlider: React.FC<{ blok: HorizontalScrollSelectSliderProps }> = ({
               className={`flex gap-4`}
             >
               {SliderContent({
-                slider: mapBlokSliderToSliderContent(blok.slider),
+                slider: mapBlokSliderToSliderContent(sliderContent),
               })}
             </motion.div>
           </div>

@@ -71,12 +71,13 @@ const AllArticles: React.FC<{ blok: AllArticlesProps }> = ({ blok }) => {
 
     const apiUrl = `${storyblokApiBaseUrl}?${queryString.toString()}&token=${storyblokToken}`;
 
+    console.log(blok.type);
     console.log(apiUrl);
 
     try {
       const response = await fetch(apiUrl, {
         method: "GET",
-        next: { revalidate: 10 },
+        next: { revalidate: 0 },
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",

@@ -26,13 +26,14 @@ interface SliderContentProps {
 
 const SliderContent: React.FC<SliderContentProps> = ({ slider }) => {
   let count = 0;
+  console.log(slider);
 
   return (
     <>
       {slider?.map((box: Box) => {
         count++;
 
-        if (box.type === "event") {
+        if (box.type === "event" || box.type === "news") {
           return (
             <Link
               {...storyblokEditable(box._editable)}
@@ -126,7 +127,7 @@ const SliderContent: React.FC<SliderContentProps> = ({ slider }) => {
                 <h1 className="text-4xl font-semibold">{box.headline}</h1>
                 <h3 className="text-2xl font-medium">{box.subline}</h3>
               </div>
-              <div className="dark:prose-dark prose max-w-none p-2 md:col-span-1 dark:prose-p:text-neutral-200">
+              <div className="prose max-w-none p-2 dark:prose-dark md:col-span-1 dark:prose-p:text-neutral-200">
                 {render(box.content, {
                   blokResolvers: {
                     ["custom_link"]: (props: any) => {

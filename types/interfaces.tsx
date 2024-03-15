@@ -177,6 +177,7 @@ export interface HorizontalScrollSelectSliderProps {
   scroll_speed: number;
   scroll_start_right: boolean;
   show_title_animation: boolean;
+  loadNews: boolean;
 }
 
 export interface HorizontalScrollSliderProps {
