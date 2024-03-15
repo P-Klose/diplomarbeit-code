@@ -212,7 +212,7 @@ const Navbar: FC<PageProps> = ({ params }) => {
                 <Link
                   className={`block ${
                     i == 0 ? "border-t-2 border-neutral-500" : ""
-                  } px-4 py-2 text-sm hover:bg-gray-200 dark:hover:bg-neutral-600`}
+                  } px-4 py-2 text-sm hover:bg-gray-200 dark:text-neutral-200 dark:hover:bg-neutral-600`}
                   href={url}
                   key={nestedBlok._uid}
                 >

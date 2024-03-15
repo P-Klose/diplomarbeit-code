@@ -62,7 +62,7 @@ const ClassesOverview: React.FC<{ blok: ClassesProps }> = ({ blok }) => {
           );
         })} */}
       </div>
-      <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
+      <div className="grid grid-cols-2 gap-2 md:grid-cols-3 md:gap-4">
         <img
           className="col-span-2 row-span-2 md:col-span-2"
           src={selectedClass.img.filename}
@@ -75,7 +75,7 @@ const ClassesOverview: React.FC<{ blok: ClassesProps }> = ({ blok }) => {
               href={`?class=${nestedClass.classname.toLowerCase()}&#classes`}
               key={nestedClass._uid}
             >
-              <div className="flex h-full items-center justify-center p-6 text-xl font-medium uppercase">
+              <div className="flex h-full items-center justify-center p-4 text-base font-medium uppercase xs:text-lg md:p-6 md:text-xl">
                 {nestedClass.classname}
               </div>
             </Link>
